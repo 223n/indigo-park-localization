@@ -139,6 +139,16 @@ Man, screw this place. I say we get our asses out of here and go straight to Veg
 原則としてカタカナにします。
 ロゴや看板として画面に出るものは原語のままにします。
 
+アトラクション名と道具の名前は、**初めて出てくる場面だけ**原語を併記します。
+
+```text
+Well, look at that! You’re at Jetstream Junction!
+  → おっと、見てごらん！ ジェットストリーム・ジャンクション（Jetstream Junction）だ！
+```
+
+2回目からはカタカナだけにします。
+1行が短いときや、併記すると字幕からあふれるときは省きます。
+
 | 原語 | 訳 | 備考 |
 | ---- | ---- | ---- |
 | Indigo Park | インディゴパーク | 看板の`INFORMATION`などは原語のまま |

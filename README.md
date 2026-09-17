@@ -213,10 +213,35 @@ develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ �
 1. Actionsの「リリース」を開き、「Run workflow」を選びます
 1. `version`にリリースする版を入れます。`v`は付けません（例: `1.2.0`、`1.2.0-rc.1`）
 1. ワークフローが`develop`から`release/vX.Y.Z`ブランチを切り、`package.json`の版を上げ、`main`へのPull Requestを開きます
+1. そのPull Requestを一度閉じ、すぐ開き直します。CIを動かすために要ります（後述）
 1. Pull Requestの内容を確かめ、マージコミット（Create a merge commit）でマージします
 1. 「リリースを公開する」ワークフローが動きます。タグ`vX.Y.Z`を打ち、**ドラフトの**GitHub Releaseを作って配布物を添付し、`main`を`develop`に戻します
 1. 「Releases」でドラフトを開き、添付と本文を確かめます
 1. 問題なければ「Publish release」を押します
+
+### リリースのPull RequestでCIが動かないとき
+
+ワークフローが開いたPull Requestでは、CIが1つも動きません。
+GitHubは、`GITHUB_TOKEN`が作ったPull Requestでワークフローを起動しないためです。
+これは、ワークフローが自分自身を呼び続けるのを防ぐための仕様です。
+
+`main`に「Code scanningの結果」を必須にする規則をかけている場合、
+チェックが埋まらないためマージできません。
+
+Pull Requestを一度閉じ、すぐ開き直すと動きます。
+
+```bash
+gh pr close <番号>
+gh pr reopen <番号>
+```
+
+人の操作として記録される`reopened`でワークフローが起動します。
+ブランチとコミットは変わりません。
+
+毎回の手間を無くしたい場合は、`release.yml`がPull Requestを開くときに
+`GITHUB_TOKEN`ではなく個人アクセストークン（PAT）を使う方法があります。
+その場合はPull Requestの作成者がそのトークンの持ち主になり、CIは普通に動きます。
+ただし秘密情報の管理が増えるため、いまは閉じて開き直す方法にしています。
 
 版は`package.json`の`version`で管理します。
 `develop`と`main`の版、最新のタグのどれよりも大きい版だけを受け付けます。
@@ -279,7 +304,7 @@ Nodeはワークフローが用意します。
 | `labels.yml` | `.github/labels.yml`か`.github/workflows/labels.yml`の変更、手動 | リポジトリのラベルを定義に揃えます。Pull Requestでは差分の表示だけです |
 | `labeler.yml` | Pull Requestを開いたとき、更新したとき | 変えたファイルとブランチ名からラベルを付けます |
 | `branch-guard.yml` | Pull Requestを開いたとき、更新したとき | headブランチが`main`か`develop`なら失敗します。マージは止めません |
-| `release.yml` | 手動 | `develop`からリリースブランチを切り、版を上げ、`main`へのPull Requestを開きます |
+| `release.yml` | 手動 | `develop`からリリースブランチを切り、版を上げ、`main`へのPull Requestを開きます。そのPull RequestではCIが動かないため、閉じて開き直します |
 | `release-publish.yml` | `release/*`か`hotfix/*`のPull Requestが`main`にマージされたとき | タグを打ち、ドラフトのGitHub Releaseを作り、配布物を添付し、`main`を`develop`に戻します。公開は人が行います |
 
 ## 権利について

@@ -21,6 +21,7 @@ import os
 import shutil
 import subprocess
 import sys
+import tarfile
 import urllib.request
 import zipfile
 
@@ -35,18 +36,28 @@ CACHE = os.path.join(ROOT, ".toolcache")
 DIST = os.path.join(ROOT, "dist")
 BUILD = os.path.join(ROOT, "build")
 
-# 取得する道具。版を上げるときはSHA256も更新する
+# 取得する道具。版を上げるときはSHA256も更新する。
+# repak は組み立てに使うため動かす側のOSのものを、
+# retoc は配布物に入れて利用者のWindowsで動かすため、常にWindows版を取る。
+REPAK_WINDOWS = {
+    "url": "https://github.com/trumank/repak/releases/download/v0.2.3/repak_cli-x86_64-pc-windows-msvc.zip",
+    "sha256": "6720d602144d75df477a99d5bedb6ea780997546afc335901d4937cafeaa73fa",
+    "member": "repak.exe",
+}
+REPAK_LINUX = {
+    "url": "https://github.com/trumank/repak/releases/download/v0.2.3/repak_cli-x86_64-unknown-linux-gnu.tar.xz",
+    "sha256": "933bdb8e26f34e8fd70ea50201efca39df041de58aa83b1cd6eb83da124a2046",
+    "member": "repak",
+}
+RETOC_WINDOWS = {
+    "url": "https://github.com/trumank/retoc/releases/download/v0.1.5/retoc_cli-x86_64-pc-windows-msvc.zip",
+    "sha256": "cc036b06ad3bdcf7003690b00d82719980c374e48a95bf0654f9959148d263aa",
+    "member": "retoc.exe",
+}
+ON_WINDOWS = os.name == "nt"
 TOOLS = {
-    "repak.exe": {
-        "url": "https://github.com/trumank/repak/releases/download/v0.2.3/repak_cli-x86_64-pc-windows-msvc.zip",
-        "sha256": "6720d602144d75df477a99d5bedb6ea780997546afc335901d4937cafeaa73fa",
-        "member": "repak.exe",
-    },
-    "retoc.exe": {
-        "url": "https://github.com/trumank/retoc/releases/download/v0.1.5/retoc_cli-x86_64-pc-windows-msvc.zip",
-        "sha256": "cc036b06ad3bdcf7003690b00d82719980c374e48a95bf0654f9959148d263aa",
-        "member": "retoc.exe",
-    },
+    "repak": REPAK_WINDOWS if ON_WINDOWS else REPAK_LINUX,
+    "retoc.exe": RETOC_WINDOWS,
 }
 
 LICENSES = {
@@ -65,21 +76,33 @@ def sha256(path):
 def fetch_tool(name, meta):
     """道具を取得して展開する。すでにあれば使い回す"""
     os.makedirs(CACHE, exist_ok=True)
-    exe = os.path.join(CACHE, name)
-    if os.path.exists(exe):
-        return exe
-    zip_path = os.path.join(CACHE, name + ".zip")
-    if not os.path.exists(zip_path):
-        sys.stderr.write("取得: %s\n" % meta["url"].rsplit("/", 1)[-1])
-        urllib.request.urlretrieve(meta["url"], zip_path)
-    got = sha256(zip_path)
+    out = os.path.join(CACHE, name)
+    if os.path.exists(out):
+        return out
+    url = meta["url"]
+    archive = os.path.join(CACHE, url.rsplit("/", 1)[-1])
+    if not os.path.exists(archive):
+        sys.stderr.write("取得: %s\n" % os.path.basename(archive))
+        urllib.request.urlretrieve(url, archive)
+    got = sha256(archive)
     want = meta["sha256"]
-    if got != want:
+    if not want:
+        sys.stderr.write("  SHA256（sha256 に書いてください）: %s\n" % got)
+    elif got != want:
         raise SystemExit("SHA256が一致しません: %s\n  期待 %s\n  実際 %s" % (name, want, got))
-    with zipfile.ZipFile(zip_path) as z:
-        with z.open(meta["member"]) as src, open(exe, "wb") as dst:
-            shutil.copyfileobj(src, dst)
-    return exe
+    if archive.endswith(".zip"):
+        with zipfile.ZipFile(archive) as z:
+            with z.open(meta["member"]) as src, open(out, "wb") as dst:
+                shutil.copyfileobj(src, dst)
+    else:
+        with tarfile.open(archive) as t:
+            member = next(m for m in t.getmembers()
+                          if os.path.basename(m.name) == meta["member"])
+            with t.extractfile(member) as src, open(out, "wb") as dst:
+                shutil.copyfileobj(src, dst)
+    if not ON_WINDOWS:
+        os.chmod(out, 0o755)
+    return out
 
 
 def version():
@@ -109,7 +132,7 @@ def main():
          "--out", "build"])
 
     print("▶ pakにまとめる")
-    repak = fetch_tool("repak.exe", TOOLS["repak.exe"])
+    repak = fetch_tool("repak", TOOLS["repak"])
     pak = os.path.join(stage, "mod", "IndigoParkJP_P.pak")
     run([repak, "pack", BUILD, pak, "--version", "V11", "--mount-point", "../../../"])
     print("  %s（%.1f MB）" % (os.path.basename(pak), os.path.getsize(pak) / 1048576))

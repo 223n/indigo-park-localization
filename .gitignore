@@ -18,5 +18,7 @@ node_modules/
 
 # MOD の組み立ての出力と、取得したフォントの控え
 build/
+dist/
+.toolcache/
 .fontcache/
 __pycache__/

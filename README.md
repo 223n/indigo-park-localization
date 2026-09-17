@@ -20,11 +20,16 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 
 ## 導入する
 
-導入の手順はまだ決まっていません。
-配布の形（ファイルを置くだけにするか、適用の道具を用意するか）を決めてから、この節に書きます。
+[Releases](https://github.com/223n/indigo-park-localization/releases)からzipをダウンロードし、展開して`install.bat`を実行します。
+Steamからゲームの場所を自動で探します。
 
-公開したものはGitHubの「Releases」に並びます。
-それまでの中身は開発用です。
+Windowsの表示言語が日本語なら、ゲームを起動するだけで日本語になります。
+英語のままのときは、ゲーム内で「OPTIONS」→「GAMEPLAY」→「LANGUAGE」から日本語を選びます。
+
+取り外すときは`uninstall.bat`を実行します。
+ゲーム本体のファイルは触りません。
+
+手で入れる場合は、`mod`フォルダの`IndigoParkJP_P.pak`を`RaccoonCh1\Content\Paks\~mods\`にコピーします。
 
 ## 何が入っているか
 
@@ -43,6 +48,7 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 | `docs/RESEARCH.md` | 日本語化の調べものの記録です。ゲームの構成と差し替えの経路があります |
 | `docs/TRANSLATION.md` | 翻訳の指針です。キャラクターの口調と固有名詞の対訳があります |
 | `tools/` | 翻訳ファイルとMODを作る道具です。Python 3で動きます |
+| `installer/` | 配布物に入れる導入と取り外しの道具です |
 | `data/corpus.json` | ゲームから集めた原文の一覧です |
 | `data/ja.po` | 日本語の訳です。PO形式で管理します |
 
@@ -65,10 +71,32 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 日本語を出すにはフォントの差し替えも要ります。
 手順は[tools/README.md](tools/README.md)にあります。
 
+## 配布物を作る
+
+```bash
+python tools/make_release.py
+```
+
+`dist/IndigoParkJP_vX.Y.Z.zip`ができます。
+版は`package.json`の`version`を使います。
+
+zipの中身は次のとおりです。
+
+| 位置 | 中身 |
+| ---- | ---- |
+| `install.bat`、`uninstall.bat` | 導入と取り外し |
+| `README.txt` | 利用者向けの手順 |
+| `mod/IndigoParkJP_P.pak` | 翻訳とフォント |
+| `tools/` | 導入の中身と`retoc.exe` |
+| `licenses/` | このMODと同梱物のライセンス |
+
+`repak`と`retoc`は取得してSHA256で照合します。
+`repak`がファイルの順を固定しないため、同じ入力でもzipは毎回変わります。
+公開するときは、出力されたSHA256をReleaseに載せてください。
+
 ## これから決めること
 
-- 訳文そのもの。いまは動作確認の42件だけです
-- 配布の形（ファイルを置くだけにするか、導入の道具を用意するか）
+- 本編を通しでプレイしての字幕の確認
 
 翻訳はPO形式で管理します。
 Poeditなどの翻訳ツールでそのまま開けます。

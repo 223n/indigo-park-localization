@@ -11,3 +11,7 @@
 *.yaml text
 *.sh text
 *.ps1 text
+
+# Windows のバッチは CRLF でないと動きが不安定になる
+*.bat text eol=crlf
+*.cmd text eol=crlf

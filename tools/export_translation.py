@@ -1,28 +1,28 @@
 # -*- coding: utf-8 -*-
 """data/corpus.json から翻訳作業用のファイルを書き出す。
 
-使い方:
-    python tools/export_translation.py po    > ja.po
-    python tools/export_translation.py jsonl > ja.jsonl
-    python tools/export_translation.py tsv   > ja.tsv
+翻訳の管理はPO形式で行います。
+`data/ja.po`を作り直すときは、いまの訳を引き継ぐために --merge を付けます。
+
+    python tools/export_translation.py --merge data/ja.po > data/ja.po.new
+
+JSON LinesやTSVでも出せます。ほかの道具に渡すときに使います。
+
+    python tools/export_translation.py --format jsonl > ja.jsonl
+    python tools/export_translation.py --format tsv   > ja.tsv
 
 scope が core の項目だけを出します。--all を付けると demo も含めます。
-既存の訳を引き継ぐときは --merge <jsonlファイル> で読み込みます。
 """
+import argparse
 import io
 import json
 import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "tools"))
 
-ESCAPES = [
-    ("\\", "\\\\"),
-    ('"', '\\"'),
-    ("\r", "\\r"),
-    ("\n", "\\n"),
-    ("\t", "\\t"),
-]
+import po  # noqa: E402
 
 
 def load_corpus():
@@ -32,9 +32,11 @@ def load_corpus():
 
 
 def load_existing(path):
-    """既存の訳（JSON Lines）を id -> target で読み込む"""
+    """既存の訳を id -> 訳文 で読む。PO と JSON Lines に対応する"""
     if not path or not os.path.exists(path):
         return {}
+    if path.endswith(".po"):
+        return po.read(path)
     out = {}
     with io.open(path, encoding="utf-8") as f:
         for line in f:
@@ -47,24 +49,13 @@ def load_existing(path):
     return out
 
 
-def esc(s):
-    for a, b in ESCAPES:
-        s = s.replace(a, b)
-    return s
-
-
 def to_po(rows, out):
-    out.write('msgid ""\nmsgstr ""\n')
-    out.write('"Project-Id-Version: Indigo Park Localization\\n"\n')
-    out.write('"Language: ja\\n"\n')
-    out.write('"MIME-Version: 1.0\\n"\n')
-    out.write('"Content-Type: text/plain; charset=UTF-8\\n"\n')
-    out.write('"Content-Transfer-Encoding: 8bit\\n"\n\n')
+    out.write(po.HEADER)
     for e in rows:
         out.write("#. %s: %s\n" % (e["kind"], e["asset"]))
-        out.write('msgctxt "%s"\n' % esc(e["id"]))
-        out.write('msgid "%s"\n' % esc(e["source"]))
-        out.write('msgstr "%s"\n\n' % esc(e.get("target", "")))
+        out.write('msgctxt "%s"\n' % po.escape(e["id"]))
+        out.write('msgid "%s"\n' % po.escape(e["source"]))
+        out.write('msgstr "%s"\n\n' % po.escape(e.get("target", "")))
 
 
 def to_jsonl(rows, out):
@@ -81,34 +72,40 @@ def to_jsonl(rows, out):
 def to_tsv(rows, out):
     out.write("id\tsource\ttarget\tasset\n")
     for e in rows:
-        cols = [esc(e["id"]), esc(e["source"]), esc(e.get("target", "")), e["asset"]]
+        cols = [
+            po.escape(e["id"]),
+            po.escape(e["source"]),
+            po.escape(e.get("target", "")),
+            e["asset"],
+        ]
         out.write("\t".join(cols) + "\n")
 
 
 WRITERS = {"po": to_po, "jsonl": to_jsonl, "tsv": to_tsv}
 
 
-def main(argv):
-    fmt = argv[1] if len(argv) > 1 and not argv[1].startswith("-") else "jsonl"
-    if fmt not in WRITERS:
-        sys.stderr.write("形式は po / jsonl / tsv のどれかです\n")
-        return 1
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--format", default="po", choices=sorted(WRITERS), help="出力の形式")
+    ap.add_argument("--merge", help="引き継ぐ既存の訳（.po か .jsonl）")
+    ap.add_argument("--all", action="store_true", help="見本由来の項目も含める")
+    a = ap.parse_args()
+
     rows = load_corpus()
-    if "--all" not in argv:
+    if not a.all:
         rows = [e for e in rows if e["scope"] == "core"]
-    merge = argv[argv.index("--merge") + 1] if "--merge" in argv else None
-    existing = load_existing(merge)
+    existing = load_existing(a.merge)
     for e in rows:
         e["target"] = existing.get(e["id"], "")
+
     out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", newline="\n")
     try:
-        WRITERS[fmt](rows, out)
+        WRITERS[a.format](rows, out)
         out.flush()
     except BrokenPipeError:
-        # head などで途中まで読まれた場合
         os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv))
+    sys.exit(main())

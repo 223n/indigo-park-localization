@@ -43,6 +43,7 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 | `docs/RESEARCH.md` | 日本語化の調べものの記録です。ゲームの構成と差し替えの経路があります |
 | `tools/` | 翻訳ファイルとMODを作る道具です。Python 3で動きます |
 | `data/corpus.json` | ゲームから集めた原文の一覧です |
+| `data/ja.po` | 日本語の訳です。PO形式で管理します |
 
 ## 分かっていること
 
@@ -65,9 +66,12 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 
 ## これから決めること
 
-- 翻訳の管理形式。`po`、`jsonl`、`tsv`のどれでも書き出せます
 - 訳文そのもの。いまは動作確認の42件だけです
 - 配布の形（ファイルを置くだけにするか、導入の道具を用意するか）
+
+翻訳はPO形式で管理します。
+Poeditなどの翻訳ツールでそのまま開けます。
+手順は[tools/README.md](tools/README.md)にあります。
 
 ## 使ううえでの注意
 

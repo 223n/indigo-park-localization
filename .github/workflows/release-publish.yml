@@ -58,7 +58,7 @@ jobs:
         # GitHub がホストするランナーには入っている。セルフホストのランナーでは自分で入れる
         run: |
           if ! command -v gh >/dev/null 2>&1; then
-            echo "::error::gh（GitHub CLI）が無い。ランナーに入れてから実行する: https://cli.github.com/"
+            echo "::error::gh（GitHub CLI）がない。ランナーに入れてから実行する: https://cli.github.com/"
             exit 1
           fi
 
@@ -174,10 +174,10 @@ jobs:
             exit 0
           fi
 
-          # 共通の祖先が無いと merge も PR も作れない。下の PR のフォールバックへ回しても、
+          # 共通の祖先がないと merge も PR も作れない。下の PR のフォールバックへ回しても、
           # head と base の履歴が繋がらないため gh pr create が拒まれる。ここで止める
           if ! git merge-base "origin/${MAIN_BRANCH}" HEAD >/dev/null 2>&1; then
-            echo "::error::${MAIN_BRANCH} と ${DEVELOP_BRANCH} に共通の祖先が無い。タグと Release は作れたが、${DEVELOP_BRANCH} への戻しはできない。README の「履歴が繋がっていないとき」を見て直す"
+            echo "::error::${MAIN_BRANCH} と ${DEVELOP_BRANCH} に共通の祖先がない。タグと Release は作れたが、${DEVELOP_BRANCH} への戻しはできない。README の「履歴が繋がっていないとき」を見て直す"
             exit 1
           fi
 
@@ -220,5 +220,5 @@ jobs:
             git push origin --delete "${BRANCH}"
             echo "ブランチ ${BRANCH} を消した"
           else
-            echo "ブランチ ${BRANCH} はすでに無い"
+            echo "ブランチ ${BRANCH} はすでにない"
           fi

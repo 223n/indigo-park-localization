@@ -1,7 +1,7 @@
 name: ラベルを同期する
 
 # .github/labels.yml の内容に、リポジトリのラベルを揃える。
-# ファイルに無いラベルは消える。既定の英語のラベルは from_name で日本語のラベルに改名される。
+# ファイルにないラベルは消える。既定の英語のラベルは from_name で日本語のラベルに改名される。
 #
 # テンプレートから作った直後は、最初の PR を開く前に一度動かしておく。scripts/setup.sh が起動する。
 # 起動に失敗したときは、Actions の画面から手で実行する。
@@ -46,7 +46,7 @@ jobs:
         uses: crazy-max/ghaction-github-labeler@548a7c3603594ec17c819e1239f281a3b801ab4d # v6.0.0
         with:
           yaml-file: .github/labels.yml
-          # ファイルに無いラベルは消す。画面で作ったラベルも消えるため、ラベルは必ずファイルに書く。
+          # ファイルにないラベルは消す。画面で作ったラベルも消えるため、ラベルは必ずファイルに書く。
           # ただし main からの同期では消さない。GitFlow では main の labels.yml が develop より古い期間があり、
           # develop で足したラベルを main 側の同期が消してしまうためである
           skip-delete: ${{ github.ref_name == 'main' }}

@@ -8,21 +8,39 @@ Python 3で動きます。外部のパッケージは要りません。
 | `cityhash.py` | UEがキーのハッシュに使うCityHash64の実装です |
 | `build_locres.py` | 名前空間とキーと訳文から`.locres`を書き出します |
 | `export_translation.py` | 原文の一覧から、翻訳作業用のファイルを書き出します |
+| `po.py` | PO（gettext）の読み書きです |
 | `build_mod.py` | 翻訳とフォントからMODの中身を組み立てます |
 | `fonts.json` | 使うフォントと、ゲームのどのフォントを置き換えるかの設定です |
 
 ## MODを作る
 
 ```bash
-python tools/export_translation.py jsonl > data/ja.jsonl   # 翻訳の雛形を作る
-python tools/build_mod.py --translation data/ja.jsonl      # build/ に組み立てる
+python tools/build_mod.py --translation data/ja.po    # build/ に組み立てる
 repak pack build IndigoParkJP_P.pak --version V11 --mount-point ../../../
 ```
 
 でき上がった`.pak`を`RaccoonCh1/Content/Paks/~mods/`に置きます。
 
-翻訳の形式は`po`、`jsonl`、`tsv`から選べます。
-`build_mod.py`が読むのは`jsonl`です。
+言語の選択肢に日本語を足すMODは別に要ります。
+作り方は[docs/RESEARCH.md](../docs/RESEARCH.md)にあります。
+
+## 翻訳する
+
+翻訳はPO形式の[data/ja.po](../data/ja.po)で管理します。
+Poeditなどの翻訳ツールでそのまま開けます。
+
+原文が増えたときは、いまの訳を引き継いだまま作り直せます。
+
+```bash
+python tools/export_translation.py --merge data/ja.po > data/ja.po.new
+```
+
+ほかの形式でも出せます。別の道具へ渡すときに使います。
+
+```bash
+python tools/export_translation.py --format jsonl > ja.jsonl
+python tools/export_translation.py --format tsv   > ja.tsv
+```
 
 ## フォントを足す
 

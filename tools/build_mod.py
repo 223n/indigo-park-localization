@@ -2,10 +2,10 @@
 """翻訳とフォントからMODの中身を組み立てる。
 
 使い方:
-    python tools/build_mod.py --translation data/ja.jsonl --out build
+    python tools/build_mod.py --translation data/ja.po --out build
 
-翻訳ファイルはJSON Lines（1行に id / source / target）です。
-target が空の項目は原文のままにします。
+翻訳ファイルはPOです。JSON Linesも読めます。
+訳文が空の項目は原文のままにします。
 
 出来上がった build/ を repak で固めるとMODになります。
 
@@ -26,6 +26,7 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
+import po  # noqa: E402
 from build_locres import build as build_locres  # noqa: E402
 
 CULTURES = ("ja", "de")
@@ -41,6 +42,8 @@ def load_translation(path):
     out = {}
     if not path:
         return out
+    if path.endswith(".po"):
+        return po.read(path)
     with io.open(path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()

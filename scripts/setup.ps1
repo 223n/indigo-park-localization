@@ -218,7 +218,7 @@ if (Test-Gh @('api', "repos/${Repo}/branches/${DevelopBranch}", '--silent')) {
                 if ($LASTEXITCODE -eq 0) {
                     Write-Ok "${defaultBranch} と共通の祖先がある"
                 } else {
-                    Write-Warn "${defaultBranch} と ${DevelopBranch} の履歴が繋がっていない（共通の祖先が無い）"
+                    Write-Warn "${defaultBranch} と ${DevelopBranch} の履歴が繋がっていない（共通の祖先がない）"
                     [Console]::Error.WriteLine(@"
     このままではリリースのワークフローが merge で止まり、${defaultBranch} と ${DevelopBranch} を行き来できない。
     ${DevelopBranch} に残したい変更が無ければ、${DevelopBranch} を消してからこのスクリプトを実行し直す。
@@ -356,7 +356,7 @@ if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
             if (Update-Name 'package.json' "`"name`": `"${TemplatePackageName}`"" "`"name`": `"$($name.ToLowerInvariant())`"") { $changed.Add('package.json') }
         }
         if ($changed.Count -eq 0) {
-            Write-Ok '書き換えるものは無い'
+            Write-Ok '書き換えるものはない'
         } elseif (-not $NoPr) {
             $branch = 'feature/setup-repository'
             Invoke-Step 'git' @('switch', '--create', $branch) | Out-Null

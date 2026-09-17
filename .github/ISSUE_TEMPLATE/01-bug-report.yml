@@ -14,7 +14,7 @@ body:
     attributes:
       value: |
         報告ありがとうございます。
-        同じ内容のIssueが無いか、先に検索してください。
+        同じ内容のIssueがないか、先に検索してください。
 
   - type: textarea
     id: what-happened
@@ -76,6 +76,6 @@ body:
     attributes:
       label: 確認したこと
       options:
-        - label: 同じ内容のIssueが無いことを確かめました
+        - label: 同じ内容のIssueがないことを確かめました
           required: true
         - label: 最新の版でも起きることを確かめました

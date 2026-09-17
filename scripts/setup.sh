@@ -153,7 +153,7 @@ if gh api "repos/${repo}/branches/${DEVELOP_BRANCH}" --silent >/dev/null 2>&1; t
   elif git merge-base "origin/${default_branch}" "origin/${DEVELOP_BRANCH}" >/dev/null 2>&1; then
     ok "${default_branch} と共通の祖先がある"
   else
-    warn "${default_branch} と ${DEVELOP_BRANCH} の履歴が繋がっていない（共通の祖先が無い）"
+    warn "${default_branch} と ${DEVELOP_BRANCH} の履歴が繋がっていない（共通の祖先がない）"
     cat >&2 <<SPLIT
     このままではリリースのワークフローが merge で止まり、${default_branch} と ${DEVELOP_BRANCH} を行き来できない。
     ${DEVELOP_BRANCH} に残したい変更が無ければ、${DEVELOP_BRANCH} を消してからこのスクリプトを実行し直す。
@@ -271,7 +271,7 @@ elif [ -d .git ] && [ -f package.json ]; then
       rewrite package.json "\"name\": \"${TEMPLATE_PACKAGE_NAME}\"" "\"name\": \"$(printf '%s' "$name" | tr '[:upper:]' '[:lower:]')\""
     fi
     if [ ${#changed[@]} -eq 0 ]; then
-      ok "書き換えるものは無い"
+      ok "書き換えるものはない"
     elif $open_pr; then
       branch="feature/setup-repository"
       run git switch --create "$branch"

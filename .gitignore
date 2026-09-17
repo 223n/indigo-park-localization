@@ -15,3 +15,8 @@ node_modules/
 .env.*
 !.env.example
 .npmrc
+
+# MOD の組み立ての出力と、取得したフォントの控え
+build/
+.fontcache/
+__pycache__/

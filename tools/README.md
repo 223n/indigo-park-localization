@@ -7,6 +7,31 @@ Python 3で動きます。外部のパッケージは要りません。
 | ---- | ---- |
 | `cityhash.py` | UEがキーのハッシュに使うCityHash64の実装です |
 | `build_locres.py` | 名前空間とキーと訳文から`.locres`を書き出します |
+| `export_translation.py` | 原文の一覧から、翻訳作業用のファイルを書き出します |
+| `build_mod.py` | 翻訳とフォントからMODの中身を組み立てます |
+| `fonts.json` | 使うフォントと、ゲームのどのフォントを置き換えるかの設定です |
+
+## MODを作る
+
+```bash
+python tools/export_translation.py jsonl > data/ja.jsonl   # 翻訳の雛形を作る
+python tools/build_mod.py --translation data/ja.jsonl      # build/ に組み立てる
+repak pack build IndigoParkJP_P.pak --version V11 --mount-point ../../../
+```
+
+出来上がった`.pak`を`RaccoonCh1/Content/Paks/~mods/`に置きます。
+
+翻訳の形式は`po`、`jsonl`、`tsv`から選べます。
+`build_mod.py`が読むのは`jsonl`です。
+
+## フォントを足す
+
+`fonts.json`の`fonts`に項目を増やし、`default_font`を切り替えます。
+取得元のURLとSHA256を書くと、`build_mod.py`が取得して照合します。
+置き換える対象は`replace`にあり、ウェイト（`Light`、`Regular`、`Medium`、`Bold`）を指定します。
+
+いまの既定はM PLUS 1p（SIL Open Font License 1.1）です。
+配布するときはライセンス文（`OFL.txt`）を同梱してください。
 
 ## 使い方
 

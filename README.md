@@ -41,7 +41,8 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 | `CLAUDE.md` | Claude Codeが読む決まりです。ブランチを消さないための注意があります |
 | `SECURITY.md` | 脆弱性の報告先です |
 | `docs/RESEARCH.md` | 日本語化の調べものの記録です。ゲームの構成と差し替えの経路があります |
-| `tools/` | `.locres`を書き出す道具です。Python 3で動きます |
+| `tools/` | 翻訳ファイルとMODを作る道具です。Python 3で動きます |
+| `data/corpus.json` | ゲームから集めた原文の一覧です |
 
 ## 分かっていること
 
@@ -55,17 +56,17 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 | MODの載せ方 | `Content/Paks/~mods/`に置いたpakが読み込まれます。実機で確認しました |
 | フォント | `.ufont`は生のTrueTypeです。pakの上書きで差し替えられます |
 | 文章 | ウィジェット内のFTextです。`Content/Localization/Game/<文化>/Game.locres`で差し替えます |
-| 言語の選択肢 | 英語とドイツ語の2つに固定されています。日本語を足すには追加の作業が要ります |
+| 言語の選択肢 | `DA_GameLanguage`を書き換えたIoStore形式のMODで日本語を足せます |
+| 原文 | 881件を収集済みです。うち本編の台詞が212件です |
 
 メニューと設定画面が日本語で表示されるところまで、実機で確認しました。
 日本語を出すにはフォントの差し替えも要ります。
+手順は[tools/README.md](tools/README.md)にあります。
 
 ## これから決めること
 
-- 翻訳の管理形式（CSVなど）と、原文の収集のしかた
-- 日本語のフォントの選定（再配布できるものに限ります）
-- 本編の字幕の差し替え方
-- 言語の選択肢に日本語を足す方法
+- 翻訳の管理形式。`po`、`jsonl`、`tsv`のどれでも書き出せます
+- 訳文そのもの。いまは動作確認の42件だけです
 - 配布の形（ファイルを置くだけにするか、導入の道具を用意するか）
 
 ## 使ううえでの注意

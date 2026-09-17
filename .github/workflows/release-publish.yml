@@ -180,12 +180,13 @@ jobs:
           fi
           sum="$(sha256sum "${zip}" | cut -d' ' -f1)"
           gh release upload "${TAG}" "${zip}"
-          # 本文の先頭に、確かめる手掛かりを足す
+          # 本文の先頭に、確かめる手掛かりを足す。
+          # 表にバッククォートは使わない。単一引用符の中だと検査が誤解するため
           body="$(gh release view "${TAG}" --json body --jq '.body')"
           {
             printf '### 配布物\n\n'
             printf '| ファイル | SHA256 |\n| ---- | ---- |\n'
-            printf '| `%s` | `%s` |\n\n' "$(basename "${zip}")" "${sum}"
+            printf '| %s | %s |\n\n' "$(basename "${zip}")" "${sum}"
             printf '%s\n' "${body}"
           } > /tmp/body.md
           gh release edit "${TAG}" --notes-file /tmp/body.md

@@ -19,7 +19,7 @@ python tools/build_mod.py --translation data/ja.jsonl      # build/ に組み立
 repak pack build IndigoParkJP_P.pak --version V11 --mount-point ../../../
 ```
 
-出来上がった`.pak`を`RaccoonCh1/Content/Paks/~mods/`に置きます。
+でき上がった`.pak`を`RaccoonCh1/Content/Paks/~mods/`に置きます。
 
 翻訳の形式は`po`、`jsonl`、`tsv`から選べます。
 `build_mod.py`が読むのは`jsonl`です。
@@ -47,7 +47,7 @@ build(nsmap, 'Game.locres')
 
 `nsmap`は`{名前空間: [(キー, 原文, 訳文), ...]}`の形です。
 原文は`SourceStringHash`の計算に使います。
-訳す必要が無い項目は、訳文に原文をそのまま入れます。
+訳す必要がない項目は、訳文に原文をそのまま入れます。
 
 書き出したファイルは`Content/Localization/Game/<文化>/Game.locres`に置きます。
 

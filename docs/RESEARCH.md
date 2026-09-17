@@ -101,7 +101,7 @@ FTextは名前空間が空で、キーは32桁の16進数です。
 つまり**英語とドイツ語の2つしかありません**。
 
 適用は`BP_GameLanguageApply`が行い、`Array_Find`で値を探してから`SetCurrentCulture`を呼びます。
-一覧に無い値は見つからないため、`ja`を指定しても英語に戻されます。
+一覧にない値は見つからないため、`ja`を指定しても英語に戻されます。
 
 選んだ値は次の2か所に保存されます。
 
@@ -129,7 +129,7 @@ ICUのデータは日本語の分も同梱されています（`ja.res`と`ja_JP
 `retoc to-legacy`で18,395アセットをすべて展開できました（失敗0件、約17GB）。
 
 ゲームの起動にはDirectX End-User Runtime（June 2010）が要ります。
-`XINPUT1_3.dll`が無いと起動しません。
+`XINPUT1_3.dll`がないと起動しません。
 Steam経由で起動すると、Steamが持つ再頒布パッケージを導入してくれます。
 
 ## 原文の在りか
@@ -147,7 +147,7 @@ cooked済みの18,395アセットを走査し、原文を集めました。
 プラグインの見本に付いてきた文章が304件あり、これは対象から外しています。
 
 字幕は`SoundWave`の中にFTextとして入っています。
-例えば`RooftopRacesBeBroke`には`Ehhh, Looks like Mollie crashed into the Ride again!`が入っています。
+たとえば`RooftopRacesBeBroke`には`Ehhh, Looks like Mollie crashed into the Ride again!`が入っています。
 名前空間は空で、キーは32桁の16進数です。
 UIの文章と同じ扱いで差し替えられます。
 
@@ -158,7 +158,7 @@ UIの文章と同じ扱いで差し替えられます。
 文字数が同じなのでファイルの大きさは変わりません。
 
 書き換えたアセットは`retoc to-zen`でIoStore形式にします。
-出来上がる`.pak`、`.ucas`、`.utoc`の3つを`~mods`に置きます。
+でき上がる`.pak`、`.ucas`、`.utoc`の3つを`~mods`に置きます。
 
 ```bash
 retoc to-zen --version UE5_2 <書き換えたアセットのディレクトリ> zzz_lang_P.utoc

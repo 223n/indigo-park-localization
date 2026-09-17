@@ -78,7 +78,7 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 | ブランチ名 | `release/`、`hotfix/`、`merge/`で始めると、リリースの仕組みが反応します | 作業ブランチには`feature/`を使います |
 | Pull Requestのhead | `main`や`develop`をheadにすると、「PRのheadブランチを確かめる」が失敗します | リリースはワークフローに任せます。詳しくは[CLAUDE.md](CLAUDE.md)にあります |
 | マージの方法 | squashやrebaseだと、リリースノートにPull Requestが載らず、次の版で衝突します | マージコミット（Create a merge commit）でマージします |
-| セルフホストのランナー | `RUNS_ON`のラベルに一致するランナーが無いと、失敗せずに待機のまま止まります | 設定したらCIを手で1回動かして確かめます |
+| セルフホストのランナー | `RUNS_ON`のラベルに一致するランナーがないと、失敗せずに待機のまま止まります | 設定したらCIを手で1回動かして確かめます |
 | 改行コード | `.gitattributes`が全ファイルをLFに固定します | CRLFのファイルを持ち込むと、最初のコミットで全行が差分になります |
 
 リリースやCIが途中で止まったときは、ワークフローのログに日本語で対処方法が出ます。
@@ -113,7 +113,7 @@ CIではあわせて、ワークフローの構文を`actionlint`で、安全性
 IssueとPull Requestのラベルはすべて日本語です。
 `.github/labels.yml`が定義で、「ラベルを同期する」ワークフローがリポジトリのラベルをこの内容に揃えます。
 ラベルを足したり変えたりするときは、GitHubの画面ではなくこのファイルを変えてください。
-ファイルに無いラベルは消えます。
+ファイルにないラベルは消えます。
 ただし`main`からの同期では消しません。
 `main`の`.github/labels.yml`が`develop`より古い期間に、`develop`で足したラベルを消さないためです。
 
@@ -161,7 +161,7 @@ DependabotはSHAとコメントの両方を更新します。
 不要に見えても消さないでください。消すとセキュリティ更新からラベルと接頭辞が無くなります。
 
 `develop`をやめて`main`だけで運用する場合は、`.github/dependabot.yml`の`target-branch`を消してください。
-`develop`が無いまま残っていると、版の更新が一切来なくなります。
+`develop`がないまま残っていると、版の更新が一切来なくなります。
 
 ## ブランチとリリース
 
@@ -218,10 +218,10 @@ npm version patch --no-git-tag-version
 設定は「Settings」→「Secrets and variables」→「Actions」の「Variables」にあります。
 `scripts/setup.sh --runs-on ラベル`でも行えます。
 Windowsでは`.\scripts\setup.ps1 -RunsOn ラベル`です。
-変数が無いときは`ubuntu-latest`に倒れるため、設定しなくても動きます。
+変数がないときは`ubuntu-latest`に倒れるため、設定しなくても動きます。
 
 セルフホストのランナーには、`git`と`gh`（GitHub CLI）、Dockerが要ります。
-Dockerはzizmorの検査（コンテナで動きます）に使います。
+Dockerはzizmorの検査（コンテナーで動きます）に使います。
 Nodeはワークフローが用意します。
 公開リポジトリでセルフホストのランナーを使うと、フォークからのPull Requestで任意のコードが動くため、非公開のリポジトリで使ってください。
 
@@ -253,5 +253,5 @@ Nodeはワークフローが用意します。
 Apache License 2.0です。
 [LICENSE](LICENSE)を見てください。
 
-このライセンスが及ぶのは、このリポジトリで作ったものだけです。
-ゲーム本体には及びません。
+このライセンスが対象とするのは、このリポジトリで作ったものだけです。
+ゲーム本体のファイルは含みません。

@@ -1,0 +1,881 @@
+{"id": "/3E641C3448EB4EA0331369A15715663B", "source": "Options", "target": "オプション", "asset": "3D_Menu/Widgets/MainMenu_Widget"}
+{"id": "/51742D494854D84B9894A5999478D2BC", "source": "Play", "target": "プレイ", "asset": "3D_Menu/Widgets/MainMenu_Widget"}
+{"id": "/8277D7D247727A4F8626ECA212E68994", "source": "Play", "target": "プレイ", "asset": "3D_Menu/Widgets/MainMenu_Widget"}
+{"id": "/02DA86324CB5BFAEC8E780A8301B2F97", "source": "IA_Jump", "target": "", "asset": "FirstPerson/Input/IMC_Default"}
+{"id": "/1564BC344FE34FCF3E30A7925FDDCCAA", "source": "IA_Move", "target": "", "asset": "FirstPerson/Input/IMC_Default"}
+{"id": "/3ADE89704924C51095DC89A9A6884C4B", "source": "IA_Jump", "target": "", "asset": "FirstPerson/Input/IMC_Default"}
+{"id": "/5E9D6D804F6C648BF2F433830A0A3A1D", "source": "IA_Move", "target": "", "asset": "FirstPerson/Input/IMC_Default"}
+{"id": "/7270C8C24E6996FE79E848A46575661C", "source": "IA_MoveForwardBackward", "target": "", "asset": "FirstPerson/Input/IMC_Default"}
+{"id": "/75E38CCE41DB44586F19198A700F3DBC", "source": "IA_LookUpDown", "target": "", "asset": "FirstPerson/Input/IMC_Default"}
+{"id": "/B499B9EF44E521EB746966AE530AE23D", "source": "IA_Move", "target": "", "asset": "FirstPerson/Input/IMC_Default"}
+{"id": "/C39A97284653CB2ACB5046A4D3EFA923", "source": "IA_MoveForwardBackward", "target": "", "asset": "FirstPerson/Input/IMC_Default"}
+{"id": "/E1C1284A43FD1A1D4F084C9004EF909D", "source": "IA_MoveForwardBackward", "target": "", "asset": "FirstPerson/Input/IMC_Default"}
+{"id": "/ECBC7AF44CA2F5D8ADAD12929DE6B6CC", "source": "IA_Move", "target": "", "asset": "FirstPerson/Input/IMC_Default"}
+{"id": "/F0F307E14B15EE51E50C0CAB48F5B628", "source": "IA_MoveForwardBackward", "target": "", "asset": "FirstPerson/Input/IMC_Default"}
+{"id": "/402F94164311F24B8D5DB0A1644970DE", "source": "IA_Shoot", "target": "", "asset": "FirstPerson/Input/IMC_Weapons"}
+{"id": "/96D243E74352279B3DD2DBB40F7E56CC", "source": "IA_PrimaryAction", "target": "", "asset": "FirstPerson/Input/IMC_Weapons"}
+{"id": "/151464D549E9C74DC1D31592FE931471", "source": "Find your way into the park.", "target": "", "asset": "FirstPersonGameInstance"}
+{"id": "/39DF385B4F8A71E80394CDB0E844791F", "source": "Scene", "target": "", "asset": "InspectionSystemPro/Blueprints/Data/EInspectionCategory"}
+{"id": "/421C104F4B3ADC80B2BF6D8309A80593", "source": "Audio", "target": "音声", "asset": "InspectionSystemPro/Blueprints/Data/EInspectionCategory"}
+{"id": "/6A7BE3FD4E094945E47199AB48543216", "source": "Document", "target": "", "asset": "InspectionSystemPro/Blueprints/Data/EInspectionCategory"}
+{"id": "/6D52AA874DA4AB350FC85080BC5D6884", "source": "Item", "target": "", "asset": "InspectionSystemPro/Blueprints/Data/EInspectionCategory"}
+{"id": "/BFC55ACD4FD361C7D37C719C6F9E186F", "source": "Any", "target": "", "asset": "InspectionSystemPro/Blueprints/Data/EInspectionCategory"}
+{"id": "/3B20C2554E2EE44DAF6E959EDD194C61", "source": "Keyboard and Mouse", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/DA_KeyboardAndMouseInputActionData"}
+{"id": "/72149947471237F4C514F0ABE77CEEF4", "source": "Keyboard and Mouse", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/DA_KeyboardAndMouseInputActionData"}
+{"id": "/CEC7561D4537ECFE64F545AC448A70B8", "source": "Keyboard and Mouse", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/DA_KeyboardAndMouseInputActionData"}
+{"id": "/3DB603394025065222F6219FEBD8F6FB", "source": "PlayStation", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/DA_PlaystationInputActionData"}
+{"id": "/843C1A894398E1FC50FDCC894A52AE7B", "source": "Controller", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/DA_PlaystationInputActionData"}
+{"id": "/B86F37BA4552636626E062ABE8594C1C", "source": "PlayStation", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/DA_PlaystationInputActionData"}
+{"id": "/8367857C4BFE23C08D1015B0D4BF973C", "source": "XBoxSeriesX", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/DA_SwitchInputActionData"}
+{"id": "/BA68B0A94F7C90E508B2538EDDF4CCA0", "source": "Xbox", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/DA_SwitchInputActionData"}
+{"id": "/8CE1A3E54EDFB123872C3C9031DD4C6D", "source": "XBoxSeriesX", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/DA_XboxInputActionData"}
+{"id": "/080B47384339D18CF8B8338815341EAC", "source": "None", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/PDA_InputActionData"}
+{"id": "/282C30E1489CA4648C9D4AAC6E7DD389", "source": "None", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/PDA_InputActionData"}
+{"id": "/88144B2C42C87F0DE309199FD6B62E96", "source": "None", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/Data/PDA_InputActionData"}
+{"id": "/0319705E4EB1B3515C3D7D8A86E6DF6F", "source": "IA_Move", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSampleCharacter/IMC_InspectionSampleCharacter"}
+{"id": "/55F275D1453FC38B381980A588074D1F", "source": "IA_Look", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSampleCharacter/IMC_InspectionSampleCharacter"}
+{"id": "/5824BCD6484BC821CE86E2B858F94840", "source": "IA_Move", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSampleCharacter/IMC_InspectionSampleCharacter"}
+{"id": "/6A4DE66047BBD2931D80D0A438796DE7", "source": "IA_Interact", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSampleCharacter/IMC_InspectionSampleCharacter"}
+{"id": "/6B0973DE49EA251708AAD590CFE794D9", "source": "IA_Move", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSampleCharacter/IMC_InspectionSampleCharacter"}
+{"id": "/6CFA69A940EFAF7E586A58AC3315A57D", "source": "IA_Move", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSampleCharacter/IMC_InspectionSampleCharacter"}
+{"id": "/6E1D5E0F4C20EFC927B75682DC49E6A4", "source": "IA_Run", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSampleCharacter/IMC_InspectionSampleCharacter"}
+{"id": "/6F9DEE354B4492F81744598918A68856", "source": "IA_Interact", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSampleCharacter/IMC_InspectionSampleCharacter"}
+{"id": "/7458B21E432C761F3896AFB4A9D05406", "source": "IA_Move", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSampleCharacter/IMC_InspectionSampleCharacter"}
+{"id": "/BB215876490574720F8216B854B6CB82", "source": "IA_Look", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSampleCharacter/IMC_InspectionSampleCharacter"}
+{"id": "/EDBE30ED4F2CCA39AA6722AD6167F4C6", "source": "IA_Run", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSampleCharacter/IMC_InspectionSampleCharacter"}
+{"id": "/001B1EFC4ECE43DC19DACA817A2F186D", "source": "IA_DocumentUp", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/1823484141B83831F0E187A45340A76B", "source": "IA_DocumentZoom", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/183F1A614A962386A75DE88209F40B8D", "source": "IA_Interact", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/1A7294C84DADEF98B9C51887199CFCE7", "source": "IA_DocumentBack", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/242FE0374F42F97EEBD777832E8877D7", "source": "IA_InspectionConfirm", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/3E07C4BE4DFADD8598A401AAFCB3BBEE", "source": "IA_DocumentRight", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/4A52DA234F31AFE8A4A86BB5166CDC79", "source": "IA_DocumentRight", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/4C05AC8B4E3C31C114E19481923AFD6B", "source": "IA_DocumentRead", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/4EDB3FCB48D897CE2BE88F90894B1748", "source": "IA_DocumentUp", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/5037655A4E611C68C8847890E5B7AAF9", "source": "IA_DocumentRight", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/516E8AA84F90E7B2E2AF8294720B1859", "source": "IA_InspectionLeft", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/5488120E4F59D07780D5A8A930BF9208", "source": "IA_DocumentFlip", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/592CDA364126AF9B95B6B1AA17BAEA5C", "source": "IA_DocumentBack", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/594846F74B1E2EA8143920A7961F4CE9", "source": "IA_InspectionLeft", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/5A0F01AF4FDD80378297B2B84B6F2030", "source": "IA_InspectionDown", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/5C49A54C4F7E2608D4B87FAF34640BD7", "source": "IA_DocumentFlip", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/6197885A4B8E1BAE05F901A03BACEDE2", "source": "IA_DocumentUp", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/6371A10248799ED450122FA38D40F9CA", "source": "IA_DocumentRead", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/6A566C914CFF15E834CCC4B8A16A4269", "source": "IA_InspectionReset", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/6FCC99284FC02EAC9205F1A99C36F1D9", "source": "IA_InspectionTabRight", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/6FEC06A54600177597255A9F705BCB43", "source": "IA_InspectionDown", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/72590DC14CBA590287E74F8A6BD0AB2D", "source": "IA_InspectionDown", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/7886D138485A78337F0F95869EB7934E", "source": "IA_InspectionTabLeft", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/7CA3A853479F43EE3C5B9787A832E6F2", "source": "IA_InspectionLeft", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/81C5EF89454230B3A60FCCA53F6E227D", "source": "IA_DocumentBack", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/84D5309E4717444A0F2214866B5B8FF2", "source": "IA_InspectionTabRight", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/85671F424FA2B2D3489B0196E0FD3541", "source": "IA_InspectionLeft", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/86D646F543F8FDE05303938E310EA7D7", "source": "IA_InspectionTabLeft", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/8C89FD0C4344934B117C17A2B0E48277", "source": "IA_InspectionLeft", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/94C8940144AED672BAE3BB809F527326", "source": "IA_DocumentRight", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/9E4502844C99963893BDE0A32432F720", "source": "IA_InspectionConfirm", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/C36263A5459D03FFA0BB5484076CEA79", "source": "IA_DocumentRight", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/C94DFA5E43B2744521B750A627EEFD28", "source": "IA_InspectionReset", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/D0F2832D4FB4BDBE0C8D3CB06FB4446B", "source": "IA_DocumentBack", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/D244314A4540940507C0A0BB3B639A8B", "source": "IA_DocumentUp", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/E2819DBB46133E3CACB7EDAE0840F2FB", "source": "IA_DocumentUp", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/E8FD0BB4411D89A5301992895863595F", "source": "IA_InspectionReset", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/EE69061641BC81140032F0A4181DF8A4", "source": "IA_InspectionDown", "target": "", "asset": "InspectionSystemPro/Blueprints/Input/InspectionSystem/IMC_InspectionSystem"}
+{"id": "/C13394C7455B4AACD280598C01434DBA", "source": "Gamepad", "target": "", "asset": "InspectionSystemPro/Blueprints/Types/EInspectionInputDevices"}
+{"id": "/D2868078427A059355A51E9AF529D2D9", "source": "MouseKeyboard", "target": "", "asset": "InspectionSystemPro/Blueprints/Types/EInspectionInputDevices"}
+{"id": "/8D9B1E5F40B4F9116815D591FE9F3E13", "source": "Reading", "target": "", "asset": "InspectionSystemPro/Blueprints/Types/EInspectionItemState"}
+{"id": "/A86E09644F70AD00426330A3DA15EDE6", "source": "Zooming", "target": "", "asset": "InspectionSystemPro/Blueprints/Types/EInspectionItemState"}
+{"id": "/C38E8A4E416CB9B95DCEE3A4644C4B01", "source": "Default", "target": "", "asset": "InspectionSystemPro/Blueprints/Types/EInspectionItemState"}
+{"id": "/ED1520754421B5D14200288BDF27E39A", "source": "Inspection", "target": "", "asset": "InspectionSystemPro/Blueprints/Types/EInspectionItemState"}
+{"id": "/C5E950334DF927D67D5BBDB2ECC4B0DC", "source": "Subtitle", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Menu/WBP_AudioInspectionMenu"}
+{"id": "/7F2262A34773E0125C9348BCCB961DD2", "source": "/", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Menu/WBP_DiscoveryMenu"}
+{"id": "/813F296849FC0A84CF7A79978E5C2E62", "source": "34", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Menu/WBP_DiscoveryMenu"}
+{"id": "/99B4109843223556B88D6DB6375AD5FA", "source": "12", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Menu/WBP_DiscoveryMenu"}
+{"id": "/3D1BD5794C23112FDAE0B79B548D9800", "source": "/", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Menu/WBP_DocumentInspectionMenu"}
+{"id": "/B8856EC1450CA64A23FFF4A2FBD9A4F9", "source": "12", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Menu/WBP_DocumentInspectionMenu"}
+{"id": "/EB0C29864A6EDEE8B0096E89AB83EFB4", "source": "34", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Menu/WBP_DocumentInspectionMenu"}
+{"id": "/502820674D669C8DE688E6AF55357EC4", "source": "Subtitle", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Menu/WBP_ItemInspectionMenu"}
+{"id": "/7210D18842CB641F1EDB44A9D2A6223B", "source": "Subtitle", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Menu/WBP_SceneInspectionMenu"}
+{"id": "/0D047EFE4C142979BFC6E8B87BED1F19", "source": "Text", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Widgets/Discovery/WBP_DiscoveryCategoryButton"}
+{"id": "/2D5DFDA74083EAF7093CF4B13690FD19", "source": "All", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Widgets/Discovery/WBP_DiscoveryCategoryButton"}
+{"id": "/E1D082AF4EDA437BEBEFBB9DDEAF3F6E", "source": "E", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Widgets/Input/WBP_InspectionInputIcon"}
+{"id": "/BD18C0B3417B01A9579CDBADA4A3AA7C", "source": "Button", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Widgets/Inspection/WBP_InspectionButton"}
+{"id": "/19F7141646D12A8E2BCBBA85B907A890", "source": "0:00", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Widgets/Media/WBP_MediaPlayer"}
+{"id": "/636ADB27402C9963DC2891A41EEBB835", "source": "3:32", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Widgets/Media/WBP_MediaPlayer"}
+{"id": "/A7B749254BB09936865B83828E1CE6B9", "source": "/", "target": "", "asset": "InspectionSystemPro/Blueprints/UI/Widgets/Media/WBP_MediaPlayer"}
+{"id": "/4580A26049FDD4B81E7D9AB4C79F4B4F", "source": "Enter backstage area here", "target": "", "asset": "Levels/ChaseScene"}
+{"id": "/33495374418A7F85300F2B900F995F49", "source": "THEATER", "target": "", "asset": "Levels/MainStreet"}
+{"id": "/627B9B1B458FE6B77A7AF8A2AE5525EB", "source": "INFORMATION", "target": "", "asset": "Levels/ParkEntrance"}
+{"id": "/7F5CC12248018F74262B2B97926156F3", "source": "INFORMATION", "target": "", "asset": "Levels/ParkEntrance"}
+{"id": "/3B1AD4534B73AE589AFE29A7366C8FBC", "source": "Women's Restroom", "target": "", "asset": "Levels/RailroadTunnel"}
+{"id": "/549150B9421658818EF1E280EF57A4A7", "source": "Men's Restroom", "target": "", "asset": "Levels/RailroadTunnel"}
+{"id": "/714DDBFD4A9D622A53BF499FDF715C9E", "source": "Input Mappings that are allowed to press independent of ingame character states. (e.g. Player changes from Walking to Driving Car). ", "target": "", "asset": "MenuSystemPro/Blueprints/Input/AlwaysAllowed/IMC_Gamepad_AlwaysAllowed"}
+{"id": "/C7F633524118008A1A880E98C4611A45", "source": "Always", "target": "", "asset": "MenuSystemPro/Blueprints/Input/AlwaysAllowed/IMC_Gamepad_AlwaysAllowed"}
+{"id": "/6946E9EA40CCED0A5232729A6F651A68", "source": "Always", "target": "", "asset": "MenuSystemPro/Blueprints/Input/AlwaysAllowed/IMC_KBM_AlwaysAllowed"}
+{"id": "/BF7A2ED241F603DF6DCB389043BAEAC7", "source": "Input Mappings that are allowed to press independet of ingame character states. (e.g. Player changes from Walking to Driving Car). ", "target": "", "asset": "MenuSystemPro/Blueprints/Input/AlwaysAllowed/IMC_KBM_AlwaysAllowed"}
+{"id": "/DE53640A480229E20C1BD8AF1939EDF8", "source": "Always", "target": "", "asset": "MenuSystemPro/Blueprints/Input/AlwaysAllowed/IMC_KBM_AlwaysAllowed"}
+{"id": "/F88DBF254CBF83B3626E5C8DBEA53CDA", "source": "Mappings related to Character state Walking. The game might remove this input mapping event if state changes happen (e.g. Player enters a car could remove this mapping or just add a higher Priority IMC_CharacterDriving)", "target": "", "asset": "MenuSystemPro/Blueprints/Input/CharacterOnFoot/IMC_Gamepad_CharacterOnFoot"}
+{"id": "/E055F98146F5D7908FF7288B042B7012", "source": "Mappings related to Character state Walking. The game might remove this input mapping event if state changes happen (e.g. Player enters a car could remove this mapping or just add a higher Priority IMC_CharacterDriving)", "target": "", "asset": "MenuSystemPro/Blueprints/Input/CharacterOnFoot/IMC_KBM_CharacterOnFoot"}
+{"id": "/0404EDA7454D7AE4CFEA1F9C5D15AF05", "source": "IA_NavigateUp_Alt", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/0EAE25FD470BF3CFD64163BC93328371", "source": "IA_NavigateRight_Alt", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/1A9D421E4B52CF5A3A6C0A906C21326B", "source": "Select", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/1FAFE3394825FC8318A26DAA550C474F", "source": "IA_NavigateRight_Shoulder", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/2DF0295C45D6D7E0295EFC8E81747E12", "source": "IA_NavigateLeft_Shoulder", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/2F4C825244121CFBC0AF37B2E72BA284", "source": "IA_NavigateDown_Stick", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/3C91D07D40C80AE5EFC765AB63EC69B8", "source": "IA_NavigateUp", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/3E183D5A4C4BF460753B3997ADB54DEF", "source": "Reset", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/44D302CB4BCF3435FEF21F8CCC83F709", "source": "IA_NavigateLeft", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/46755A984CD451607A802EB970D20401", "source": "IA_NavigateDown", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/4BD993F9454DC0BA0095EF818CD31E16", "source": "Back", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/526D07A54C4AFFC4BCBFC78517ADBB40", "source": "Back", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/552E922C4FB5AFB6C339F481CB923E20", "source": "IA_NavigateLeft_Alt", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/577A812D451B0AABFF3C4C8BD3A8B751", "source": "Apply", "target": "適用", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/663F61EE4957430BE04D839359481E6D", "source": "Select", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/77CC85D14AD0B7975CFF6FA16EF2B24F", "source": "IA_NavigateDown", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/78C099AE4E5E10FC9B2314BBFFC58179", "source": "Extra", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/7C9D5332434F5C4729EC2FA43185F87D", "source": "IA_NavigateRight_Stick", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/84B3758746EF4D209A7A0CBF012F909E", "source": "Reset", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/88FE2AB8496FF25E419526BCA0B4B889", "source": "IA_NavigateDown_Alt", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/89DB054343D474773BC7FE9974C1C47B", "source": "Back", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/8F279FCF4252256BB3A5F89C535C8287", "source": "Apply", "target": "適用", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/932E6B9F47A21D74FC183295A82B4326", "source": "IA_NavigateRight_Alt", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/94EDE2FA440E79587D9514BB3E3B421C", "source": "Input Mappings used for Menu Navigation and Menu Actions. They are used in the KeyDown/KeyUp events of the GlobalInteractableUserWidget and other widgets.", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/96066D334A7D42A4B220AFBA0764C692", "source": "IA_NavigateLeft_Shoulder", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/96B5AE064AC7ADE0057CB88BCE6EB1AB", "source": "IA_NavigateDown", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/993F52D042DA8D91245FC0ADA00B0A8D", "source": "IA_NavigateLeft", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/9DDF199741D777123918CEB04464DE67", "source": "IA_NavigateRight", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/9F1E3C794EC9EF076B4A51836B90532F", "source": "IA_NavigateDown_Alt", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/ABF0FC6543CE14F3EBAB92866AFC8BA4", "source": "IA_NavigateUp_Stick", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/AE8CDA034F8FF3248918CB9AF26235B5", "source": "IA_NavigateRight", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/B73054C448855C213AFCD689E5E70579", "source": "IA_NavigateUp_Alt", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/BF612C5C402A8670A1E056AA10A44D23", "source": "Extra", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/C01786F14308A2666D9137AED86E3986", "source": "IA_NavigateRight_Trigger", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/D04806CE4B818840E396F88E70F2E272", "source": "IA_NavigateLeft_Trigger", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/D36627D2481BCAA617F3E2998D8D7E33", "source": "Select", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/D9D5612D469E02A34CE23693341AB5A0", "source": "IA_NavigateLeft_Alt", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/F37F7016435E147510CC5B9985990B6D", "source": "IA_NavigateUp", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/F3915F714C2B7F60BBC93DB81B7313D9", "source": "IA_NavigateRight_Shoulder", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/F45856FE41C18BAAE3143199A06B424C", "source": "IA_NavigateLeft_Stick", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/FE38065B4024E15949FF8C96F0916B43", "source": "Back", "target": "", "asset": "MenuSystemPro/Blueprints/Input/Menu/IMC_Menu"}
+{"id": "/D5BC2D9D4E85A918FAC4FE914C436C45", "source": "Default Gamepad Menu Input Config", "target": "", "asset": "MenuSystemPro/Blueprints/Input/PBIC_Gamepad_DefaultBindings"}
+{"id": "/99CEC3EB4EA1A840313CDEB826BDF7F2", "source": "Default KBM Menu Input Config", "target": "", "asset": "MenuSystemPro/Blueprints/Input/PBIC_KBM_DefaultBindings"}
+{"id": "/011E88C84E060360ED45BFA8BAF1045A", "source": "SetOverallScalabilityLevel", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/230B1FDB4E97A4C46D50EFBFBA4F02AB", "source": "SetVSyncEnabled", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/2BED2938412ADE207CD9568439242794", "source": "SetFullscreenMode", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/30F6E50B41ADAADF4395008DB8279117", "source": "SetResolutionScaleNormalized", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/37BE97D948E0408C3A009BA3A0538678", "source": "SetResolutionScaleValue", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/4796FBBB4FD5C2AA380EB292B7EB3EAC", "source": "SetPostProcessingQuality", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/48D88EF74E00C7A4FA47AF8A864EC275", "source": "SetDynamicResolutionEnabled", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/4997263E46DCA2DAC98DFCB3A9E52D59", "source": "SetTextureQuality", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/6E826696408752BAE9549C8334ED18C2", "source": "SetFrameRateLimit", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/779CF7D047827BFC4117C89044908AE3", "source": "EnableHDRDisplayOutput", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/8768F4D549C6E1D5270F7CAC8268DC62", "source": "SetShadingQuality", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/889C883A4D8E828C02276ABCC4F168B2", "source": "SetFoliageQuality", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/8AD65CF84EBB141B7267778FC7FC87D4", "source": "SetAntiAliasingQuality", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/8E6A323F4FAF166D59D6C6B531BC1D94", "source": "SetScreenResolution", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/9E996C644881CD93D1D77B96017581A9", "source": "SetViewDistanceQuality", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/CCB1C62F4C635F6FF2A78D82D23A9617", "source": "SetAudioQualityLevel", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/E2C401E74E10563991B31288331F9625", "source": "SetShadowQuality", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/EBDFAB3E43E98B3B28E879823A47D002", "source": "SetVisualEffectQuality", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/EE71F7A84BB7FB2E44B63C8125605D35", "source": "SetGlobalIlluminationQuality", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/F80130074AC9541B0585749928C77B1A", "source": "SetReflectionQuality", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EGameUserSettingsFunction"}
+{"id": "/4DD379BF485DFFAB916BF9A38715ADF4", "source": "Game User Settings", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/ESettingsApplyMethod"}
+{"id": "/737AA983478ECB45075952806B181D13", "source": "Sound Class Volume Property", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/ESettingsApplyMethod"}
+{"id": "/77528C374B1EF3E5C18F9C820BD370DB", "source": "Execute Console Command", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/ESettingsApplyMethod"}
+{"id": "/99587BF24208EC5ECA591C99458F2D02", "source": "Custom Apply Method", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/ESettingsApplyMethod"}
+{"id": "/E7BE1BCF47BB96F135F554BE6AD6DF5D", "source": "No Apply Method", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/ESettingsApplyMethod"}
+{"id": "/06FB61A542825D36AC7412B9F41FA09A", "source": "Map Index To String", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/ESettingsValueConversion"}
+{"id": "/4A7143E444F719843C90F48A7C709849", "source": "Map Index To Float", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/ESettingsValueConversion"}
+{"id": "/7EFC7EBA4303A7C445284C836D40E923", "source": "Raw Value", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/ESettingsValueConversion"}
+{"id": "/8276976A42A8C32EE503A693C3514C14", "source": "Map Index To Boolean", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/ESettingsValueConversion"}
+{"id": "/93D3322F4237197DEA5BCC8F732E2445", "source": "Map Index To Integer", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/ESettingsValueConversion"}
+{"id": "/94BC610F4B032130EDD69C8954FCF1B4", "source": "Normalize Float To Range", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/ESettingsValueConversion"}
+{"id": "/6EEF987D4194FD0B38E168A97A2F9F1F", "source": "String", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EValueDataType"}
+{"id": "/B10721D7437B88A0BDBBC285EE3C3294", "source": "Boolean", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EValueDataType"}
+{"id": "/B165FB684A760917CE58ACB7AC4128FA", "source": "Float", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EValueDataType"}
+{"id": "/DE878F26477EE4AACDEAAE9B3059F566", "source": "Integer", "target": "", "asset": "MenuSystemPro/Blueprints/Settings/EValueDataType"}
+{"id": "/AC8422414394CECA0741C780669A26ED", "source": "Text", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Base/WBP_InteractableUserWidget"}
+{"id": "/12F8569B427D44A6194689AB0212A62B", "source": "Extra 2", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/1F58C7D2494904B9B6FF70BD555DC559", "source": "Variation 4", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/2653CF0547CBFC51B628749699C1A304", "source": "Variation 1", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/28A1A3074CA7C91E0F3822B31623056D", "source": "Inactive", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/2EBBD27046C36DE9A20434B027C90B7B", "source": "Extra 1", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/2F225A90455ED74242FD8280BE3C011A", "source": "Variation 2", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/4373C3A64043EFB3A439AEB12520EF1E", "source": "Highlight", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/5D9FCFB54941B9E1EC324390FD8611FD", "source": "Active", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/69F6DA004EA01D159A7A7DBE7CE50D27", "source": "Variation 3", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/731F4C144C893442AE13F99FD01CFF2F", "source": "Primary", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/A5EA15934D751AB3FD3BA0855CD47FA6", "source": "Transparent", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/CDE1D8464E3E90D7C7E85FA9BB3F17DD", "source": "Secondary", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/E5441D6E4141F6A522E12BB7270B338E", "source": "Extra 3", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/FDEC51F34A916399DAE2238F0965A148", "source": "None", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EColorPalette"}
+{"id": "/0EE7192E4435D38D1322FABD5E9A97C2", "source": "Hide Mouse Cursor And Move to Default Position", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EDeviceInputSwitchBehavior"}
+{"id": "/1E50412B48FB4998848E1FACD5E92B54", "source": "Move to Default Position", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EDeviceInputSwitchBehavior"}
+{"id": "/AD00B50A42CAF8104053F1B05BA1AED7", "source": "Hide Mouse Cursor", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EDeviceInputSwitchBehavior"}
+{"id": "/B2F6D7B1469CFDA72F2B70997DCE30B6", "source": "Do not change Mouse Cursor", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EDeviceInputSwitchBehavior"}
+{"id": "/44C234504983321303E4619768EE71AC", "source": "None", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EFontPalette"}
+{"id": "/533517E24C1EBAE0C2E20F9D911E507F", "source": "Tiny", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EFontPalette"}
+{"id": "/590C87724F6D144CDA8973A8BA82DCF7", "source": "Medium", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EFontPalette"}
+{"id": "/5A13111748572E437EBC648B07F08596", "source": "Extra 1", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EFontPalette"}
+{"id": "/7718055749DFAF359BFFE691B41B11CE", "source": "Small", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EFontPalette"}
+{"id": "/97568DC444444E2AA43C30B455C6BA7F", "source": "Extra 2", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EFontPalette"}
+{"id": "/ABD6B10E40E155BB135772B6116719F4", "source": "Huge", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EFontPalette"}
+{"id": "/DC0E1A7143C275E4A104C686FFC5729E", "source": "Extra 3", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EFontPalette"}
+{"id": "/E7BE6AEE498BC923F900DC9BADCAF7E5", "source": "MediumAlt", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EFontPalette"}
+{"id": "/F74E666442F1ADE437B2B6A992EC8E98", "source": "Large", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EFontPalette"}
+{"id": "/35E2A55041DBA4E727AA41AE7925518A", "source": "Keyboard Mouse", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EInputDeviceType"}
+{"id": "/DAB774414835BEA3EFEB878F05B27C04", "source": "Gamepad", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EInputDeviceType"}
+{"id": "/4B6A7EC84CFCDA1E5B0FEAADCBF5F55E", "source": "Invalid", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputAction"}
+{"id": "/5A17DBFF406126861BF2A8A7E6FA10C8", "source": "Extra", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputAction"}
+{"id": "/6B28E49248797997DF8E3A821AA3B54C", "source": "Reset", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputAction"}
+{"id": "/8975200C4A0BC68FAD58A09022EF0666", "source": "Apply", "target": "適用", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputAction"}
+{"id": "/8A6C77DC486C8D1ADC03E0BA67B1D148", "source": "Select", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputAction"}
+{"id": "/92C83FAF4C9C2B174870FAA94B2467A9", "source": "Back", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputAction"}
+{"id": "/09B57137457F6FE2C534389300FFE965", "source": "Only Shoulder Buttons", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputWhitelistPreset"}
+{"id": "/1C7B5DF146560D9E1B6AC4B233250602", "source": "Only Trigger Buttons", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputWhitelistPreset"}
+{"id": "/3CFD824942D77653E73308A42C652E36", "source": "Block All Input", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputWhitelistPreset"}
+{"id": "/4CC6C2E8413943EF1F0FCF96DE16CDBA", "source": "Only Navigation Primary without Stick", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputWhitelistPreset"}
+{"id": "/7F0C8D694B7622642A749C89FF38A578", "source": "Only Navigation", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputWhitelistPreset"}
+{"id": "/90E3FF3D4AA82ACD9099D69AAD828EAD", "source": "Only Navigation Primary", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputWhitelistPreset"}
+{"id": "/AA95E0534C434990CA5D518FB1FF0948", "source": "All Input", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputWhitelistPreset"}
+{"id": "/E0E92D9D41D8B394631E83A1CD8A0A0C", "source": "Only Navigation Alt", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EMenuInputWhitelistPreset"}
+{"id": "/20390A43479F865EBF7E5B9CF76EB09F", "source": "Horizontal", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/ENavigationDirection"}
+{"id": "/6765EAEF4C15CA1D1B1C7DA4AFDFE39F", "source": "Vertical", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/ENavigationDirection"}
+{"id": "/F39243FF41A5EFC532A5ADBCDBEA36EE", "source": "Grid", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/ENavigationDirection"}
+{"id": "/12B22FE94EE9DE9E091C4A99F67A39F6", "source": "Always Pause", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EPauseBehavior"}
+{"id": "/47BB0F33491BDEF662E52DA704C0BAAF", "source": "Never Pause", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EPauseBehavior"}
+{"id": "/26DBAA39431D7374993313AA66710BE9", "source": "Load Game", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/ESaveSlotType"}
+{"id": "/8F0483D84DEFDD003FFA078700850E97", "source": "Save Game", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/ESaveSlotType"}
+{"id": "/A2A42D554F81B2A2A5A2D1AB339AA29F", "source": "New Game", "target": "はじめから", "asset": "MenuSystemPro/Blueprints/UI/Types/ESaveSlotType"}
+{"id": "/1D3AB53846B39FF2ECB32DA512EC27C6", "source": "BlackFade", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/ETransitionAnimation"}
+{"id": "/46D0D2AE4F2A5B071A873B9B4C358821", "source": "SlideFade", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/ETransitionAnimation"}
+{"id": "/77011A9741333070A8A522AF69351098", "source": "BlurFade", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/ETransitionAnimation"}
+{"id": "/7BF9BE9F4374380CFCAB38B775C7F7AD", "source": "AlphaFade", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/ETransitionAnimation"}
+{"id": "/9FBF4CB043EF97AF371039AC7F307D05", "source": "None", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/ETransitionAnimation"}
+{"id": "/F66F1B4A46D297A37888DC9CEC625BCE", "source": "Shrink", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/ETransitionAnimation"}
+{"id": "/53E67F13488A3B7B2A69268F4C245EB8", "source": "BounceRight", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EWidgetAnimation"}
+{"id": "/8067B29647EE331415E7A589F8F7205A", "source": "None", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EWidgetAnimation"}
+{"id": "/8982212D49F3CA64200AA09E10BC46E8", "source": "MoveLeftScale", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EWidgetAnimation"}
+{"id": "/8DB455D54B8FF3B5520A9AA80FDD19BC", "source": "MoveLeft", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EWidgetAnimation"}
+{"id": "/A8763D614041632041C19E8918C6B5D6", "source": "MoveRight", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EWidgetAnimation"}
+{"id": "/EE7B7EC148DC30A6F60EAEBF3F3F128F", "source": "Scale", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EWidgetAnimation"}
+{"id": "/16301BAA40598F1CED1111BC1CB5E821", "source": "Normal", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EWidgetStyleState"}
+{"id": "/25203F4848CF66655E8D2E8ED81AE4E7", "source": "Active", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EWidgetStyleState"}
+{"id": "/40835557465C88ACB97629B10DC9A0FB", "source": "Highlight", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EWidgetStyleState"}
+{"id": "/504FC62E432F005133E4BC854D9E3485", "source": "Disabled", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Types/EWidgetStyleState"}
+{"id": "/F98B061A448ED7FC59BF8AA2F90060B7", "source": "50", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Widgets/Settings/WBP_EditableText"}
+{"id": "/F2C669FE4F9C98885FEB878D0674ED20", "source": "Text Input", "target": "", "asset": "MenuSystemPro/Blueprints/UI/Widgets/Settings/WBP_TextInputBase"}
+{"id": "/F0A102F64986BD3F1E62219D62CC60D2", "source": " DEBUG\r\nVIZ", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/BP_PuzzleLogicVisualiser"}
+{"id": "/15E2BEFA4570FEC2ED66598A782B906E", "source": "Set Uninteractable", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/17CF9E52440E8DB53554C4AECA780BF2", "source": "Set State 2", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/629E54E04DE4F119BA7E979AA9007D67", "source": "Activate", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/6496CDF045914C249A071A94757EDAB8", "source": "Set Interactable", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/98575B4542B24AF8FCA2F9873D3FEAB2", "source": "Set State 3", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/9D241C7F4B53CB56B8A93BBFABD0F65B", "source": "Pause", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/A6479503402D522308858E9805B70148", "source": "Disable", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/B17A376E47FDD3EB4DA62A8A43DD0E7B", "source": "Set State 1", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/B2124DC34DEB2208BCD1A4B05388571A", "source": "FlipFlop", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/B986240C494768E8B9869FB86F067471", "source": "Set State 5", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/D0FDEF724C5EB9D03A7C13A1D64D6EE4", "source": "Deactivate", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/F27D007548A691D3630526A6131A267D", "source": "Set State 4", "target": "", "asset": "PuzzleLogicSystem/PLS_Blueprints/Misc/ENUM_LogicTriggerStates"}
+{"id": "/3B9350C4434FBC6807024E95FEC2BB3F", "source": "But it seems to be inoperable.", "target": "", "asset": "RambleyFiles/Voice/AhTheIndigoViolet"}
+{"id": "/7F41F6DB45DEA7786DF7C3BDBC872687", "source": "Looks like it's missing a piece. Can you find it?", "target": "", "asset": "RambleyFiles/Voice/AhTheIndigoViolet"}
+{"id": "/834BC6CA4907D49322AE129501B1E48D", "source": "Ah, the Indigo Violet Compact Power Generator!", "target": "", "asset": "RambleyFiles/Voice/AhTheIndigoViolet"}
+{"id": "/22421F944422B59DBBF72499C47DA2BE", "source": "Ah, there you are buddy!", "target": "", "asset": "RambleyFiles/Voice/AhThereYouAreBuddy"}
+{"id": "/5543FC63418BA6FC7023749F1C204A3F", "source": "Your Critter Cuff is not yet able to resuscitate you!", "target": "", "asset": "RambleyFiles/Voice/CarefulBehindStage"}
+{"id": "/E75C761E48FF264604FDB7AAE4A96B5A", "source": "If you're going back there be careful.", "target": "", "asset": "RambleyFiles/Voice/CarefulBehindStage"}
+{"id": "/FC10A2564B08311B771D22A3B0B52029", "source": "Hey buddy. I've got eyes all over the park, but I can't see anything behind the stage.", "target": "", "asset": "RambleyFiles/Voice/CarefulBehindStage"}
+{"id": "/1001A3F541D2A93E8910758AD95720E3", "source": "You know, he’s really shy, like, TOO shy.", "target": "", "asset": "RambleyFiles/Voice/Collectables/FinleyPlush"}
+{"id": "/88A3F07247E6FA238F39C2906D21BD26", "source": "Ooh, you found my buddy Finley!", "target": "", "asset": "RambleyFiles/Voice/Collectables/FinleyPlush"}
+{"id": "/ABE13D14416F497C3442E987740F6D2E", "source": "I hope you get to meet him someday!", "target": "", "asset": "RambleyFiles/Voice/Collectables/FinleyPlush"}
+{"id": "/C3008952445A5304DF21868CC2496E2E", "source": "Like, OBNOXIOUSLY shy, but he’s got a good heart.", "target": "", "asset": "RambleyFiles/Voice/Collectables/FinleyPlush"}
+{"id": "/22EAC93D421125F0E2BB8BAE44AB4985", "source": "Parents were fighting tooth and nail for those things when they came out!", "target": "", "asset": "RambleyFiles/Voice/Collectables/GoldenRambleyPlush"}
+{"id": "/4526D2E248545EAA741BDB93C2B2F22C", "source": "Hard to believe there was all that demand for a regular Rambley plush", "target": "", "asset": "RambleyFiles/Voice/Collectables/GoldenRambleyPlush"}
+{"id": "/AA19C5294B493C51E6F22586C52FF46B", "source": "we just blasted with gold spray paint…", "target": "", "asset": "RambleyFiles/Voice/Collectables/GoldenRambleyPlush"}
+{"id": "/E413E49549EB3596D1753FB1C8CF93E1", "source": "Wow, is that a limited edition gold Rambley plush?!", "target": "", "asset": "RambleyFiles/Voice/Collectables/GoldenRambleyPlush"}
+{"id": "/FE2480C94575225379D1F4860A78DB5C", "source": "Seriously, our employees had to clean up SO many stray teeth and nails!", "target": "", "asset": "RambleyFiles/Voice/Collectables/GoldenRambleyPlush"}
+{"id": "/FD259A0548078BD0DFF38F9707BFF5DE", "source": "ew lloyd...", "target": "", "asset": "RambleyFiles/Voice/Collectables/LloydPlush"}
+{"id": "/01412AA24D8F512493B8CC94E0C78991", "source": "And then she crashes them!", "target": "", "asset": "RambleyFiles/Voice/Collectables/MolliePlush"}
+{"id": "/06AE2E544E19EF2EA7AE31AA14AA1CF2", "source": "Oh, a Mollie plush!", "target": "", "asset": "RambleyFiles/Voice/Collectables/MolliePlush"}
+{"id": "/5FA827C040F72874D8231C8A7B8987FB", "source": "She’s always been my best friend!", "target": "", "asset": "RambleyFiles/Voice/Collectables/MolliePlush"}
+{"id": "/6A4433C84ACD1C523A0563A1DC2D7FC7", "source": "She’s so talented! ", "target": "", "asset": "RambleyFiles/Voice/Collectables/MolliePlush"}
+{"id": "/C6F8725E4F80D32AA26946BBAB06D77E", "source": "Did you know she builds planes in her Landing Pad at the park?!", "target": "", "asset": "RambleyFiles/Voice/Collectables/MolliePlush"}
+{"id": "/0BF58222496A6F75CF01E38BDC921148", "source": "Hey buddy, did you dig that out of the lost and found?! Or was it in the trash?", "target": "", "asset": "RambleyFiles/Voice/Collectables/PercyPoodle"}
+{"id": "/25710D5B4271F0F8D2CF5EA4CC6374E5", "source": "I suppose he’d make playtime special for a child with poor taste, though!", "target": "", "asset": "RambleyFiles/Voice/Collectables/PercyPoodle"}
+{"id": "/A6F72D414A09C95FE245FB86DCC89B27", "source": "No surprise a guest at our park would dispose of a non indigo-brand toy!", "target": "", "asset": "RambleyFiles/Voice/Collectables/PercyPoodle"}
+{"id": "/7402598D49946935F84C7A97B6642181", "source": "WOAH, where’d you get that?! Rambleberries are my FAVORITE!", "target": "", "asset": "RambleyFiles/Voice/Collectables/Rambleberry"}
+{"id": "/A46B5A394C27A3176E224CB4D1294141", "source": "Oh, if only I could jump out of the screen and take a big bite…", "target": "", "asset": "RambleyFiles/Voice/Collectables/Rambleberry"}
+{"id": "/C31B98334D10B743C2229481766F0384", "source": "DON’T EAT IT! MAYBE I’LL BE ABLE TO ONE DAY!", "target": "", "asset": "RambleyFiles/Voice/Collectables/Rambleberry"}
+{"id": "/10B0934140D9DCFEAE5C74894EEC0169", "source": "directly out of my plastic, lifeless head!", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyCup"}
+{"id": "/717A51E74BCB24090485489B9C2EC6B0", "source": "Nothing beats the taste of fresh Rambleberry Juice drunk", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyCup"}
+{"id": "/C7B4680A4B6975C8321B0AA849E6F734", "source": "Ooo! That’s a Rambley Cup! ", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyCup"}
+{"id": "/0DAC966A4F3C8A06354B37A6594A2E46", "source": "That pair is pretty damaged, though…keep your eyes peeled.", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyEars"}
+{"id": "/26FBFCE249B422095B877792124AFC36", "source": "…like a yard sale!", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyEars"}
+{"id": "/5287BF6D43FFEC7CC014CF8058A3F4D3", "source": "There’s GOTTA be at least one more mint condition set out there somewhere", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyEars"}
+{"id": "/65A1CE3B4BBFDFB450AAC393C5344010", "source": "Rambley ears! Those used to fly off the shelves!", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyEars"}
+{"id": "/09AB74B8477BBA5AD6D8A291E2D8D7D5", "source": "Ugh, come on! They didn’t even document the Indigo Inventory ID for the costume!", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyHead"}
+{"id": "/3787298E4503290F25F58B9DAC9B8129", "source": "I was REALLY looking forward to that…What a useless recording. DELETED.", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyHead"}
+{"id": "/44E8A4A04222039B831E969B727783C7", "source": "Woah! Where’d you find that?!", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyHead"}
+{"id": "/4866D6EC43E2CFCD97FA249394073D82", "source": "I say we get our asses out of here and go straight to Vegas. ", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyHead"}
+{"id": "/5C30F1E14FC4808EAE54DE8689AE9BB1", "source": "Yeah, think it'll put us out of a job?", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyHead"}
+{"id": "/6D9716764962E8020A72DFB200F646C0", "source": "Hey Jackson, you hear about the new mascots?", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyHead"}
+{"id": "/78F7514F454DE7E11E4C09976730DF62", "source": "I’ve never seen anyone wearing one! Pretty snazzy…", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyHead"}
+{"id": "/DB93FE7F4994F3CC90D3349C3C911BDF", "source": "Ooooh, looks like there’s an audio recording tagged with ", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyHead"}
+{"id": "/DF800FF14249015021480DB8BCF5483A", "source": "Man, screw this place. ", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyHead"}
+{"id": "/EBDB2C264D36A50CFE9C77AC71A7AC30", "source": "I think so, Old Sport, and right after we got this damn raccoon costume.", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyHead"}
+{"id": "/F2C9CC6D4E5DE90244D81CBE7F233568", "source": "“COSTUME” in my database I’ve never noticed before! Let’s listen, let’s listen!", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyHead"}
+{"id": "/F7058660460C8D25162FE696F15EDA1D", "source": "CONGRATULATIONS! You found ME! Don’t I look adorable?", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyPlush"}
+{"id": "/4F217C844A8F478935AE57B9FF2F47DB", "source": "WOW! It’s the unlimited-edition Rambley The Racoon Raction Figure!", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyRactionFigure"}
+{"id": "/71FBD1B6486E01CB12459AB06AFB49FB", "source": "Ooh, ooh! I got this! I know the commercial by heart!", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyRactionFigure"}
+{"id": "/ABB31D9648693D1BD04AE5B01890136A", "source": "Only $19.99 at your favorite toy store!", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyRactionFigure"}
+{"id": "/F519511A45917ACCA09BA28DF0B924F8", "source": "Push him down and he jumps! Push him up and he doesn’t!", "target": "", "asset": "RambleyFiles/Voice/Collectables/RambleyRactionFigure"}
+{"id": "/2329F1B742DA73E8B30F7783DC867784", "source": "WHERE’S MY LIMITED-EDITION THROWBACK PLUSH?! ", "target": "", "asset": "RambleyFiles/Voice/Collectables/RetroLloyd"}
+{"id": "/73A6F4954E39CA63F2BAAAB4CD490064", "source": "Ugh…I don’t get why we even have those.", "target": "", "asset": "RambleyFiles/Voice/Collectables/RetroLloyd"}
+{"id": "/AD214CEB4C1452301120DA9D782DED25", "source": " Is it because he’s the loudest?", "target": "", "asset": "RambleyFiles/Voice/Collectables/RetroLloyd"}
+{"id": "/D344A1A242D2EE2339AE6C9DB2385206", "source": "I CAN BE LOUD TOO!", "target": "", "asset": "RambleyFiles/Voice/Collectables/RetroLloyd"}
+{"id": "/DD313EB34734E4674A37C6ACECF1B5E8", "source": "And why did they only make one of LLOYD?", "target": "", "asset": "RambleyFiles/Voice/Collectables/RetroLloyd"}
+{"id": "/DE1CD5634D597912A9E762B23B60A5B3", "source": "Give this mistake to a child and they’ll cry.", "target": "", "asset": "RambleyFiles/Voice/Collectables/RetroLloyd"}
+{"id": "/DEE0D0914686192065F077B037F920F0", "source": "WHERE’S MOLLIE’S? WHERE’S FINLEY’S?", "target": "", "asset": "RambleyFiles/Voice/Collectables/RetroLloyd"}
+{"id": "/2D50BDC948FCA5E081E6D0A85E6F7172", "source": "Welcome to Rambley’s Railroad! I’m Conductor Rambley!", "target": "", "asset": "RambleyFiles/Voice/ConductorRambley"}
+{"id": "/26BFA643449282ABF39AAFA82B725AB6", "source": "on about it!", "target": "", "asset": "RambleyFiles/Voice/ExplainingInfo"}
+{"id": "/46AB6C524D2092343649E4B1FE00707E", "source": "ramble", "target": "", "asset": "RambleyFiles/Voice/ExplainingInfo"}
+{"id": "/73B2BCBF4C68144C9233EB89863C2EE7", "source": "Just stop by here and I'll", "target": "", "asset": "RambleyFiles/Voice/ExplainingInfo"}
+{"id": "/748FAFB445B1357BE0B9A0AAF7DA6E07", "source": "If there's anything around the park you wanna ask me about", "target": "", "asset": "RambleyFiles/Voice/ExplainingInfo"}
+{"id": "/9D5BC2AA4BE8C263319CC9AC7D0189E2", "source": "This here's an information kiosk!", "target": "", "asset": "RambleyFiles/Voice/ExplainingInfo"}
+{"id": "/08C1C0204F101221B16EA5B9C0104761", "source": "The park has been inactive for years, employees stopped showing up, guests too… the mascots are… ", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/176825224B2A12437E77FB9EC299C519", "source": "You must’ve come here because the park matters to you too, right?", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/2901D6B64B88B1DF37AD18AD963DD981", "source": " I can see in your facial tracking data that you aren’t opposed to this!", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/29E9398A4E480181AE707098508EF8BF", "source": " I’m wasting all of your fun time…", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/4BBBDEF641B496132E1A15BCE19D44E2", "source": "but… BUT!! I have an idea! ", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/6B7E09FC48F52A9566F6A0B41FD0CA26", "source": "I have access to the repair documentation in my database!", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/6ED3760846E22F4C52A417A847115713", "source": "Would you… be willing to help me restore the park?", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/75A92DE04A0BFC4061DE31945E5C9659", "source": "transparency is an important part of our policy here at indigo park so…", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/76C6F0C84FAD26CBAC49CE8F2E0E8421", "source": "Oooh, I’m so excited! Let’s get this place back in business!", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/7EA68FE54873195280A40684E30004A9", "source": "Here we have plenty of amenities and— ahh— okay okay. ", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/848260944C0AEB530F3C7493DB4D1D09", "source": "I need to be honest about something. ", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/9F6F77ED4B29903E9FE1319853A01C3A", "source": "I just can’t execute most tasks without authorization from a human user…", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/A902B0B64CF1A0BE20D3F0A23AB58ED5", "source": "but I was confined to the entrance for so long, I didn’t realize just how much disrepair the park has… fallen into.", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/B2016C014F7A526B4FED3EB1FD3C0345", "source": "Ehh, sorry for the inconvenience…", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/C615E23A46540C702608E6A2FBA1C077", "source": "I just was so excited to see a visitor and I wanted to be sure you were given the best experience possible!", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/C97675EF4AE19B3B96512B92F4F137D3", "source": "Welcome to the Rambley's Ranglers (registered) room!", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/EA82C583437B3D865CB5799154964505", "source": "I can see in your facial tracking that you're scared- CONFUSED— angry-y-y upset-…", "target": "", "asset": "RambleyFiles/Voice/FinalMonologue"}
+{"id": "/3205C1234BAB07D2135037AA176AF22A", "source": "that also doubles as a pedometer, heart monitor, and mood ring!", "target": "", "asset": "RambleyFiles/Voice/HereYouGoBuddy"}
+{"id": "/532F7981426754AA37869586A66870C7", "source": "Your very own Critter Cuff!", "target": "", "asset": "RambleyFiles/Voice/HereYouGoBuddy"}
+{"id": "/7886F7D74746F8555C00DB804B6732D7", "source": "Here you go buddy!", "target": "", "asset": "RambleyFiles/Voice/HereYouGoBuddy"}
+{"id": "/86610F67464E7D10632218B9AA22BF7D", "source": "(Data disclosure agreement included)", "target": "", "asset": "RambleyFiles/Voice/HereYouGoBuddy"}
+{"id": "/D00BFCB9495885D105BF2B970A2B4F9E", "source": "A new way to interact with the park,", "target": "", "asset": "RambleyFiles/Voice/HereYouGoBuddy"}
+{"id": "/6C75D6DD4DA6D03108B5B980F470CC36", "source": "Hey buddy! Come over here!", "target": "", "asset": "RambleyFiles/Voice/HeyBuddyComeOverHere"}
+{"id": "/66B7E2C1447AB17C65B03589D362FC82", "source": "Your facial data suggests you may be a bit older than the target audience for this ride,", "target": "", "asset": "RambleyFiles/Voice/ILikeTrains"}
+{"id": "/729442494D27B93488D4AB96BBEBB404", "source": "but it’s one of my favorites!", "target": "", "asset": "RambleyFiles/Voice/ILikeTrains"}
+{"id": "/A58C415F45A500F79BD0CF8991A5DA60", "source": "‘Cause I like trains!", "target": "", "asset": "RambleyFiles/Voice/ILikeTrains"}
+{"id": "/C1F625A84936E3488DFB9B8A43761BA6", "source": "Do you know why RAMBLEY the Raccoon loves RAMBLEY’s Railroad?", "target": "", "asset": "RambleyFiles/Voice/ILikeTrains"}
+{"id": "/2BA762374D175A7528E7A085FE534896", "source": "Maybe a friendly Rangler can help you get in!", "target": "", "asset": "RambleyFiles/Voice/JetstreamJunctionislockedup"}
+{"id": "/2E3B55A34B4CEA69D1BA2491CDE46472", "source": "Oops! Looks like Jetstream Junction’s being tuned up!", "target": "", "asset": "RambleyFiles/Voice/JetstreamJunctionislockedup"}
+{"id": "/B50C7EB246B8FEFA0731928ACD67E7F1", "source": " Last I checked, there’s a security office in the back of the theater.", "target": "", "asset": "RambleyFiles/Voice/JetstreamJunctionislockedup"}
+{"id": "/F980DD7940719AEC07DAA09993F14C9B", "source": "Well, look at that! You’re at Jetstream Junction!", "target": "", "asset": "RambleyFiles/Voice/JetstreamJunctionislockedup"}
+{"id": "/51D5ACFD45E3C3CCC3CA26B550D87989", "source": "Is this your first time here at the park?", "target": "", "asset": "RambleyFiles/Voice/LetMeGetaLookatYou"}
+{"id": "/56DB3AF34213F4C83D6363B1851121B1", "source": "Hi, I'm Rambley, Rambley the Raccoon", "target": "", "asset": "RambleyFiles/Voice/LetMeGetaLookatYou"}
+{"id": "/6CE3527249699799915857801F1B8FF2", "source": "No worries! It's Rambley Tuesday,", "target": "", "asset": "RambleyFiles/Voice/LetMeGetaLookatYou"}
+{"id": "/7B3B90E44AF680F4AEDCCCBE38C413AB", "source": "registered!", "target": "", "asset": "RambleyFiles/Voice/LetMeGetaLookatYou"}
+{"id": "/84D702F14F5E923B0A88FCBCF84DCB30", "source": "so you qualify for a BIG discount on your visit!", "target": "", "asset": "RambleyFiles/Voice/LetMeGetaLookatYou"}
+{"id": "/9C4A2F264BED5DB9E8BA699F3E04F626", "source": "Ooh, I can’t wait for you to see everything Indigo Park has to offer!", "target": "", "asset": "RambleyFiles/Voice/LetMeGetaLookatYou"}
+{"id": "/B3FE10A44B99543838CDDCAA2223E63D", "source": "and it's my job to make sure your experience here at Indigo Park is...", "target": "", "asset": "RambleyFiles/Voice/LetMeGetaLookatYou"}
+{"id": "/CACACA094D6CFEF9387B1EB138320408", "source": "Or did you just get plastic surgery?", "target": "", "asset": "RambleyFiles/Voice/LetMeGetaLookatYou"}
+{"id": "/EF3FD1C54888E0E783A759BC03788591", "source": "Just follow me to the main gate!", "target": "", "asset": "RambleyFiles/Voice/LetMeGetaLookatYou"}
+{"id": "/F1028EF94EFA18B7A083FF865A05761E", "source": "Let me just get a good look at you!", "target": "", "asset": "RambleyFiles/Voice/LetMeGetaLookatYou"}
+{"id": "/FA76CD52488842492FC7C1992CEADC34", "source": "Hmm, I don't seem to have your face in our guest list.", "target": "", "asset": "RambleyFiles/Voice/LetMeGetaLookatYou"}
+{"id": "/163DCA7D490D14C67A88CBA439791DDD", "source": "You’re doin’ a great job, Rookie Rangler! ", "target": "", "asset": "RambleyFiles/Voice/OceanicOdyssey"}
+{"id": "/987E481542F2E46D6C9607A0A62A9574", "source": "Wow, you made it to Oceanic Odyssey!", "target": "", "asset": "RambleyFiles/Voice/OceanicOdyssey"}
+{"id": "/2DD8CEC14CF82E08ADD968BB5B191546", "source": "For the inconvenience,", "target": "", "asset": "RambleyFiles/Voice/PardonOurDust"}
+{"id": "/A28BCB3B4ACA94A7D814E28732939046", "source": "Why not celebrate this great deal with a ride on my railroad?", "target": "", "asset": "RambleyFiles/Voice/PardonOurDust"}
+{"id": "/E25866E644B5FFBBF0B348A0AF334725", "source": "To test your sleuthing skills, I’ll let you find this one all by yourself!", "target": "", "asset": "RambleyFiles/Voice/PardonOurDust"}
+{"id": "/FB1E04CF4ECA2844863556B33D35C601", "source": "Pardon our dust, buddy! Looks like the park is going through some… renovations.", "target": "", "asset": "RambleyFiles/Voice/PardonOurDust"}
+{"id": "/FF61318046D5B6B8DFA15FB0C6A502D8", "source": "your Rambley Tuesday discount will be (free) PERCENT OFF!", "target": "", "asset": "RambleyFiles/Voice/PardonOurDust"}
+{"id": "/08CCE5F54789270F6BA72590906B6A29", "source": "Actor Extrrrrrrrodinaire", "target": "", "asset": "RambleyFiles/Voice/Railroad_Lloyd_Rambley"}
+{"id": "/14203EE743CC2EC2BA620BA9588B02B4", "source": "*sigh*", "target": "", "asset": "RambleyFiles/Voice/Railroad_Lloyd_Rambley"}
+{"id": "/17978F7F44C74A40A09A358BCB59B682", "source": " Of course it was! I’m the rrrrrrrea-", "target": "", "asset": "RambleyFiles/Voice/Railroad_Lloyd_Rambley"}
+{"id": "/1E646C23403FEC3B965FB1AB19218861", "source": "the PRRRRRRROFESSIONAL", "target": "", "asset": "RambleyFiles/Voice/Railroad_Lloyd_Rambley"}
+{"id": "/86FEE8E34F7BC757E9EE0495204F56A0", "source": "Hey there, Lloyd...", "target": "", "asset": "RambleyFiles/Voice/Railroad_Lloyd_Rambley"}
+{"id": "/873A6EF5481685D38EAD11B7F446BE01", "source": " Do not SHAME me with that COMMON FOLK Name!", "target": "", "asset": "RambleyFiles/Voice/Railroad_Lloyd_Rambley"}
+{"id": "/B892E7394BC195D1E9D1BD999E9F881B", "source": "I am the PRRRRROUD", "target": "", "asset": "RambleyFiles/Voice/Railroad_Lloyd_Rambley"}
+{"id": "/DE4CB4F24CB428A7958462BC50A37230", "source": "Great act, Lloyd...", "target": "", "asset": "RambleyFiles/Voice/Railroad_Lloyd_Rambley"}
+{"id": "/F6CD5CA04C2C19A3B8D804BF6643C740", "source": "the PRRRRESTIGIOUS", "target": "", "asset": "RambleyFiles/Voice/Railroad_Lloyd_Rambley"}
+{"id": "/F99862CF4B9386BC6CD3A592D176226A", "source": "Lloydford L. Lion", "target": "", "asset": "RambleyFiles/Voice/Railroad_Lloyd_Rambley"}
+{"id": "/0A4FE7F14727FB8E807897A929F49FBD", "source": "Say, those young adventurers you’ve got along with you look like GREAT pilots!", "target": "", "asset": "RambleyFiles/Voice/Railroad_Mollie_Rambley"}
+{"id": "/3591400B46A47FFD55D9D6B2692AC072", "source": "I-it barely hurts at all!", "target": "", "asset": "RambleyFiles/Voice/Railroad_Mollie_Rambley"}
+{"id": "/3D77E398449B090BEEA895BE239A592E", "source": "You sure are, Moll! Why, you only crashed into six barns this week!", "target": "", "asset": "RambleyFiles/Voice/Railroad_Mollie_Rambley"}
+{"id": "/68FBD8E0471979D81A2580BA1647EE00", "source": "I'm not crashin', Rambley! I'm barnstormin'!", "target": "", "asset": "RambleyFiles/Voice/Railroad_Mollie_Rambley"}
+{"id": "/724314224F935750F89EEEAFDA7062EE", "source": "Why not try your hand at flying in my ride, Rooftop Races?", "target": "", "asset": "RambleyFiles/Voice/Railroad_Mollie_Rambley"}
+{"id": "/7B51A71E43EEA8052F29F5A32AAF637E", "source": "Admission included with your Critter Cuff.", "target": "", "asset": "RambleyFiles/Voice/Railroad_Mollie_Rambley"}
+{"id": "/8F52BC3F4377D3314A5469AD9D69625A", "source": "It's Mollie Macaw!", "target": "", "asset": "RambleyFiles/Voice/Railroad_Mollie_Rambley"}
+{"id": "/A0B777384EBA998E7D36F2A29A09F623", "source": "Haha! What’s barnstorming? ", "target": "", "asset": "RambleyFiles/Voice/Railroad_Mollie_Rambley"}
+{"id": "/BB5772C54EB66C9E140401BB10B03AE3", "source": "The greatest pilot you ever saw!", "target": "", "asset": "RambleyFiles/Voice/Railroad_Mollie_Rambley"}
+{"id": "/E8A8613446234D4D9DE5ECB076470360", "source": "Oh look! It’s Mollie Macaw!", "target": "", "asset": "RambleyFiles/Voice/Railroad_Mollie_Rambley"}
+{"id": "/FC6AD38A4BA3868CBFB585B44EAC3967", "source": "It's crashing, with style!", "target": "", "asset": "RambleyFiles/Voice/Railroad_Mollie_Rambley"}
+{"id": "/05F3CA0B456FC8874FF1888E3DA00673", "source": "I’m so lonely…", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/062134734F93B974B7FD43AAC1D17F39", "source": "You’ve known me for 100 years, Rambley.", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/07EE5BD8486F45F682B9B69CDDD53149", "source": "How about YOU come into it instead?", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/0C49539D458F82CF58B73885A527761E", "source": "I’m ALWAYS Long because I’m always LONGING for a new Seashell for my collection…", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/18C0E56A4EE32A48B0CD4888DB24D468", "source": "Oh, Finley! Come on out and greet the people!", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/2E90537C48968833471F5A81425F02F9", "source": "will teach you all about the wonders down under the deep blue sea.", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/5D06125B488DCE628FE8BE9A7FA9081D", "source": "Oh, Finley! You should come out of YOUR shell!", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/6BBB16BE47130D9531556C9CE3F24553", "source": "I hope you’ll visit.", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/7CAF437A44997EA70F8456827F1A3F23", "source": "It’s as blue as me.", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/DD178E3D40184305B39401BA377B6A03", "source": "My ride, Oceanic Odyssey,", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/F2CF4AAD4461D13C077C3A99D31045C3", "source": "Why the long face? And body?", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/F6D650FF49B7E8CAD5C59393FC5E9FFE", "source": "hi rambley…", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/FADB9EB64DEC3B6C48D9509F0EC6F139", "source": "Oceanic Odyssey currently closed for repairs!", "target": "", "asset": "RambleyFiles/Voice/RambleyFinleyRoom"}
+{"id": "/6F6C8FEE4CB06AEF04D499B9A9307583", "source": "Welcome to Indigo Park!", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_4_WelcomeToIndigoPark"}
+{"id": "/E731A9DF444B1EA5C8AADF8ED0B0EB82", "source": "Okay, for real this time.", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_4_WelcomeToIndigoPark"}
+{"id": "/0E06FC1B410E9AC20433BAAF0E3D41CD", "source": "Oh, silly Rambley!", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_5_OhSillyRambley"}
+{"id": "/38BFCDDA4EABC881E04D9494D8750942", "source": "Every guest needs a Critter Cuff!", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_5_OhSillyRambley"}
+{"id": "/7FBBDB774E50BFBB81DB21BAE8942AD1", "source": "Head in there and I’ll get you set up!", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_5_OhSillyRambley"}
+{"id": "/830447E94EEAF71E8C4C0791202748F9", "source": "wear a critter cuff!", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_5_OhSillyRambley"}
+{"id": "/849B6B3D495313A0970CC2B152D5EF30", "source": "and", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_5_OhSillyRambley"}
+{"id": "/8EB46E864032EB97C7F4148BEB309DE1", "source": "That will allow you to access reserved areas,", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_5_OhSillyRambley"}
+{"id": "/BC5C395C4054805AC80502B13FE6B14F", "source": "charge payments to your room,", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_5_OhSillyRambley"}
+{"id": "/D1FCB35D452481EC245A99BAB6EFD9D4", "source": "I think there’s some in the gift shop.", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_5_OhSillyRambley"}
+{"id": "/2FF403CC4771A03B85A143AF658DFE0D", "source": "Hooray! Great work, buddy!", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_8_HoorayGreatWorkBuddy"}
+{"id": "/8B05A99D480260177C306F931BDFB020", "source": "and we can start our Indigo Adventure!", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_8_HoorayGreatWorkBuddy"}
+{"id": "/F1A99EAB4E01277DC8D9D7B47F5D4DF5", "source": "Now try entering the park,", "target": "", "asset": "RambleyFiles/Voice/RambleyScene_8_HoorayGreatWorkBuddy"}
+{"id": "/070D062544A579EE25872B979B9E8D80", "source": "Ehhh, Looks like Mollie crashed into the Ride again!", "target": "", "asset": "RambleyFiles/Voice/RooftopRacesBeBroke"}
+{"id": "/1B6CC5B347A521E6869535951B9D28B8", "source": "Don’t worry, though. Your pal Rambley has the repairman on speed dial!", "target": "", "asset": "RambleyFiles/Voice/RooftopRacesBeBroke"}
+{"id": "/5BED2A584F6B02400AD85DABDD79D671", "source": "     ", "target": "", "asset": "RambleyFiles/Voice/RooftopRacesBeBroke"}
+{"id": "/A0B86D8B410E8F4C2A0D8CB7FAEFDD3A", "source": "Just take a DOWN from Mollie’s Rooftop Races!", "target": "", "asset": "RambleyFiles/Voice/RooftopRacesBeBroke"}
+{"id": "/A842E8D34661E0B3E78032B7DB292F03", "source": "It’s not far from here, and it’s a great cool down after that exhilarating ride!", "target": "", "asset": "RambleyFiles/Voice/RooftopRacesBeBroke"}
+{"id": "/AFBECB154F4B272FFDBF8F967FD0FA88", "source": "Please check the number and dial again.", "target": "", "asset": "RambleyFiles/Voice/RooftopRacesBeBroke"}
+{"id": "/C8C274264E4978CDDEA1B5835AC38B78", "source": "…Say, why don’t you check out Mollie’s Landing Pad?", "target": "", "asset": "RambleyFiles/Voice/RooftopRacesBeBroke"}
+{"id": "/D6F268E04E3A75338CD3D0BFB66561D3", "source": "We're sorry, the number you have dialed has been disconnected or is no longer in service.", "target": "", "asset": "RambleyFiles/Voice/RooftopRacesBeBroke"}
+{"id": "/DEBF200148AE7F19D61EDDB589059AD1", "source": "Oh no, this is horrible…", "target": "", "asset": "RambleyFiles/Voice/RooftopRacesBeBroke"}
+{"id": "/648067C240BA28083918F0B6616A070B", "source": "Maybe one day you’ll grow up big and strong enough to enter it!", "target": "", "asset": "RambleyFiles/Voice/RookieRanglersRoomHall"}
+{"id": "/955FC30B42E4B37DBC0683A68F586727", "source": "But for now, don’t.", "target": "", "asset": "RambleyFiles/Voice/RookieRanglersRoomHall"}
+{"id": "/D8798D2547F4E9735E7D94887A32B9B3", "source": "Uh oh! That Rambley’s Ranglers Room is only accessible by Royal Ranglers!", "target": "", "asset": "RambleyFiles/Voice/RookieRanglersRoomHall"}
+{"id": "/455BB1E14DD32D9328F2598265637886", "source": "You never really know what lies beneath the surface…", "target": "", "asset": "RambleyFiles/Voice/Surface"}
+{"id": "/A073CB0947D30451CAFFF289D08EE31A", "source": "You’ll find a potpourri of porpoises, pickerels and perches as far as the eye can see,", "target": "", "asset": "RambleyFiles/Voice/Surface"}
+{"id": "/B20C890648DE5FC7F0C701B946CCBF9D", "source": "but please don’t tap the glass.", "target": "", "asset": "RambleyFiles/Voice/Surface"}
+{"id": "/102E11B442468DF3E59E66855B78179C", "source": "Just take an UP at Mollie’s Landing Pad!", "target": "", "asset": "RambleyFiles/Voice/TakeanUpAtMollie_sLandingPad"}
+{"id": "/1A7E083E4FB14BD3B9A8499C69B7654B", "source": "and it’s a great warm up before we get into the bigger rides!", "target": "", "asset": "RambleyFiles/Voice/TakeanUpAtMollie_sLandingPad"}
+{"id": "/43726669453D2DB8C4626381A15FAB1C", "source": "Say, why don’t you check out Mollie’s Rooftop Races?", "target": "", "asset": "RambleyFiles/Voice/TakeanUpAtMollie_sLandingPad"}
+{"id": "/908A2E2746DB0E332A8BF2BE0A7B3941", "source": "It’s not far from here, ", "target": "", "asset": "RambleyFiles/Voice/TakeanUpAtMollie_sLandingPad"}
+{"id": "/276ED94C479A7CD030C8FC9EB34B133F", "source": "that expired yesterday.", "target": "", "asset": "RambleyFiles/Voice/ThatExpiredYesterday"}
+{"id": "/3831DED24B173DCA7D5C12A41622AD1A", "source": "Whew! Kinda exhausting to say that whole spiel,", "target": "", "asset": "RambleyFiles/Voice/ThatExpiredYesterday"}
+{"id": "/422DBF83497AEDAF65BCC0AF0DF6D750", "source": "Head left towards the Rookie Rangler (registered) Security Room to set yourself free!", "target": "", "asset": "RambleyFiles/Voice/ThatExpiredYesterday"}
+{"id": "/60CC3DAC4D9AC403CC388BBB572AA882", "source": "is to get out of the Rambley’s Ranglers (registered) Room!", "target": "", "asset": "RambleyFiles/Voice/ThatExpiredYesterday"}
+{"id": "/9365B1DF4CE13D36ECB7EC80E45F20AE", "source": "but Rambley’s Ranglers (registered)  is a registered trademark….", "target": "", "asset": "RambleyFiles/Voice/ThatExpiredYesterday"}
+{"id": "/B760E6AF40B0009A31C0F7800E14CA92", "source": "Okay! Welcome to the crew, Rookie Rangler (registered)!", "target": "", "asset": "RambleyFiles/Voice/ThatExpiredYesterday"}
+{"id": "/BCFAE33248018B75BBA465BADC3DEB63", "source": "Your first official job as one of Rambley’s Ranglers (registered)", "target": "", "asset": "RambleyFiles/Voice/ThatExpiredYesterday"}
+{"id": "/8038AFBF4E8E9FC4EC2ED4B67D8C0455", "source": "Why not test out your band and save the day?", "target": "", "asset": "RambleyFiles/Voice/TheDoor"}
+{"id": "/B020C6F14484683BFFB2D292FFD2639D", "source": "Uh oh! The door mysteriously locked.", "target": "", "asset": "RambleyFiles/Voice/TheDoor"}
+{"id": "/00EB414F4A44F8D96BDABF850F7658D1", "source": "hmm.. hold on", "target": "", "asset": "RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture"}
+{"id": "/1211F3F1447DE5A229B5B9AA147DF598", "source": "Have fun!", "target": "", "asset": "RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture"}
+{"id": "/2ADA45A64210DD762D3B279C66479803", "source": "…Lucky you!", "target": "", "asset": "RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture"}
+{"id": "/56F41D3A430EE869698C29A6F8D0D803", "source": "What’s the hold up? The gate is open!", "target": "", "asset": "RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture"}
+{"id": "/717554CE4E82E9B8C24D589E2CD07E8B", "source": "There seems to be an error message being sent from the gate’s power unit!", "target": "", "asset": "RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture"}
+{"id": "/8303326945FF622A9F0D4FB436DE6F1A", "source": "You get to be first person to try our Turn on the Generator Mini-Rambley-Venture!", "target": "", "asset": "RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture"}
+{"id": "/8383E1894F48F6D01A35E088BEDCA5FC", "source": "Head on into the entryway!", "target": "", "asset": "RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture"}
+{"id": "/BC022C89406D656A1D9E36A4F663BE6E", "source": "My mistake, the Gate is NOT open.", "target": "", "asset": "RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture"}
+{"id": "/3C7E77F4489230C4A0F95590FF51605A", "source": "COME ON IN NEW STAFF!", "target": "", "asset": "RambleyFiles/Voice/WaitThisRoomIsStaffOnly"}
+{"id": "/C0704C154BCEFEDE43052FA3C2B6C8B1", "source": "WAIT HOLD ON, THIS ROOM'S STAFF ONLY!", "target": "", "asset": "RambleyFiles/Voice/WaitThisRoomIsStaffOnly"}
+{"id": "/22AC14AD42028AD306D66489D8ACBE1F", "source": "wait", "target": "", "asset": "RambleyFiles/Voice/WelcometoIndigoPark"}
+{"id": "/3EFE6BD242E73B9352A4F1BF60574838", "source": "Wait! You’re our first guest in 2920 days, 4 hours, 23 minutes, and 38 seconds! ", "target": "", "asset": "RambleyFiles/Voice/WelcometoIndigoPark"}
+{"id": "/48F5C1B2431701D2B8976D84680ECCED", "source": "I’m Rambley! Rambley the Raccoon", "target": "", "asset": "RambleyFiles/Voice/WelcometoIndigoPark"}
+{"id": "/5B5D00814C57D72CEB00DA9A39CA00C6", "source": "The world’s most innovative and engaging family fun experience!", "target": "", "asset": "RambleyFiles/Voice/WelcometoIndigoPark"}
+{"id": "/5C2C14DD4041B435D78889983FE844E6", "source": "where our friendly assistant will help you begin your adventure in the park!", "target": "", "asset": "RambleyFiles/Voice/WelcometoIndigoPark"}
+{"id": "/65609BCA4DAB13850C5034A31109FAE4", "source": "Congratulations!", "target": "", "asset": "RambleyFiles/Voice/WelcometoIndigoPark"}
+{"id": "/6F5AD196491E4D4A355277A9F4CA8094", "source": "Jump into the world of your favorite chara-", "target": "", "asset": "RambleyFiles/Voice/WelcometoIndigoPark"}
+{"id": "/C6AFF88A4A767A6036C621B1481851F2", "source": "Just hop on over to the registration center... to your left!", "target": "", "asset": "RambleyFiles/Voice/WelcometoIndigoPark"}
+{"id": "/C86567344FC1BB7BB82A1DB256F5D4E4", "source": "and it’s my job to make sure your experience here at Indigo Park is the most fun it can be!", "target": "", "asset": "RambleyFiles/Voice/WelcometoIndigoPark"}
+{"id": "/ECF559324D8EA8A39F3AA9BA18E9CFB4", "source": "Hi there, and welcome to Indigo Park!", "target": "", "asset": "RambleyFiles/Voice/WelcometoIndigoPark"}
+{"id": "/083DA16C47BC5955543071A4BCF929AE", "source": "So, whaddya think? Pretty fun, right?", "target": "", "asset": "RambleyFiles/Voice/Whereyouwannago"}
+{"id": "/500142E343238B588105808A860EBCAD", "source": "So, where do you wanna go?  ", "target": "", "asset": "RambleyFiles/Voice/Whereyouwannago"}
+{"id": "/57AA795A4F4810E4BDB0B5A40D9F0991", "source": "and Lloyd...", "target": "", "asset": "RambleyFiles/Voice/Whereyouwannago"}
+{"id": "/D21A5610486EFD5BEF6E2195B5F6F16E", "source": "Now you know all about my friends…", "target": "", "asset": "RambleyFiles/Voice/Whereyouwannago"}
+{"id": "/092BE4004E556844D36873B5E4F1D02F", "source": "Ultra", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/1438A3E2457FCAE018CF09B560A62385", "source": "High", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/16A37FD24C61E6FA69E77FA4A17FFD31", "source": "sg.PostProcessQuality 2", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/2AC2E2CF4E2FB3B4119BEF8D9B254C72", "source": "Low", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/302EE05D43E0BC7563273ABA022F14BE", "source": "sg.PostProcessQuality 0", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/3F8B082B4022AEFF537E65AE2C44477C", "source": "This is an item description\r\n Let's get the basics down here. ", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/427F599F44289A24B6CF219D79303B67", "source": "INFORMATION KIOSK", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/4992AF834EAE0E0C889AF68024667C86", "source": "r.PostProcessAAQuality 1", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/5523B38441F6917CC5BD9683E6F4848B", "source": "r.ScreenPercentage 100", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/6F9CFB074F778AB397122A8EF425982D", "source": "r.PostProcessAAQuality 2", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/7372003E4EEA48DFEA8DCAA748524387", "source": "Medium", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/74FDBADC44E19AB557A6E29E5810F3B2", "source": "sg.ShadowQuality 1", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/79C5B4034D4098998BEBCEB76715543F", "source": "sg.EffectsQuality 3", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/7B7AFCE04EC46E94719B30BD66EDAE7E", "source": "t.MaxFPS 144", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/7F099528437E08CD1028008DC4FBC057", "source": "t.MaxFPS 15", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/80370A354E2698D0B34382A76FD6E87B", "source": "r.ScreenPercentage 25", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/8C69779E4974207DDF5ECD8DEDAE428E", "source": "sg.ShadowQuality 0", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/9500D1CC43E1BD9E07351498E7C943BA", "source": "r.PostProcessAAQuality 3", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/9E4FA671436D694CBE15F6A682152E8D", "source": "r.ScreenPercentage 50", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/A271C9534FC8D7C00488FDA1FF59BE8F", "source": "sg.EffectsQuality 1", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/A6366017424967E5D19E898BEE05209E", "source": "BACK", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/AA5CF25A41427BA0144C2F8585968A25", "source": "15Hz", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/B7C8DF634D50842541CC7F94F65844A2", "source": "30Hz", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/B933A2AF4E592C3A6FA410934A214FE4", "source": "t.MaxFPS 60", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/BA95EE5D410311D59F0B83AC286FFAD0", "source": "sg.EffectsQuality 2", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/BC5812294D1011CF77C3918A3FB5D9A2", "source": "r.PostProcessAAQuality 0", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/CD4C54EC4EE1BCCA381B3684336ED1BA", "source": "sg.ShadowQuality 2", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/CF98DA434DB407E3AB0543B9943839CA", "source": "sg.EffectsQuality 0", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/D6B71ADF4518B638E83CC68C23DA7E94", "source": "sg.PostProcessQuality 1", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/D73CB0C348EF3564844512BA791C3576", "source": "sg.ShadowQuality 3", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/D8221BB04AF47F263C85148C355829C8", "source": "r.ScreenPercentage 75", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/DD2567514DA37D2F4FD8519189DB4B21", "source": "144Hz", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/DD63C93C47841D53F4BF0792B949DCFD", "source": "60Hz", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/DFEBC869409B9BE7626FC6AFD2574FD4", "source": "t.MaxFPS 30", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/ED0945B445B4700CF2CB688856780BF1", "source": "Click on a collectable to ask Rambley about it", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/F65ED7C54EC7721A702BBBA99D54F9FC", "source": "sg.PostProcessQuality 3", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/FF9A8DB7416377A3346FA69A6182B18F", "source": "Item Name Here", "target": "", "asset": "RefinedMainMenu/Menu/Widgets/KioskMenu"}
+{"id": "/1EA6B56645303CF512BB4195284552CA", "source": "Tray Cable", "target": "", "asset": "Safe_House/Blueprints/BP_cable_work_cable_type"}
+{"id": "/8B02DBC44B4C4B514D420CA7F7FEA0B9", "source": "Big Cable", "target": "", "asset": "Safe_House/Blueprints/BP_cable_work_cable_type"}
+{"id": "/DF6B5FFC459F8623926DB6ACBD961085", "source": "Small Cable", "target": "", "asset": "Safe_House/Blueprints/BP_cable_work_cable_type"}
+{"id": "/17E02E0B4E3814F0E89D9F8E6EC798F8", "source": "Power Pluge Tray", "target": "", "asset": "Safe_House/Blueprints/BP_cable_work_connection_type"}
+{"id": "/1B49380B4C20325AC6D8E6BA57EF5404", "source": "Power Pluge 01", "target": "", "asset": "Safe_House/Blueprints/BP_cable_work_connection_type"}
+{"id": "/30C8EE6C44A78746545608AFE8024CEE", "source": "Clamp", "target": "", "asset": "Safe_House/Blueprints/BP_cable_work_connection_type"}
+{"id": "/951E17534B65A70663D1CEB417FDE701", "source": "Power Pluge 02", "target": "", "asset": "Safe_House/Blueprints/BP_cable_work_connection_type"}
+{"id": "/993B47414C8F0D9BD96CB7BA53635A99", "source": "None", "target": "", "asset": "Safe_House/Blueprints/BP_cable_work_connection_type"}
+{"id": "/A987619A4A921CE3EE6BB6B8BA61560B", "source": "Reverse", "target": "", "asset": "TrainAndRail/Blueprints/E_BogieDirectionOfTravel"}
+{"id": "/C59A55904FA9163138C90DB567A96C21", "source": "Forward", "target": "", "asset": "TrainAndRail/Blueprints/E_BogieDirectionOfTravel"}
+{"id": "/62EE1CD74CE5CF244CC4E39AF1C4628A", "source": "Moving", "target": "", "asset": "TrainAndRail/Blueprints/E_CarriageState"}
+{"id": "/9E50E1A448EA84CF3C94A6B8C08208E1", "source": "Derailed", "target": "", "asset": "TrainAndRail/Blueprints/E_CarriageState"}
+{"id": "/DC50EA3747773463ABD387B9903722AB", "source": "Stopped", "target": "", "asset": "TrainAndRail/Blueprints/E_CarriageState"}
+{"id": "/08F0D0EE457CAB2296609392B9C25F3D", "source": "Engine", "target": "", "asset": "TrainAndRail/Blueprints/E_CarriageType"}
+{"id": "/86E03D5E415157D0279392BDCEBB9C1C", "source": "Carriage", "target": "", "asset": "TrainAndRail/Blueprints/E_CarriageType"}
+{"id": "/1AD0A80C48FC2FE25ABD8F99CF636332", "source": "INSTANTLY_REVERSE_DIRECTION", "target": "", "asset": "TrainAndRail/Blueprints/E_EndOfTrackOption"}
+{"id": "/4E318A9D402B5B8B2748609D9AFD5602", "source": "ALWAYS_STOP", "target": "", "asset": "TrainAndRail/Blueprints/E_EndOfTrackOption"}
+{"id": "/50AEDB2942479B9DC4A46A8D2398670C", "source": "BRAKE_AND_STOP_IF_POSSIBLE", "target": "", "asset": "TrainAndRail/Blueprints/E_EndOfTrackOption"}
+{"id": "/BB36FE124CA3237A83A8AA86F2E206E3", "source": "WARP_TO_ORIGINAL_TRACK_AND_LOCATION", "target": "", "asset": "TrainAndRail/Blueprints/E_EndOfTrackOption"}
+{"id": "/C51B440146C753252E37A5A0E2743C1D", "source": "BRAKE_AND_ALWAYS_STOP", "target": "", "asset": "TrainAndRail/Blueprints/E_EndOfTrackOption"}
+{"id": "/D0CDE3F7443A924353DD9FBA0F81CF2C", "source": "DERAIL", "target": "", "asset": "TrainAndRail/Blueprints/E_EndOfTrackOption"}
+{"id": "/DF0153E84B10F2098D5212AA6FD6AF45", "source": "BRAKE_AND_REVERSE_DIRECTION", "target": "", "asset": "TrainAndRail/Blueprints/E_EndOfTrackOption"}
+{"id": "/4B68618242090461B34200A3EEF44B71", "source": "Pitch_Only", "target": "", "asset": "TrainAndRail/Blueprints/E_RollCheckEval"}
+{"id": "/9DC78E2B4E5C297AC574E69E22E3D9B0", "source": "Yaw_Only", "target": "", "asset": "TrainAndRail/Blueprints/E_RollCheckEval"}
+{"id": "/BA9D92FB4CF73AE5FE2379BF57D9544B", "source": "Roll_Only", "target": "", "asset": "TrainAndRail/Blueprints/E_RollCheckEval"}
+{"id": "/C0FBB5FD44B7E182119BE9A1F000D762", "source": "Any", "target": "", "asset": "TrainAndRail/Blueprints/E_RollCheckEval"}
+{"id": "/CFB477B145175E4935AD928F90BE8DDC", "source": "All", "target": "", "asset": "TrainAndRail/Blueprints/E_RollCheckEval"}
+{"id": "/8E52760148C9652B68C12298C9A95B4F", "source": "Z", "target": "", "asset": "TrainAndRail/Blueprints/E_TrackMeshSpacingAxis"}
+{"id": "/EF4690BF4E71077E94A1C9A061ABEE6F", "source": "X", "target": "", "asset": "TrainAndRail/Blueprints/E_TrackMeshSpacingAxis"}
+{"id": "/FF513858408713FC445F7A8647762D28", "source": "Y", "target": "", "asset": "TrainAndRail/Blueprints/E_TrackMeshSpacingAxis"}
+{"id": "/1673331A40D190E085BD2CA397B9270F", "source": "BRAKE_STOP_IF_POSSIBLE_AND_REVERSE_DIRECTION", "target": "", "asset": "TrainAndRail/Blueprints/E_TrackObstacleResponse"}
+{"id": "/1EF9B51249B55D764DA8AAABFF96AD91", "source": "DERAIL_NOW", "target": "", "asset": "TrainAndRail/Blueprints/E_TrackObstacleResponse"}
+{"id": "/79201AC94B86D874E0E6C49C5DD37C95", "source": "BRAKE_STOP_IF_POSSIBLE_AND_WAIT_FOR_IT_TO_MOVE", "target": "", "asset": "TrainAndRail/Blueprints/E_TrackObstacleResponse"}
+{"id": "/A346FBC94A9B7530B7601B9EF6A3B06D", "source": "IGNORE_ARE_CRASH_INTO_IT", "target": "", "asset": "TrainAndRail/Blueprints/E_TrackObstacleResponse"}
+{"id": "/A7FA343248684D323F6746A34C680078", "source": "INSTANTLY_STOP_AND_REVERSE_DIRECTION", "target": "", "asset": "TrainAndRail/Blueprints/E_TrackObstacleResponse"}
+{"id": "/F1C8AED942C3B34DD5080B88EB0853C4", "source": "INSTANTLY_STOP_AND_WAIT_FOR_IT_TO_MOVE", "target": "", "asset": "TrainAndRail/Blueprints/E_TrackObstacleResponse"}
+{"id": "/4CBDA55A4DEC0C33ECF4C4B48D5A9C8A", "source": "End", "target": "", "asset": "TrainAndRail/Blueprints/E_TrackSplineLocation"}
+{"id": "/5401719A4861CA3AF6D0A2922E004321", "source": "Start", "target": "", "asset": "TrainAndRail/Blueprints/E_TrackSplineLocation"}
+{"id": "/00401C27423840AA4D4520B2D3EF5C85", "source": "Name:", "target": "", "asset": "Typewriter-style-system/Widgets/Dialogue_with_punctuation/Dialogue_widget"}
+{"id": "/DC0DA6DB4565A4492F6933BAF56E8F3F", "source": "Press E to be reincarnated", "target": "", "asset": "Widgets/DeathWidget"}
+{"id": "/EA3456214106F825E2B7D99E822FAFB9", "source": "Insert Lore Here", "target": "", "asset": "Widgets/DeathWidget"}
+{"id": "/1DEC528B43DF4AAA565627A77AF4E2BD", "source": "Controls", "target": "操作", "asset": "Widgets/Notification"}
+{"id": "/5F82AB2B433A373FC645F5803B15D1FE", "source": "Use WASD to Move\r\nThis is a test notification for controls and stuff.", "target": "", "asset": "Widgets/Notification"}
+{"id": "/76570A294EFAE8A3CF52AB9ED63B796B", "source": "This is a sample notification! Do this now :3", "target": "", "asset": "Widgets/Notification"}
+{"id": "/7871EF0D492D9CDB49EE83B4C62EB908", "source": "Press \"F\" to use your Flashlight!", "target": "", "asset": "Widgets/NotificationInteract"}
+{"id": "/4C686EEE45BE041A4188FAB64BB8A406", "source": "Use WASD to Move\r\nThis is a test notification for controls and stuff.", "target": "", "asset": "Widgets/SideNotification"}
+{"id": "/851CC1C54F3DA6284705E8ADD1B9E8F5", "source": "This is a sample notification! Do this now :3", "target": "", "asset": "Widgets/SideNotification"}
+{"id": "/C88A37D04C0FC02EE0829E91C2849D27", "source": "Objective", "target": "", "asset": "Widgets/SideNotification"}
+{"id": "/7C7B368D49AAF17F56D17D9379087B97", "source": "Hold \"E\" to Skip", "target": "", "asset": "Widgets/W_Cutscene"}
+{"id": "/48C6324B49AD56E83696B1AEDB96D258", "source": "Visit an Information Kiosk\r\nto learn more!", "target": "", "asset": "Widgets/W_FoundCollectable"}
+{"id": "/534864514A10FD9EED035D85E6A78190", "source": "Found Collectable", "target": "", "asset": "Widgets/W_FoundCollectable"}
+{"id": "/990BCD674574485F947CBB876C80136E", "source": "This is a sample notification! Do this now :3", "target": "", "asset": "Widgets/W_FoundCollectable"}
+{"id": "/3EC675344A685FDC8F948A85615B016E", "source": "You were caught by", "target": "", "asset": "Widgets/W_MollieKillScreen"}
+{"id": "/756E4FC542A4D29DF7B833A4555CAC0A", "source": "Press \"E\" to Respawn", "target": "", "asset": "Widgets/W_MollieKillScreen"}
+{"id": "/7CD97CE24E236B81AFEE6FB632285117", "source": "Mollie can repeat words that \r\nshe's heard. Don't be fooled.", "target": "", "asset": "Widgets/W_MollieKillScreen"}
+{"id": "/E6A529DB41367772EA75DCB384D033C1", "source": "MOLLIE MACAW", "target": "", "asset": "Widgets/W_MollieKillScreen"}
+{"id": "/12DA88C8442FF17E087328AE749DBD8F", "source": "1x Gear ", "target": "", "asset": "Widgets/W_PickUpGear"}
+{"id": "/7549BE244562DCF9DB5C2CA4F27A03B7", "source": "This is a sample notification! Do this now :3", "target": "", "asset": "Widgets/W_PickUpGear"}
+{"id": "/77B7709A4E9CEB58A1B988A22F9FA964", "source": "Testing Build | Nothing is Final", "target": "", "asset": "Widgets/W_TestingBuild"}
+{"id": "ST_Menu/AudioSettings_Audio", "source": "Audio", "target": "音声", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_AudioVolume", "source": "Audio Volume", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_EnableVoiceChat", "source": "Enable Voice Chat", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_EnableVoiceChat_SubText", "source": "Enable <h>voice chat communication in multiplayer sessions.</> You will not be able to hear other players if this is turned off.\r\n\r\n<b>Default Value: Off</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_MasterVolume", "source": "Master Volume", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_MasterVolume_Subtext", "source": "Adjust the volume of <h>all music, non-player voices and sound effects</> played throughout the game.\r\n\r\n<b>Default Value: 100</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_MusicVolume", "source": "Music Volume", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_MusicVolume_Subtext", "source": "Adjust the volume of <h>all music</> played throughout the game.\r\n\r\n<b>Default Value: 100</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_OutputDevice", "source": "Output Device", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_OutputDevice_Subtext", "source": "Set the <h>Audio Output Device</> that is used for all game sound.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_SFXVolume", "source": "SFX Volume", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_SFXVolume_Subtext", "source": "Adjust the volume of <h>all sound effects</> played throughout the game.\r\n\r\n<b>Default Value: 100</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_Title", "source": "Audio", "target": "音声", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_VoiceChat", "source": "Voice Chat", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_VoiceInput", "source": "Voice Chat Input", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_VoiceInput_SubText", "source": "Adjust the volume of <h>your microphone when using voice chat</> in multiplayer sessions.\r\n\r\n<b>Default Value: 100</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_VoiceOutput", "source": "Voice Chat Output", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_VoiceOutput_SubText", "source": "Adjust the volume of <h>other players when they use voice chat</> in multiplayer sessions.\r\n\r\n<b>Default Value: 100</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_VoiceVolume", "source": "Voice Volume", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/AudioSettings_VoiceVolume_Subtext", "source": "Adjust the volume of <h>all non-player voices</> played throughout the game.\r\n\r\n<b>Default Value: 100</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlSettings_AimWeapon", "source": "Aim Weapon", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlSettings_AimWeapon_SubText", "source": "Key/Button to <h>aim weapon.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlSettings_PrimaryFire", "source": "Primary Fire", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlSettings_PrimaryFire_Subtext", "source": "Key/Button to <h>primary fire.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlSettings_SecondaryFire", "source": "Secondary Fire", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlSettings_SecondaryFire_Subtext", "source": "Key/Button to <h>secondary fire.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Actions", "source": "Actions", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_ClearInput", "source": "Clear Input", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_Crouch", "source": "Crouch", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_Crouch_Subtext", "source": "Key/Button to <h>crouch.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_Documents", "source": "Documents", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_Documents_Subtext", "source": "Key/Button to <h>open the documents menu.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_Jump", "source": "Jump", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_Jump_Subtext", "source": "Key/Button to <h>jump.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_Look", "source": "Look", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_MoveBackward", "source": "Move Backward", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_MoveBackward_Subtext", "source": "Key/Button to <h>move backward.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_MoveForward", "source": "Move Forward", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_MoveForward_Subtext", "source": "Key/Button to <h>move forward.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_MoveLeft", "source": "Move Left", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_MoveLeft_Subtext", "source": "Key/Button to <h>move left.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_MoveRight", "source": "Move Right", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_MoveRight_Subtext", "source": "Key/Button to <h>move right.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_None", "source": "None", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_Pause", "source": "Pause", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_Pause_Subtext", "source": "Key/Button to <h>pause the game.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_PushToTalk", "source": "Push To Talk", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_PushToTalk_Subtext", "source": "Key/Button to <h>talk in voice chat.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_Run", "source": "Run", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Bindings_Run_Subtext", "source": "Key/Button to <h>run.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Camera", "source": "Camera", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Controller", "source": "Controller", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_ControllerType", "source": "Controller Type", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_ControllerType_SubText", "source": "Switch between different <h>UI icons</> based on Controller Type.\r\n\r\n<b>Default Value: Xbox</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Controls", "source": "Controls", "target": "操作", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Crouch", "source": "Crouch", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Crouch_SubText", "source": "Key/Button to <h>crouch.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_GamePadSettings", "source": "Gamepad Bindings", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Global", "source": "Global", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Inventory", "source": "Inventory", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Inventory_SubText", "source": "Key/Button to <h>open inventory.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_InvertSticks", "source": "Invert Sticks", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_InvertSticks_SubText", "source": "<h>Switches Left and Right Stick.</> By default the Left Stick is used for movement and the Right Stick moves the camera.\r\n\r\n<b>Default Value: Off</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_InvertX", "source": "Invert Horizontal Axis", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_InvertX_Subtext", "source": "Invert the <h>Horizontal (X) Axis</> of the camera.\r\n\r\n<b>Default Value: Off</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_InvertY", "source": "Invert Vertical Axis", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_InvertY_Subtext", "source": "Invert the <h>Vertical (Y) Axis</> of the camera.\r\n\r\n<b>Default Value: Off</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Jump", "source": "Jump", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Jump_SubText", "source": "Key/Button to <h>Jump.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_KeyBindings", "source": "Key Bindings", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Movement", "source": "Movement", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_NextWeapon", "source": "Next Weapon", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_NextWeapon_SubText", "source": "Key/Button to <h>change to the next weapon.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_PreviousWeapon", "source": "Previous Weapon", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_PreviousWeapon_SubText", "source": "Key/Button to <h>change to the previous weapon.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Reload", "source": "Reload", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Reload_SubText", "source": "Key/Button to <h>reload.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Sprint", "source": "Sprint", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Sprint_SubText", "source": "Key/Button to <h>sprint.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Title", "source": "Controls", "target": "操作", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Vibration", "source": "Vibration", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_Vibration_SubText", "source": "Toggle <h>vibration/rumble features</> of the connected Controller.\r\n\r\n<b>Default Value: On</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_XSensitivity", "source": "Horizontal Axis Sensitivity", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_XSensitivity_Subtext", "source": "Set <h>Horizontal (X) Axis Sensitivity</> of the camera.\r\n\r\n<b>Default Value: 1.0</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_YSensitivity", "source": "Vertical Axis Sensitivity", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ControlsSettings_YSensitivity_Subtext", "source": "Set <h>Vertical (Y) Axis Sensitivity</> of the camera.\r\n\r\n<b>Default Value: 1.0</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/Credits_HoldToSkip", "source": "Hold any key to skip", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/Credits_Title", "source": "Credits", "target": "クレジット", "asset": "ST_Menu"}
+{"id": "ST_Menu/DIsplaySettings_HDRUI_SubText", "source": "Enable HDR UI Composition Mode. <h>Corrects washed out UI when HDR is enabled.</>\r\n\r\n<b>Default Value: Off</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_ApplyChangedSettings", "source": "Apply changed settings?", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_AreYouSure", "source": "Are you sure you want to quit the game?", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_Cancel", "source": "Cancel", "target": "キャンセル", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_ExitG", "source": "Exit Game ", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_No", "source": "No", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_OptionCancel", "source": "Cancel", "target": "キャンセル", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_OptionQuit", "source": "Quit", "target": "終了", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_OptionRebind", "source": "Rebind", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_OptionRevert", "source": "Revert", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_QuitGame", "source": "Quit Game", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_SaveGameTitle", "source": "Save Game", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_SaveOverrideProgress", "source": "There is a game already saved in this slot. Overwrite saved data?", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_SavedGameInfo", "source": "The Game has been saved.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_TextRebind", "source": "is already in use by <h>{InputActionDisplayName}</>. Are you sure you want to replace it?", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_TitleRebind", "source": "Rebind Key", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DecisionDialog_Yes", "source": "Yes", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_AspectRatio", "source": "Aspect Ratio", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_AspectRatio_Subtext", "source": "Set the aspect ratio. This will filter all available Display Resolutions.  <h>Borderless Window Mode</> will always use the aspect ratio of the highest resolution supported by your Display.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_Brightness", "source": "Brightness", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_Brightness_Subtext", "source": "<h>Adjusts the luminance intensity</> of the image's mid-tones to accurately reproduce colors. Increasing this value too much will result in the image being washed-out. Decreasing this value too much will result in the image being too dark.\r\n\r\n<b>Default Value: 100</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_ColorDeficiencyStrength", "source": "Color Deficiency Strength", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_ColorDeficiencyStrength_Subtext", "source": "Set how much the Color Deficiency Type should influence the colors of game and UI.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_ColorDeficiencyType", "source": "Color Deficiency Type", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_ColorDeficiencyType_Subtext", "source": "Set a Color Deficiency Type (also refered to as Color Blindness). This will change all colors of the game and UI.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_Colors", "source": "Colors", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_Deuteranope", "source": "Deuteranope", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_Display", "source": "Display", "target": "画面", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_DisplayResolution", "source": "Display Resolution", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_DisplayResolution_Subtext", "source": "Set this to the display resolution of your Display. Try a lower resolution if you experience performance issues. <h>Borderless Window Mode</> will always use the highest resolution supported by your Display.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_FOV", "source": "Field of View", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_FOV_Subtext", "source": "Set <h>Horizontal Field of View angle (in degrees)</> of the Player Camera. Common values range from 60 to 120.\r\n\r\n<b>Default Value: 90</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_HDR", "source": "HDR", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_HDRColorSpace", "source": "HDR Color Space", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_HDRColorSpace_SubText", "source": "Choose the Color Space that all colors are mapped into. Most HDR users will have the best results with <h>Rec.2020</>. Follow the specifications of your Display manufacturer. All users without a HDR supported Display should set this to <h>Rec.709</>.\r\n\r\n<b>Default Value: Rec.709</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_HDRDisplayProfile", "source": "HDR Display Profile", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_HDRDisplayProfile_SubText", "source": "Configure the brightness in <h>NITS and the Color Profile</> that most closely match your Display specifications. All users without a HDR supported Display should set this to sRGB.\r\n\r\n<b>Default Value: sRGB</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_HDRUI", "source": "HDR UI", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_HDRUIBrightness", "source": "HDR UI Brightness", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_HDRUIBrightness_SubText", "source": "Adjust the brightness of UI elements when HDR is enabled. <h>Requires HDR UI to be enabled.</>\r\n\r\n<b>Default Value: 2.0</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_HDR_SubText", "source": "Enable this to use <h>High Dynamic Range (HDR)</> for color output. HDR requires a screen that supports HDR and the window mode has to be set to Fullscreen. HDR attempts to simulate a more natural looking image and allows for higher contrast & wider color gamut. Users without HDR supported Displays should turn all HDR options off or set them to their default value.\r\n\r\n<b>Default Value: Off</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_LockFPS", "source": "Lock FPS", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_LockFPS_Subtext", "source": "Locks the <h>frames per second (FPS)</> to a fixed value. \r\nIt's advised to lock the FPS, if the frame rate is highly variable \r\nor exceeds your display's refresh rate.\r\n\r\n<b>Default Value: Unlocked</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_LockFPS_Unlocked", "source": "Unlocked", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_Performance", "source": "Performance", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_Protanope", "source": "Protanope", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_ResolutionScale", "source": "Resolution Scale", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_ResolutionScale_Subtext", "source": "Set the resolution scaling to modify the <h>render resolution</>. A resolution scale of 50 would halve the render resolution in relation to the actual display resolution. The minimum resolution scale can vary for different display resolutions.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_ShowFPSCounter", "source": "Show FPS counter", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_ShowFPSCounter_Subtext", "source": "Enables the frames per second (FPS) counter", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_Title", "source": "Display", "target": "画面", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_Tritanope", "source": "Tritanope", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_VSync", "source": "VSync", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_VSync_Subtext", "source": "VSync, or Vertical Synchronization, is a graphics option that synchronizes the game's frame rate with the refresh rate of the display. <h>This can help prevent screen tearing,</> a visual artifact where parts of the screen appear to be out of sync with each other, but can also cause increased input lag.\r\n\r\n<b>Default Value: Off</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_WindowMode", "source": "Window Mode", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_WindowMode_Borderless", "source": "Borderless", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_WindowMode_FullScreen", "source": "Full Screen", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_WindowMode_Subtext", "source": "Select the display mode for the game. <h>Fullscreen offers the best performance and feature compatibility</> with features such as HDR. Borderless will take up the entire screen, but allow you to change between different applications without the need to minimize the game.\r\n\r\n<b>Default Value: Fullscreen</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/DisplaySettings_WindowMode_Windowed", "source": "Windowed", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GamePlaySettings_Title", "source": "Game", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Difficulty", "source": "Difficulty", "target": "難易度", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Difficulty_Easy", "source": "Easy", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Difficulty_Expert", "source": "Expert", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Difficulty_Hard", "source": "Hard", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Difficulty_Medium", "source": "Medium", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Difficulty_Subtext", "source": "Set the gameplay difficulty. With a higher difficulty <h>enemies will be tougher and important items more rare.</> Players that are new to this genre should start out on <h>Easy</> Difficulty.\r\n\r\n<b>Default Value: Medium</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Game", "source": "Game", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Gameplay", "source": "Gameplay", "target": "ゲームプレイ", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Language", "source": "Language", "target": "言語", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Language_Subtext", "source": "Set the language that <h>all text</> will be displayed in throughout the Game.\r\n\r\n<b>Default Value: English</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Subtitles", "source": "Subtitles", "target": "字幕", "asset": "ST_Menu"}
+{"id": "ST_Menu/GameplaySettings_Subtitles_Subtext", "source": "Set if Subtitles are displayed <h>whenever a character speaks.</> They can be used to aid in understanding the game's story and dialogue, especially for players who may have difficulty hearing or understanding spoken language.\r\n\r\n<b>Default Value: Off</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_AmbientOcclusion", "source": "Ambient Occlusion", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_AmbientOcclusion_Subtext", "source": "Ambient Occlusion adds depth and realism to a game's visuals by simulating how light interacts with objects in a scene. <h>It darkens areas where objects are close together,</> simulating shadows and crevices that occur naturally in the environment.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_AntiAliasingMethod", "source": "Anti Aliasing Method", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_AntiAliasingMethod_None", "source": "None", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_AntiAliasingMethod_Subtext", "source": "Set the method of Anti Aliasing (AA). AA is a graphics option that <h>smooths out jagged edges and reduces visual artifacts</> in a game's visuals by e.g. averaging out pixel colors.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_AntiAliasingQuality", "source": "Anti Aliasing Quality", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_AntiAliasingQuality_Subtext", "source": "Set the quality used for Anti Aliasing (AA). AA is a graphics option that <h>smooths out jagged edges and reduces visual artifacts</> in a game's visuals by e.g. averaging out pixel colors.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Benchmark", "source": "Benchmark", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Bloom", "source": "Bloom", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Bloom_Subtext", "source": "Enabling Bloom <h>adds a soft glow to bright areas, such as the sun or other light sources.</> This can give the game's environment and characters a more ethereal and cinematic appearance.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_DLSS", "source": "Nvidia DLSS", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_DLSS_Quality0", "source": "Performance", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_DLSS_Quality1", "source": "Balanced", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_DLSS_Quality2", "source": "Quality", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_DLSS_Quality3", "source": "Ultra Performance", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_DLSS_Quality4", "source": "Ultra Quality", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_DLSS_Subtext", "source": "Toggles NVIDIA DLSS (Deep Learning Super Sampling). Uses a temporal upscaling algorithm to render highly detailed images using fewer pixels, boosting your frame rates so you can maximize your graphics settings and output resolution. Quality is controlled by altering the resolution scale (100=DLAA). \r\n<h>DLSS requires an NVIDIA RTX graphics card.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Effects", "source": "Effects", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Effects_Subtext", "source": "Adjust the <h>quality of visual effects,</> e.g. reflections and the material fidelity.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_FSR2", "source": "FidelityFX Super Resolution 2", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_FSR2_SubText", "source": "Sets the quality of FidelityFX Super Resolution 2 (FSR2). Uses a temporal upscaling algorithm to render highly detailed images using fewer pixels, boosting your frame rates so you can maximize your graphics settings and output resolution. <h>Compatible with most modern GPUs including AMD, Intel and NVIDIA cards.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Foliage", "source": "Foliage", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Foliage_Subtext", "source": "Foliage Quality affects the <h>level of detail and complexity of vegetation and foliage.</> This can include trees, bushes, grass, and other plants. Higher Foliage Quality settings can result in more realistic and detailed vegetation, but are also more demanding on your hardware.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_GlobalIllumination", "source": "Global Illumination", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_GlobalIlluminationMethod", "source": "Global Illumination Method", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_GlobalIlluminationMethod_Subtext", "source": "Global Illumination <h>simulates the way light bounces and interacts with surfaces</> in a realistic manner. \r\n\r\nNone: No indirect lighting.\r\nScreen Space: High performance global illumination.\r\nLumen: High quality real-time global illumination.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_GlobalIllumination_Subtext", "source": "Global Illumination <h>simulates the way light bounces and interacts with surfaces</> in a realistic manner, resulting in more accurate and natural-looking lighting in the game environment.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Graphics", "source": "Graphics", "target": "グラフィック", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_LensFlares", "source": "Lens Flares", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_LensFlares_Subtext", "source": "Lens Flare Quality affects the appearance of lens flares, which are visual artifacts that occur when bright light sources are captured by a camera lens. This can include the <h>sun, headlights, and other light sources.</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Lumen", "source": "Lumen", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_MotionBlur", "source": "Motion Blur", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_MotionBlur_Subtext", "source": "Motion Blur simulates the <h>blur effect that occurs when objects move quickly across a screen,</> such as during fast camera movements or character animations. This can give the game's visuals a more cinematic and immersive feel. A number of indivuals may experience motion sickness or general discomfort when this is enabled.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_None", "source": "None", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_PostProcessing", "source": "Post Processing", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_PostProcessing_Subtext", "source": "Post Processing Quality affects the <h>quality and complexity of post-processing effects</> applied to a game's visuals after the initial rendering. This includes effects such as motion blur, lens flares, bloom, screen space reflections and ambient occlusion.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Quality", "source": "Quality", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_QualityPreset", "source": "Quality Preset", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_QualityPreset_Subtext", "source": "Adjust the quality of <h>all graphics settings.</> This option is automatically changed to custom upon changing any individual settings.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_ReflectionMethod", "source": "Reflection Method", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_ReflectionMethod_Subtext", "source": "Affects the quality and complexity of <h>real-time reflections</> in a game's environment.\r\n\r\nNone: Reflections are turned off.\r\nScreen Space: Reflections are based only on what is visible on-screen.\r\nLumen: Accurate real-time reflections.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Reflections", "source": "Reflections", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Reflections_Subtext", "source": "Reflections Quality affects the <h>level of detail and complexity of real-time reflections</> in the game environment. This can include reflections of characters, objects, and the environment itself in reflective surfaces such as water, mirrors, or other reflective surfaces.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_ResolutionHeader", "source": "Resolution", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_ResolutionScaling", "source": "Resolution Scaling", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_SSR", "source": "Screen Space Reflections", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_SSR_Subtext", "source": "Enabling Screen Space Reflections affects the quality and complexity of <h>real-time reflections</> in a game's environment. This can include reflections of characters, objects, and the environment itself in reflective surfaces such as water or shiny surfaces. ", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_ScreenSpace", "source": "Screen Space", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Section_Advanced", "source": "Advanced", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Section_Quality", "source": "Quality", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Setting_Custom", "source": "Custom", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Setting_Epic", "source": "Epic", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Setting_Extreme", "source": "Extreme", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Setting_High", "source": "High", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Setting_Low", "source": "Low", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Setting_Medium", "source": "Medium", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Setting_VeryLow", "source": "Very Low", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_ShadingQuality", "source": "Shading Quality", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_ShadingQuality_Subtext", "source": "Set <h>Shading Quality.</> A higher value increases the quality of Shaders and results in e.g. higher quality Hair.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Shadows", "source": "Shadows", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Shadows_Subtext", "source": "Shadow Quality affects the <h>detail and complexity of shadows</> in a game's environment. This can include shadows cast by characters, objects, and the environment itself.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_TemporalUpsampling", "source": "Temporal Anti Aliasing Upsampling", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_TemporalUpsampling_Subtext", "source": "Temporal Anti Aliasing Upsampling (TAAU) <h>reconstructs higher-resolution images from lower-resolution frames,</> resulting in smoother and more detailed visuals without requiring additional processing power.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Textures", "source": "Textures", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Textures_Subtext", "source": "Texture Quality affects the <h>level of detail and resolution of textures applied to the surfaces of objects</> in a game's environment. This can include characters, environments, and objects such as weapons or vehicles.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_Title", "source": "Graphics", "target": "グラフィック", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_UpscaleQuality", "source": "Upscale Quality", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_UpscaleQuality_Subtext", "source": "Controls the quality in which <h>resolution scale</> scales the 3D rendering.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_ViewDistance", "source": "View Distance", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_ViewDistance_Far", "source": "Far", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_ViewDistance_Near", "source": "Near", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/GraphicsSettings_ViewDistance_Subtext", "source": "View Distance affects the <h>distance at which objects and elements in a game's environment are rendered and visible to the player.</> This can include terrain, buildings, and other objects in the game world.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/IngameMenu_Load", "source": "Load", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/IngameMenu_MainMenu", "source": "Back to main menu", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/IngameMenu_Pause", "source": "Pause", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/IngameMenu_Resume", "source": "Resume", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/IngameMenu_Save", "source": "Save", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/IngameSettings_Documents", "source": "Documents", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/IngameSettings_General", "source": "General", "target": "全般", "asset": "ST_Menu"}
+{"id": "ST_Menu/IngameSettings_Inventory", "source": "Inventory", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/Intro_PressAnyKey", "source": "PRESS ANY KEY TO START", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/Level_MoonTown", "source": "MoonTown", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/Level_MoonTown_Subtext", "source": "In Moon Town, the streets are bathed in silver light and secrets lurk in every shadow. It's a place where magic and mystery collide, beckoning the curious and daring to explore its enchanting depths.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MainMenu_Continue", "source": "Continue", "target": "つづきから", "asset": "ST_Menu"}
+{"id": "ST_Menu/MainMenu_Extras", "source": "Extras", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MainMenu_Loading", "source": "Loading...", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MainMenu_Multiplayer", "source": "Multiplayer", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MainMenu_NewGame", "source": "New Game", "target": "はじめから", "asset": "ST_Menu"}
+{"id": "ST_Menu/MainMenu_Options", "source": "Options", "target": "オプション", "asset": "ST_Menu"}
+{"id": "ST_Menu/MainMenu_Play", "source": "Play", "target": "プレイ", "asset": "ST_Menu"}
+{"id": "ST_Menu/MainMenu_Quit", "source": "Quit", "target": "終了", "asset": "ST_Menu"}
+{"id": "ST_Menu/MultiplayerMenu_HostGame", "source": "Host Game", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MultiplayerMenu_JoinGame", "source": "Join Game", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MultiplayerMenu_LocalMultiplayer", "source": "Local Multiplayer", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MultiplayerMenu_ServerBrowser", "source": "Server Browser", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MultiplayerSettings_Multiplayer", "source": "Multiplayer", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MultiplayerSettings_PlayerName", "source": "Player Name", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MultiplayerSettings_PlayerName_SubText", "source": "The name that other players will see when you join a multiplayer session. Choosing an inappropriate name may have <h>permanent consequences</> for your account's multiplayer access.", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MultiplayerSettings_ShowPlayerNames", "source": "Show Player Names", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/MultiplayerSettings_ShowPlayerNames_SubText", "source": "Display the player name <h>above the character's head.</> This can be turned off to create a more immersive experience at the cost of more difficult team communication.\r\n\r\n<b>Default Value: On</>", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/Multiplayer_FoundServers", "source": "Found Servers:", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/Multiplayer_Searching", "source": "Searching...", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/Multiplayer_StartGame", "source": "Start Game", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/OptionsMenu_Audio", "source": "Audio", "target": "音声", "asset": "ST_Menu"}
+{"id": "ST_Menu/OptionsMenu_Display", "source": "Display", "target": "画面", "asset": "ST_Menu"}
+{"id": "ST_Menu/OptionsMenu_Gameplay", "source": "Gameplay", "target": "ゲームプレイ", "asset": "ST_Menu"}
+{"id": "ST_Menu/OptionsMenu_Graphics", "source": "Graphics", "target": "グラフィック", "asset": "ST_Menu"}
+{"id": "ST_Menu/SaveGame_AreaHeader", "source": "Area", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/SaveGame_LastSavedHeader", "source": "Last Saved", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/SaveGame_LoadGameHeader", "source": "Load Game", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/SaveGame_NewGameHeader", "source": "Create New Game", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/SaveGame_PlayTimeHeader", "source": "Play Time", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/SaveGame_PreviewHeader", "source": "Preview", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/SaveGame_SaveGameHeader", "source": "Save Game", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/SaveGame_SavesHeader", "source": "Saves", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/SaveGame_SlotHeader", "source": "Slot", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ServerBrowser_NameHeader", "source": "Name", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ServerBrowser_Ping", "source": "Ping", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ServerBrowser_PlayerCountHeader", "source": "Players", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ServerBrowser_PreviewHeader", "source": "Preview", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ServerBrowser_RefreshServerList", "source": "Refresh Server List", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ServerBrowser_TitleHeader", "source": "Server Browser", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/ServerBrowser_ToggleLAN", "source": "Toggle LAN", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/Settings", "source": "Settings", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/Settings_Apply", "source": "Apply", "target": "適用", "asset": "ST_Menu"}
+{"id": "ST_Menu/Settings_Back", "source": "Back ", "target": "戻る", "asset": "ST_Menu"}
+{"id": "ST_Menu/Settings_General", "source": "General", "target": "全般", "asset": "ST_Menu"}
+{"id": "ST_Menu/Settings_Multiplayer", "source": "Multiplayer", "target": "", "asset": "ST_Menu"}
+{"id": "ST_Menu/Settings_Off", "source": "Off", "target": "オフ", "asset": "ST_Menu"}
+{"id": "ST_Menu/Settings_On", "source": "On", "target": "オン", "asset": "ST_Menu"}
+{"id": "ST_Menu/Settings_Reset", "source": "Reset settings", "target": "設定を初期化", "asset": "ST_Menu"}
+{"id": "ST_Menu/Settings_Video", "source": "Video", "target": "映像", "asset": "ST_Menu"}
+{"id": "ST_Menu/SingleplayerMenu_Singleplayer", "source": "Singleplayer", "target": "", "asset": "ST_Menu"}

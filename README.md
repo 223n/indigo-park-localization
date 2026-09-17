@@ -41,6 +41,7 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 | `CLAUDE.md` | Claude Codeが読む決まりです。ブランチを消さないための注意があります |
 | `SECURITY.md` | 脆弱性の報告先です |
 | `docs/RESEARCH.md` | 日本語化の調べものの記録です。ゲームの構成と差し替えの経路があります |
+| `docs/TRANSLATION.md` | 翻訳の指針です。キャラクターの口調と固有名詞の対訳があります |
 | `tools/` | 翻訳ファイルとMODを作る道具です。Python 3で動きます |
 | `data/corpus.json` | ゲームから集めた原文の一覧です |
 | `data/ja.po` | 日本語の訳です。PO形式で管理します |
@@ -71,7 +72,7 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 
 翻訳はPO形式で管理します。
 Poeditなどの翻訳ツールでそのまま開けます。
-手順は[tools/README.md](tools/README.md)にあります。
+手順は[tools/README.md](tools/README.md)、訳し方は[docs/TRANSLATION.md](docs/TRANSLATION.md)にあります。
 
 ## 使ううえでの注意
 

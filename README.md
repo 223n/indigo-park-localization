@@ -1,174 +1,69 @@
-# repo_template
+# Indigo Park 日本語化
 
-リポジトリのテンプレートです。
-日本語の文書の検査、日本語のラベル、Dependabot、GitFlowに沿ったリリースのワークフローが最初から入っています。
+Steam版のゲーム「Indigo Park」を日本語で遊ぶための、非公式の日本語化MODです。
+翻訳した文と、それをゲームへ適用する仕組みをこのリポジトリで管理します。
+
+開発元や販売元とは関わりがありません。
+ゲーム本体のファイルも含みません。
+
+## 対象
+
+| 項目 | 内容 |
+| ---- | ---- |
+| ゲーム | Indigo Park（Chapter 1） |
+| 入手先 | Steam |
+| 動く環境 | Windows |
+| 翻訳する向き | 英語から日本語へ |
+
+Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indigo Park`です。
+実行ファイルは`RaccoonCh1.exe`で、ゲームのデータは`RaccoonCh1\Content\Paks`にあります。
+
+## 導入する
+
+導入の手順はまだ決まっていません。
+配布の形（ファイルを置くだけにするか、適用の道具を用意するか）を決めてから、この節に書きます。
+
+公開したものはGitHubの「Releases」に並びます。
+それまでの中身は開発用です。
 
 ## 何が入っているか
 
+いまはリポジトリの土台だけがあります。
+翻訳のデータと適用の仕組みは、これから足します。
+
 | 位置 | 中身 |
 | ---- | ---- |
-| `.textlintrc.js`、`.markdownlint-cli2.jsonc` | 日本語の文書の検査設定です。規則は公開されている共有設定`@223n/lint-config-ja`にあります |
-| `.textlintignore`、`.github/.markdownlint.jsonc` | 検査から外すものと、`.github/`配下だけに効く追加の規則です |
+| `.textlintrc.js`、`.markdownlint-cli2.jsonc`、`.textlintignore` | 日本語の文書の検査設定です。規則は公開されている共有設定`@223n/lint-config-ja`にあります |
 | `package.json` | 検査に使う道具の依存です。版もここで管理します |
-| `.github/labels.yml` | IssueとPull Requestのラベルの定義です。すべて日本語です |
-| `.github/labeler.yml` | Pull Requestに、変えたファイルやブランチ名からラベルを付ける規則です |
-| `.github/dependabot.yml` | Dependabotの設定です。npmとGitHub Actionsを毎週まとめて更新します |
-| `.github/release.yml` | GitHub Releaseの本文を自動で作るときの分類です |
-| `.github/ISSUE_TEMPLATE/` | Issueのフォームです。バグ報告、機能の要望、質問の3つがあります |
-| `.github/pull_request_template.md` | Pull Requestのテンプレートです |
-| `.github/CODEOWNERS` | 変更の確認を求める相手です |
-| `.github/workflows/` | CI、CodeQL、ラベルの同期、ラベル付け、headブランチの確認、リリースのワークフローです |
-| `scripts/setup.sh`、`scripts/setup.ps1` | テンプレートから作った直後の設定をまとめて行うスクリプトです。`gh`を使います。中身は同じで、`.ps1`はWindows向けです |
+| `.github/` | ラベル、Dependabot、Issueのフォーム、Pull Requestのテンプレート、ワークフローです |
+| `scripts/setup.sh`、`scripts/setup.ps1` | リポジトリを作った直後の設定をまとめて行うスクリプトです。実行は済んでいます |
 | `CONTRIBUTING.md` | 貢献の手引きです。ブランチの運用と文書の書き方があります |
 | `CLAUDE.md` | Claude Codeが読む決まりです。ブランチを消さないための注意があります |
 | `SECURITY.md` | 脆弱性の報告先です |
 
-## テンプレートから作る
+## これから決めること
 
-1. GitHubでこのリポジトリを開き、「Use this template」から「Create a new repository」を選びます
-1. 「Include all branches」にはチェックを入れません
-1. 作ったリポジトリで、次の「作った直後にやること」を順に行います
+翻訳を始める前に、次を決めます。
+決めた内容はこのREADMEに書きます。
 
-「Include all branches」でブランチを複製すると、複製したブランチどうしが共通の祖先を持たない状態になります。
-テンプレートから作ったリポジトリは、ブランチごとに独立した最初のコミットから始まるためです。
-この状態では`main`と`develop`の間でPull Requestを作れず、リリースのワークフローも`merge`で止まります。
-`develop`は次の手順でスクリプトが`main`から作るため、チェックを入れる必要はありません。
-すでにチェックを入れて作ってしまった場合は、後の「履歴が繋がっていないとき」を見てください。
-
-### 要るもの
-
-セットアップのスクリプトを実行する前に、次をそろえます。
-
-| 要るもの | 何に使うか |
-| ---- | ---- |
-| リポジトリの管理者権限 | スクリプトが変える設定は、どれも管理者権限が要ります |
-| `gh`（GitHub CLI）とログイン | 設定の変更とPull Requestの作成に使います。先に`gh auth login`を済ませます |
-| `git`の`user.name`と`user.email` | スクリプトが名前の書き換えをコミットします |
-| Node 22以上 | 文書の検査（`npm run lint`）に使います。`scripts/setup.sh`は名前の書き換えにも使います |
-| PowerShell 7以上 | Windowsで`scripts/setup.ps1`を使う場合です。Windows PowerShell 5.1では動きません |
-
-`scripts/setup.ps1`は、名前の書き換えにNodeを使いません。
-
-スクリプトはcloneのルートで実行します。
-次の場合は、名前の書き換えと履歴の確認が飛ばされます。
-飛ばした項目は実行の最後に一覧で出るため、直してから実行し直せます。
-
-- cloneの外や、サブディレクトリで実行した
-- `--repo OWNER/REPO`で、いまいるcloneとは別のリポジトリを指定した
-- 作業木に未コミットの変更がある
-- 浅いclone（`--depth`付き）を使っている
-
-### 作った直後にやること
-
-`gh`（GitHub CLI）にログインしたうえで、cloneの中で次を実行します。
-
-```bash
-scripts/setup.sh                        # 設定をまとめて行う
-scripts/setup.sh --runs-on self-hosted  # セルフホストのランナーも設定する
-scripts/setup.sh --dry-run              # 何をするかを表示するだけ
-```
-
-WindowsではPowerShell 7以上で`scripts/setup.ps1`を使います。
-行うことは`scripts/setup.sh`と同じで、引数の書き方が違います。
-
-```powershell
-.\scripts\setup.ps1                      # 設定をまとめて行う
-.\scripts\setup.ps1 -RunsOn self-hosted  # セルフホストのランナーも設定する
-.\scripts\setup.ps1 -DryRun              # 何をするかを表示するだけ
-```
-
-`Get-Help .\scripts\setup.ps1 -Detailed`で引数の説明が読めます。
-実行が「このシステムではスクリプトの実行が無効になっている」と拒まれる場合は、`Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`を実行してから使います。
-
-スクリプトは次を行います。
-何度実行しても結果は同じで、失敗した項目は最後にまとめて表示します。
-
-- `develop`ブランチが無ければ`main`から作ります
-- `develop`ブランチがすでにある場合は、`main`と共通の祖先があるかを確かめます。無ければ警告します
-- 「Allow GitHub Actions to create and approve pull requests」を有効にします。リリースのワークフローがPull Requestを開くために要ります
-- squash mergeとrebase mergeを無効にし、マージ後にブランチを消す設定にします
-- 「ブランチの削除を禁止する」ルールセットを作り、`main`と`develop`が消えないようにします。効いているかも確かめます
-- Private vulnerability reporting、Dependabot alerts、Dependabot security updatesを有効にします
-- 「ラベルを同期する」ワークフローを起動します。既定の英語のラベルが日本語に置き換わります
-- `.github/CODEOWNERS`、`.github/ISSUE_TEMPLATE/config.yml`のURL、`package.json`の`name`をこのリポジトリのものに書き換え、`develop`へのPull Requestを開きます
-
-スクリプトを実行したら、残りは次の「必要な設定」と「自分で書き換えるファイル」を見てください。
-
-実行のあと、手元は`feature/setup-repository`ブランチに残ります。
-開かれたPull Requestをマージしたら、`develop`に戻してから作業を始めます。
-
-### 必要な設定
-
-GitHubの画面で行う設定です。
-「スクリプト」が「行う」のものは、セットアップのスクリプトが代わりに設定します。
-
-| 設定 | 場所 | スクリプト |
-| ---- | ---- | ---- |
-| ActionsにPull Requestの作成と承認を許す | 「Settings」→「Actions」→「General」→「Workflow permissions」 | 行う |
-| マージコミットだけを許し、マージ後にブランチを消す | 「Settings」→「General」→「Pull Requests」 | 行う |
-| Private vulnerability reporting | 「Settings」→「Advanced Security」 | 行う |
-| Dependabot alerts、Dependabot security updates | 「Settings」→「Advanced Security」 | 行う |
-| Code scanningのDefault setupを使わない | 「Settings」→「Advanced Security」 | 行わない |
-| `main`と`develop`の削除を禁止する | 「Settings」→「Rules」 | 行う |
-| `main`と`develop`のそのほかのブランチ保護（任意） | 「Settings」→「Rules」 | 行わない |
-| 変数`RUNS_ON`（セルフホストのランナーを使う場合） | 「Settings」→「Secrets and variables」→「Actions」→「Variables」 | `--runs-on`で行う |
-| このリポジトリ自身をテンプレートにする | 「Settings」→「General」→「Template repository」 | `--template`で行う |
-
-次は組織の管理者に頼みます。
-どれも、リポジトリ側では変えられません。
-
-- 組織の「Settings」→「Actions」→「General」で、ActionsによるPull Requestの作成を許可します
-- 組織で使えるアクションを制限している場合は、`.github/workflows/`が使うアクションを許可リストに入れてもらいます
-- 組織のセキュリティ設定が強制（enforced）で当たっている場合は、そちらを緩めてもらいます
-- 非公開リポジトリでCodeQLの結果を出すには、GitHub Code Securityのライセンスが要ります
-
-設定するときの注意です。
-
-- Private vulnerability reportingは公開リポジトリの機能です。非公開リポジトリでは有効にできず、Issueの選択画面の「脆弱性の報告」リンクも働きません
-- Code scanningのDefault setupは使いません。走査は`codeql.yml`が行います。誤って有効にしたときは、同じ画面で無効に戻します
-- 「Require code scanning results」の規則は、`codeql.yml`の結果（ツール名はCodeQL）で満たせます。ただし解析中とツールが未設定のときもマージを止めます
-- `develop`にPull Requestを必須にする規則をかけると、リリース後の戻しは毎回Pull Requestになります
-- ルールセットは無料プランの非公開リポジトリでは効きません。作れても守られないため、スクリプトが確かめて警告します
-- 「ブランチの削除を禁止する」ルールセットがあると、`develop`を消して作り直す復旧ができません。後の「履歴が繋がっていないとき」を見てください
-
-### 自分で書き換えるファイル
-
-テンプレート由来の値が残っているファイルです。
-「スクリプト」が「行う」のものは、セットアップのスクリプトが書き換えて`develop`へのPull Requestを開きます。
-
-| ファイル | 書き換えるところ | スクリプト |
-| ---- | ---- | ---- |
-| `.github/CODEOWNERS` | 変更の確認を求める相手 | 行う |
-| `.github/ISSUE_TEMPLATE/config.yml` | 脆弱性の報告先のURL | 行う |
-| `package.json` | `name` | 行う |
-| `package.json` | `description`と`version` | 行わない |
-| `package.json` | `private: true`。npmに公開するなら外します | 行わない |
-| `README.md` | このファイル全体 | 行わない |
-| `SECURITY.md` | 非公開で連絡できる先 | 行わない |
-| `LICENSE` | `Copyright [yyyy] [name of copyright owner]`の行 | 行わない |
-| `LICENSE`と`package.json`の`license` | ライセンスを変える場合 | 行わない |
-
-`version`はテンプレートの`0.2.0`から始まります。
-最初のリリースは`0.2.0`より大きい版だけが通ります。
-もっと小さい版から始めるなら、`main`と`develop`の両方で先に`version`を下げます。
+- ゲームからテキストを取り出す方法
+- 翻訳した文を置く形式と、その置き場所
+- 訳をゲームへ戻す方法
+- 日本語のフォントの用意
 
 ## 使ううえでの注意
 
-作る前に知っておくと、あとで困らないものです。
+作業を始める前に知っておくと、あとで困らないものです。
 
 | 場面 | 何が起きるか | どうするか |
 | ---- | ---- | ---- |
 | ブランチ名 | `release/`、`hotfix/`、`merge/`で始めると、リリースの仕組みが反応します | 作業ブランチには`feature/`を使います |
 | Pull Requestのhead | `main`や`develop`をheadにすると、「PRのheadブランチを確かめる」が失敗します | リリースはワークフローに任せます。詳しくは[CLAUDE.md](CLAUDE.md)にあります |
 | マージの方法 | squashやrebaseだと、リリースノートにPull Requestが載らず、次の版で衝突します | マージコミット（Create a merge commit）でマージします |
-| ラベル | 同期が済むまで、IssueフォームとDependabotが指定するラベルは黙って付きません | 最初のPull Requestを開く前にセットアップを済ませます |
-| `.github/CODEOWNERS` | Pull Requestのbaseブランチのものが読まれ、`main`には最初のリリースまで届きません | `main`向けのPull Requestで確認者が付かなくても、設定漏れではありません |
-| Issueのフォーム | 既定ブランチ（`main`）に入るまで、画面に反映されません | 同じく、`main`に入るまで待ちます |
 | セルフホストのランナー | `RUNS_ON`のラベルに一致するランナーが無いと、失敗せずに待機のまま止まります | 設定したらCIを手で1回動かして確かめます |
 | 改行コード | `.gitattributes`が全ファイルをLFに固定します | CRLFのファイルを持ち込むと、最初のコミットで全行が差分になります |
 
 リリースやCIが途中で止まったときは、ワークフローのログに日本語で対処方法が出ます。
-`main`と`develop`に共通の祖先が無い場合だけ、後の「履歴が繋がっていないとき」を見てください。
 
 ## 日本語の文書を検査する
 
@@ -324,50 +219,21 @@ Nodeはワークフローが用意します。
 | `release.yml` | 手動 | `develop`からリリースブランチを切り、版を上げ、`main`へのPull Requestを開きます |
 | `release-publish.yml` | `release/*`か`hotfix/*`のPull Requestが`main`にマージされたとき | タグを打ち、GitHub Releaseを作り、`main`を`develop`に戻します |
 
-## 履歴が繋がっていないとき
+## 権利について
 
-「Include all branches」にチェックを入れて作ったリポジトリでは、`main`と`develop`が共通の祖先を持ちません。
-セットアップのスクリプトはこれを見つけると、次のように警告します。
+このリポジトリは非公式です。
+ゲームの開発元や販売元とは関わりがなく、承認も受けていません。
 
-```text
-  ! main と develop の履歴が繋がっていない（共通の祖先が無い）
-```
+ゲームに含まれる文、画像、音声などの権利は権利者にあります。
+ゲームから取り出したファイルそのものは、このリポジトリに置きません。
+配布するのは、訳した文と、それを適用するための仕組みだけです。
 
-放っておくと、リリースのワークフローが`main`を取り込むところで止まります。
-`main`から`develop`への戻しもできず、版が`develop`に届かなくなります。
-
-直し方は2つあります。
-どちらを選ぶかは、`develop`に残したい変更があるかどうかで決まります。
-
-`develop`に残したい変更が無い場合は、`develop`を消してからスクリプトを実行し直します。
-スクリプトが`main`から`develop`を作り直すため、履歴が繋がります。
-Windowsでは`scripts/setup.sh`のところを`.\scripts\setup.ps1`に読み替えてください。
-
-```bash
-gh api --method DELETE "repos/OWNER/REPO/git/refs/heads/develop"
-scripts/setup.sh
-```
-
-「ブランチの削除を禁止する」ルールセットがあると、この削除は拒まれます。
-「Settings」→「Rules」でそのルールセットの「Enforcement」を「Disabled」にし、作り直したあとで「Active」に戻します。
-
-`develop`にすでに作業がある場合は、`main`を`--allow-unrelated-histories`付きで取り込みます。
-共通の祖先ができるため、以後は普通に行き来できます。
-
-```bash
-git switch develop
-git merge --allow-unrelated-histories origin/main
-git push origin develop
-```
-
-こちらには副作用が2つあります。
-共通の祖先が無いため、`main`にしかないファイルは削除ではなく追加として扱われ、`develop`に現れます。
-履歴にも、2つの根を繋ぐマージコミットが残ります。
-
-どちらの方法でも、`develop`から切った作業ブランチと、`develop`に向けて開いているPull Requestの扱いは確かめてください。
-`develop`を作り直した場合、それらは繋がらなくなります。
+権利者から求めがあった場合は、公開を取り下げます。
 
 ## ライセンス
 
 Apache License 2.0です。
 [LICENSE](LICENSE)を見てください。
+
+このライセンスが及ぶのは、このリポジトリで作ったものだけです。
+ゲーム本体には及びません。

@@ -1,2 +1,11 @@
 # 除外の書き方は .gitignore と違い、ディレクトリごと外すときは末尾を /** にする
 node_modules/**
+
+# MOD の組み立ての出力と、取得したフォント。どちらも生成物なので検査しない
+build/**
+.fontcache/**
+
+# 配布物に入れる説明。プレーンテキストで整形するため、文書の規則とは別に扱う
+installer/README.txt
+dist/**
+.toolcache/**

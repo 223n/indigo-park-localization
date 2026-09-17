@@ -17,7 +17,7 @@ name: リリース
 # 一度だけ要る設定:
 #   Settings > Actions > General > Workflow permissions で
 #   「Allow GitHub Actions to create and approve pull requests」を有効にする。
-#   これが無いと gh pr create が拒まれる。
+#   これがないと gh pr create が拒まれる。
 on:
   workflow_dispatch:
     inputs:
@@ -67,7 +67,7 @@ jobs:
         # GitHub がホストするランナーには入っている。セルフホストのランナーでは自分で入れる
         run: |
           if ! command -v gh >/dev/null 2>&1; then
-            echo "::error::gh（GitHub CLI）が無い。ランナーに入れてから実行する: https://cli.github.com/"
+            echo "::error::gh（GitHub CLI）がない。ランナーに入れてから実行する: https://cli.github.com/"
             exit 1
           fi
 
@@ -92,10 +92,10 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       - name: developブランチがあることを確かめる
-        # 無いまま checkout に進むと、原因の分かりにくい失敗になる
+        # ないまま checkout に進むと、原因の分かりにくい失敗になる
         run: |
           if ! gh api "repos/${GITHUB_REPOSITORY}/branches/${DEVELOP_BRANCH}" --silent 2>/dev/null; then
-            echo "::error::${DEVELOP_BRANCH} ブランチが無い。main から作ってから実行する"
+            echo "::error::${DEVELOP_BRANCH} ブランチがない。main から作ってから実行する"
             exit 1
           fi
 
@@ -204,11 +204,11 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git switch --create "${BRANCH}"
 
-          # 共通の祖先が無いと、木の中身が同じでも merge は必ず拒まれる。
+          # 共通の祖先がないと、木の中身が同じでも merge は必ず拒まれる。
           # テンプレートから「Include all branches」で作ったリポジトリがこの状態になる。
           # 先に確かめて、原因の分かる形で止める
           if ! git merge-base "origin/${MAIN_BRANCH}" HEAD >/dev/null 2>&1; then
-            echo "::error::${MAIN_BRANCH} と ${DEVELOP_BRANCH} に共通の祖先が無い。README の「履歴が繋がっていないとき」を見て直してから実行する"
+            echo "::error::${MAIN_BRANCH} と ${DEVELOP_BRANCH} に共通の祖先がない。README の「履歴が繋がっていないとき」を見て直してから実行する"
             exit 1
           fi
 
@@ -245,7 +245,7 @@ jobs:
           git push --set-upstream origin "${BRANCH}"
 
       - name: リリースノートの下書きを作る
-        # タグはまだ無いが、generate-notes は新しいタグ名でも受け付ける
+        # タグはまだないが、generate-notes は新しいタグ名でも受け付ける
         env:
           TAG: ${{ steps.version.outputs.tag }}
           BRANCH: ${{ steps.version.outputs.branch }}
@@ -292,7 +292,7 @@ jobs:
           echo "url=${url}" >> "$GITHUB_OUTPUT"
 
           # GITHUB_TOKEN が開いた PR ではラベラーが動かないため、ここで付ける。
-          # ラベルが無いリポジトリでも PR は開けるようにする
+          # ラベルがないリポジトリでも PR は開けるようにする
           gh pr edit "${number}" --add-label 'リリース' \
             || echo "::warning::ラベル「リリース」を付けられなかった。.github/labels.yml の同期が済んでいるか確かめる"
 
@@ -318,7 +318,7 @@ jobs:
       - name: GitHub CLIがあることを確かめる
         run: |
           if ! command -v gh >/dev/null 2>&1; then
-            echo "::error::gh（GitHub CLI）が無い。ランナーに入れてから実行する: https://cli.github.com/"
+            echo "::error::gh（GitHub CLI）がない。ランナーに入れてから実行する: https://cli.github.com/"
             exit 1
           fi
 

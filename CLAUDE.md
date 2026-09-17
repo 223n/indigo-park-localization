@@ -19,7 +19,7 @@ GitHubの文書は、この設定を「head branches automatically deleted after
 | `main`→`develop` | `main` | `main`が消える恐れがあります |
 
 `develop`が消えると、リリースのワークフローが最初の確認で止まります。
-`release.yml`が`develop`の存在をAPIで確かめ、無ければ`develop ブランチが無い`と出して終わるためです。
+`release.yml`が`develop`の存在をAPIで確かめ、無ければ`develop ブランチがない`と出して終わるためです。
 Dependabotの`target-branch`、ラベル同期の`--ref`、CIの`push`トリガーも`develop`を指しています。
 
 ### 代わりにすること
@@ -69,7 +69,7 @@ GitHubの文書は「Branch protection rules and repository rules can also preve
 これで戻ります。
 復元できる期間は公式の文書に書かれていないため、気付いたらすぐ戻してください。
 
-ボタンが無いときは、消える前の先端のSHAから作り直します。
+ボタンがないときは、消える前の先端のSHAから作り直します。
 
 ```bash
 gh pr view <番号> --json headRefOid --jq .headRefOid

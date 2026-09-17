@@ -22,7 +22,7 @@ jobs:
     permissions:
       contents: read         # .github/labeler.yml を読む
       pull-requests: write   # ラベルを付ける
-      issues: write          # ラベルの同期がまだのとき、無いラベルを作る。色と説明は次の同期で揃う
+      issues: write          # ラベルの同期がまだのとき、ないラベルを作る。色と説明は次の同期で揃う
     steps:
       - name: ラベルを付ける
         uses: actions/labeler@bf12e9b00b37c5c0ca2b87b79b2daf7891dbda13 # v7.0.0

@@ -1,0 +1,107 @@
+{
+  "_comment": "日本語フォントの入手先と、ゲームのどのフォントを置き換えるか。フォントを足すときは fonts に項目を増やし、replace の font を変える",
+  "fonts": {
+    "mplus1p": {
+      "name": "M PLUS 1p",
+      "license": "SIL Open Font License 1.1",
+      "license_file": "OFL.txt",
+      "base_url": "https://github.com/google/fonts/raw/main/ofl/mplus1p/",
+      "files": {
+        "Light": {
+          "file": "MPLUS1p-Light.ttf",
+          "sha256": "e39fa39f8556c3fdf47e01f68915d8d17936107f33fbead6b1b40fcf605c118c"
+        },
+        "Regular": {
+          "file": "MPLUS1p-Regular.ttf",
+          "sha256": "2f294ad496432b1608f070d310e3aa2adcf1de4af429f4901df97ec4bd361ed1"
+        },
+        "Medium": {
+          "file": "MPLUS1p-Medium.ttf",
+          "sha256": "28b2f52a40ae988064810b71d67e127df75a16e08d7df4e192d1006e4075394f"
+        },
+        "Bold": {
+          "file": "MPLUS1p-Bold.ttf",
+          "sha256": "76eb077b0a31ca33ca40238e47da5a17e2786741607cec09678d7d2e5ab1afc1"
+        }
+      },
+      "extra": {
+        "OFL.txt": "da15da6b1496d4de18f97e2ad1b722ef8a1c121149c2c93b2cf7eac6ac27b35c"
+      }
+    }
+  },
+  "default_font": "mplus1p",
+  "replace": [
+    {
+      "target": "RaccoonCh1/Content/MenuSystemPro/ExampleContent/Art/Fonts/Kanit-Regular.ufont",
+      "weight": "Regular"
+    },
+    {
+      "target": "RaccoonCh1/Content/MenuSystemPro/ExampleContent/Art/Fonts/Oswald-ExtraLight.ufont",
+      "weight": "Light"
+    },
+    {
+      "target": "RaccoonCh1/Content/MenuSystemPro/ExampleContent/Art/Fonts/Oswald-Light.ufont",
+      "weight": "Light"
+    },
+    {
+      "target": "RaccoonCh1/Content/MenuSystemPro/ExampleContent/Art/Fonts/Oswald-Regular.ufont",
+      "weight": "Regular"
+    },
+    {
+      "target": "RaccoonCh1/Content/MenuSystemPro/ExampleContent/Art/Fonts/Oswald-SemiBold.ufont",
+      "weight": "Medium"
+    },
+    {
+      "target": "RaccoonCh1/Content/MenuSystemPro/ExampleContent/Art/Fonts/Oswald-Bold.ufont",
+      "weight": "Bold"
+    },
+    {
+      "target": "RaccoonCh1/Content/RefinedMainMenu/Menu/Fonts/Font_Quicksand-Light.ufont",
+      "weight": "Light"
+    },
+    {
+      "target": "RaccoonCh1/Content/RefinedMainMenu/Menu/Fonts/Font_Quicksand-Regular.ufont",
+      "weight": "Regular"
+    },
+    {
+      "target": "RaccoonCh1/Content/RefinedMainMenu/Menu/Fonts/Font_Quicksand-Medium.ufont",
+      "weight": "Medium"
+    },
+    {
+      "target": "RaccoonCh1/Content/RefinedMainMenu/Menu/Fonts/Font_Quicksand-SemiBold.ufont",
+      "weight": "Medium"
+    },
+    {
+      "target": "RaccoonCh1/Content/RefinedMainMenu/Menu/Fonts/Font_Quicksand-Bold.ufont",
+      "weight": "Bold"
+    },
+    {
+      "target": "RaccoonCh1/Content/InspectionSystemPro/ExampleContent/Fonts/Questrial-Regular.ufont",
+      "weight": "Regular"
+    },
+    {
+      "target": "RaccoonCh1/Content/InspectionSystemPro/ExampleContent/Art/Fonts/Oswald-Light.ufont",
+      "weight": "Light"
+    },
+    {
+      "target": "RaccoonCh1/Content/InspectionSystemPro/ExampleContent/Art/Fonts/Oswald-Regular.ufont",
+      "weight": "Regular"
+    },
+    {
+      "target": "RaccoonCh1/Content/InspectionSystemPro/ExampleContent/Art/Fonts/Oswald-SemiBold.ufont",
+      "weight": "Medium"
+    },
+    {
+      "target": "RaccoonCh1/Content/InspectionSystemPro/ExampleContent/Art/Fonts/Oswald-Bold.ufont",
+      "weight": "Bold"
+    },
+    {
+      "target": "RaccoonCh1/Content/InspectionSystemPro/ExampleContent/Art/Fonts/DePixelHalbfett.ufont",
+      "weight": "Bold"
+    },
+    {
+      "target": "RaccoonCh1/Content/2dplatformerkit/font/Roboto-Regular.ufont",
+      "weight": "Regular"
+    }
+  ]
+}

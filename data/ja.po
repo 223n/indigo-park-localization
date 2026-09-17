@@ -1,0 +1,2868 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Indigo Park Localization\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. ftext: 3D_Menu/Widgets/MainMenu_Widget
+msgctxt "/8277D7D247727A4F8626ECA212E68994"
+msgid "Play"
+msgstr "プレイ"
+
+#. ftext: 3D_Menu/Widgets/MainMenu_Widget
+msgctxt "/3E641C3448EB4EA0331369A15715663B"
+msgid "Options"
+msgstr "オプション"
+
+#. ftext: 3D_Menu/Widgets/MainMenu_Widget
+msgctxt "/51742D494854D84B9894A5999478D2BC"
+msgid "Play"
+msgstr "プレイ"
+
+#. ftext: FirstPersonGameInstance
+msgctxt "/151464D549E9C74DC1D31592FE931471"
+msgid "Find your way into the park."
+msgstr "パークへの入り方を探そう。"
+
+#. ftext: InspectionSystemPro/Blueprints/UI/Widgets/Discovery/WBP_DiscoveryCategoryButton
+msgctxt "/2D5DFDA74083EAF7093CF4B13690FD19"
+msgid "All"
+msgstr "すべて"
+
+#. ftext: Levels/ChaseScene
+msgctxt "/4580A26049FDD4B81E7D9AB4C79F4B4F"
+msgid "Enter backstage area here"
+msgstr "ここからステージ裏へ"
+
+#. ftext: Levels/RailroadTunnel
+msgctxt "/3B1AD4534B73AE589AFE29A7366C8FBC"
+msgid "Women's Restroom"
+msgstr "女子トイレ"
+
+#. ftext: Levels/RailroadTunnel
+msgctxt "/549150B9421658818EF1E280EF57A4A7"
+msgid "Men's Restroom"
+msgstr "男子トイレ"
+
+#. ftext: RambleyFiles/Voice/AhTheIndigoViolet
+msgctxt "/834BC6CA4907D49322AE129501B1E48D"
+msgid "Ah, the Indigo Violet Compact Power Generator!"
+msgstr "おっと、インディゴバイオレット小型発電機だ！"
+
+#. ftext: RambleyFiles/Voice/AhTheIndigoViolet
+msgctxt "/3B9350C4434FBC6807024E95FEC2BB3F"
+msgid "But it seems to be inoperable."
+msgstr "でも、動かないみたいだね。"
+
+#. ftext: RambleyFiles/Voice/AhTheIndigoViolet
+msgctxt "/7F41F6DB45DEA7786DF7C3BDBC872687"
+msgid "Looks like it's missing a piece. Can you find it?"
+msgstr "部品が足りないみたいだ。キミ、探してきてくれる？"
+
+#. ftext: RambleyFiles/Voice/AhThereYouAreBuddy
+msgctxt "/22421F944422B59DBBF72499C47DA2BE"
+msgid "Ah, there you are buddy!"
+msgstr "おっ、そこにいたか！"
+
+#. ftext: RambleyFiles/Voice/CarefulBehindStage
+msgctxt "/FC10A2564B08311B771D22A3B0B52029"
+msgid "Hey buddy. I've got eyes all over the park, but I can't see anything behind the stage."
+msgstr "ねえキミ。ボクはパーク中に目があるんだけど、ステージの裏だけは何も見えないんだ。"
+
+#. ftext: RambleyFiles/Voice/CarefulBehindStage
+msgctxt "/E75C761E48FF264604FDB7AAE4A96B5A"
+msgid "If you're going back there be careful."
+msgstr "あっちへ行くなら、気をつけてね。"
+
+#. ftext: RambleyFiles/Voice/CarefulBehindStage
+msgctxt "/5543FC63418BA6FC7023749F1C204A3F"
+msgid "Your Critter Cuff is not yet able to resuscitate you!"
+msgstr "キミのクリッターカフは、まだ蘇生機能が使えないんだからさ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/FinleyPlush
+msgctxt "/88A3F07247E6FA238F39C2906D21BD26"
+msgid "Ooh, you found my buddy Finley!"
+msgstr "おお、ボクの親友フィンリーを見つけたね！"
+
+#. ftext: RambleyFiles/Voice/Collectables/FinleyPlush
+msgctxt "/1001A3F541D2A93E8910758AD95720E3"
+msgid "You know, he’s really shy, like, TOO shy."
+msgstr "あいつ、ほんとに恥ずかしがり屋でさ。ちょっと度が過ぎるくらい。"
+
+#. ftext: RambleyFiles/Voice/Collectables/FinleyPlush
+msgctxt "/C3008952445A5304DF21868CC2496E2E"
+msgid "Like, OBNOXIOUSLY shy, but he’s got a good heart."
+msgstr "いや、うっとうしいほど内気なんだけど、根はいいヤツなんだ。"
+
+#. ftext: RambleyFiles/Voice/Collectables/FinleyPlush
+msgctxt "/ABE13D14416F497C3442E987740F6D2E"
+msgid "I hope you get to meet him someday!"
+msgstr "いつかキミにも会わせてあげたいなあ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/GoldenRambleyPlush
+msgctxt "/E413E49549EB3596D1753FB1C8CF93E1"
+msgid "Wow, is that a limited edition gold Rambley plush?!"
+msgstr "うわあ、それって限定版のゴールドランブリーぬいぐるみ！？"
+
+#. ftext: RambleyFiles/Voice/Collectables/GoldenRambleyPlush
+msgctxt "/22EAC93D421125F0E2BB8BAE44AB4985"
+msgid "Parents were fighting tooth and nail for those things when they came out!"
+msgstr "発売当時はね、親たちが爪と牙をむいて奪い合ったんだ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/GoldenRambleyPlush
+msgctxt "/FE2480C94575225379D1F4860A78DB5C"
+msgid "Seriously, our employees had to clean up SO many stray teeth and nails!"
+msgstr "マジめな話、抜けた爪と歯の片づけがそれはもう大変で！"
+
+#. ftext: RambleyFiles/Voice/Collectables/GoldenRambleyPlush
+msgctxt "/4526D2E248545EAA741BDB93C2B2F22C"
+msgid "Hard to believe there was all that demand for a regular Rambley plush"
+msgstr "ただのランブリーぬいぐるみに金のスプレーを吹いただけなのに、"
+
+#. ftext: RambleyFiles/Voice/Collectables/GoldenRambleyPlush
+msgctxt "/AA19C5294B493C51E6F22586C52FF46B"
+msgid "we just blasted with gold spray paint…"
+msgstr "あんなに欲しがられたなんて、今でも信じられないよ…"
+
+#. ftext: RambleyFiles/Voice/Collectables/LloydPlush
+msgctxt "/FD259A0548078BD0DFF38F9707BFF5DE"
+msgid "ew lloyd..."
+msgstr "うわ、ロイドか…"
+
+#. ftext: RambleyFiles/Voice/Collectables/MolliePlush
+msgctxt "/06AE2E544E19EF2EA7AE31AA14AA1CF2"
+msgid "Oh, a Mollie plush!"
+msgstr "お、モリーのぬいぐるみだ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/MolliePlush
+msgctxt "/5FA827C040F72874D8231C8A7B8987FB"
+msgid "She’s always been my best friend!"
+msgstr "彼女とはずっと大の親友なんだ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/MolliePlush
+msgctxt "/C6F8725E4F80D32AA26946BBAB06D77E"
+msgid "Did you know she builds planes in her Landing Pad at the park?!"
+msgstr "知ってた？ モリーはパークのランディングパッドで飛行機を作ってるんだよ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/MolliePlush
+msgctxt "/01412AA24D8F512493B8CC94E0C78991"
+msgid "And then she crashes them!"
+msgstr "そんで、墜落させるんだ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/MolliePlush
+msgctxt "/6A4433C84ACD1C523A0563A1DC2D7FC7"
+msgid "She’s so talented! "
+msgstr "ほんと、才能のかたまりだよね！"
+
+#. ftext: RambleyFiles/Voice/Collectables/PercyPoodle
+msgctxt "/0BF58222496A6F75CF01E38BDC921148"
+msgid "Hey buddy, did you dig that out of the lost and found?! Or was it in the trash?"
+msgstr "ねえキミ、それ落とし物入れから掘り出してきたの！？ それともゴミ箱？"
+
+#. ftext: RambleyFiles/Voice/Collectables/PercyPoodle
+msgctxt "/A6F72D414A09C95FE245FB86DCC89B27"
+msgid "No surprise a guest at our park would dispose of a non indigo-brand toy!"
+msgstr "インディゴブランドじゃないおもちゃなんて、うちのお客さんなら捨てて当然だよね！"
+
+#. ftext: RambleyFiles/Voice/Collectables/PercyPoodle
+msgctxt "/25710D5B4271F0F8D2CF5EA4CC6374E5"
+msgid "I suppose he’d make playtime special for a child with poor taste, though!"
+msgstr "まあ、趣味の悪い子どもにとっては、特別な遊び相手になるんじゃないかな！"
+
+#. ftext: RambleyFiles/Voice/Collectables/Rambleberry
+msgctxt "/7402598D49946935F84C7A97B6642181"
+msgid "WOAH, where’d you get that?! Rambleberries are my FAVORITE!"
+msgstr "うわあ、それどこで手に入れたの！？ ランブルベリーはボクの大好物なんだ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/Rambleberry
+msgctxt "/A46B5A394C27A3176E224CB4D1294141"
+msgid "Oh, if only I could jump out of the screen and take a big bite…"
+msgstr "ああ、画面から飛び出して、思いっきりかぶりつけたらなあ…"
+
+#. ftext: RambleyFiles/Voice/Collectables/Rambleberry
+msgctxt "/C31B98334D10B743C2229481766F0384"
+msgid "DON’T EAT IT! MAYBE I’LL BE ABLE TO ONE DAY!"
+msgstr "食べちゃダメだよ！ いつかボクが食べられる日が来るかもしれないんだから！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyCup
+msgctxt "/C7B4680A4B6975C8321B0AA849E6F734"
+msgid "Ooo! That’s a Rambley Cup! "
+msgstr "おおっ！ それはランブリーカップだ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyCup
+msgctxt "/717A51E74BCB24090485489B9C2EC6B0"
+msgid "Nothing beats the taste of fresh Rambleberry Juice drunk"
+msgstr "採れたてのランブルベリージュースはね、"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyCup
+msgctxt "/10B0934140D9DCFEAE5C74894EEC0169"
+msgid "directly out of my plastic, lifeless head!"
+msgstr "ボクのプラスチック製の、命なき頭から直接飲むのが一番なのさ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyEars
+msgctxt "/65A1CE3B4BBFDFB450AAC393C5344010"
+msgid "Rambley ears! Those used to fly off the shelves!"
+msgstr "ランブリーの耳だ！ 昔は棚から飛ぶように売れたんだよ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyEars
+msgctxt "/0DAC966A4F3C8A06354B37A6594A2E46"
+msgid "That pair is pretty damaged, though…keep your eyes peeled."
+msgstr "そいつはだいぶ傷んでるけどね…目を皿にして探してごらん。"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyEars
+msgctxt "/5287BF6D43FFEC7CC014CF8058A3F4D3"
+msgid "There’s GOTTA be at least one more mint condition set out there somewhere"
+msgstr "どこかに新品同様のがもう一組、絶対に残ってるはずなんだ。"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyEars
+msgctxt "/26FBFCE249B422095B877792124AFC36"
+msgid "…like a yard sale!"
+msgstr "…ガレージセールとかにさ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyHead
+msgctxt "/44E8A4A04222039B831E969B727783C7"
+msgid "Woah! Where’d you find that?!"
+msgstr "うわっ！ それどこで見つけたの！？"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyHead
+msgctxt "/78F7514F454DE7E11E4C09976730DF62"
+msgid "I’ve never seen anyone wearing one! Pretty snazzy…"
+msgstr "着てる人なんて見たことないよ！ なかなかイケてるね…"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyHead
+msgctxt "/DB93FE7F4994F3CC90D3349C3C911BDF"
+msgid "Ooooh, looks like there’s an audio recording tagged with "
+msgstr "おおっ、データベースに「コスチューム」ってタグの付いた"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyHead
+msgctxt "/F2C9CC6D4E5DE90244D81CBE7F233568"
+msgid "“COSTUME” in my database I’ve never noticed before! Let’s listen, let’s listen!"
+msgstr "音声記録があるみたいだ。今まで気づかなかった！ 聴こう、聴いてみよう！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyHead
+msgctxt "/6D9716764962E8020A72DFB200F646C0"
+msgid "Hey Jackson, you hear about the new mascots?"
+msgstr "なあジャクソン、新しいマスコットの話、聞いたか？"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyHead
+msgctxt "/5C30F1E14FC4808EAE54DE8689AE9BB1"
+msgid "Yeah, think it'll put us out of a job?"
+msgstr "ああ。オレたち、仕事なくなるんじゃねえか？"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyHead
+msgctxt "/EBDB2C264D36A50CFE9C77AC71A7AC30"
+msgid "I think so, Old Sport, and right after we got this damn raccoon costume."
+msgstr "だろうな、オールドスポート。このクソみたいなアライグマの着ぐるみをもらった直後にだぜ。"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyHead
+msgctxt "/DF800FF14249015021480DB8BCF5483A"
+msgid "Man, screw this place. "
+msgstr "あーもう、こんなとこやってらんねえ。"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyHead
+msgctxt "/4866D6EC43E2CFCD97FA249394073D82"
+msgid "I say we get our asses out of here and go straight to Vegas. "
+msgstr "とっととバックレて、まっすぐベガスにでも行こうぜ。"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyHead
+msgctxt "/09AB74B8477BBA5AD6D8A291E2D8D7D5"
+msgid "Ugh, come on! They didn’t even document the Indigo Inventory ID for the costume!"
+msgstr "うわ、なんだよ！ コスチュームのインディゴ在庫IDすら記録してないじゃないか！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyHead
+msgctxt "/3787298E4503290F25F58B9DAC9B8129"
+msgid "I was REALLY looking forward to that…What a useless recording. DELETED."
+msgstr "すごく楽しみにしてたのに…なんの役にも立たない記録だ。削除。"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyPlush
+msgctxt "/F7058660460C8D25162FE696F15EDA1D"
+msgid "CONGRATULATIONS! You found ME! Don’t I look adorable?"
+msgstr "おめでとう！ ボクを見つけたね！ かわいいでしょ？"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyRactionFigure
+msgctxt "/71FBD1B6486E01CB12459AB06AFB49FB"
+msgid "Ooh, ooh! I got this! I know the commercial by heart!"
+msgstr "ねえねえ、それ知ってる！ コマーシャルなら暗記してるよ！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyRactionFigure
+msgctxt "/4F217C844A8F478935AE57B9FF2F47DB"
+msgid "WOW! It’s the unlimited-edition Rambley The Racoon Raction Figure!"
+msgstr "うわあ！ 無限定版ランブリー・ザ・ラクーン ラクションフィギュア！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyRactionFigure
+msgctxt "/F519511A45917ACCA09BA28DF0B924F8"
+msgid "Push him down and he jumps! Push him up and he doesn’t!"
+msgstr "下に押すと飛び跳ねる！ 上に押すと飛び跳ねない！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RambleyRactionFigure
+msgctxt "/ABB31D9648693D1BD04AE5B01890136A"
+msgid "Only $19.99 at your favorite toy store!"
+msgstr "お近くのおもちゃ屋さんで、たったの19.99ドル！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RetroLloyd
+msgctxt "/73A6F4954E39CA63F2BAAAB4CD490064"
+msgid "Ugh…I don’t get why we even have those."
+msgstr "うーん…なんでこんなの置いてるんだろうね。"
+
+#. ftext: RambleyFiles/Voice/Collectables/RetroLloyd
+msgctxt "/DD313EB34734E4674A37C6ACECF1B5E8"
+msgid "And why did they only make one of LLOYD?"
+msgstr "しかも、どうしてロイドのだけ作ったのさ？"
+
+#. ftext: RambleyFiles/Voice/Collectables/RetroLloyd
+msgctxt "/AD214CEB4C1452301120DA9D782DED25"
+msgid " Is it because he’s the loudest?"
+msgstr "いちばん声がデカいから？"
+
+#. ftext: RambleyFiles/Voice/Collectables/RetroLloyd
+msgctxt "/D344A1A242D2EE2339AE6C9DB2385206"
+msgid "I CAN BE LOUD TOO!"
+msgstr "ボクだって大声出せるんだからね！"
+
+#. ftext: RambleyFiles/Voice/Collectables/RetroLloyd
+msgctxt "/2329F1B742DA73E8B30F7783DC867784"
+msgid "WHERE’S MY LIMITED-EDITION THROWBACK PLUSH?! "
+msgstr "ボクの限定復刻ぬいぐるみはどこ！？"
+
+#. ftext: RambleyFiles/Voice/Collectables/RetroLloyd
+msgctxt "/DEE0D0914686192065F077B037F920F0"
+msgid "WHERE’S MOLLIE’S? WHERE’S FINLEY’S?"
+msgstr "モリーのは？ フィンリーのは？"
+
+#. ftext: RambleyFiles/Voice/Collectables/RetroLloyd
+msgctxt "/DE1CD5634D597912A9E762B23B60A5B3"
+msgid "Give this mistake to a child and they’ll cry."
+msgstr "こんな失敗作、子どもにあげたら泣いちゃうよ。"
+
+#. ftext: RambleyFiles/Voice/ConductorRambley
+msgctxt "/2D50BDC948FCA5E081E6D0A85E6F7172"
+msgid "Welcome to Rambley’s Railroad! I’m Conductor Rambley!"
+msgstr "ようこそランブリー鉄道（Rambley's Railroad）へ！ 車掌のランブリーです！"
+
+#. ftext: RambleyFiles/Voice/ExplainingInfo
+msgctxt "/9D5BC2AA4BE8C263319CC9AC7D0189E2"
+msgid "This here's an information kiosk!"
+msgstr "ここはインフォメーションキオスクだよ！"
+
+#. ftext: RambleyFiles/Voice/ExplainingInfo
+msgctxt "/748FAFB445B1357BE0B9A0AAF7DA6E07"
+msgid "If there's anything around the park you wanna ask me about"
+msgstr "パークのことで聞きたいことがあったら、"
+
+#. ftext: RambleyFiles/Voice/ExplainingInfo
+msgctxt "/73B2BCBF4C68144C9233EB89863C2EE7"
+msgid "Just stop by here and I'll"
+msgstr "ここに寄ってくれれば、"
+
+#. ftext: RambleyFiles/Voice/ExplainingInfo
+msgctxt "/46AB6C524D2092343649E4B1FE00707E"
+msgid "ramble"
+msgstr "ランブリーだけに"
+
+#. ftext: RambleyFiles/Voice/ExplainingInfo
+msgctxt "/26BFA643449282ABF39AAFA82B725AB6"
+msgid "on about it!"
+msgstr "ランランと語っちゃうよ！"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/C97675EF4AE19B3B96512B92F4F137D3"
+msgid "Welcome to the Rambley's Ranglers (registered) room!"
+msgstr "ようこそ、ランブリーズ・ラングラー（登録商標）ルームへ！"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/7EA68FE54873195280A40684E30004A9"
+msgid "Here we have plenty of amenities and— ahh— okay okay. "
+msgstr "ここには充実した設備が——ああ——うん、わかった、わかったよ。"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/EA82C583437B3D865CB5799154964505"
+msgid "I can see in your facial tracking that you're scared- CONFUSED— angry-y-y upset-…"
+msgstr "キミの顔認識データに出てる。怖がって——混乱して——怒って、いや、動揺し——"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/75A92DE04A0BFC4061DE31945E5C9659"
+msgid "transparency is an important part of our policy here at indigo park so…"
+msgstr "透明性はインディゴパークの大切な方針だから…"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/848260944C0AEB530F3C7493DB4D1D09"
+msgid "I need to be honest about something. "
+msgstr "正直に話さなきゃいけないことがあるんだ。"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/08C1C0204F101221B16EA5B9C0104761"
+msgid "The park has been inactive for years, employees stopped showing up, guests too… the mascots are… "
+msgstr "このパークは何年も止まってる。従業員は来なくなって、お客さんも…マスコットたちは…"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/C615E23A46540C702608E6A2FBA1C077"
+msgid "I just was so excited to see a visitor and I wanted to be sure you were given the best experience possible!"
+msgstr "ただ、久しぶりのお客さんが嬉しくて、最高の体験をしてほしかったんだ！"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/A902B0B64CF1A0BE20D3F0A23AB58ED5"
+msgid "but I was confined to the entrance for so long, I didn’t realize just how much disrepair the park has… fallen into."
+msgstr "でもボクはずっと入口に閉じ込められてて、パークがどれだけ…荒れ果てたか、知らなかった。"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/29E9398A4E480181AE707098508EF8BF"
+msgid " I’m wasting all of your fun time…"
+msgstr "キミの楽しい時間を、無駄にしてるね…"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/B2016C014F7A526B4FED3EB1FD3C0345"
+msgid "Ehh, sorry for the inconvenience…"
+msgstr "ああ、ご迷惑をおかけして…"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/4BBBDEF641B496132E1A15BCE19D44E2"
+msgid "but… BUT!! I have an idea! "
+msgstr "でも…でもっ！ いい考えがある！"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/6B7E09FC48F52A9566F6A0B41FD0CA26"
+msgid "I have access to the repair documentation in my database!"
+msgstr "ボクのデータベースには、修理の手順書があるんだ！"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/9F6F77ED4B29903E9FE1319853A01C3A"
+msgid "I just can’t execute most tasks without authorization from a human user…"
+msgstr "ただ、人間のユーザーの承認がないと、ほとんどの作業を実行できなくて…"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/176825224B2A12437E77FB9EC299C519"
+msgid "You must’ve come here because the park matters to you too, right?"
+msgstr "キミもこのパークが大切だから、ここに来たんだよね？"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/6ED3760846E22F4C52A417A847115713"
+msgid "Would you… be willing to help me restore the park?"
+msgstr "よかったら…このパークを直すの、手伝ってくれないかな？"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/2901D6B64B88B1DF37AD18AD963DD981"
+msgid " I can see in your facial tracking data that you aren’t opposed to this!"
+msgstr "キミの顔認識データによると、反対じゃなさそうだね！"
+
+#. ftext: RambleyFiles/Voice/FinalMonologue
+msgctxt "/76C6F0C84FAD26CBAC49CE8F2E0E8421"
+msgid "Oooh, I’m so excited! Let’s get this place back in business!"
+msgstr "ああ、ワクワクしてきた！ このパークを営業再開といこう！"
+
+#. ftext: RambleyFiles/Voice/HereYouGoBuddy
+msgctxt "/7886F7D74746F8555C00DB804B6732D7"
+msgid "Here you go buddy!"
+msgstr "はい、どうぞ！"
+
+#. ftext: RambleyFiles/Voice/HereYouGoBuddy
+msgctxt "/532F7981426754AA37869586A66870C7"
+msgid "Your very own Critter Cuff!"
+msgstr "キミ専用のクリッターカフ（Critter Cuff）だ！"
+
+#. ftext: RambleyFiles/Voice/HereYouGoBuddy
+msgctxt "/D00BFCB9495885D105BF2B970A2B4F9E"
+msgid "A new way to interact with the park,"
+msgstr "パークを楽しむ新しい方法にして、"
+
+#. ftext: RambleyFiles/Voice/HereYouGoBuddy
+msgctxt "/3205C1234BAB07D2135037AA176AF22A"
+msgid "that also doubles as a pedometer, heart monitor, and mood ring!"
+msgstr "歩数計、心拍計、そして気分リングも兼ねてるんだ！"
+
+#. ftext: RambleyFiles/Voice/HereYouGoBuddy
+msgctxt "/86610F67464E7D10632218B9AA22BF7D"
+msgid "(Data disclosure agreement included)"
+msgstr "（データ提供の同意が含まれます）"
+
+#. ftext: RambleyFiles/Voice/HeyBuddyComeOverHere
+msgctxt "/6C75D6DD4DA6D03108B5B980F470CC36"
+msgid "Hey buddy! Come over here!"
+msgstr "ねえキミ！ こっちこっち！"
+
+#. ftext: RambleyFiles/Voice/ILikeTrains
+msgctxt "/66B7E2C1447AB17C65B03589D362FC82"
+msgid "Your facial data suggests you may be a bit older than the target audience for this ride,"
+msgstr "キミの顔データによると、この乗り物の対象年齢より少し上みたいだけど、"
+
+#. ftext: RambleyFiles/Voice/ILikeTrains
+msgctxt "/729442494D27B93488D4AB96BBEBB404"
+msgid "but it’s one of my favorites!"
+msgstr "ボクのお気に入りのひとつなんだ！"
+
+#. ftext: RambleyFiles/Voice/ILikeTrains
+msgctxt "/C1F625A84936E3488DFB9B8A43761BA6"
+msgid "Do you know why RAMBLEY the Raccoon loves RAMBLEY’s Railroad?"
+msgstr "ランブリー・ザ・ラクーンが、どうしてランブリー鉄道を大好きなのか分かる？"
+
+#. ftext: RambleyFiles/Voice/ILikeTrains
+msgctxt "/A58C415F45A500F79BD0CF8991A5DA60"
+msgid "‘Cause I like trains!"
+msgstr "だって、電車が好きだからさ！"
+
+#. ftext: RambleyFiles/Voice/JetstreamJunctionislockedup
+msgctxt "/F980DD7940719AEC07DAA09993F14C9B"
+msgid "Well, look at that! You’re at Jetstream Junction!"
+msgstr "おっと、見てごらん！ ジェットストリーム・ジャンクション（Jetstream Junction）だ！"
+
+#. ftext: RambleyFiles/Voice/JetstreamJunctionislockedup
+msgctxt "/2E3B55A34B4CEA69D1BA2491CDE46472"
+msgid "Oops! Looks like Jetstream Junction’s being tuned up!"
+msgstr "あちゃー！ いまは調整中みたいだね！"
+
+#. ftext: RambleyFiles/Voice/JetstreamJunctionislockedup
+msgctxt "/B50C7EB246B8FEFA0731928ACD67E7F1"
+msgid " Last I checked, there’s a security office in the back of the theater."
+msgstr "たしか、シアターの奥に警備室があったはずだよ。"
+
+#. ftext: RambleyFiles/Voice/JetstreamJunctionislockedup
+msgctxt "/2BA762374D175A7528E7A085FE534896"
+msgid "Maybe a friendly Rangler can help you get in!"
+msgstr "親切なラングラーが、中に入れてくれるかも！"
+
+#. ftext: RambleyFiles/Voice/LetMeGetaLookatYou
+msgctxt "/56DB3AF34213F4C83D6363B1851121B1"
+msgid "Hi, I'm Rambley, Rambley the Raccoon"
+msgstr "やあ、ボクはランブリー。ランブリー・ザ・ラクーン。"
+
+#. ftext: RambleyFiles/Voice/LetMeGetaLookatYou
+msgctxt "/B3FE10A44B99543838CDDCAA2223E63D"
+msgid "and it's my job to make sure your experience here at Indigo Park is..."
+msgstr "キミのインディゴパークでの時間を、しっかり…"
+
+#. ftext: RambleyFiles/Voice/LetMeGetaLookatYou
+msgctxt "/7B3B90E44AF680F4AEDCCCBE38C413AB"
+msgid "registered!"
+msgstr "登録するのがボクの仕事さ！"
+
+#. ftext: RambleyFiles/Voice/LetMeGetaLookatYou
+msgctxt "/F1028EF94EFA18B7A083FF865A05761E"
+msgid "Let me just get a good look at you!"
+msgstr "ちょっとキミの顔をよく見せてね！"
+
+#. ftext: RambleyFiles/Voice/LetMeGetaLookatYou
+msgctxt "/FA76CD52488842492FC7C1992CEADC34"
+msgid "Hmm, I don't seem to have your face in our guest list."
+msgstr "ん、ゲスト名簿にキミの顔が見当たらないな。"
+
+#. ftext: RambleyFiles/Voice/LetMeGetaLookatYou
+msgctxt "/51D5ACFD45E3C3CCC3CA26B550D87989"
+msgid "Is this your first time here at the park?"
+msgstr "パークに来るのは初めて？"
+
+#. ftext: RambleyFiles/Voice/LetMeGetaLookatYou
+msgctxt "/CACACA094D6CFEF9387B1EB138320408"
+msgid "Or did you just get plastic surgery?"
+msgstr "それとも、整形したばかりとか？"
+
+#. ftext: RambleyFiles/Voice/LetMeGetaLookatYou
+msgctxt "/6CE3527249699799915857801F1B8FF2"
+msgid "No worries! It's Rambley Tuesday,"
+msgstr "大丈夫！ 今日はランブリー火曜日だから、"
+
+#. ftext: RambleyFiles/Voice/LetMeGetaLookatYou
+msgctxt "/84D702F14F5E923B0A88FCBCF84DCB30"
+msgid "so you qualify for a BIG discount on your visit!"
+msgstr "キミは大幅割引の対象だよ！"
+
+#. ftext: RambleyFiles/Voice/LetMeGetaLookatYou
+msgctxt "/EF3FD1C54888E0E783A759BC03788591"
+msgid "Just follow me to the main gate!"
+msgstr "メインゲートまで、ボクについてきて！"
+
+#. ftext: RambleyFiles/Voice/LetMeGetaLookatYou
+msgctxt "/9C4A2F264BED5DB9E8BA699F3E04F626"
+msgid "Ooh, I can’t wait for you to see everything Indigo Park has to offer!"
+msgstr "ああ、インディゴパークの全部をキミに見せるのが待ちきれないよ！"
+
+#. ftext: RambleyFiles/Voice/OceanicOdyssey
+msgctxt "/987E481542F2E46D6C9607A0A62A9574"
+msgid "Wow, you made it to Oceanic Odyssey!"
+msgstr "わあ、オーシャニック・オデッセイ（Oceanic Odyssey）まで来たんだね！"
+
+#. ftext: RambleyFiles/Voice/OceanicOdyssey
+msgctxt "/163DCA7D490D14C67A88CBA439791DDD"
+msgid "You’re doin’ a great job, Rookie Rangler! "
+msgstr "いい調子だよ、ルーキー・ラングラー！"
+
+#. ftext: RambleyFiles/Voice/PardonOurDust
+msgctxt "/FB1E04CF4ECA2844863556B33D35C601"
+msgid "Pardon our dust, buddy! Looks like the park is going through some… renovations."
+msgstr "お見苦しくてごめんね！ パークはいま、その…改装中みたいなんだ。"
+
+#. ftext: RambleyFiles/Voice/PardonOurDust
+msgctxt "/2DD8CEC14CF82E08ADD968BB5B191546"
+msgid "For the inconvenience,"
+msgstr "ご迷惑のお詫びとして、"
+
+#. ftext: RambleyFiles/Voice/PardonOurDust
+msgctxt "/FF61318046D5B6B8DFA15FB0C6A502D8"
+msgid "your Rambley Tuesday discount will be (free) PERCENT OFF!"
+msgstr "ランブリー火曜日の割引は、なんと（無料）パーセントオフ！"
+
+#. ftext: RambleyFiles/Voice/PardonOurDust
+msgctxt "/A28BCB3B4ACA94A7D814E28732939046"
+msgid "Why not celebrate this great deal with a ride on my railroad?"
+msgstr "この大盤振る舞いを記念して、ボクの鉄道に乗っていかない？"
+
+#. ftext: RambleyFiles/Voice/PardonOurDust
+msgctxt "/E25866E644B5FFBBF0B348A0AF334725"
+msgid "To test your sleuthing skills, I’ll let you find this one all by yourself!"
+msgstr "キミの探偵の腕試しに、場所はあえて教えないでおくよ！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Lloyd_Rambley
+msgctxt "/14203EE743CC2EC2BA620BA9588B02B4"
+msgid "*sigh*"
+msgstr "＊ためいき＊"
+
+#. ftext: RambleyFiles/Voice/Railroad_Lloyd_Rambley
+msgctxt "/86FEE8E34F7BC757E9EE0495204F56A0"
+msgid "Hey there, Lloyd..."
+msgstr "やあ、ロイド…"
+
+#. ftext: RambleyFiles/Voice/Railroad_Lloyd_Rambley
+msgctxt "/873A6EF5481685D38EAD11B7F446BE01"
+msgid " Do not SHAME me with that COMMON FOLK Name!"
+msgstr "そのような下賤な呼び名でワタクシを辱めるでないッ！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Lloyd_Rambley
+msgctxt "/B892E7394BC195D1E9D1BD999E9F881B"
+msgid "I am the PRRRRROUD"
+msgstr "ワタクシこそ、誇り高きィィィ"
+
+#. ftext: RambleyFiles/Voice/Railroad_Lloyd_Rambley
+msgctxt "/F6CD5CA04C2C19A3B8D804BF6643C740"
+msgid "the PRRRRESTIGIOUS"
+msgstr "由緒正しきィィィ"
+
+#. ftext: RambleyFiles/Voice/Railroad_Lloyd_Rambley
+msgctxt "/1E646C23403FEC3B965FB1AB19218861"
+msgid "the PRRRRRRROFESSIONAL"
+msgstr "真に professional なるゥゥゥ"
+
+#. ftext: RambleyFiles/Voice/Railroad_Lloyd_Rambley
+msgctxt "/F99862CF4B9386BC6CD3A592D176226A"
+msgid "Lloydford L. Lion"
+msgstr "ロイドフォード・L・ライオン！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Lloyd_Rambley
+msgctxt "/08CCE5F54789270F6BA72590906B6A29"
+msgid "Actor Extrrrrrrrodinaire"
+msgstr "名優中の名優であるゥゥゥ！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Lloyd_Rambley
+msgctxt "/DE4CB4F24CB428A7958462BC50A37230"
+msgid "Great act, Lloyd..."
+msgstr "いい芝居だったよ、ロイド…"
+
+#. ftext: RambleyFiles/Voice/Railroad_Lloyd_Rambley
+msgctxt "/17978F7F44C74A40A09A358BCB59B682"
+msgid " Of course it was! I’m the rrrrrrrea-"
+msgstr "当然であるッ！ ワタクシは本物のゥゥゥ——"
+
+#. ftext: RambleyFiles/Voice/Railroad_Mollie_Rambley
+msgctxt "/E8A8613446234D4D9DE5ECB076470360"
+msgid "Oh look! It’s Mollie Macaw!"
+msgstr "見て！ モリー・マコー（Mollie Macaw）だ！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Mollie_Rambley
+msgctxt "/8F52BC3F4377D3314A5469AD9D69625A"
+msgid "It's Mollie Macaw!"
+msgstr "アタシがモリー・マコー！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Mollie_Rambley
+msgctxt "/BB5772C54EB66C9E140401BB10B03AE3"
+msgid "The greatest pilot you ever saw!"
+msgstr "世界一のパイロットさ！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Mollie_Rambley
+msgctxt "/3D77E398449B090BEEA895BE239A592E"
+msgid "You sure are, Moll! Why, you only crashed into six barns this week!"
+msgstr "そのとおりだよモリー！ 今週なんて、納屋に六回しかぶつかってないもんね！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Mollie_Rambley
+msgctxt "/68FBD8E0471979D81A2580BA1647EE00"
+msgid "I'm not crashin', Rambley! I'm barnstormin'!"
+msgstr "墜落じゃないよランブリー！ アタシのは曲芸飛行さ！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Mollie_Rambley
+msgctxt "/A0B777384EBA998E7D36F2A29A09F623"
+msgid "Haha! What’s barnstorming? "
+msgstr "はは！ 曲芸飛行って何？"
+
+#. ftext: RambleyFiles/Voice/Railroad_Mollie_Rambley
+msgctxt "/FC6AD38A4BA3868CBFB585B44EAC3967"
+msgid "It's crashing, with style!"
+msgstr "かっこよく墜落することさ！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Mollie_Rambley
+msgctxt "/3591400B46A47FFD55D9D6B2692AC072"
+msgid "I-it barely hurts at all!"
+msgstr "い、痛くなんてほとんどないよ！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Mollie_Rambley
+msgctxt "/0A4FE7F14727FB8E807897A929F49FBD"
+msgid "Say, those young adventurers you’ve got along with you look like GREAT pilots!"
+msgstr "ねえ、そこの若い冒険者、腕のいいパイロットになりそうじゃない！"
+
+#. ftext: RambleyFiles/Voice/Railroad_Mollie_Rambley
+msgctxt "/724314224F935750F89EEEAFDA7062EE"
+msgid "Why not try your hand at flying in my ride, Rooftop Races?"
+msgstr "アタシの乗り物、ルーフトップ・レースで飛んでみない？"
+
+#. ftext: RambleyFiles/Voice/Railroad_Mollie_Rambley
+msgctxt "/7B51A71E43EEA8052F29F5A32AAF637E"
+msgid "Admission included with your Critter Cuff."
+msgstr "クリッターカフがあれば乗り放題だよ。"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/18C0E56A4EE32A48B0CD4888DB24D468"
+msgid "Oh, Finley! Come on out and greet the people!"
+msgstr "やあフィンリー！ 出てきてお客さんに挨拶してよ！"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/F6D650FF49B7E8CAD5C59393FC5E9FFE"
+msgid "hi rambley…"
+msgstr "…やあ、ランブリー…"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/F2CF4AAD4461D13C077C3A99D31045C3"
+msgid "Why the long face? And body?"
+msgstr "なんだか浮かない顔だね。顔も体も、長いままだけど。"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/062134734F93B974B7FD43AAC1D17F39"
+msgid "You’ve known me for 100 years, Rambley."
+msgstr "100年も前から知ってるでしょ、ランブリー…"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/0C49539D458F82CF58B73885A527761E"
+msgid "I’m ALWAYS Long because I’m always LONGING for a new Seashell for my collection…"
+msgstr "ぼくがいつも長いのは、コレクションの新しい貝がらを、いつも長らく待ちわびてるから…"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/5D06125B488DCE628FE8BE9A7FA9081D"
+msgid "Oh, Finley! You should come out of YOUR shell!"
+msgstr "もう、フィンリー！ キミこそ殻から出てきなよ！"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/07EE5BD8486F45F682B9B69CDDD53149"
+msgid "How about YOU come into it instead?"
+msgstr "…そっちが入ってくれば、いいのに。"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/DD178E3D40184305B39401BA377B6A03"
+msgid "My ride, Oceanic Odyssey,"
+msgstr "ぼくの乗り物、オーシャニック・オデッセイは、"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/2E90537C48968833471F5A81425F02F9"
+msgid "will teach you all about the wonders down under the deep blue sea."
+msgstr "深くて青い海の底の不思議を、ぜんぶ教えてくれるんだ。"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/7CAF437A44997EA70F8456827F1A3F23"
+msgid "It’s as blue as me."
+msgstr "ぼくとおなじくらい、青いよ。"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/6BBB16BE47130D9531556C9CE3F24553"
+msgid "I hope you’ll visit."
+msgstr "来てくれると、うれしいな。"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/05F3CA0B456FC8874FF1888E3DA00673"
+msgid "I’m so lonely…"
+msgstr "ずっと、ひとりぼっちなんだ…"
+
+#. ftext: RambleyFiles/Voice/RambleyFinleyRoom
+msgctxt "/FADB9EB64DEC3B6C48D9509F0EC6F139"
+msgid "Oceanic Odyssey currently closed for repairs!"
+msgstr "オーシャニック・オデッセイは、ただいま修理のため休止中！"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_4_WelcomeToIndigoPark
+msgctxt "/E731A9DF444B1EA5C8AADF8ED0B0EB82"
+msgid "Okay, for real this time."
+msgstr "よし、今度こそ本番。"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_4_WelcomeToIndigoPark
+msgctxt "/6F6C8FEE4CB06AEF04D499B9A9307583"
+msgid "Welcome to Indigo Park!"
+msgstr "ようこそ、インディゴパークへ！"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_5_OhSillyRambley
+msgctxt "/0E06FC1B410E9AC20433BAAF0E3D41CD"
+msgid "Oh, silly Rambley!"
+msgstr "おっと、ボクとしたことが！"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_5_OhSillyRambley
+msgctxt "/38BFCDDA4EABC881E04D9494D8750942"
+msgid "Every guest needs a Critter Cuff!"
+msgstr "お客さまには全員、クリッターカフが必要なんだった！"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_5_OhSillyRambley
+msgctxt "/8EB46E864032EB97C7F4148BEB309DE1"
+msgid "That will allow you to access reserved areas,"
+msgstr "あれがあれば、関係者エリアに入れて、"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_5_OhSillyRambley
+msgctxt "/BC5C395C4054805AC80502B13FE6B14F"
+msgid "charge payments to your room,"
+msgstr "お部屋にお代をつけられて、"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_5_OhSillyRambley
+msgctxt "/849B6B3D495313A0970CC2B152D5EF30"
+msgid "and"
+msgstr "それから"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_5_OhSillyRambley
+msgctxt "/830447E94EEAF71E8C4C0791202748F9"
+msgid "wear a critter cuff!"
+msgstr "クリッターカフを着けられる！"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_5_OhSillyRambley
+msgctxt "/D1FCB35D452481EC245A99BAB6EFD9D4"
+msgid "I think there’s some in the gift shop."
+msgstr "たしかギフトショップに置いてあったはずだよ。"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_5_OhSillyRambley
+msgctxt "/7FBBDB774E50BFBB81DB21BAE8942AD1"
+msgid "Head in there and I’ll get you set up!"
+msgstr "入ってみて。ボクが手続きしてあげる！"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_8_HoorayGreatWorkBuddy
+msgctxt "/2FF403CC4771A03B85A143AF658DFE0D"
+msgid "Hooray! Great work, buddy!"
+msgstr "やったね！ よくできました！"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_8_HoorayGreatWorkBuddy
+msgctxt "/F1A99EAB4E01277DC8D9D7B47F5D4DF5"
+msgid "Now try entering the park,"
+msgstr "じゃあパークに入ってみて、"
+
+#. ftext: RambleyFiles/Voice/RambleyScene_8_HoorayGreatWorkBuddy
+msgctxt "/8B05A99D480260177C306F931BDFB020"
+msgid "and we can start our Indigo Adventure!"
+msgstr "インディゴ・アドベンチャーの始まりだ！"
+
+#. ftext: RambleyFiles/Voice/RooftopRacesBeBroke
+msgctxt "/DEBF200148AE7F19D61EDDB589059AD1"
+msgid "Oh no, this is horrible…"
+msgstr "ああ、これはひどいな…"
+
+#. ftext: RambleyFiles/Voice/RooftopRacesBeBroke
+msgctxt "/070D062544A579EE25872B979B9E8D80"
+msgid "Ehhh, Looks like Mollie crashed into the Ride again!"
+msgstr "あちゃー、モリーがまた乗り物に突っ込んだみたいだ！"
+
+#. ftext: RambleyFiles/Voice/RooftopRacesBeBroke
+msgctxt "/1B6CC5B347A521E6869535951B9D28B8"
+msgid "Don’t worry, though. Your pal Rambley has the repairman on speed dial!"
+msgstr "でも心配ないよ。相棒のランブリーは、修理屋を短縮ダイヤルに入れてあるからね！"
+
+#. ftext: RambleyFiles/Voice/RooftopRacesBeBroke
+msgctxt "/5BED2A584F6B02400AD85DABDD79D671"
+msgid "     "
+msgstr "     "
+
+#. ftext: RambleyFiles/Voice/RooftopRacesBeBroke
+msgctxt "/D6F268E04E3A75338CD3D0BFB66561D3"
+msgid "We're sorry, the number you have dialed has been disconnected or is no longer in service."
+msgstr "おかけになった電話番号は、現在使われておりません。"
+
+#. ftext: RambleyFiles/Voice/RooftopRacesBeBroke
+msgctxt "/AFBECB154F4B272FFDBF8F967FD0FA88"
+msgid "Please check the number and dial again."
+msgstr "番号をお確かめのうえ、おかけ直しください。"
+
+#. ftext: RambleyFiles/Voice/RooftopRacesBeBroke
+msgctxt "/C8C274264E4978CDDEA1B5835AC38B78"
+msgid "…Say, why don’t you check out Mollie’s Landing Pad?"
+msgstr "…ところで、モリーのランディングパッドに行ってみない？"
+
+#. ftext: RambleyFiles/Voice/RooftopRacesBeBroke
+msgctxt "/A842E8D34661E0B3E78032B7DB292F03"
+msgid "It’s not far from here, and it’s a great cool down after that exhilarating ride!"
+msgstr "ここから近いし、あのスリルのあとのクールダウンにぴったりだよ！"
+
+#. ftext: RambleyFiles/Voice/RooftopRacesBeBroke
+msgctxt "/A0B86D8B410E8F4C2A0D8CB7FAEFDD3A"
+msgid "Just take a DOWN from Mollie’s Rooftop Races!"
+msgstr "ルーフトップ・レースから、下に降りるだけさ！"
+
+#. ftext: RambleyFiles/Voice/RookieRanglersRoomHall
+msgctxt "/D8798D2547F4E9735E7D94887A32B9B3"
+msgid "Uh oh! That Rambley’s Ranglers Room is only accessible by Royal Ranglers!"
+msgstr "おっと！ ランブリーズ・ラングラー・ルームは、ロイヤル・ラングラー専用なんだ！"
+
+#. ftext: RambleyFiles/Voice/RookieRanglersRoomHall
+msgctxt "/648067C240BA28083918F0B6616A070B"
+msgid "Maybe one day you’ll grow up big and strong enough to enter it!"
+msgstr "いつかキミも、入れるくらい大きく強くなれるかもね！"
+
+#. ftext: RambleyFiles/Voice/RookieRanglersRoomHall
+msgctxt "/955FC30B42E4B37DBC0683A68F586727"
+msgid "But for now, don’t."
+msgstr "でも今は、ダメ。"
+
+#. ftext: RambleyFiles/Voice/Surface
+msgctxt "/A073CB0947D30451CAFFF289D08EE31A"
+msgid "You’ll find a potpourri of porpoises, pickerels and perches as far as the eye can see,"
+msgstr "見渡すかぎり、イルカもカワカマスもスズキも、よりどりみどり。"
+
+#. ftext: RambleyFiles/Voice/Surface
+msgctxt "/B20C890648DE5FC7F0C701B946CCBF9D"
+msgid "but please don’t tap the glass."
+msgstr "でも、ガラスを叩くのはやめてね。"
+
+#. ftext: RambleyFiles/Voice/Surface
+msgctxt "/455BB1E14DD32D9328F2598265637886"
+msgid "You never really know what lies beneath the surface…"
+msgstr "水面の下に何がいるかなんて、誰にも分からないんだから…"
+
+#. ftext: RambleyFiles/Voice/TakeanUpAtMollie_sLandingPad
+msgctxt "/43726669453D2DB8C4626381A15FAB1C"
+msgid "Say, why don’t you check out Mollie’s Rooftop Races?"
+msgstr "ねえ、モリーのルーフトップ・レース（Rooftop Races）に行ってみない？"
+
+#. ftext: RambleyFiles/Voice/TakeanUpAtMollie_sLandingPad
+msgctxt "/908A2E2746DB0E332A8BF2BE0A7B3941"
+msgid "It’s not far from here, "
+msgstr "ここから近いし、"
+
+#. ftext: RambleyFiles/Voice/TakeanUpAtMollie_sLandingPad
+msgctxt "/1A7E083E4FB14BD3B9A8499C69B7654B"
+msgid "and it’s a great warm up before we get into the bigger rides!"
+msgstr "大きい乗り物に挑む前のウォームアップにぴったりだよ！"
+
+#. ftext: RambleyFiles/Voice/TakeanUpAtMollie_sLandingPad
+msgctxt "/102E11B442468DF3E59E66855B78179C"
+msgid "Just take an UP at Mollie’s Landing Pad!"
+msgstr "モリーのランディングパッドから、上に登るだけさ！"
+
+#. ftext: RambleyFiles/Voice/ThatExpiredYesterday
+msgctxt "/B760E6AF40B0009A31C0F7800E14CA92"
+msgid "Okay! Welcome to the crew, Rookie Rangler (registered)!"
+msgstr "よし！ ようこそ仲間へ、ルーキー・ラングラー（登録商標）！"
+
+#. ftext: RambleyFiles/Voice/ThatExpiredYesterday
+msgctxt "/BCFAE33248018B75BBA465BADC3DEB63"
+msgid "Your first official job as one of Rambley’s Ranglers (registered)"
+msgstr "ランブリーズ・ラングラー（登録商標）としての最初の任務は、"
+
+#. ftext: RambleyFiles/Voice/ThatExpiredYesterday
+msgctxt "/60CC3DAC4D9AC403CC388BBB572AA882"
+msgid "is to get out of the Rambley’s Ranglers (registered) Room!"
+msgstr "ランブリーズ・ラングラー（登録商標）ルームから脱出すること！"
+
+#. ftext: RambleyFiles/Voice/ThatExpiredYesterday
+msgctxt "/422DBF83497AEDAF65BCC0AF0DF6D750"
+msgid "Head left towards the Rookie Rangler (registered) Security Room to set yourself free!"
+msgstr "左のルーキー・ラングラー（登録商標）警備室へ向かって、自由を勝ち取れ！"
+
+#. ftext: RambleyFiles/Voice/ThatExpiredYesterday
+msgctxt "/3831DED24B173DCA7D5C12A41622AD1A"
+msgid "Whew! Kinda exhausting to say that whole spiel,"
+msgstr "ふう！ この決まり文句、言い切るのはけっこう疲れるんだよね。"
+
+#. ftext: RambleyFiles/Voice/ThatExpiredYesterday
+msgctxt "/9365B1DF4CE13D36ECB7EC80E45F20AE"
+msgid "but Rambley’s Ranglers (registered)  is a registered trademark…."
+msgstr "でもランブリーズ・ラングラー（登録商標）は登録商標だから…"
+
+#. ftext: RambleyFiles/Voice/ThatExpiredYesterday
+msgctxt "/276ED94C479A7CD030C8FC9EB34B133F"
+msgid "that expired yesterday."
+msgstr "昨日で切れたけどね。"
+
+#. ftext: RambleyFiles/Voice/TheDoor
+msgctxt "/B020C6F14484683BFFB2D292FFD2639D"
+msgid "Uh oh! The door mysteriously locked."
+msgstr "おっと！ ドアが不思議なことに施錠されちゃった。"
+
+#. ftext: RambleyFiles/Voice/TheDoor
+msgctxt "/8038AFBF4E8E9FC4EC2ED4B67D8C0455"
+msgid "Why not test out your band and save the day?"
+msgstr "キミの腕のバンドを試して、この場を切り抜けてみない？"
+
+#. ftext: RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture
+msgctxt "/56F41D3A430EE869698C29A6F8D0D803"
+msgid "What’s the hold up? The gate is open!"
+msgstr "どうしたの？ ゲートは開いてるよ！"
+
+#. ftext: RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture
+msgctxt "/8383E1894F48F6D01A35E088BEDCA5FC"
+msgid "Head on into the entryway!"
+msgstr "入口へどうぞ！"
+
+#. ftext: RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture
+msgctxt "/00EB414F4A44F8D96BDABF850F7658D1"
+msgid "hmm.. hold on"
+msgstr "んん…ちょっと待って"
+
+#. ftext: RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture
+msgctxt "/BC022C89406D656A1D9E36A4F663BE6E"
+msgid "My mistake, the Gate is NOT open."
+msgstr "ごめん、ゲートは開いてなかった。"
+
+#. ftext: RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture
+msgctxt "/717554CE4E82E9B8C24D589E2CD07E8B"
+msgid "There seems to be an error message being sent from the gate’s power unit!"
+msgstr "ゲートの電源ユニットから、エラーが出てるみたいだ！"
+
+#. ftext: RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture
+msgctxt "/2ADA45A64210DD762D3B279C66479803"
+msgid "…Lucky you!"
+msgstr "…キミ、ラッキーだね！"
+
+#. ftext: RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture
+msgctxt "/8303326945FF622A9F0D4FB436DE6F1A"
+msgid "You get to be first person to try our Turn on the Generator Mini-Rambley-Venture!"
+msgstr "記念すべき第一号として「発電機を入れよう ミニ・ランブリーベンチャー」に挑戦できるよ！"
+
+#. ftext: RambleyFiles/Voice/TurnontheGeneratorMiniRambleyVenture
+msgctxt "/1211F3F1447DE5A229B5B9AA147DF598"
+msgid "Have fun!"
+msgstr "楽しんでね！"
+
+#. ftext: RambleyFiles/Voice/WaitThisRoomIsStaffOnly
+msgctxt "/C0704C154BCEFEDE43052FA3C2B6C8B1"
+msgid "WAIT HOLD ON, THIS ROOM'S STAFF ONLY!"
+msgstr "待って待って、この部屋はスタッフ専用だよ！"
+
+#. ftext: RambleyFiles/Voice/WaitThisRoomIsStaffOnly
+msgctxt "/3C7E77F4489230C4A0F95590FF51605A"
+msgid "COME ON IN NEW STAFF!"
+msgstr "さあ入って、新人スタッフくん！"
+
+#. ftext: RambleyFiles/Voice/WelcometoIndigoPark
+msgctxt "/ECF559324D8EA8A39F3AA9BA18E9CFB4"
+msgid "Hi there, and welcome to Indigo Park!"
+msgstr "やあ、ようこそインディゴパーク（Indigo Park）へ！"
+
+#. ftext: RambleyFiles/Voice/WelcometoIndigoPark
+msgctxt "/5B5D00814C57D72CEB00DA9A39CA00C6"
+msgid "The world’s most innovative and engaging family fun experience!"
+msgstr "世界でいちばん革新的で、夢中になれる家族の遊び場！"
+
+#. ftext: RambleyFiles/Voice/WelcometoIndigoPark
+msgctxt "/6F5AD196491E4D4A355277A9F4CA8094"
+msgid "Jump into the world of your favorite chara-"
+msgstr "大好きなキャラクターの世界に飛び込ん——"
+
+#. ftext: RambleyFiles/Voice/WelcometoIndigoPark
+msgctxt "/22AC14AD42028AD306D66489D8ACBE1F"
+msgid "wait"
+msgstr "まって"
+
+#. ftext: RambleyFiles/Voice/WelcometoIndigoPark
+msgctxt "/3EFE6BD242E73B9352A4F1BF60574838"
+msgid "Wait! You’re our first guest in 2920 days, 4 hours, 23 minutes, and 38 seconds! "
+msgstr "待って！ キミ、2920日と4時間23分38秒ぶりのお客さんだ！"
+
+#. ftext: RambleyFiles/Voice/WelcometoIndigoPark
+msgctxt "/65609BCA4DAB13850C5034A31109FAE4"
+msgid "Congratulations!"
+msgstr "おめでとう！"
+
+#. ftext: RambleyFiles/Voice/WelcometoIndigoPark
+msgctxt "/48F5C1B2431701D2B8976D84680ECCED"
+msgid "I’m Rambley! Rambley the Raccoon"
+msgstr "ボクはランブリー！ ランブリー・ザ・ラクーン。"
+
+#. ftext: RambleyFiles/Voice/WelcometoIndigoPark
+msgctxt "/C86567344FC1BB7BB82A1DB256F5D4E4"
+msgid "and it’s my job to make sure your experience here at Indigo Park is the most fun it can be!"
+msgstr "キミのインディゴパークでの時間を最高に楽しくするのが、ボクの仕事さ！"
+
+#. ftext: RambleyFiles/Voice/WelcometoIndigoPark
+msgctxt "/C6AFF88A4A767A6036C621B1481851F2"
+msgid "Just hop on over to the registration center... to your left!"
+msgstr "まずは受付センターへどうぞ…キミの左手だよ！"
+
+#. ftext: RambleyFiles/Voice/WelcometoIndigoPark
+msgctxt "/5C2C14DD4041B435D78889983FE844E6"
+msgid "where our friendly assistant will help you begin your adventure in the park!"
+msgstr "親切なアシスタントが、パークでの冒険の始まりを手伝ってくれるからね！"
+
+#. ftext: RambleyFiles/Voice/Whereyouwannago
+msgctxt "/083DA16C47BC5955543071A4BCF929AE"
+msgid "So, whaddya think? Pretty fun, right?"
+msgstr "どう思った？ なかなか楽しかったでしょ？"
+
+#. ftext: RambleyFiles/Voice/Whereyouwannago
+msgctxt "/D21A5610486EFD5BEF6E2195B5F6F16E"
+msgid "Now you know all about my friends…"
+msgstr "これでボクの友達のことは、ぜんぶ分かったね…"
+
+#. ftext: RambleyFiles/Voice/Whereyouwannago
+msgctxt "/57AA795A4F4810E4BDB0B5A40D9F0991"
+msgid "and Lloyd..."
+msgstr "あと、ロイドもね…"
+
+#. ftext: RambleyFiles/Voice/Whereyouwannago
+msgctxt "/500142E343238B588105808A860EBCAD"
+msgid "So, where do you wanna go?  "
+msgstr "それで、次はどこに行きたい？"
+
+#. ftext: RefinedMainMenu/Menu/Widgets/KioskMenu
+msgctxt "/AA5CF25A41427BA0144C2F8585968A25"
+msgid "15Hz"
+msgstr "15Hz"
+
+#. ftext: RefinedMainMenu/Menu/Widgets/KioskMenu
+msgctxt "/B7C8DF634D50842541CC7F94F65844A2"
+msgid "30Hz"
+msgstr "30Hz"
+
+#. ftext: RefinedMainMenu/Menu/Widgets/KioskMenu
+msgctxt "/DD63C93C47841D53F4BF0792B949DCFD"
+msgid "60Hz"
+msgstr "60Hz"
+
+#. ftext: RefinedMainMenu/Menu/Widgets/KioskMenu
+msgctxt "/DD2567514DA37D2F4FD8519189DB4B21"
+msgid "144Hz"
+msgstr "144Hz"
+
+#. ftext: RefinedMainMenu/Menu/Widgets/KioskMenu
+msgctxt "/A6366017424967E5D19E898BEE05209E"
+msgid "BACK"
+msgstr "戻る"
+
+#. ftext: RefinedMainMenu/Menu/Widgets/KioskMenu
+msgctxt "/427F599F44289A24B6CF219D79303B67"
+msgid "INFORMATION KIOSK"
+msgstr "インフォメーションキオスク"
+
+#. ftext: RefinedMainMenu/Menu/Widgets/KioskMenu
+msgctxt "/ED0945B445B4700CF2CB688856780BF1"
+msgid "Click on a collectable to ask Rambley about it"
+msgstr "収集品をクリックすると、ランブリーが解説してくれます"
+
+#. ftext: Widgets/DeathWidget
+msgctxt "/DC0DA6DB4565A4492F6933BAF56E8F3F"
+msgid "Press E to be reincarnated"
+msgstr "Eキーで生き返る"
+
+#. ftext: Widgets/Notification
+msgctxt "/1DEC528B43DF4AAA565627A77AF4E2BD"
+msgid "Controls"
+msgstr "操作"
+
+#. ftext: Widgets/NotificationInteract
+msgctxt "/7871EF0D492D9CDB49EE83B4C62EB908"
+msgid "Press \"F\" to use your Flashlight!"
+msgstr "Fキーで懐中電灯を使う"
+
+#. ftext: Widgets/SideNotification
+msgctxt "/C88A37D04C0FC02EE0829E91C2849D27"
+msgid "Objective"
+msgstr "目標"
+
+#. ftext: Widgets/W_Cutscene
+msgctxt "/7C7B368D49AAF17F56D17D9379087B97"
+msgid "Hold \"E\" to Skip"
+msgstr "Eキー長押しでスキップ"
+
+#. ftext: Widgets/W_FoundCollectable
+msgctxt "/534864514A10FD9EED035D85E6A78190"
+msgid "Found Collectable"
+msgstr "収集品を発見"
+
+#. ftext: Widgets/W_FoundCollectable
+msgctxt "/48C6324B49AD56E83696B1AEDB96D258"
+msgid "Visit an Information Kiosk\r\nto learn more!"
+msgstr "インフォメーションキオスクで\r\n詳しく聞いてみよう"
+
+#. ftext: Widgets/W_MollieKillScreen
+msgctxt "/756E4FC542A4D29DF7B833A4555CAC0A"
+msgid "Press \"E\" to Respawn"
+msgstr "Eキーで復活"
+
+#. ftext: Widgets/W_MollieKillScreen
+msgctxt "/7CD97CE24E236B81AFEE6FB632285117"
+msgid "Mollie can repeat words that \r\nshe's heard. Don't be fooled."
+msgstr "モリーは聞いた言葉を\r\n繰り返します。だまされないで。"
+
+#. ftext: Widgets/W_MollieKillScreen
+msgctxt "/E6A529DB41367772EA75DCB384D033C1"
+msgid "MOLLIE MACAW"
+msgstr "モリー・マコー"
+
+#. ftext: Widgets/W_MollieKillScreen
+msgctxt "/3EC675344A685FDC8F948A85615B016E"
+msgid "You were caught by"
+msgstr "捕まってしまった"
+
+#. ftext: Widgets/W_PickUpGear
+msgctxt "/12DA88C8442FF17E087328AE749DBD8F"
+msgid "1x Gear "
+msgstr "歯車 ×1"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_Audio"
+msgid "Audio"
+msgstr "音声"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_AudioVolume"
+msgid "Audio Volume"
+msgstr "音量"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_EnableVoiceChat"
+msgid "Enable Voice Chat"
+msgstr "ボイスチャットを使う"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_EnableVoiceChat_SubText"
+msgid "Enable <h>voice chat communication in multiplayer sessions.</> You will not be able to hear other players if this is turned off.\r\n\r\n<b>Default Value: Off</>"
+msgstr "マルチプレイでの<h>ボイスチャットを使えるようにします。</>オフにすると、ほかのプレイヤーの声は聞こえません。\r\n\r\n<b>初期値: Off</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_MasterVolume"
+msgid "Master Volume"
+msgstr "全体の音量"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_MasterVolume_Subtext"
+msgid "Adjust the volume of <h>all music, non-player voices and sound effects</> played throughout the game.\r\n\r\n<b>Default Value: 100</>"
+msgstr "ゲーム中に流れる<h>音楽、プレイヤー以外の声、効果音のすべて</>の音量を調整します。\r\n\r\n<b>初期値: 100</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_MusicVolume"
+msgid "Music Volume"
+msgstr "音楽の音量"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_MusicVolume_Subtext"
+msgid "Adjust the volume of <h>all music</> played throughout the game.\r\n\r\n<b>Default Value: 100</>"
+msgstr "ゲーム中に流れる<h>音楽すべて</>の音量を調整します。\r\n\r\n<b>初期値: 100</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_OutputDevice"
+msgid "Output Device"
+msgstr "出力デバイス"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_OutputDevice_Subtext"
+msgid "Set the <h>Audio Output Device</> that is used for all game sound."
+msgstr "ゲームの音を出す<h>オーディオ出力デバイス</>を選びます。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_SFXVolume"
+msgid "SFX Volume"
+msgstr "効果音の音量"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_SFXVolume_Subtext"
+msgid "Adjust the volume of <h>all sound effects</> played throughout the game.\r\n\r\n<b>Default Value: 100</>"
+msgstr "ゲーム中に流れる<h>効果音すべて</>の音量を調整します。\r\n\r\n<b>初期値: 100</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_Title"
+msgid "Audio"
+msgstr "音声"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_VoiceChat"
+msgid "Voice Chat"
+msgstr "ボイスチャット"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_VoiceInput"
+msgid "Voice Chat Input"
+msgstr "ボイスチャットの入力"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_VoiceInput_SubText"
+msgid "Adjust the volume of <h>your microphone when using voice chat</> in multiplayer sessions.\r\n\r\n<b>Default Value: 100</>"
+msgstr "マルチプレイでボイスチャットを使うときの、<h>自分のマイク</>の音量を調整します。\r\n\r\n<b>初期値: 100</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_VoiceOutput"
+msgid "Voice Chat Output"
+msgstr "ボイスチャットの出力"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_VoiceOutput_SubText"
+msgid "Adjust the volume of <h>other players when they use voice chat</> in multiplayer sessions.\r\n\r\n<b>Default Value: 100</>"
+msgstr "マルチプレイで<h>ほかのプレイヤーがボイスチャットを使うとき</>の音量を調整します。\r\n\r\n<b>初期値: 100</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_VoiceVolume"
+msgid "Voice Volume"
+msgstr "音声の音量"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/AudioSettings_VoiceVolume_Subtext"
+msgid "Adjust the volume of <h>all non-player voices</> played throughout the game.\r\n\r\n<b>Default Value: 100</>"
+msgstr "ゲーム中に流れる<h>プレイヤー以外の声すべて</>の音量を調整します。\r\n\r\n<b>初期値: 100</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlSettings_AimWeapon"
+msgid "Aim Weapon"
+msgstr "武器を構える"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlSettings_AimWeapon_SubText"
+msgid "Key/Button to <h>aim weapon.</>"
+msgstr "<h>武器を構える</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlSettings_PrimaryFire"
+msgid "Primary Fire"
+msgstr "メイン攻撃"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlSettings_PrimaryFire_Subtext"
+msgid "Key/Button to <h>primary fire.</>"
+msgstr "<h>メイン攻撃を行う</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlSettings_SecondaryFire"
+msgid "Secondary Fire"
+msgstr "サブ攻撃"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlSettings_SecondaryFire_Subtext"
+msgid "Key/Button to <h>secondary fire.</>"
+msgstr "<h>サブ攻撃を行う</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Actions"
+msgid "Actions"
+msgstr "動作"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_ClearInput"
+msgid "Clear Input"
+msgstr "割り当てを消す"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_Crouch"
+msgid "Crouch"
+msgstr "しゃがむ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_Crouch_Subtext"
+msgid "Key/Button to <h>crouch.</>"
+msgstr "<h>しゃがむ</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_Documents"
+msgid "Documents"
+msgstr "資料"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_Documents_Subtext"
+msgid "Key/Button to <h>open the documents menu.</>"
+msgstr "<h>資料の画面を開く</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_Jump"
+msgid "Jump"
+msgstr "ジャンプ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_Jump_Subtext"
+msgid "Key/Button to <h>jump.</>"
+msgstr "<h>ジャンプする</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_Look"
+msgid "Look"
+msgstr "視点"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_MoveBackward"
+msgid "Move Backward"
+msgstr "後ろへ移動"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_MoveBackward_Subtext"
+msgid "Key/Button to <h>move backward.</>"
+msgstr "<h>後ろへ移動する</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_MoveForward"
+msgid "Move Forward"
+msgstr "前へ移動"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_MoveForward_Subtext"
+msgid "Key/Button to <h>move forward.</>"
+msgstr "<h>前へ移動する</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_MoveLeft"
+msgid "Move Left"
+msgstr "左へ移動"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_MoveLeft_Subtext"
+msgid "Key/Button to <h>move left.</>"
+msgstr "<h>左へ移動する</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_MoveRight"
+msgid "Move Right"
+msgstr "右へ移動"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_MoveRight_Subtext"
+msgid "Key/Button to <h>move right.</>"
+msgstr "<h>右へ移動する</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_None"
+msgid "None"
+msgstr "なし"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_Pause"
+msgid "Pause"
+msgstr "一時停止"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_Pause_Subtext"
+msgid "Key/Button to <h>pause the game.</>"
+msgstr "<h>ゲームを一時停止する</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_PushToTalk"
+msgid "Push To Talk"
+msgstr "押して話す"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_PushToTalk_Subtext"
+msgid "Key/Button to <h>talk in voice chat.</>"
+msgstr "<h>ボイスチャットで話す</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_Run"
+msgid "Run"
+msgstr "走る"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Bindings_Run_Subtext"
+msgid "Key/Button to <h>run.</>"
+msgstr "<h>走る</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Camera"
+msgid "Camera"
+msgstr "カメラ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Controller"
+msgid "Controller"
+msgstr "コントローラー"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_ControllerType"
+msgid "Controller Type"
+msgstr "コントローラーの種類"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_ControllerType_SubText"
+msgid "Switch between different <h>UI icons</> based on Controller Type.\r\n\r\n<b>Default Value: Xbox</>"
+msgstr "コントローラーの種類に合わせて、<h>UIのアイコン</>を切り替えます。\r\n\r\n<b>初期値: Xbox</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Controls"
+msgid "Controls"
+msgstr "操作"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Crouch"
+msgid "Crouch"
+msgstr "しゃがむ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Crouch_SubText"
+msgid "Key/Button to <h>crouch.</>"
+msgstr "<h>しゃがむ</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_GamePadSettings"
+msgid "Gamepad Bindings"
+msgstr "ゲームパッドの割り当て"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Global"
+msgid "Global"
+msgstr "全体"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Inventory"
+msgid "Inventory"
+msgstr "持ち物"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Inventory_SubText"
+msgid "Key/Button to <h>open inventory.</>"
+msgstr "<h>持ち物を開く</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_InvertSticks"
+msgid "Invert Sticks"
+msgstr "スティックを入れ替える"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_InvertSticks_SubText"
+msgid "<h>Switches Left and Right Stick.</> By default the Left Stick is used for movement and the Right Stick moves the camera.\r\n\r\n<b>Default Value: Off</>"
+msgstr "<h>左右のスティックを入れ替えます。</>初期状態では、左スティックで移動し、右スティックでカメラを動かします。\r\n\r\n<b>初期値: Off</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_InvertX"
+msgid "Invert Horizontal Axis"
+msgstr "左右の向きを反転"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_InvertX_Subtext"
+msgid "Invert the <h>Horizontal (X) Axis</> of the camera.\r\n\r\n<b>Default Value: Off</>"
+msgstr "カメラの<h>左右（X軸）の向き</>を反転します。\r\n\r\n<b>初期値: Off</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_InvertY"
+msgid "Invert Vertical Axis"
+msgstr "上下の向きを反転"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_InvertY_Subtext"
+msgid "Invert the <h>Vertical (Y) Axis</> of the camera.\r\n\r\n<b>Default Value: Off</>"
+msgstr "カメラの<h>上下（Y軸）の向き</>を反転します。\r\n\r\n<b>初期値: Off</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Jump"
+msgid "Jump"
+msgstr "ジャンプ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Jump_SubText"
+msgid "Key/Button to <h>Jump.</>"
+msgstr "<h>ジャンプする</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_KeyBindings"
+msgid "Key Bindings"
+msgstr "キーの割り当て"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Movement"
+msgid "Movement"
+msgstr "移動"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_NextWeapon"
+msgid "Next Weapon"
+msgstr "次の武器"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_NextWeapon_SubText"
+msgid "Key/Button to <h>change to the next weapon.</>"
+msgstr "<h>次の武器に持ち替える</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_PreviousWeapon"
+msgid "Previous Weapon"
+msgstr "前の武器"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_PreviousWeapon_SubText"
+msgid "Key/Button to <h>change to the previous weapon.</>"
+msgstr "<h>前の武器に持ち替える</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Reload"
+msgid "Reload"
+msgstr "リロード"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Reload_SubText"
+msgid "Key/Button to <h>reload.</>"
+msgstr "<h>リロードする</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Sprint"
+msgid "Sprint"
+msgstr "ダッシュ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Sprint_SubText"
+msgid "Key/Button to <h>sprint.</>"
+msgstr "<h>ダッシュする</>ためのキーまたはボタンです。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Title"
+msgid "Controls"
+msgstr "操作"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Vibration"
+msgid "Vibration"
+msgstr "振動"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_Vibration_SubText"
+msgid "Toggle <h>vibration/rumble features</> of the connected Controller.\r\n\r\n<b>Default Value: On</>"
+msgstr "接続しているコントローラーの<h>振動機能</>を切り替えます。\r\n\r\n<b>初期値: On</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_XSensitivity"
+msgid "Horizontal Axis Sensitivity"
+msgstr "左右の感度"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_XSensitivity_Subtext"
+msgid "Set <h>Horizontal (X) Axis Sensitivity</> of the camera.\r\n\r\n<b>Default Value: 1.0</>"
+msgstr "カメラの<h>左右（X軸）の感度</>を設定します。\r\n\r\n<b>初期値: 1.0</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_YSensitivity"
+msgid "Vertical Axis Sensitivity"
+msgstr "上下の感度"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ControlsSettings_YSensitivity_Subtext"
+msgid "Set <h>Vertical (Y) Axis Sensitivity</> of the camera.\r\n\r\n<b>Default Value: 1.0</>"
+msgstr "カメラの<h>上下（Y軸）の感度</>を設定します。\r\n\r\n<b>初期値: 1.0</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Credits_HoldToSkip"
+msgid "Hold any key to skip"
+msgstr "任意のキーを長押しでスキップ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Credits_Title"
+msgid "Credits"
+msgstr "クレジット"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DIsplaySettings_HDRUI_SubText"
+msgid "Enable HDR UI Composition Mode. <h>Corrects washed out UI when HDR is enabled.</>\r\n\r\n<b>Default Value: Off</>"
+msgstr "HDRのUI合成モードを有効にします。<h>HDRを使ったときにUIの色が薄くなる現象を補正します。</>\r\n\r\n<b>初期値: Off</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_ApplyChangedSettings"
+msgid "Apply changed settings?"
+msgstr "変更した設定を適用しますか？"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_AreYouSure"
+msgid "Are you sure you want to quit the game?"
+msgstr "ゲームを終了しますか？"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_Cancel"
+msgid "Cancel"
+msgstr "キャンセル"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_ExitG"
+msgid "Exit Game "
+msgstr "ゲームを終了"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_No"
+msgid "No"
+msgstr "いいえ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_OptionCancel"
+msgid "Cancel"
+msgstr "キャンセル"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_OptionQuit"
+msgid "Quit"
+msgstr "終了"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_OptionRebind"
+msgid "Rebind"
+msgstr "割り当て直す"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_OptionRevert"
+msgid "Revert"
+msgstr "元に戻す"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_QuitGame"
+msgid "Quit Game"
+msgstr "ゲームを終了"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_SaveGameTitle"
+msgid "Save Game"
+msgstr "セーブ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_SaveOverrideProgress"
+msgid "There is a game already saved in this slot. Overwrite saved data?"
+msgstr "このスロットにはすでにセーブデータがあります。上書きしますか？"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_SavedGameInfo"
+msgid "The Game has been saved."
+msgstr "ゲームを保存しました。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_TextRebind"
+msgid "is already in use by <h>{InputActionDisplayName}</>. Are you sure you want to replace it?"
+msgstr "はすでに<h>{InputActionDisplayName}</>で使われています。置き換えますか？"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_TitleRebind"
+msgid "Rebind Key"
+msgstr "キーの割り当て"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DecisionDialog_Yes"
+msgid "Yes"
+msgstr "はい"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_AspectRatio"
+msgid "Aspect Ratio"
+msgstr "画面比率"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_AspectRatio_Subtext"
+msgid "Set the aspect ratio. This will filter all available Display Resolutions.  <h>Borderless Window Mode</> will always use the aspect ratio of the highest resolution supported by your Display."
+msgstr "画面比率を設定します。選べる解像度が、この比率で絞り込まれます。<h>ボーダーレス</>では、ディスプレイが対応する最大解像度の比率が常に使われます。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_Brightness"
+msgid "Brightness"
+msgstr "明るさ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_Brightness_Subtext"
+msgid "<h>Adjusts the luminance intensity</> of the image's mid-tones to accurately reproduce colors. Increasing this value too much will result in the image being washed-out. Decreasing this value too much will result in the image being too dark.\r\n\r\n<b>Default Value: 100</>"
+msgstr "映像の中間調の<h>明るさを調整し、</>色を正しく再現します。上げすぎると全体が白っぽくなり、下げすぎると暗くなりすぎます。\r\n\r\n<b>初期値: 100</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_ColorDeficiencyStrength"
+msgid "Color Deficiency Strength"
+msgstr "色覚補正の強さ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_ColorDeficiencyStrength_Subtext"
+msgid "Set how much the Color Deficiency Type should influence the colors of game and UI."
+msgstr "色覚補正の種類を、ゲームとUIの色にどれくらい反映するかを設定します。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_ColorDeficiencyType"
+msgid "Color Deficiency Type"
+msgstr "色覚補正の種類"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_ColorDeficiencyType_Subtext"
+msgid "Set a Color Deficiency Type (also refered to as Color Blindness). This will change all colors of the game and UI."
+msgstr "色覚補正の種類を設定します。ゲームとUIのすべての色が変わります。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_Colors"
+msgid "Colors"
+msgstr "色"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_Deuteranope"
+msgid "Deuteranope"
+msgstr "2型（緑）"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_Display"
+msgid "Display"
+msgstr "画面"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_DisplayResolution"
+msgid "Display Resolution"
+msgstr "解像度"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_DisplayResolution_Subtext"
+msgid "Set this to the display resolution of your Display. Try a lower resolution if you experience performance issues. <h>Borderless Window Mode</> will always use the highest resolution supported by your Display."
+msgstr "お使いのディスプレイの解像度に合わせます。動作が重いときは、低い解像度を試してください。<h>ボーダーレス</>では、ディスプレイが対応する最大解像度が常に使われます。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_FOV"
+msgid "Field of View"
+msgstr "視野角"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_FOV_Subtext"
+msgid "Set <h>Horizontal Field of View angle (in degrees)</> of the Player Camera. Common values range from 60 to 120.\r\n\r\n<b>Default Value: 90</>"
+msgstr "プレイヤーカメラの<h>水平方向の視野角（度）</>を設定します。一般的には60から120の範囲です。\r\n\r\n<b>初期値: 90</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_HDR"
+msgid "HDR"
+msgstr "HDR"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_HDRColorSpace"
+msgid "HDR Color Space"
+msgstr "HDRの色空間"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_HDRColorSpace_SubText"
+msgid "Choose the Color Space that all colors are mapped into. Most HDR users will have the best results with <h>Rec.2020</>. Follow the specifications of your Display manufacturer. All users without a HDR supported Display should set this to <h>Rec.709</>.\r\n\r\n<b>Default Value: Rec.709</>"
+msgstr "色を割り当てる色空間を選びます。HDR環境ではたいてい<h>Rec.2020</>が最適です。ディスプレイの仕様に従ってください。HDR非対応のディスプレイでは<h>Rec.709</>にします。\r\n\r\n<b>初期値: Rec.709</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_HDRDisplayProfile"
+msgid "HDR Display Profile"
+msgstr "HDRの表示プロファイル"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_HDRDisplayProfile_SubText"
+msgid "Configure the brightness in <h>NITS and the Color Profile</> that most closely match your Display specifications. All users without a HDR supported Display should set this to sRGB.\r\n\r\n<b>Default Value: sRGB</>"
+msgstr "ディスプレイの仕様にいちばん近い<h>輝度（NITS）と色プロファイル</>を設定します。HDR非対応のディスプレイではsRGBにします。\r\n\r\n<b>初期値: sRGB</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_HDRUI"
+msgid "HDR UI"
+msgstr "HDRのUI"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_HDRUIBrightness"
+msgid "HDR UI Brightness"
+msgstr "HDRのUIの明るさ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_HDRUIBrightness_SubText"
+msgid "Adjust the brightness of UI elements when HDR is enabled. <h>Requires HDR UI to be enabled.</>\r\n\r\n<b>Default Value: 2.0</>"
+msgstr "HDRを使うときの、UIの明るさを調整します。<h>HDRのUIを有効にしておく必要があります。</>\r\n\r\n<b>初期値: 2.0</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_HDR_SubText"
+msgid "Enable this to use <h>High Dynamic Range (HDR)</> for color output. HDR requires a screen that supports HDR and the window mode has to be set to Fullscreen. HDR attempts to simulate a more natural looking image and allows for higher contrast & wider color gamut. Users without HDR supported Displays should turn all HDR options off or set them to their default value.\r\n\r\n<b>Default Value: Off</>"
+msgstr "色の出力に<h>ハイダイナミックレンジ（HDR）</>を使います。HDR対応のディスプレイと、フルスクリーン表示が必要です。より自然で、明暗の差と色域の広い映像になります。HDR非対応のディスプレイでは、HDRの項目をすべてオフか初期値にしてください。\r\n\r\n<b>初期値: Off</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_LockFPS"
+msgid "Lock FPS"
+msgstr "フレームレート上限"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_LockFPS_Subtext"
+msgid "Locks the <h>frames per second (FPS)</> to a fixed value. \r\nIt's advised to lock the FPS, if the frame rate is highly variable \r\nor exceeds your display's refresh rate.\r\n\r\n<b>Default Value: Unlocked</>"
+msgstr "<h>フレームレート（FPS）</>を一定の値に固定します。\r\nフレームレートの変動が大きいときや、\r\nディスプレイのリフレッシュレートを超えるときは固定をおすすめします。\r\n\r\n<b>初期値: Unlocked</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_LockFPS_Unlocked"
+msgid "Unlocked"
+msgstr "無制限"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_Performance"
+msgid "Performance"
+msgstr "パフォーマンス"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_Protanope"
+msgid "Protanope"
+msgstr "1型（赤）"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_ResolutionScale"
+msgid "Resolution Scale"
+msgstr "解像度スケール"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_ResolutionScale_Subtext"
+msgid "Set the resolution scaling to modify the <h>render resolution</>. A resolution scale of 50 would halve the render resolution in relation to the actual display resolution. The minimum resolution scale can vary for different display resolutions."
+msgstr "<h>描画解像度</>を変える倍率を設定します。50にすると、実際の表示解像度の半分で描画します。設定できる下限は、表示解像度によって変わります。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_ShowFPSCounter"
+msgid "Show FPS counter"
+msgstr "フレームレートを表示"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_ShowFPSCounter_Subtext"
+msgid "Enables the frames per second (FPS) counter"
+msgstr "フレームレート（FPS）の表示を有効にします。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_Title"
+msgid "Display"
+msgstr "画面"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_Tritanope"
+msgid "Tritanope"
+msgstr "3型（青）"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_VSync"
+msgid "VSync"
+msgstr "垂直同期"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_VSync_Subtext"
+msgid "VSync, or Vertical Synchronization, is a graphics option that synchronizes the game's frame rate with the refresh rate of the display. <h>This can help prevent screen tearing,</> a visual artifact where parts of the screen appear to be out of sync with each other, but can also cause increased input lag.\r\n\r\n<b>Default Value: Off</>"
+msgstr "垂直同期は、ゲームのフレームレートをディスプレイのリフレッシュレートに合わせる設定です。<h>画面の上下がずれて表示される現象を防げますが、</>入力の遅れが増えることがあります。\r\n\r\n<b>初期値: Off</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_WindowMode"
+msgid "Window Mode"
+msgstr "表示モード"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_WindowMode_Borderless"
+msgid "Borderless"
+msgstr "ボーダーレス"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_WindowMode_FullScreen"
+msgid "Full Screen"
+msgstr "フルスクリーン"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_WindowMode_Subtext"
+msgid "Select the display mode for the game. <h>Fullscreen offers the best performance and feature compatibility</> with features such as HDR. Borderless will take up the entire screen, but allow you to change between different applications without the need to minimize the game.\r\n\r\n<b>Default Value: Fullscreen</>"
+msgstr "ゲームの表示モードを選びます。<h>フルスクリーンは性能と機能の相性が最もよく、</>HDRなどの機能も使えます。ボーダーレスは画面全体を使いつつ、ゲームを最小化せずにほかのアプリへ切り替えられます。\r\n\r\n<b>初期値: Fullscreen</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/DisplaySettings_WindowMode_Windowed"
+msgid "Windowed"
+msgstr "ウィンドウ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GamePlaySettings_Title"
+msgid "Game"
+msgstr "ゲーム"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Difficulty"
+msgid "Difficulty"
+msgstr "難易度"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Difficulty_Easy"
+msgid "Easy"
+msgstr "やさしい"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Difficulty_Expert"
+msgid "Expert"
+msgstr "超むずかしい"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Difficulty_Hard"
+msgid "Hard"
+msgstr "むずかしい"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Difficulty_Medium"
+msgid "Medium"
+msgstr "ふつう"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Difficulty_Subtext"
+msgid "Set the gameplay difficulty. With a higher difficulty <h>enemies will be tougher and important items more rare.</> Players that are new to this genre should start out on <h>Easy</> Difficulty.\r\n\r\n<b>Default Value: Medium</>"
+msgstr "ゲームの難易度を設定します。難易度を上げると<h>敵が手強くなり、重要な品物も手に入りにくくなります。</>この手のゲームに慣れていない方は<h>やさしい</>から始めてください。\r\n\r\n<b>初期値: Medium</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Game"
+msgid "Game"
+msgstr "ゲーム"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Gameplay"
+msgid "Gameplay"
+msgstr "ゲームプレイ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Language"
+msgid "Language"
+msgstr "言語"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Language_Subtext"
+msgid "Set the language that <h>all text</> will be displayed in throughout the Game.\r\n\r\n<b>Default Value: English</>"
+msgstr "ゲーム内の<h>すべての文章</>を表示する言語を選びます。\r\n\r\n<b>初期値: English</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Subtitles"
+msgid "Subtitles"
+msgstr "字幕"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GameplaySettings_Subtitles_Subtext"
+msgid "Set if Subtitles are displayed <h>whenever a character speaks.</> They can be used to aid in understanding the game's story and dialogue, especially for players who may have difficulty hearing or understanding spoken language.\r\n\r\n<b>Default Value: Off</>"
+msgstr "<h>キャラクターが話すときに</>字幕を表示するかどうかを設定します。物語や会話の理解を助けます。音声が聞き取りにくい方にも役立ちます。\r\n\r\n<b>初期値: Off</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_AmbientOcclusion"
+msgid "Ambient Occlusion"
+msgstr "アンビエントオクルージョン"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_AmbientOcclusion_Subtext"
+msgid "Ambient Occlusion adds depth and realism to a game's visuals by simulating how light interacts with objects in a scene. <h>It darkens areas where objects are close together,</> simulating shadows and crevices that occur naturally in the environment."
+msgstr "アンビエントオクルージョンは、光と物の関わり方を再現して映像に奥行きを与えます。<h>物どうしが近づいた部分を暗くし、</>現実の影やくぼみのような見た目にします。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_AntiAliasingMethod"
+msgid "Anti Aliasing Method"
+msgstr "アンチエイリアスの方式"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_AntiAliasingMethod_None"
+msgid "None"
+msgstr "なし"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_AntiAliasingMethod_Subtext"
+msgid "Set the method of Anti Aliasing (AA). AA is a graphics option that <h>smooths out jagged edges and reduces visual artifacts</> in a game's visuals by e.g. averaging out pixel colors."
+msgstr "アンチエイリアス（AA）の方式を設定します。AAは、画素の色をならすなどして<h>輪郭のギザギザをなめらかにし、ちらつきを抑える</>設定です。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_AntiAliasingQuality"
+msgid "Anti Aliasing Quality"
+msgstr "アンチエイリアスの品質"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_AntiAliasingQuality_Subtext"
+msgid "Set the quality used for Anti Aliasing (AA). AA is a graphics option that <h>smooths out jagged edges and reduces visual artifacts</> in a game's visuals by e.g. averaging out pixel colors."
+msgstr "アンチエイリアス（AA）の品質を設定します。AAは、画素の色をならすなどして<h>輪郭のギザギザをなめらかにし、ちらつきを抑える</>設定です。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Benchmark"
+msgid "Benchmark"
+msgstr "ベンチマーク"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Bloom"
+msgid "Bloom"
+msgstr "ブルーム"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Bloom_Subtext"
+msgid "Enabling Bloom <h>adds a soft glow to bright areas, such as the sun or other light sources.</> This can give the game's environment and characters a more ethereal and cinematic appearance."
+msgstr "ブルームを有効にすると、<h>太陽などの明るい部分にやわらかな光のにじみが加わります。</>風景やキャラクターが、幻想的で映画のような見た目になります。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_DLSS"
+msgid "Nvidia DLSS"
+msgstr "Nvidia DLSS"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_DLSS_Quality0"
+msgid "Performance"
+msgstr "パフォーマンス"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_DLSS_Quality1"
+msgid "Balanced"
+msgstr "バランス"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_DLSS_Quality2"
+msgid "Quality"
+msgstr "クオリティ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_DLSS_Quality3"
+msgid "Ultra Performance"
+msgstr "ウルトラパフォーマンス"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_DLSS_Quality4"
+msgid "Ultra Quality"
+msgstr "ウルトラクオリティ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_DLSS_Subtext"
+msgid "Toggles NVIDIA DLSS (Deep Learning Super Sampling). Uses a temporal upscaling algorithm to render highly detailed images using fewer pixels, boosting your frame rates so you can maximize your graphics settings and output resolution. Quality is controlled by altering the resolution scale (100=DLAA). \r\n<h>DLSS requires an NVIDIA RTX graphics card.</>"
+msgstr "NVIDIA DLSS（Deep Learning Super Sampling）を切り替えます。時間方向のアップスケーリングにより、少ない画素数で精細な映像を描き、フレームレートを上げます。品質は解像度スケールで調整します（100でDLAA）。\r\n<h>DLSSにはNVIDIA RTXのグラフィックカードが必要です。</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Effects"
+msgid "Effects"
+msgstr "エフェクト"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Effects_Subtext"
+msgid "Adjust the <h>quality of visual effects,</> e.g. reflections and the material fidelity."
+msgstr "反射や質感の精度など、<h>視覚効果の品質</>を調整します。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_FSR2"
+msgid "FidelityFX Super Resolution 2"
+msgstr "FidelityFX Super Resolution 2"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_FSR2_SubText"
+msgid "Sets the quality of FidelityFX Super Resolution 2 (FSR2). Uses a temporal upscaling algorithm to render highly detailed images using fewer pixels, boosting your frame rates so you can maximize your graphics settings and output resolution. <h>Compatible with most modern GPUs including AMD, Intel and NVIDIA cards.</>"
+msgstr "FidelityFX Super Resolution 2（FSR2）の品質を設定します。時間方向のアップスケーリングにより、少ない画素数で精細な映像を描き、フレームレートを上げます。<h>AMD、Intel、NVIDIAを含む最近のGPUの多くで使えます。</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Foliage"
+msgid "Foliage"
+msgstr "草木"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Foliage_Subtext"
+msgid "Foliage Quality affects the <h>level of detail and complexity of vegetation and foliage.</> This can include trees, bushes, grass, and other plants. Higher Foliage Quality settings can result in more realistic and detailed vegetation, but are also more demanding on your hardware."
+msgstr "草木の品質は、<h>植物の細かさと複雑さ</>に影響します。木、低木、草などが対象です。上げるほど本物らしく細かくなりますが、動作は重くなります。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_GlobalIllumination"
+msgid "Global Illumination"
+msgstr "グローバルイルミネーション"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_GlobalIlluminationMethod"
+msgid "Global Illumination Method"
+msgstr "グローバルイルミネーションの方式"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_GlobalIlluminationMethod_Subtext"
+msgid "Global Illumination <h>simulates the way light bounces and interacts with surfaces</> in a realistic manner. \r\n\r\nNone: No indirect lighting.\r\nScreen Space: High performance global illumination.\r\nLumen: High quality real-time global illumination."
+msgstr "グローバルイルミネーションは、<h>光が跳ね返って面と関わる様子</>を現実的に再現します。\r\n\r\nなし: 間接光を使いません。\r\nスクリーンスペース: 動作の軽い間接光です。\r\nLumen: 高品質なリアルタイム間接光です。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_GlobalIllumination_Subtext"
+msgid "Global Illumination <h>simulates the way light bounces and interacts with surfaces</> in a realistic manner, resulting in more accurate and natural-looking lighting in the game environment."
+msgstr "グローバルイルミネーションは、<h>光が跳ね返って面と関わる様子</>を現実的に再現し、より正確で自然な明るさにします。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Graphics"
+msgid "Graphics"
+msgstr "グラフィック"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_LensFlares"
+msgid "Lens Flares"
+msgstr "レンズフレア"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_LensFlares_Subtext"
+msgid "Lens Flare Quality affects the appearance of lens flares, which are visual artifacts that occur when bright light sources are captured by a camera lens. This can include the <h>sun, headlights, and other light sources.</>"
+msgstr "レンズフレアの品質は、強い光源をレンズが捉えたときに生じる光のにじみの見え方に影響します。<h>太陽、ヘッドライトなどの光源</>が対象です。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Lumen"
+msgid "Lumen"
+msgstr "Lumen"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_MotionBlur"
+msgid "Motion Blur"
+msgstr "モーションブラー"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_MotionBlur_Subtext"
+msgid "Motion Blur simulates the <h>blur effect that occurs when objects move quickly across a screen,</> such as during fast camera movements or character animations. This can give the game's visuals a more cinematic and immersive feel. A number of indivuals may experience motion sickness or general discomfort when this is enabled."
+msgstr "モーションブラーは、<h>物が画面を速く横切るときに生じるぶれ</>を再現します。素早いカメラの動きや動作が、映画のような没入感になります。有効にすると酔いや不快感を覚える方もいます。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_None"
+msgid "None"
+msgstr "なし"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_PostProcessing"
+msgid "Post Processing"
+msgstr "ポストプロセス"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_PostProcessing_Subtext"
+msgid "Post Processing Quality affects the <h>quality and complexity of post-processing effects</> applied to a game's visuals after the initial rendering. This includes effects such as motion blur, lens flares, bloom, screen space reflections and ambient occlusion."
+msgstr "ポストプロセスの品質は、描画後に加える<h>後処理の効果の質と複雑さ</>に影響します。モーションブラー、レンズフレア、ブルーム、スクリーンスペース反射、アンビエントオクルージョンなどが含まれます。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Quality"
+msgid "Quality"
+msgstr "品質"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_QualityPreset"
+msgid "Quality Preset"
+msgstr "品質プリセット"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_QualityPreset_Subtext"
+msgid "Adjust the quality of <h>all graphics settings.</> This option is automatically changed to custom upon changing any individual settings."
+msgstr "<h>グラフィック設定すべて</>の品質をまとめて調整します。個別の項目を変えると、自動でカスタムに切り替わります。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_ReflectionMethod"
+msgid "Reflection Method"
+msgstr "反射の方式"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_ReflectionMethod_Subtext"
+msgid "Affects the quality and complexity of <h>real-time reflections</> in a game's environment.\r\n\r\nNone: Reflections are turned off.\r\nScreen Space: Reflections are based only on what is visible on-screen.\r\nLumen: Accurate real-time reflections."
+msgstr "風景の<h>リアルタイム反射</>の品質と複雑さに影響します。\r\n\r\nなし: 反射を使いません。\r\nスクリーンスペース: 画面に映っているものだけを反射します。\r\nLumen: 正確なリアルタイム反射です。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Reflections"
+msgid "Reflections"
+msgstr "反射"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Reflections_Subtext"
+msgid "Reflections Quality affects the <h>level of detail and complexity of real-time reflections</> in the game environment. This can include reflections of characters, objects, and the environment itself in reflective surfaces such as water, mirrors, or other reflective surfaces."
+msgstr "反射の品質は、風景の<h>リアルタイム反射の細かさと複雑さ</>に影響します。水面や鏡などの反射する面に映る、キャラクター、物、風景そのものが対象です。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_ResolutionHeader"
+msgid "Resolution"
+msgstr "解像度"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_ResolutionScaling"
+msgid "Resolution Scaling"
+msgstr "解像度スケーリング"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_SSR"
+msgid "Screen Space Reflections"
+msgstr "スクリーンスペース反射"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_SSR_Subtext"
+msgid "Enabling Screen Space Reflections affects the quality and complexity of <h>real-time reflections</> in a game's environment. This can include reflections of characters, objects, and the environment itself in reflective surfaces such as water or shiny surfaces. "
+msgstr "スクリーンスペース反射を有効にすると、風景の<h>リアルタイム反射</>の品質と複雑さに影響します。水面や光沢のある面に映る、キャラクター、物、風景そのものが対象です。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_ScreenSpace"
+msgid "Screen Space"
+msgstr "スクリーンスペース"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Section_Advanced"
+msgid "Advanced"
+msgstr "詳細"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Section_Quality"
+msgid "Quality"
+msgstr "品質"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Setting_Custom"
+msgid "Custom"
+msgstr "カスタム"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Setting_Epic"
+msgid "Epic"
+msgstr "エピック"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Setting_Extreme"
+msgid "Extreme"
+msgstr "エクストリーム"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Setting_High"
+msgid "High"
+msgstr "高"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Setting_Low"
+msgid "Low"
+msgstr "低"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Setting_Medium"
+msgid "Medium"
+msgstr "中"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Setting_VeryLow"
+msgid "Very Low"
+msgstr "最低"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_ShadingQuality"
+msgid "Shading Quality"
+msgstr "シェーディングの品質"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_ShadingQuality_Subtext"
+msgid "Set <h>Shading Quality.</> A higher value increases the quality of Shaders and results in e.g. higher quality Hair."
+msgstr "<h>シェーディングの品質</>を設定します。上げるとシェーダーの品質が上がり、髪の毛などが精細になります。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Shadows"
+msgid "Shadows"
+msgstr "影"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Shadows_Subtext"
+msgid "Shadow Quality affects the <h>detail and complexity of shadows</> in a game's environment. This can include shadows cast by characters, objects, and the environment itself."
+msgstr "影の品質は、風景の<h>影の細かさと複雑さ</>に影響します。キャラクター、物、風景そのものが落とす影が対象です。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_TemporalUpsampling"
+msgid "Temporal Anti Aliasing Upsampling"
+msgstr "テンポラルAAアップサンプリング"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_TemporalUpsampling_Subtext"
+msgid "Temporal Anti Aliasing Upsampling (TAAU) <h>reconstructs higher-resolution images from lower-resolution frames,</> resulting in smoother and more detailed visuals without requiring additional processing power."
+msgstr "テンポラルアンチエイリアスアップサンプリング（TAAU）は、<h>低い解像度のフレームから高い解像度の映像を再構成し、</>処理を増やさずになめらかで精細な見た目にします。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Textures"
+msgid "Textures"
+msgstr "テクスチャ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Textures_Subtext"
+msgid "Texture Quality affects the <h>level of detail and resolution of textures applied to the surfaces of objects</> in a game's environment. This can include characters, environments, and objects such as weapons or vehicles."
+msgstr "テクスチャの品質は、<h>物の表面に貼る画像の細かさと解像度</>に影響します。キャラクター、風景、武器や乗り物などの物が対象です。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_Title"
+msgid "Graphics"
+msgstr "グラフィック"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_UpscaleQuality"
+msgid "Upscale Quality"
+msgstr "アップスケールの品質"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_UpscaleQuality_Subtext"
+msgid "Controls the quality in which <h>resolution scale</> scales the 3D rendering."
+msgstr "<h>解像度スケール</>が3D描画を拡大するときの品質を設定します。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_ViewDistance"
+msgid "View Distance"
+msgstr "描画距離"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_ViewDistance_Far"
+msgid "Far"
+msgstr "遠い"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_ViewDistance_Near"
+msgid "Near"
+msgstr "近い"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/GraphicsSettings_ViewDistance_Subtext"
+msgid "View Distance affects the <h>distance at which objects and elements in a game's environment are rendered and visible to the player.</> This can include terrain, buildings, and other objects in the game world."
+msgstr "描画距離は、<h>風景の物や要素を、どこまで遠くまで描いて見せるか</>に影響します。地形、建物、そのほかの物が対象です。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/IngameMenu_Load"
+msgid "Load"
+msgstr "ロード"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/IngameMenu_MainMenu"
+msgid "Back to main menu"
+msgstr "メインメニューへ戻る"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/IngameMenu_Pause"
+msgid "Pause"
+msgstr "一時停止"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/IngameMenu_Resume"
+msgid "Resume"
+msgstr "ゲームに戻る"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/IngameMenu_Save"
+msgid "Save"
+msgstr "セーブ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/IngameSettings_Documents"
+msgid "Documents"
+msgstr "資料"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/IngameSettings_General"
+msgid "General"
+msgstr "全般"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/IngameSettings_Inventory"
+msgid "Inventory"
+msgstr "持ち物"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Intro_PressAnyKey"
+msgid "PRESS ANY KEY TO START"
+msgstr "なにかキーを押してスタート"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Level_MoonTown"
+msgid "MoonTown"
+msgstr "ムーンタウン"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Level_MoonTown_Subtext"
+msgid "In Moon Town, the streets are bathed in silver light and secrets lurk in every shadow. It's a place where magic and mystery collide, beckoning the curious and daring to explore its enchanting depths."
+msgstr "ムーンタウンの街路は銀色の光に浸り、影という影に秘密がひそんでいます。魔法と謎が交わるこの町は、好奇心と勇気のある者を、その奥深くへと誘います。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MainMenu_Continue"
+msgid "Continue"
+msgstr "つづきから"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MainMenu_Extras"
+msgid "Extras"
+msgstr "おまけ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MainMenu_Loading"
+msgid "Loading..."
+msgstr "読み込み中…"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MainMenu_Multiplayer"
+msgid "Multiplayer"
+msgstr "マルチプレイ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MainMenu_NewGame"
+msgid "New Game"
+msgstr "はじめから"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MainMenu_Options"
+msgid "Options"
+msgstr "オプション"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MainMenu_Play"
+msgid "Play"
+msgstr "プレイ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MainMenu_Quit"
+msgid "Quit"
+msgstr "終了"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MultiplayerMenu_HostGame"
+msgid "Host Game"
+msgstr "ホストになる"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MultiplayerMenu_JoinGame"
+msgid "Join Game"
+msgstr "参加する"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MultiplayerMenu_LocalMultiplayer"
+msgid "Local Multiplayer"
+msgstr "ローカルマルチプレイ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MultiplayerMenu_ServerBrowser"
+msgid "Server Browser"
+msgstr "サーバー一覧"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MultiplayerSettings_Multiplayer"
+msgid "Multiplayer"
+msgstr "マルチプレイ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MultiplayerSettings_PlayerName"
+msgid "Player Name"
+msgstr "プレイヤー名"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MultiplayerSettings_PlayerName_SubText"
+msgid "The name that other players will see when you join a multiplayer session. Choosing an inappropriate name may have <h>permanent consequences</> for your account's multiplayer access."
+msgstr "マルチプレイに参加したとき、ほかのプレイヤーに見える名前です。不適切な名前を選ぶと、アカウントのマルチプレイ利用に<h>取り消せない影響</>が出ることがあります。"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MultiplayerSettings_ShowPlayerNames"
+msgid "Show Player Names"
+msgstr "プレイヤー名を表示"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/MultiplayerSettings_ShowPlayerNames_SubText"
+msgid "Display the player name <h>above the character's head.</> This can be turned off to create a more immersive experience at the cost of more difficult team communication.\r\n\r\n<b>Default Value: On</>"
+msgstr "プレイヤー名を<h>キャラクターの頭の上に</>表示します。オフにすると没入感は高まりますが、仲間との連携は難しくなります。\r\n\r\n<b>初期値: On</>"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Multiplayer_FoundServers"
+msgid "Found Servers:"
+msgstr "見つかったサーバー:"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Multiplayer_Searching"
+msgid "Searching..."
+msgstr "検索中…"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Multiplayer_StartGame"
+msgid "Start Game"
+msgstr "ゲームを開始"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/OptionsMenu_Audio"
+msgid "Audio"
+msgstr "音声"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/OptionsMenu_Display"
+msgid "Display"
+msgstr "画面"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/OptionsMenu_Gameplay"
+msgid "Gameplay"
+msgstr "ゲームプレイ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/OptionsMenu_Graphics"
+msgid "Graphics"
+msgstr "グラフィック"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/SaveGame_AreaHeader"
+msgid "Area"
+msgstr "エリア"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/SaveGame_LastSavedHeader"
+msgid "Last Saved"
+msgstr "最終セーブ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/SaveGame_LoadGameHeader"
+msgid "Load Game"
+msgstr "ロード"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/SaveGame_NewGameHeader"
+msgid "Create New Game"
+msgstr "はじめから"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/SaveGame_PlayTimeHeader"
+msgid "Play Time"
+msgstr "プレイ時間"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/SaveGame_PreviewHeader"
+msgid "Preview"
+msgstr "プレビュー"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/SaveGame_SaveGameHeader"
+msgid "Save Game"
+msgstr "セーブ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/SaveGame_SavesHeader"
+msgid "Saves"
+msgstr "セーブデータ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/SaveGame_SlotHeader"
+msgid "Slot"
+msgstr "スロット"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ServerBrowser_NameHeader"
+msgid "Name"
+msgstr "名前"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ServerBrowser_Ping"
+msgid "Ping"
+msgstr "応答速度"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ServerBrowser_PlayerCountHeader"
+msgid "Players"
+msgstr "人数"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ServerBrowser_PreviewHeader"
+msgid "Preview"
+msgstr "プレビュー"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ServerBrowser_RefreshServerList"
+msgid "Refresh Server List"
+msgstr "一覧を更新"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ServerBrowser_TitleHeader"
+msgid "Server Browser"
+msgstr "サーバー一覧"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/ServerBrowser_ToggleLAN"
+msgid "Toggle LAN"
+msgstr "LANの切り替え"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Settings"
+msgid "Settings"
+msgstr "設定"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Settings_Apply"
+msgid "Apply"
+msgstr "適用"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Settings_Back"
+msgid "Back "
+msgstr "戻る"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Settings_General"
+msgid "General"
+msgstr "全般"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Settings_Multiplayer"
+msgid "Multiplayer"
+msgstr "マルチプレイ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Settings_Off"
+msgid "Off"
+msgstr "オフ"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Settings_On"
+msgid "On"
+msgstr "オン"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Settings_Reset"
+msgid "Reset settings"
+msgstr "設定を初期化"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/Settings_Video"
+msgid "Video"
+msgstr "映像"
+
+#. stringtable: ST_Menu
+msgctxt "ST_Menu/SingleplayerMenu_Singleplayer"
+msgid "Singleplayer"
+msgstr "シングルプレイ"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Extras/WBP_NewSaveSystem_IndigoPark
+msgctxt "/D78F63514D0B6854DE27ED91A6160965"
+msgid "Welcome Back!"
+msgstr "おかえりなさい"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Extras/WBP_NewSaveSystem_IndigoPark
+msgctxt "/89AFE8514F0D93257233D79F8EA45AD5"
+msgid "LOAD GAME"
+msgstr "ロード"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Extras/WBP_NewSaveSystem_IndigoPark
+msgctxt "/C812DCEF48F5D807D8B38D8A88BC919F"
+msgid "RESTART LEVEL"
+msgstr "ステージをやり直す"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Extras/WBP_NewSaveSystem_IndigoPark
+msgctxt "/AB0E2DAC474CD95DDB59C783AF96E8CF"
+msgid "SAVE GAME"
+msgstr "セーブ"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Extras/WBP_NewSaveSystem_IndigoPark
+msgctxt "/C353E8C34DCADC4C5226C6AF856E336A"
+msgid "Continue"
+msgstr "つづきから"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Extras/WBP_NewSaveSystem_IndigoPark
+msgctxt "/B58D59EF4BB15228537034BD292B2659"
+msgid "Delete Current Save"
+msgstr "このセーブデータを削除"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Ingame/WBP_IngameMenuGeneral_IndigoPark
+msgctxt "/4D3BBDA54FCFA0658A124CAF676868BA"
+msgid "CURRENT OBJECTIVE:"
+msgstr "いまの目標:"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Ingame/WBP_InventoryMenu_IndigoPark
+msgctxt "/3EA9A8194B482D2779268483D0DCCFDB"
+msgid "Collectables"
+msgstr "収集品"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/LoadingScreen/WBP_LoadingScreenMenu_IndigoPark
+msgctxt "/078062ED468155D3CA1DF2A8037BDEF5"
+msgid "No meta data found for this level."
+msgstr "このステージの情報が見つかりません。"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/SaveGame/WBP_SaveGameMenu_IndigoPark
+msgctxt "/D65CA5BD4CD1F450A27550B6459D91FE"
+msgid "LOAD GAME"
+msgstr "ロード"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/SaveGame/WBP_SaveGameMenu_IndigoPark
+msgctxt "/822957C546847DCE868005AD02CF0C69"
+msgid "RESTART LEVEL"
+msgstr "ステージをやり直す"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/SaveGame/WBP_SaveGameMenu_IndigoPark
+msgctxt "/7FA429AA4F7CA2A26587B89C978314B7"
+msgid "SAVE GAME"
+msgstr "セーブ"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Settings/WBP_AudioSettings_IndigoPark
+msgctxt "/0D364298464FAB664F9DB6B89CD9F3DB"
+msgid "General"
+msgstr "全般"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Settings/WBP_ControlsKeyBindings_IndigoPark
+msgctxt "/187069344999ACC7B9D268B0EC2B5810"
+msgid "Interact"
+msgstr "調べる"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Settings/WBP_ControlsKeyBindings_IndigoPark
+msgctxt "/F4F77D3149360C49095C9784F14771CA"
+msgid "Press this to interact with items and perform events"
+msgstr "物を調べたり、仕掛けを動かしたりします"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/Special/WBP_DecisionDialog_IndigoPark
+msgctxt "/AFE1FBD347930B6D466E65BBBA0AFE60"
+msgid "Exit Game"
+msgstr "ゲームを終了"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Menus/TitleScreen/WBP_TitleScreenMenu_IndigoPark
+msgctxt "/6F311A7E46437350CCAE83A866646F68"
+msgid "Credits"
+msgstr "クレジット"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Widgets/Buttons/WBP_FooterButton_IndigoPark
+msgctxt "/0AB0D50C4489420E0A54A78EFDD23FC5"
+msgid "Back"
+msgstr "戻る"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_IndigoPark/Widgets/SaveGame/WBP_SaveSlot_IndigoPark
+msgctxt "/9ADF16FF463F744FE7FF3097B055CD6B"
+msgid "EMPTY"
+msgstr "空き"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Levels/MetaData/DA_Beginning
+msgctxt "/350283A24B549DACD1A9B89B291F2FBB"
+msgid "Chapter 1"
+msgstr "第1章"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Levels/MetaData/DA_Beginning
+msgctxt "/00F00FD24C8D36C6EAC9C09F66C9D298"
+msgid "Welcome to Indigo Park. Try to find a way in. "
+msgstr "インディゴパークへようこそ。中に入る方法を探そう。"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Ingame/WBP_MessageFromtheDevs_R
+msgctxt "/97928A73446DB01C63A12787DF7894F3"
+msgid "Thank You!"
+msgstr "ありがとう！"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Ingame/WBP_MessageFromtheDevs_R
+msgctxt "/7B376F014CFC9F0AB6A6A2B13E942EAC"
+msgid "- Mason, Rambley, & the Dev Team "
+msgstr "— メイソン、ランブリー、そして開発チーム"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Ingame/WBP_MessageFromtheDevs_R
+msgctxt "/4E9538B64367635BD0C1A3913D3B1CB5"
+msgid "Main Menu"
+msgstr "メインメニュー"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Ingame/WBP_MessageFromtheDevs_R
+msgctxt "/2AF8C31E49E6CC986479FEAD7ABED680"
+msgid "Check out our channel!"
+msgstr "チャンネルもぜひ見てね！"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Multiplayer/WBP_HostMultiplayerMenu_R
+msgctxt "/11847BD94DC9E4E95C671582368B361A"
+msgid "LAN"
+msgstr "LAN"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Multiplayer/WBP_HostMultiplayerMenu_R
+msgctxt "/395246A74A526597C04BB6B83C2A9E22"
+msgid "New Server"
+msgstr "新しいサーバー"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Multiplayer/WBP_LocalMultiplayerMenu_R
+msgctxt "/CF5359054BDFBAFD0367CBB2016B7C5E"
+msgid "Requires at least two gamepads to start"
+msgstr "開始にはゲームパッドが2つ以上必要です"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Settings/WBP_ControlsKeyBindings_R
+msgctxt "/548984F946987C295EE3C4818D56E5C3"
+msgid "Flashlight"
+msgstr "懐中電灯"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Settings/WBP_ControlsKeyBindings_R
+msgctxt "/ACBDD81A48F642153D8FB280606A4DD2"
+msgid "Toggle Flashlight"
+msgstr "懐中電灯の切り替え"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Settings/WBP_ControlsKeyBindings_R
+msgctxt "/4BB9E1254C7FA14E71591D90FCB7799F"
+msgid "Interact"
+msgstr "調べる"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Settings/WBP_ControlsKeyBindings_R
+msgctxt "/E15304E241AF8D23F1115FB094A60017"
+msgid "Pick up, activate, and control items and events."
+msgstr "物を拾ったり、仕掛けを動かしたりします。"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Settings/WBP_GameSettings_R
+msgctxt "/D34058C747E8E204F55992BA19DA6B3D"
+msgid "On"
+msgstr "オン"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Settings/WBP_GameSettings_R
+msgctxt "/F1F24C334CA0FA54974B77A503353EA4"
+msgid "Off"
+msgstr "オフ"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Settings/WBP_GameSettings_R
+msgctxt "/6E1443844C98C1EF9065D481339AE1CF"
+msgid "Camera Delay Effect"
+msgstr "カメラの遅延効果"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Settings/WBP_GameSettings_R
+msgctxt "/47C2816747C534B96C0092B98D855FE8"
+msgid "Viewbob"
+msgstr "画面のゆれ"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/TitleScreen/WBP_TitleScreenMenu_R
+msgctxt "/71F8284B40867C45C25A7DB28C330637"
+msgid "CREDITS"
+msgstr "クレジット"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Widgets/Extras/WBP_LocalMultiplayerJoiner_R
+msgctxt "/772AEB674CC2DA231660A1A3CFE63BE3"
+msgid "PLAYER X READY"
+msgstr "プレイヤーX 準備完了"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Widgets/Extras/WBP_LocalMultiplayerJoiner_R
+msgctxt "/D0EBE5A84D4B0E6359DCD182B5CCE681"
+msgid "PRESS UP TO JOIN"
+msgstr "上を押して参加"
+
+#. ftext: MenuSystemPro/ExampleContent/Designs/Design_R/Widgets/Multiplayer/WBP_ServerSlot_R
+msgctxt "/EC5203464308A57EE08B83BD0A72CA75"
+msgid "Name"
+msgstr "名前"
+

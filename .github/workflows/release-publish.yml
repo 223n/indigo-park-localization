@@ -141,7 +141,7 @@ jobs:
           git tag --annotate "${TAG}" --message "${TAG}"
           git push origin "refs/tags/${TAG}"
 
-      - name: GitHub Releaseを作る
+      - name: GitHub Releaseをドラフトで作る
         env:
           TAG: ${{ steps.version.outputs.tag }}
           PRERELEASE: ${{ steps.version.outputs.prerelease }}
@@ -150,13 +150,59 @@ jobs:
             echo "::notice::Release ${TAG} はすでにある。作り直さない"
             exit 0
           fi
+          # ドラフトで作る。添付と本文を人が確かめてから公開する
           # 本文は PR のタイトルとラベルから自動で作る。分類は .github/release.yml で決める
-          args=(--verify-tag --title "${TAG}" --generate-notes)
+          args=(--draft --verify-tag --title "${TAG}" --generate-notes)
           if [ "${PRERELEASE}" = 'true' ]; then
             args+=(--prerelease)
           fi
           gh release create "${TAG}" "${args[@]}"
-          echo "- Release: $(gh release view "${TAG}" --json url --jq '.url')" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Pythonを用意
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+
+      - name: 配布物を組み立ててドラフトに添付する
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          set -euo pipefail
+          if gh release view "${TAG}" --json assets --jq '.assets[].name' | grep -q '\.zip$'; then
+            echo "::notice::添付はすでにある。作り直さない"
+            exit 0
+          fi
+          python tools/make_release.py | tee /tmp/release.log
+          zip="$(find dist -maxdepth 1 -name '*.zip' | head -n 1)"
+          if [ -z "${zip}" ]; then
+            echo '::error::配布物ができなかった'
+            exit 1
+          fi
+          sum="$(sha256sum "${zip}" | cut -d' ' -f1)"
+          gh release upload "${TAG}" "${zip}"
+          # 本文の先頭に、確かめる手掛かりを足す
+          body="$(gh release view "${TAG}" --json body --jq '.body')"
+          {
+            printf '### 配布物\n\n'
+            printf '| ファイル | SHA256 |\n| ---- | ---- |\n'
+            printf '| `%s` | `%s` |\n\n' "$(basename "${zip}")" "${sum}"
+            printf '%s\n' "${body}"
+          } > /tmp/body.md
+          gh release edit "${TAG}" --notes-file /tmp/body.md
+          echo "- 配布物: $(basename "${zip}")（SHA256: ${sum}）" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: 公開はしないことを知らせる
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          url="$(gh release view "${TAG}" --json url --jq '.url')"
+          echo "- Release（ドラフト）: ${url}" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo ''
+            echo '添付と本文を確かめてから、Releases の画面で「Publish release」を押してください。'
+            echo 'ドラフトのままではタグだけが公開され、Release は表に出ません。'
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "::notice::Release ${TAG} はドラフトです。確かめてから公開してください: ${url}"
 
       - name: mainをdevelopへ戻す
         # 版の更新を develop にも届ける。まず直接押し、保護されていて押せなければ PR を開く。

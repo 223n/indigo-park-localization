@@ -92,7 +92,10 @@ zipの中身は次のとおりです。
 
 `repak`と`retoc`は取得してSHA256で照合します。
 `repak`がファイルの順を固定しないため、同じ入力でもzipは毎回変わります。
-公開するときは、出力されたSHA256をReleaseに載せてください。
+
+この組み立ては「リリースを公開する」ワークフローも行います。
+ドラフトのReleaseに添付し、本文にSHA256を書き足します。
+手元で作るのは、公開の前に中身を確かめたいときです。
 
 ## これから決めること
 
@@ -202,7 +205,7 @@ GitFlowに沿って運用します。
 ブランチの役割は[CONTRIBUTING.md](CONTRIBUTING.md)にあります。
 
 ```text
-develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ タグ vX.Y.Z と GitHub Release ──▶ develop へ戻す
+develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ タグ vX.Y.Z とドラフトの Release ──▶ 人が公開 ──▶ develop へ戻す
 ```
 
 ### リリースする
@@ -211,7 +214,9 @@ develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ �
 1. `version`にリリースする版を入れます。`v`は付けません（例: `1.2.0`、`1.2.0-rc.1`）
 1. ワークフローが`develop`から`release/vX.Y.Z`ブランチを切り、`package.json`の版を上げ、`main`へのPull Requestを開きます
 1. Pull Requestの内容を確かめ、マージコミット（Create a merge commit）でマージします
-1. 「リリースを公開する」ワークフローが動き、タグ`vX.Y.Z`を打ち、GitHub Releaseを作り、`main`を`develop`に戻します
+1. 「リリースを公開する」ワークフローが動きます。タグ`vX.Y.Z`を打ち、**ドラフトの**GitHub Releaseを作って配布物を添付し、`main`を`develop`に戻します
+1. 「Releases」でドラフトを開き、添付と本文を確かめます
+1. 問題なければ「Publish release」を押します
 
 版は`package.json`の`version`で管理します。
 `develop`と`main`の版、最新のタグのどれよりも大きい版だけを受け付けます。
@@ -231,6 +236,13 @@ develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ �
 
 GitHub Releaseの本文は、マージしたPull Requestのタイトルとラベルから自動で作られます。
 分類は`.github/release.yml`にあります。
+
+Releaseは**ドラフトで作られます**。
+ワークフローが配布物のzipを組み立てて添付し、本文の先頭にSHA256を書き足します。
+中身を確かめてから、「Releases」の画面で「Publish release」を押してください。
+
+ドラフトのままでもタグは公開されます。
+公開を取りやめるときは、ドラフトとタグの両方を消してください。
 
 ### 緊急の修正（hotfix）
 
@@ -268,7 +280,7 @@ Nodeはワークフローが用意します。
 | `labeler.yml` | Pull Requestを開いたとき、更新したとき | 変えたファイルとブランチ名からラベルを付けます |
 | `branch-guard.yml` | Pull Requestを開いたとき、更新したとき | headブランチが`main`か`develop`なら失敗します。マージは止めません |
 | `release.yml` | 手動 | `develop`からリリースブランチを切り、版を上げ、`main`へのPull Requestを開きます |
-| `release-publish.yml` | `release/*`か`hotfix/*`のPull Requestが`main`にマージされたとき | タグを打ち、GitHub Releaseを作り、`main`を`develop`に戻します |
+| `release-publish.yml` | `release/*`か`hotfix/*`のPull Requestが`main`にマージされたとき | タグを打ち、ドラフトのGitHub Releaseを作り、配布物を添付し、`main`を`develop`に戻します。公開は人が行います |
 
 ## 権利について
 

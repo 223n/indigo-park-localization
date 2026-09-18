@@ -6,7 +6,7 @@
 # from_name は、GitHub が最初から用意する英語のラベルを、付いている Issue や PR を保ったまま改名するためのもの。
 # Dependabot の labels に書くラベルはここで作っておく。Dependabot はないラベルを作らず、黙って無視する。
 
-# ---- 種類。バグ・機能追加・質問は Issue フォームが付け、ドキュメントはラベラーが付ける。残りは人が付ける
+# ---- 種類。バグ・機能追加・質問・翻訳は Issue フォームが付け、ドキュメントと翻訳はラベラーも付ける。残りは人が付ける
 - name: バグ
   from_name: bug
   color: '#d73a4a'
@@ -19,6 +19,9 @@
   from_name: documentation
   color: '#0075ca'
   description: 文書の追加や修正
+- name: 翻訳
+  color: '#0e8a16'
+  description: 訳文の追加や修正
 - name: 質問
   from_name: question
   color: '#d876e3'

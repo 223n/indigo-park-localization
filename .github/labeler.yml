@@ -8,6 +8,13 @@
           - '**/*.md'
           - 'docs/**'
 
+翻訳:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'data/ja.po'
+          - 'data/corpus.json'
+          - 'docs/TRANSLATION.md'
+
 依存関係:
   - changed-files:
       - any-glob-to-any-file:

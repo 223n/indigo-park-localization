@@ -17,12 +17,16 @@
 `.locres`は原文を持たず訳文だけを持つため、原文がpakの中に見えたら、
 訳文の代わりに原文が書き込まれたということです。
 
+探すときは、`.locres`が文字列を置く並び（長さと終端を含む形）のまま探します。
+生の文字だけで探すと、フォントの中身やアセット名にたまたま重なります。
+
 pakを圧縮して作るようにした場合、3と4は文字列を見つけられなくなります。
 そのときはこの道具の作りを変えてください。
 """
 import io
 import json
 import os
+import struct
 import sys
 import zipfile
 
@@ -49,9 +53,65 @@ REQUIRED = (
     "licenses/OFL.txt",
 )
 
-# 原文が短いと、キーやファイル名の一部にたまたま重なります。
-# 空白を含む長めの文だけを「原文のまま残っていないか」の対象にします
-MIN_SOURCE = 16
+# 照合できた件数がこれを下回ったら、読み込みそのものが壊れていると見ます。
+# 訳文が1件も読めていないのに「問題なし」で通ると、検査の意味がなくなります
+MIN_RATIO = 0.9
+
+# .locres の先頭に入っている印。tools/build_locres.py の MAGIC と同じ
+LOCRES_MAGIC = bytes.fromhex("0e147475674a03fc4a15909dc3377f1b")
+
+
+def read_fstring(b, o):
+    """oの位置からFStringを読み、(文字列, 次の位置)を返す"""
+    (n,) = struct.unpack_from("<i", b, o)
+    o += 4
+    if n == 0:
+        return "", o
+    if n > 0:
+        return b[o:o + n - 1].decode("utf-8"), o + n
+    n = -n
+    return b[o:o + n * 2 - 2].decode("utf-16-le"), o + n * 2
+
+
+def read_locres(pak, start):
+    """pakの中のstartの位置にある.locresを読み、(名前空間, キー) -> 訳文 にする"""
+    o = start + len(LOCRES_MAGIC)
+    version = pak[o]
+    o += 1
+    if version != 3:
+        raise ValueError(".locres の版が3ではありません: %d" % version)
+    (array,) = struct.unpack_from("<q", pak, o)
+    o += 8
+    (total,) = struct.unpack_from("<I", pak, o)
+    o += 4
+    (namespaces,) = struct.unpack_from("<I", pak, o)
+    o += 4
+
+    so = start + array
+    (count,) = struct.unpack_from("<i", pak, so)
+    so += 4
+    strings = []
+    for _ in range(count):
+        s, so = read_fstring(pak, so)
+        so += 4  # 参照数
+        strings.append(s)
+
+    out = {}
+    for _ in range(namespaces):
+        o += 4  # 名前空間のハッシュ
+        ns, o = read_fstring(pak, o)
+        (keys,) = struct.unpack_from("<I", pak, o)
+        o += 4
+        for _ in range(keys):
+            o += 4  # キーのハッシュ
+            key, o = read_fstring(pak, o)
+            o += 4  # 原文のハッシュ
+            (index,) = struct.unpack_from("<i", pak, o)
+            o += 4
+            out[(ns, key)] = strings[index]
+    if len(out) != total:
+        raise ValueError("項目数が合いません: 見出しは%d件、読めたのは%d件" % (total, len(out)))
+    return out
 
 
 def load(path):
@@ -96,35 +156,64 @@ def check(zip_path):
     corpus = load(os.path.join(ROOT, "data", "corpus.json"))
     translation = po.read(os.path.join(ROOT, "data", "ja.po"))
 
-    missing_target = []
-    leftover_source = []
+    # pakの中から.locresを見つけて読む。
+    # 圧縮せずに詰めているため、印を手掛かりに位置を出せる
+    offsets = []
+    at = pak.find(LOCRES_MAGIC)
+    while at >= 0:
+        offsets.append(at)
+        at = pak.find(LOCRES_MAGIC, at + 1)
+    if not offsets:
+        problems.append("pakの中に.locresがありません。pakを圧縮して作っていないか確かめてください")
+        return problems, notes
+
+    tables = []
+    for at in offsets:
+        try:
+            tables.append(read_locres(pak, at))
+        except Exception as ex:
+            problems.append("位置%dの.locresを読めません: %s" % (at, ex))
+    if not tables:
+        return problems, notes
+    notes.append(".locres %d個 / 項目 %d件" % (len(tables), len(tables[0])))
+
+    missing = []
+    wrong = []
+    leftover = []
     checked = 0
+    targets = 0
     for e in corpus["entries"]:
         if not e["translate"]:
             continue
+        targets += 1
         target = translation.get(e["id"])
         if not target or target == e["source"]:
             # 規格名や製品名など、訳文が原文と同じ項目は見分けられないため飛ばす
             continue
         checked += 1
-        if target.encode("utf-16-le") not in pak:
-            missing_target.append("%s  %s" % (e["id"], target[:40]))
-        source = e["source"]
-        if len(source) >= MIN_SOURCE and " " in source:
-            try:
-                raw = source.encode("ascii")
-            except UnicodeEncodeError:
-                continue
-            if raw in pak:
-                leftover_source.append("%s  %s" % (e["id"], source[:60]))
+        for table in tables:
+            got = table.get((e["namespace"], e["key"]))
+            if got is None:
+                missing.append("%s  %s" % (e["id"], e["source"][:50]))
+            elif got == e["source"]:
+                leftover.append("%s  %s" % (e["id"], e["source"][:60]))
+            elif got != target:
+                wrong.append("%s  期待 %s / 実際 %s" % (e["id"], target[:30], got[:30]))
+            break
 
-    notes.append("訳文 %d件を照合" % checked)
-    if missing_target:
-        problems.append("訳文がpakに入っていません（%d件）:\n    %s" % (
-            len(missing_target), "\n    ".join(missing_target[:10])))
-    if leftover_source:
-        problems.append("英語の原文がpakに残っています（%d件）:\n    %s" % (
-            len(leftover_source), "\n    ".join(leftover_source[:10])))
+    notes.append("訳文 %d件を照合（翻訳対象 %d件）" % (checked, targets))
+    if targets and checked < targets * MIN_RATIO:
+        problems.append(
+            "照合できた訳文が%d件しかありません（翻訳対象は%d件）。data/ja.po を読めていない恐れがあります"
+            % (checked, targets))
+    for title, rows in (
+        ("項目が.locresにありません", missing),
+        ("英語の原文のまま入っています", leftover),
+        ("訳文が data/ja.po と違います", wrong),
+    ):
+        if rows:
+            problems.append("%s（%d件）:\n    %s" % (
+                title, len(rows), "\n    ".join(rows[:10])))
     return problems, notes
 
 

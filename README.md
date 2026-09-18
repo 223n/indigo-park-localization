@@ -1,7 +1,7 @@
 # Indigo Park 日本語化
 
-[![Apache-2.0](https://custom-icon-badges.herokuapp.com/badge/license-Apache%202.0-8BB80A.svg?logo=law&logoColor=white)]()
-[![Windows](https://custom-icon-badges.herokuapp.com/badge/Windows-1BB2E4.svg?logo=Windows&logoColor=white)]()
+[![Apache-2.0](https://custom-icon-badges.herokuapp.com/badge/license-Apache%202.0-8BB80A.svg?logo=law&logoColor=white)](LICENSE)
+[![Windows](https://custom-icon-badges.herokuapp.com/badge/Windows-1BB2E4.svg?logo=Windows&logoColor=white)](./)
 
 Steam版のゲーム「Indigo Park」を日本語で遊ぶための、非公式の日本語化MODです。
 翻訳した文と、それをゲームへ適用する仕組みをこのリポジトリで管理します。

@@ -73,19 +73,23 @@ I'm not crashin', Rambley! I'm barnstormin'!
 
 | 項目 | 決めごと |
 | ---- | ---- |
-| 一人称 | ワタクシ |
-| 口調 | 芝居がかった大仰な言い回し。尊大 |
+| 一人称 | ワガハイ |
+| 口調 | 芝居がかった大仰な言い回し。尊大で古風 |
 | 語尾 | `〜であるッ！` `〜なのだ！` |
 | 特徴 | 巻き舌。原文の`PRRRRROUD`のような伸ばしを再現する |
+
+「ワタクシ」はへりくだる側の言葉で、`COMMON FOLK`の呼び名を恥じる人物には合いません。
+日本語でいちばん庶民的な自称を当てると、その台詞の中で人物像が壊れます。
+古風な自称にするのは、収集品の解説にある`Lloyd obviously had an older look in the classic Indigo cartoons`とも合います。
 
 巻き舌は、カタカナの長音と小書き文字で表します。
 
 ```text
 Do not SHAME me with that COMMON FOLK Name!
-  → そのような下賤な呼び名でワタクシを辱めるでないッ！
+  → そのような下賤な呼び名でワガハイを辱めるでないッ！
 
 I am the PRRRRROUD, the PRRRRESTIGIOUS, the PRRRRRRROFESSIONAL
-  → ワタクシこそ誇り高きィィィ、由緒正しきィィィ、真に professional なるゥゥゥ
+  → ワガハイこそ誇り高きィィィ、由緒正しきィィィ、真に professional なるゥゥゥ
 ```
 
 英単語をそのまま残すのは1箇所までにします。

@@ -4,7 +4,14 @@ name: PRにラベルを付ける
 #
 # pull_request_target を使うのは、フォークからの PR でもラベルを書ける権限を得るためである。
 # このイベントは base ブランチの内容で動くため、PR 側の設定変更は効かない。
-# また PR のコードを checkout して実行してはならない（ここでは checkout しない）。
+# ただし PR のコードは絶対に checkout して実行してはならない。
+#
+# 設定（.github/labeler.yml）は base ブランチから取り出す。
+# checkout しないと actions/labeler は設定を API で取りに行き、そのとき読むのは既定ブランチ（main）である。
+# PR #20 で確かめた。develop にしかない規則は効かず、main にある規則だけが効いた。
+# 規則を足してからリリースで main に届くまで効かない、という分かりにくい待ちが生まれるため、
+# base ブランチの設定ファイルだけを取り出してローカルに置く。
+# 取り出すのは .github/labeler.yml の1ファイルだけで、PR 側のコードには触れない。
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
@@ -24,6 +31,17 @@ jobs:
       pull-requests: write   # ラベルを付ける
       issues: write          # ラベルの同期がまだのとき、ないラベルを作る。色と説明は次の同期で揃う
     steps:
+      - name: baseブランチの設定を取り出す
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # base ブランチ（develop や main）を指す。PR の head は指さない
+          ref: ${{ github.base_ref }}
+          # 設定ファイル1つだけを取り出す。cone モードを切ると、ファイル単位で指定できる
+          sparse-checkout: .github/labeler.yml
+          sparse-checkout-cone-mode: false
+          # ラベルを付けるのは labeler が持つ token で、この checkout の認証情報は要らない
+          persist-credentials: false
+
       - name: ラベルを付ける
         uses: actions/labeler@bf12e9b00b37c5c0ca2b87b79b2daf7891dbda13 # v7.0.0
         with:

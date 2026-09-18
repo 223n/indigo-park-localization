@@ -4,16 +4,27 @@ name: リリース
 #
 #   develop ──▶ release/vX.Y.Z ──(PR)──▶ main ──▶ タグ vX.Y.Z と GitHub Release ──▶ develop へ戻す
 #
-# PR を人がマージすると「リリースを公開する」（release-publish.yml）が動き、
+# PR がマージされると「リリースを公開する」（release-publish.yml）が動き、
 # タグと GitHub Release を作って main を develop に戻す。
-# auto_merge を有効にすると、人手を挟まずにこのワークフローの中で PR をマージし、公開まで進める。
-# ただし main に必須のチェックや承認のルールがあると、auto_merge はマージで止まる。
-# GITHUB_TOKEN が開いた PR の CI は承認待ちのままで、ルールを満たせないためである。
-# その場合は人が PR をマージすれば、release-publish.yml が動いて公開まで進む。
+#
+# PR の作成とマージには、持ち主の fine-grained PAT（secret の RELEASE_TOKEN）を使う。
+# GITHUB_TOKEN で開いた PR では、CI が承認待ちのまま動かない。
+# GITHUB_TOKEN でマージしても pull_request(closed) のワークフローは動かず、
+# ワークフローのファイルを変える PR は workflows 権限が無いためマージもできない。
+# PAT には Contents、Pull requests、Workflows の書き込みを付ける。README の「リリース用のトークン」を見る。
+#
+# job は3つに分ける。
+#   check    版と中身を確かめる。npm ci と npm run lint で依存のコードを動かすため、秘密情報を渡さず、読み取りだけにする
+#   prepare  release ブランチを切って版を上げ、PR を開く。依存のコードは動かさない。RELEASE_TOKEN を使う
+#   merge    チェックが通るのを待って、PR を RELEASE_TOKEN でマージする（.github/scripts/merge-pr.sh）
+# 依存が乗っ取られても、RELEASE_TOKEN を抜かれたり、release ブランチを書き換えられたりしないようにするためである。
+#
+# auto_merge が有効なら、merge がマージし、release-publish.yml が pull_request(closed) で動いて公開まで進む。
+# RELEASE_TOKEN が無いか使えないときは警告を出し、GITHUB_TOKEN で PR を開くだけにする。
+# その場合は人が PR の「Approve workflows to run」を押すか閉じて開き直し、チェックが通ったらマージする。
 #
 # auto_publish を有効にすると、Release をドラフトで止めずに公開する。
-# 人が PR をマージする経路にも効かせるため、PR に「自動公開」ラベルを付けて伝える。
-# release-publish.yml はそのラベルを見て公開まで進む。
+# release-publish.yml には、PR に「自動公開」ラベルを付けて伝える。
 # 公開の前に tools/verify_release.py が添付を落として中身を確かめ、落ちたらドラフトのまま止まる。
 #
 # PR は必ずマージコミット（Create a merge commit）でマージする。
@@ -22,7 +33,7 @@ name: リリース
 # 一度だけ要る設定:
 #   Settings > Actions > General > Workflow permissions で
 #   「Allow GitHub Actions to create and approve pull requests」を有効にする。
-#   これがないと gh pr create が拒まれる。
+#   RELEASE_TOKEN が使えないときに、GITHUB_TOKEN で PR を開くために要る。
 on:
   workflow_dispatch:
     inputs:
@@ -31,10 +42,10 @@ on:
         required: true
         type: string
       auto_merge:
-        description: 'PR を人手で確認せず、そのままマージしてタグと GitHub Release まで進める'
+        description: 'チェックが通るのを待って PR をマージし、タグと GitHub Release まで進める。RELEASE_TOKEN が要る'
         required: false
         type: boolean
-        default: false
+        default: true
       auto_publish:
         description: '配布物の確かめが通ったら、Release をドラフトで止めず公開する'
         required: false
@@ -53,23 +64,19 @@ permissions:
 env:
   DEVELOP_BRANCH: develop
   MAIN_BRANCH: main
+  # gh が対象のリポジトリを決めるのに使う。checkout していない job では、git remote から決められないため
+  GH_REPO: ${{ github.repository }}
 
 jobs:
-  prepare:
-    name: リリースブランチとPRを作る
+  check:
+    name: 版と中身を確かめる
+    # npm ci と npm run lint で依存のコードを動かすため、秘密情報を参照せず、書き込みの権限も持たせない
     # セルフホストのランナーがあれば、リポジトリの変数 RUNS_ON にそのラベル（例: self-hosted）を設定する。
     # 無ければ GitHub がホストする ubuntu-latest で動く
     runs-on: ${{ vars.RUNS_ON || 'ubuntu-latest' }}
     timeout-minutes: 15
     permissions:
-      contents: write        # release ブランチを押す
-      pull-requests: write   # PR を開く
-    outputs:
-      version: ${{ steps.version.outputs.version }}
-      tag: ${{ steps.version.outputs.tag }}
-      branch: ${{ steps.version.outputs.branch }}
-      pr_number: ${{ steps.pr.outputs.number }}
-      pr_url: ${{ steps.pr.outputs.url }}
+      contents: read
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
@@ -110,12 +117,13 @@ jobs:
           fi
 
       - name: developを取得
-        # zizmor: ignore[artipacked] このジョブは release ブランチを push するため、認証情報を残す
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ env.DEVELOP_BRANCH }}
           # 最新のタグと main の版と比べるため、履歴とタグをすべて取る
           fetch-depth: 0
+          # この job は push しない。依存のコードに認証情報を触らせない
+          persist-credentials: false
 
       - name: Nodeを用意
         # 版の比較にも node を使うため、その前に用意する。セルフホストのランナーに Node が無くても動く
@@ -133,14 +141,16 @@ jobs:
           TAG: ${{ steps.version.outputs.tag }}
           BRANCH: ${{ steps.version.outputs.branch }}
         run: |
-          if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null 2>&1; then
+          # checkout は認証情報を残さないため、リモートの状態は git ではなく gh api で見る
+          if gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${TAG}" --silent 2>/dev/null; then
             echo "::error::タグ ${TAG} はすでにある"
             exit 1
           fi
-          # release ブランチは同時に1つだけ。別の版が開いたままだと、後の PR が package.json で衝突する
-          if git ls-remote --exit-code --heads origin 'refs/heads/release/*' >/dev/null 2>&1; then
-            echo "::error::release/* ブランチが残っている。前のリリースの PR をマージするか閉じてから実行する"
-            git ls-remote --heads origin 'refs/heads/release/*'
+          # release ブランチは同時に1つだけ。別の版が残っていると、後の PR が package.json で衝突する
+          left="$(gh api "repos/${GITHUB_REPOSITORY}/git/matching-refs/heads/release/" --jq '.[].ref')"
+          if [ -n "${left}" ]; then
+            echo "::error::release/* ブランチが残っている。前のリリースの PR をマージする。PR を閉じただけなら、そのブランチを消してから実行する"
+            printf '%s\n' "${left}"
             exit 1
           fi
 
@@ -205,6 +215,83 @@ jobs:
             console.log("版: " + bases.filter(Boolean).join(", ") + " → " + next)
           ' "${VERSION}" "${current}" "${main_version}" "${latest_tag#v}"
 
+      - name: 検査を通す
+        # 壊れたものをリリースブランチに載せない。
+        # release ブランチは、この develop に main を取り込み、版を上げただけのものになる。
+        # RELEASE_TOKEN が使えずに GITHUB_TOKEN で PR を開くと、PR の CI は承認待ちで止まるため、ここでも検査しておく
+        run: npm run lint
+
+  prepare:
+    name: リリースブランチとPRを作る
+    needs: check
+    # 依存のコードは動かさない（npm ci も npm run lint もしない）。RELEASE_TOKEN を参照するため
+    runs-on: ${{ vars.RUNS_ON || 'ubuntu-latest' }}
+    timeout-minutes: 15
+    permissions:
+      contents: write        # release ブランチを押す
+      pull-requests: write   # PR を開き、ラベルを付ける
+    outputs:
+      pr_number: ${{ steps.pr.outputs.number }}
+      pr_url: ${{ steps.pr.outputs.url }}
+      auto_merge: ${{ steps.pr.outputs.auto_merge }}
+      head_sha: ${{ steps.push.outputs.sha }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: GitHub CLIがあることを確かめる
+        # GitHub がホストするランナーには入っている。セルフホストのランナーでは自分で入れる
+        run: |
+          if ! command -v gh >/dev/null 2>&1; then
+            echo "::error::gh（GitHub CLI）がない。ランナーに入れてから実行する: https://cli.github.com/"
+            exit 1
+          fi
+
+      - name: 版を決める
+        id: version
+        # check の outputs は使わず、入力から作り直す。check は依存のコードを動かすため、その出力を頼りにしない。
+        # 書式は check で確かめてある
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          version="${INPUT_VERSION#v}"
+          {
+            echo "version=${version}"
+            echo "tag=v${version}"
+            echo "branch=release/v${version}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: リリース用のトークンを確かめる
+        id: token
+        # 期限切れや失効は、ここで見つける。使えないときは止めずに、GITHUB_TOKEN で PR を開くだけにする。
+        # 読めるかどうかしか確かめられない。Pull requests の不足は PR の作成で、
+        # Workflows と Contents の不足はマージの待ちで BLOCKED が続くことで分かる
+        env:
+          RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        run: |
+          usable=false
+          if [ -z "${RELEASE_TOKEN}" ]; then
+            echo "::warning::secret の RELEASE_TOKEN がない。PR は GITHUB_TOKEN で開くため、CI は承認待ちになり、自動ではマージしない"
+          elif GH_TOKEN="${RELEASE_TOKEN}" gh api "repos/${GITHUB_REPOSITORY}" --silent 2>/dev/null; then
+            usable=true
+          else
+            echo "::warning::RELEASE_TOKEN でリポジトリを読めない。期限切れか失効の恐れがある。PR は GITHUB_TOKEN で開き、自動ではマージしない"
+          fi
+          echo "usable=${usable}" >> "$GITHUB_OUTPUT"
+
+      - name: developを取得
+        # zizmor: ignore[artipacked] このジョブは release ブランチを push するため、認証情報を残す
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ env.DEVELOP_BRANCH }}
+          # main を取り込むため、履歴をすべて取る
+          fetch-depth: 0
+
+      - name: Nodeを用意
+        # npm version と版の確かめに使う。依存は入れない
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+
       - name: リリースブランチを切って版を上げる
         env:
           VERSION: ${{ steps.version.outputs.version }}
@@ -232,20 +319,17 @@ jobs:
             exit 1
           fi
 
-          # package.json と package-lock.json の版を書き換える。タグはまだ打たない
-          npm version "${VERSION}" --no-git-tag-version
+          # package.json と package-lock.json の版を書き換える。タグはまだ打たない。
+          # --ignore-scripts で、package.json の version 系のスクリプトも動かさない
+          npm version "${VERSION}" --no-git-tag-version --ignore-scripts
           actual="$(node -p "require('./package.json').version")"
           if [ "${actual}" != "${VERSION}" ]; then
             echo "::error::package.json の版が ${VERSION} にならなかった（${actual}）"
             exit 1
           fi
 
-      - name: 検査を通す
-        # 壊れたものをリリースブランチに載せない。
-        # GITHUB_TOKEN が開いた PR の CI は「承認待ち」で作られ、人が承認するまで動かないため、ここで検査しておく
-        run: npm run lint
-
       - name: コミットして押す
+        id: push
         env:
           VERSION: ${{ steps.version.outputs.version }}
           BRANCH: ${{ steps.version.outputs.branch }}
@@ -253,6 +337,8 @@ jobs:
           git add package.json package-lock.json
           git commit -m "版を ${VERSION} に上げる"
           git push --set-upstream origin "${BRANCH}"
+          # merge がこのコミットだけをマージするよう、SHA を渡す
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: リリースノートの下書きを作る
         # タグはまだないが、generate-notes は新しいタグ名でも受け付ける
@@ -269,54 +355,101 @@ jobs:
 
       - name: PRを開く
         id: pr
+        # PR は RELEASE_TOKEN で開く。PAT が開いた PR なら、CI と CodeQL が承認なしで動く。
+        # ラベルは GITHUB_TOKEN で付ける。PAT の用途を、PR の作成と状態の確認とマージに絞るため
         env:
           TAG: ${{ steps.version.outputs.tag }}
           BRANCH: ${{ steps.version.outputs.branch }}
           AUTO_PUBLISH: ${{ inputs.auto_publish }}
+          AUTO_MERGE: ${{ inputs.auto_merge }}
+          TOKEN_USABLE: ${{ steps.token.outputs.usable }}
+          RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         run: |
-          {
-            echo "\`${DEVELOP_BRANCH}\` の内容を ${TAG} としてリリースします。"
-            echo
-            echo "**マージコミット（Create a merge commit）でマージしてください。** squash や rebase は使いません。"
-            echo
-            echo "この PR をマージすると「リリースを公開する」ワークフローが動き、次を行います。"
-            echo
-            echo "1. タグ \`${TAG}\` を打ちます"
-            echo "1. GitHub Release をドラフトで作り、配布物を添付します"
-            if [ "${AUTO_PUBLISH}" = 'true' ]; then
-              echo "1. 配布物の中身を確かめ、通れば Release を公開します"
+          # 本文は、PR をどのトークンで開くかで変える。引数は pat か github-token
+          write_body() {
+            {
+              echo "\`${DEVELOP_BRANCH}\` の内容を ${TAG} としてリリースします。"
+              echo
+              if [ "$1" = 'pat' ] && [ "${AUTO_MERGE}" = 'true' ]; then
+                echo "チェックが済んで通ったら、「リリース」ワークフローがこの PR をマージコミットでマージします。"
+                echo "止めたいときは、マージされる前にこの PR を閉じ、ブランチ \`${BRANCH}\` も消してください。ブランチが残ると、次のリリースが止まります。"
+              else
+                echo "**マージコミット（Create a merge commit）でマージしてください。** squash や rebase は使いません。"
+              fi
+              echo
+              echo "この PR がマージされると「リリースを公開する」ワークフローが動き、次を行います。"
+              echo
+              echo "1. タグ \`${TAG}\` を打ちます"
+              echo "1. GitHub Release をドラフトで作り、配布物を添付します"
+              echo "1. \`${MAIN_BRANCH}\` を \`${DEVELOP_BRANCH}\` に戻します"
+              if [ "${AUTO_PUBLISH}" = 'true' ]; then
+                echo "1. 配布物の中身を確かめ、通れば Release を公開します"
+              else
+                echo "1. Release はドラフトのまま残します。Releases の画面で「Publish release」を押してください"
+              fi
+              echo
+              echo "検査（\`npm run lint\`）は、ワークフローの中でも済ませています。"
+              if [ "$1" != 'pat' ]; then
+                echo "この PR は GITHUB_TOKEN で開いたため、CI は「承認待ち」で作られます。"
+                echo "マージの前に「Approve workflows to run」を押すか、PR を閉じて開き直してください。"
+              fi
+              echo
+              echo "## 変更の一覧（下書き）"
+              echo
+              cat notes.md
+            } > body.md
+          }
+
+          # 引数はトークン
+          create_pr() {
+            GH_TOKEN="$1" gh pr create \
+              --base "${MAIN_BRANCH}" \
+              --head "${BRANCH}" \
+              --title "リリース ${TAG}" \
+              --body-file body.md
+          }
+
+          url=''
+          by='github-token'
+          if [ "${TOKEN_USABLE}" = 'true' ]; then
+            write_body pat
+            if url="$(create_pr "${RELEASE_TOKEN}")"; then
+              by='pat'
             else
-              echo "1. Release はドラフトのまま残します。Releases の画面で「Publish release」を押してください"
+              echo "::warning::RELEASE_TOKEN で PR を開けなかった。PAT の「Pull requests」の権限を確かめる。GITHUB_TOKEN で開く"
+              url=''
             fi
-            echo "1. \`${MAIN_BRANCH}\` を \`${DEVELOP_BRANCH}\` に戻します"
-            echo
-            echo "検査（\`npm run lint\`）はワークフローの中で済んでいます。"
-            echo "この PR の CI は「承認待ち」で作られます。結果を PR に出したいときは「Approve workflows to run」を押してください。"
-            echo
-            echo "## 変更の一覧（下書き）"
-            echo
-            cat notes.md
-          } > body.md
-
-          url="$(gh pr create \
-            --base "${MAIN_BRANCH}" \
-            --head "${BRANCH}" \
-            --title "リリース ${TAG}" \
-            --body-file body.md)"
+          fi
+          if [ -z "${url}" ]; then
+            write_body github-token
+            url="$(create_pr "${GH_TOKEN}")"
+          fi
           number="${url##*/}"
-          echo "number=${number}" >> "$GITHUB_OUTPUT"
-          echo "url=${url}" >> "$GITHUB_OUTPUT"
 
-          # GITHUB_TOKEN が開いた PR ではラベラーが動かないため、ここで付ける。
-          # ラベルがないリポジトリでも PR は開けるようにする
+          auto_merge=false
+          if [ "${AUTO_MERGE}" = 'true' ]; then
+            if [ "${by}" = 'pat' ]; then
+              auto_merge=true
+            else
+              echo "::warning::RELEASE_TOKEN が使えないため、PR は自動ではマージしない。チェックが通ったら人がマージする"
+            fi
+          fi
+          {
+            echo "number=${number}"
+            echo "url=${url}"
+            echo "auto_merge=${auto_merge}"
+          } >> "$GITHUB_OUTPUT"
+
+          # ラベラーは、PAT で開いた PR では動くが、GITHUB_TOKEN で開いた PR では動かない。
+          # どちらでも付くように、ここで付ける。ラベルがないリポジトリでも PR は開けるようにする
           gh pr edit "${number}" --add-label 'リリース' \
             || echo "::warning::ラベル「リリース」を付けられなかった。.github/labels.yml の同期が済んでいるか確かめる"
 
-          # 人が PR をマージする経路では入力が届かないため、ラベルで伝える。
+          # release-publish.yml には入力が届かないため、ラベルで伝える。
           # 公開を取りやめたくなったら、マージの前にこのラベルを外す
           if [ "${AUTO_PUBLISH}" = 'true' ]; then
             gh pr edit "${number}" --add-label '自動公開' \
-              || echo "::warning::ラベル「自動公開」を付けられなかった。人が PR をマージするとドラフトのままになる"
+              || echo "::warning::ラベル「自動公開」を付けられなかった。PR をマージしても Release はドラフトのままになる"
           fi
 
           {
@@ -324,50 +457,50 @@ jobs:
             echo
             echo "- PR: ${url}"
             echo "- ブランチ: \`${BRANCH}\`"
+            echo "- PR を開いたトークン: ${by}"
+            echo "- 自動でマージする: ${auto_merge}"
           } >> "$GITHUB_STEP_SUMMARY"
 
   merge:
     name: PRをマージする
-    if: inputs.auto_merge
+    # RELEASE_TOKEN で PR を開けたときだけ動く。GITHUB_TOKEN で開いた PR は CI が承認待ちで、待っても通らないため
+    if: needs.prepare.outputs.auto_merge == 'true'
     needs: prepare
     runs-on: ${{ vars.RUNS_ON || 'ubuntu-latest' }}
-    timeout-minutes: 10
+    # チェックを待つ上限（30分）と、マージのやり直しの分を見込む
+    timeout-minutes: 40
     permissions:
-      contents: write
-      pull-requests: write
-    env:
-      GH_TOKEN: ${{ github.token }}
+      contents: read         # 待ち合わせのスクリプトを取り出す
+      pull-requests: read    # PR を読む
+      checks: read           # チェックの結果を読む
+      statuses: read         # コミットのステータスを読む
+      actions: read          # gh pr checks がワークフローの実行を読む
     steps:
       - name: GitHub CLIがあることを確かめる
+        # GitHub がホストするランナーには入っている。セルフホストのランナーでは自分で入れる
         run: |
           if ! command -v gh >/dev/null 2>&1; then
             echo "::error::gh（GitHub CLI）がない。ランナーに入れてから実行する: https://cli.github.com/"
             exit 1
           fi
 
-      - name: PRをマージする
-        # マージコミットで取り込む。
-        # main のルール（必須のチェックや承認）で止められた場合はここで失敗する。
-        # その場合は人が PR をマージすれば、release-publish.yml が pull_request(closed) で動いて公開まで進む
-        env:
-          PR_NUMBER: ${{ needs.prepare.outputs.pr_number }}
-          PR_URL: ${{ needs.prepare.outputs.pr_url }}
-        run: |
-          if ! gh pr merge "${PR_NUMBER}" --repo "${GITHUB_REPOSITORY}" --merge --delete-branch; then
-            echo "::error::PR をマージできなかった。main のルール（必須のチェックや承認）で止められている。人が PR をマージすれば、「リリースを公開する」が動いて公開まで進む: ${PR_URL}"
-            exit 1
-          fi
+      - name: 待ち合わせのスクリプトを取得
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: .github/scripts
 
-  publish:
-    name: タグとGitHub Releaseを作る
-    # GITHUB_TOKEN でマージしても pull_request(closed) のワークフローは動かないため、ここから呼ぶ
-    if: inputs.auto_merge
-    needs: [prepare, merge]
-    # GitHub の $/ 構文（自リポジトリ参照）は actionlint 1.7.12 がまだ理解しないため、./ のままにする
-    uses: ./.github/workflows/release-publish.yml # zizmor: ignore[self-repository] actionlint が $/ に未対応
-    permissions:
-      contents: write
-      pull-requests: write
-    with:
-      version: ${{ needs.prepare.outputs.version }}
-      auto_publish: ${{ inputs.auto_publish }}
+      - name: チェックが通るのを待ってマージする
+        # PR の状態は PAT で読み、マージも PAT で行う。prepare が push したコミットだけをマージする。
+        # PAT でマージすると pull_request(closed) で release-publish.yml が動き、タグと Release を作って公開まで進む。
+        # 失敗したときは PR が開いたまま残る。人がマージすれば、同じく release-publish.yml が続きを行う
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MERGE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+          PR_NUMBER: ${{ needs.prepare.outputs.pr_number }}
+          EXPECT_BASE: ${{ env.MAIN_BRANCH }}
+          EXPECT_HEAD_PREFIX: release/
+          EXPECT_SHA: ${{ needs.prepare.outputs.head_sha }}
+          WAIT_MINUTES: '30'
+          MERGE_BODY: '「リリース」ワークフローが、チェックの完了を待ってマージした。'
+        run: bash .github/scripts/merge-pr.sh

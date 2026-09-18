@@ -18,7 +18,6 @@ param(
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 
-$AppId = '2504480'
 $ModPak = 'IndigoParkJP_P.pak'
 $LangName = 'zzz_IndigoParkJP_lang_P'
 $EngineVersion = 'UE5_2'
@@ -73,9 +72,9 @@ if ($GamePath) {
     $game = Find-Game
     if (-not $game) {
         Warn 'Steam から見つけられませんでした'
-        $input = Read-Host '  ゲームのフォルダを入力してください（Indigo Park フォルダ）'
-        if (-not (Test-GameDir $input)) { Die "その場所にゲームが見つかりません: $input" }
-        $game = $input
+        $entered = Read-Host '  ゲームのフォルダを入力してください（Indigo Park フォルダ）'
+        if (-not (Test-GameDir $entered)) { Die "その場所にゲームが見つかりません: $entered" }
+        $game = $entered
     }
 }
 Ok $game

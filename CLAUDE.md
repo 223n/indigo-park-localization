@@ -29,6 +29,7 @@ Dependabotの`target-branch`、ラベル同期の`--ref`、CIの`push`トリガ�
 
 `main`の内容を`develop`へ戻すときは、「リリースを公開する」ワークフローに任せます。
 直接pushできないときは、ワークフローが`merge/vX.Y.Z-into-develop`ブランチからPull Requestを開きます。
+secretの`RELEASE_TOKEN`があれば、そのPull Requestもチェックが通るのを待って自動でマージします。
 
 どちらもheadは`release/*`か`merge/*`で、`develop`や`main`ではありません。
 
@@ -86,3 +87,4 @@ gh api --method POST "repos/OWNER/REPO/git/refs" -f "ref=refs/heads/develop" -f 
 - `scripts/setup.sh`と`scripts/setup.ps1`は同じことを行います。片方だけを変えないでください
 - Pull Requestはマージコミット（Create a merge commit）でマージします
 - 変更したら`npm run lint`を通します
+- 訳文や原文の一覧を変えたら、`python tools/check_translation.py`も通します

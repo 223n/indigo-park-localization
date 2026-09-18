@@ -89,10 +89,12 @@ if (-not $KeepLanguage) {
     Step '言語の設定を英語に戻す'
     $cfg = Join-Path $env:LOCALAPPDATA 'RaccoonCh1\Saved\Config\MenuSystemConfig.json'
     if (Test-Path $cfg) {
-        $text = Get-Content $cfg -Raw
+        # ゲームは BOM 無しの UTF-8 で書く。Windows PowerShell 5.1 の Get-Content と Set-Content は
+        # これを ANSI として読み、書くときに BOM を付けるため、.NET で UTF-8 のまま読み書きする
+        $text = [System.IO.File]::ReadAllText($cfg)
         if ($text -match '"GameLanguage":"ja"') {
-            ($text -replace '"GameLanguage":"ja"', '"GameLanguage":"en"') |
-                Set-Content $cfg -NoNewline -Encoding utf8
+            $utf8 = New-Object System.Text.UTF8Encoding($false)
+            [System.IO.File]::WriteAllText($cfg, ($text -replace '"GameLanguage":"ja"', '"GameLanguage":"en"'), $utf8)
             Ok '戻した'
         } else {
             Ok '日本語ではなかったため、そのままにした'

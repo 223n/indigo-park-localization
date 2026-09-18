@@ -25,8 +25,13 @@ Steam からゲームの場所を自動で探します。
 ------------
 
 uninstall.bat をダブルクリックします。
-置いたファイルを消し、言語の設定を英語に戻します。
+置いたファイルを消します。言語の設定が日本語なら、英語に戻します。
 ゲーム本体のファイルは触りません。
+
+ゲームが見つからないときは、uninstall.bat のあるフォルダで、
+PowerShell から場所を指定して実行してください。
+
+  powershell -NoProfile -ExecutionPolicy Bypass -File tools\uninstall.ps1 -GamePath "<ゲームのフォルダ>"
 
 
 手で入れる場合
@@ -51,6 +56,14 @@ Windows の表示言語が日本語なら、これだけで日本語になりま
 ゲームのデータそのものを書き換えたものになるためです。
 install.bat が、お使いのゲームからその場で作ります。
 
+作るときは、同梱の retoc が、ゲームのデータを読むためのライブラリ
+（oo2core_9_win64.dll）をインターネットから取得し、tools フォルダに置きます。
+取得先は GitHub の WorkingRobot/OodleUE です。
+このファイルは配布物に含んでいません。
+retoc は取得したファイルを照合してから使い、次からは置いたものを使います。
+取得できないときは、言語の一覧を足す処理に失敗することがあります。
+その場合も、Deutsch を選べば日本語で表示されます。
+
 
 うまくいかないとき
 ------------------
@@ -65,9 +78,13 @@ install.bat が、お使いのゲームからその場で作ります。
 
 ・install.bat が何も表示せずに閉じる
     PowerShell の実行が止められている可能性があります。
-    installer フォルダで、PowerShell から次を実行してください。
+    install.bat のあるフォルダで、PowerShell から次を実行してください。
 
       powershell -NoProfile -ExecutionPolicy Bypass -File tools\install.ps1
+
+・言語の一覧を足すところで「できませんでした」と出る
+    インターネットにつながっているか確かめ、install.bat をもう一度
+    実行してください。それでも出るときは Deutsch を選びます。
 
 ・ゲームが更新された
     言語の一覧を足す処理が失敗することがあります。

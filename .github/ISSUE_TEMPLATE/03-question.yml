@@ -1,10 +1,19 @@
 # 質問のフォーム。書き方の注意は 01-bug-report.yml にある。
+# 動かないことの相談がここに来ると切り分けに要ることが欠けるため、冒頭でバグ報告のフォームへ案内する。
 name: 質問
-description: 使い方や仕様について質問します
+description: 導入のしかたや、このMODでできることなどについて質問します
 title: '[質問] '
 labels:
   - 質問
 body:
+  - type: markdown
+    attributes:
+      value: |
+        質問ありがとうございます。
+        導入のしかたと、よくあるつまずきの直し方は[README.txt](https://github.com/223n/indigo-park-localization/blob/main/installer/README.txt)にあります。
+        うまく動かないときは、[バグ報告](https://github.com/223n/indigo-park-localization/issues/new?template=01-bug-report.yml)のフォームを使ってください。
+        そちらのほうが、原因を早く絞り込めます。
+
   - type: textarea
     id: question
     attributes:
@@ -22,5 +31,5 @@ body:
   - type: textarea
     id: context
     attributes:
-      label: 背景
-      description: 何をしようとしていて、その質問に至ったかを書いてください。
+      label: やろうとしていること
+      description: 何をしようとして、その疑問が出てきたかを書いてください。

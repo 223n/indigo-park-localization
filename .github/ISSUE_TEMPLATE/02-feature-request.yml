@@ -1,6 +1,8 @@
 # 機能の要望のフォーム。書き方の注意は 01-bug-report.yml にある。
+# 訳の直しが要望として届いたことがある（#16、#18）ため、冒頭で翻訳のフォームとバグ報告のフォームへ案内する。
+# 要望の種類の選択肢は、このMODで要望が出そうな単位に合わせてある。
 name: 機能の要望
-description: 新しい機能や改善を提案します
+description: 日本語にする範囲や導入のしかたなど、新しい機能や改善を提案します
 title: '[要望] '
 labels:
   - 機能追加
@@ -9,46 +11,62 @@ body:
     attributes:
       value: |
         提案ありがとうございます。
-        解決したいことを中心に書いてください。方法は後から一緒に考えられます。
+        困っていることや、やりたいことを中心に書いてください。
+        どう実現するかは、後から一緒に考えられます。
+        訳の誤りや、一部の文だけ英語のまま残っているときは、[翻訳の訂正と提案](https://github.com/223n/indigo-park-localization/issues/new?template=00-translation.yml)のフォームを使ってください。
+        うまく動かないときは、[バグ報告](https://github.com/223n/indigo-park-localization/issues/new?template=01-bug-report.yml)のフォームを使ってください。
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 要望の種類
+      description: いちばん近いものを選んでください。
+      options:
+        - 日本語にする範囲を広げる（画像の中の文字など）
+        - 文字の見た目（フォントや大きさ）
+        - 導入と取り外し（install.bat、uninstall.bat）
+        - ゲームの更新や、Windows以外への対応
+        - 配布のしかたや説明（zip、README.txtなど）
+        - 翻訳の作業のしかた（data/ja.po、tools/）
+        - そのほか
+    validations:
+      required: true
 
   - type: textarea
     id: problem
     attributes:
-      label: 解決したいこと
-      description: 今、何に困っているかを書いてください。
-      placeholder: 例：毎回手で整形していて時間がかかる
+      label: 困っていること
+      description: 今、何に困っているか、何をしたいかを書いてください。
+      placeholder: 例：字幕の文字が小さくて読みにくい
     validations:
       required: true
 
   - type: textarea
     id: proposal
     attributes:
-      label: 提案する方法
-      description: どう動けばよいかを書いてください。
-    validations:
-      required: true
+      label: こうなるとうれしいこと
+      description: |
+        案があれば書いてください。
+        なければ空のままで構いません。
+      placeholder: 例：字幕の文字をもう少し大きくしてほしい
 
   - type: textarea
-    id: alternatives
+    id: screenshot
     attributes:
-      label: 考えた他の方法
-      description: 他に考えた方法があれば書いてください。
+      label: 画面の写真
+      description: 説明に役立つ写真があれば、この枠にそのまま落とせます。
 
-  - type: dropdown
-    id: scope
+  - type: checkboxes
+    id: precheck
     attributes:
-      label: 関係する範囲
-      description: 関係するところを選んでください。複数選べます。
-      multiple: true
+      label: 確認したこと
       options:
-        - 文書
-        - ワークフロー
-        - 設定
-        - その他
+        - label: '[同じ内容のIssue](https://github.com/223n/indigo-park-localization/issues?q=is%3Aissue)がないことを確かめました'
+          required: true
 
   - type: checkboxes
     id: contribution
     attributes:
       label: 貢献
       options:
-        - label: 自分で実装するつもりがあります
+        - label: 手伝えることがあれば協力します（訳を考える、ゲームで試すなど）

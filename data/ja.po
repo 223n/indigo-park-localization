@@ -294,7 +294,7 @@ msgstr "画面のゆれ"
 #. property: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Settings/WBP_GameSettings_R
 msgctxt "/0CCA6220475A5C76A7F2F58DE7E98923"
 msgid "Creates subtle screenshake when idling, walking, and running. This can be disorienting for some players."
-msgstr "立ち止まったとき、歩くとき、走るときに画面をわずかに揺らします。没入感は増しますが、人によっては酔いやすくなります。"
+msgstr "立ち止まっているとき、歩くとき、走るときに画面をわずかに揺らします。人によっては酔いやすくなります。"
 
 #. bytecode: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Singleplayer/WBP_SingleplayerMenu_R
 msgctxt "/1C4C51F24BABF1FE42F9168F83C4F002"
@@ -899,12 +899,12 @@ msgstr "やあ、ロイド…"
 #. property: RambleyFiles/Voice/Railroad_Lloyd_Rambley
 msgctxt "/873A6EF5481685D38EAD11B7F446BE01"
 msgid " Do not SHAME me with that COMMON FOLK Name!"
-msgstr "そのような下賤な呼び名でワタクシを辱めるでないッ！"
+msgstr "そのような下賤な呼び名でワガハイを辱めるでないッ！"
 
 #. property: RambleyFiles/Voice/Railroad_Lloyd_Rambley
 msgctxt "/B892E7394BC195D1E9D1BD999E9F881B"
 msgid "I am the PRRRRROUD"
-msgstr "ワタクシこそ、誇り高きィィィ"
+msgstr "ワガハイこそ、誇り高きィィィ"
 
 #. property: RambleyFiles/Voice/Railroad_Lloyd_Rambley
 msgctxt "/F6CD5CA04C2C19A3B8D804BF6643C740"
@@ -934,7 +934,7 @@ msgstr "いい芝居だったよ、ロイド…"
 #. property: RambleyFiles/Voice/Railroad_Lloyd_Rambley
 msgctxt "/17978F7F44C74A40A09A358BCB59B682"
 msgid " Of course it was! I’m the rrrrrrrea-"
-msgstr "当然であるッ！ ワタクシは本物のゥゥゥ——"
+msgstr "当然であるッ！ ワガハイは本物のゥゥゥ——"
 
 #. property: RambleyFiles/Voice/Railroad_Mollie_Rambley
 msgctxt "/E8A8613446234D4D9DE5ECB076470360"

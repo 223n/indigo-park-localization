@@ -73,19 +73,23 @@ I'm not crashin', Rambley! I'm barnstormin'!
 
 | 項目 | 決めごと |
 | ---- | ---- |
-| 一人称 | ワタクシ |
-| 口調 | 芝居がかった大仰な言い回し。尊大 |
+| 一人称 | ワガハイ |
+| 口調 | 芝居がかった大仰な言い回し。尊大で古風 |
 | 語尾 | `〜であるッ！` `〜なのだ！` |
 | 特徴 | 巻き舌。原文の`PRRRRROUD`のような伸ばしを再現する |
+
+「ワタクシ」はへりくだる側の言葉で、`COMMON FOLK`の呼び名を恥じる人物には合いません。
+日本語でいちばん庶民的な自称を当てると、その台詞の中で人物像が壊れます。
+古風な自称にするのは、収集品の解説にある`Lloyd obviously had an older look in the classic Indigo cartoons`とも合います。
 
 巻き舌は、カタカナの長音と小書き文字で表します。
 
 ```text
 Do not SHAME me with that COMMON FOLK Name!
-  → そのような下賤な呼び名でワタクシを辱めるでないッ！
+  → そのような下賤な呼び名でワガハイを辱めるでないッ！
 
 I am the PRRRRROUD, the PRRRRESTIGIOUS, the PRRRRRRROFESSIONAL
-  → ワタクシこそ誇り高きィィィ、由緒正しきィィィ、真に professional なるゥゥゥ
+  → ワガハイこそ誇り高きィィィ、由緒正しきィィィ、真に professional なるゥゥゥ
 ```
 
 英単語をそのまま残すのは1箇所までにします。
@@ -255,6 +259,27 @@ order 1: directly out of my plastic, lifeless head!
 `data/corpus.json`の`translate`が`false`の項目は訳しません。
 内部の列挙やコンソールコマンド、開発中の仮置き文言です。
 規格名や製品名（`FXAA`、`Xbox`、`Rec.709`など）も原語のままにします。
+
+### 見本の中にも本編で使う文章がある
+
+`MenuSystemPro/ExampleContent/`はプラグインの見本の置き場所ですが、本編はこの中の画面をそのまま使っています。
+設定画面は`Designs/Design_R/`と`Designs/Design_IndigoPark/`にあります。
+置き場所が見本でも、画面に出る文章は翻訳の対象です。
+
+v0.4.0では、設定画面の説明文2件を見本と見なして対象から外していました。
+そのため、項目名は日本語なのに説明文だけが英語で残りました。
+`translate`を決めるときは、置き場所ではなく画面に出るかどうかで判断してください。
+
+### 収録漏れを見つける
+
+原文の一覧と訳文の突き合わせは、道具で確かめられます。
+
+```bash
+python tools/check_translation.py
+```
+
+翻訳対象なのに訳文が無い項目と、タグや改行の数が原文と違う項目を見つけます。
+CIの「翻訳データの検査」でも同じものを動かします。
 
 ## 品質の目安
 

@@ -1,0 +1,117 @@
+# 翻訳の訂正と提案のフォーム。書き方の注意は 01-bug-report.yml にある。
+# このリポジトリで最も多い報告なので、選択画面の先頭に出るよう 00 を付けている。
+name: 翻訳の訂正と提案
+description: 訳文の誤りや、もっとよい言い回しを知らせます
+title: '[翻訳] '
+labels:
+  - 翻訳
+body:
+  - type: markdown
+    attributes:
+      value: |
+        報告ありがとうございます。
+        訳文の決めごとは[docs/TRANSLATION.md](https://github.com/223n/indigo-park-localization/blob/develop/docs/TRANSLATION.md)にあります。
+        キャラクターの口調や固有名詞の対訳は、ここで決めています。
+        指針そのものを変えたいときも、このフォームで構いません。
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 種類
+      description: 近いものを選んでください。
+      options:
+        - 意味が違う（誤訳）
+        - 口調や言葉づかいが合わない
+        - 表記が揺れている
+        - 画面からあふれる、または切れる
+        - 英語のまま残っている
+        - そのほか
+    validations:
+      required: true
+
+  - type: dropdown
+    id: place
+    attributes:
+      label: 出てくる場所
+      description: 見かけた場所を選んでください。複数選べます。
+      multiple: true
+      options:
+        - タイトルとメニュー
+        - 設定
+        - 台詞の字幕
+        - 目標の表示や操作の案内
+        - 収集品の解説
+        - 看板や画像の中の文字
+        - 翻訳の指針（docs/TRANSLATION.md）
+        - そのほか
+
+  - type: textarea
+    id: source
+    attributes:
+      label: 原文
+      description: ゲームの英語表示です。分かる範囲で構いません。
+      placeholder: 例：Do not SHAME me with that COMMON FOLK Name!
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: いまの訳
+      description: 画面に出ている日本語です。英語のまま残っているときは、その旨を書いてください。
+      placeholder: 例：そのような下賤な呼び名でワタクシを辱めるでないッ！
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 提案する訳
+      description: こう直したい、という案を書いてください。案が定まらないときは、気になる点だけでも構いません。
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: そう直したい理由
+      description: 原文の意味、キャラクターの人物像、画面の幅など、根拠になることを書いてください。
+    validations:
+      required: true
+
+  - type: input
+    id: entry-id
+    attributes:
+      label: 項目のID
+      description: |
+        分かれば書いてください。[data/ja.po](https://github.com/223n/indigo-park-localization/blob/develop/data/ja.po)で原文を検索すると、その上の`msgctxt`にあります。
+      placeholder: 例：/873A6EF5481685D38EAD11B7F446BE01
+
+  - type: input
+    id: version
+    attributes:
+      label: 版
+      description: 入れているMODの版です。分からなければ「不明」と書いてください。
+      placeholder: 例：v0.5.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 画面の写真
+      description: あると助かります。この枠に画像をそのまま落とせます。
+
+  - type: checkboxes
+    id: precheck
+    attributes:
+      label: 確認したこと
+      options:
+        - label: 同じ内容のIssueがないことを確かめました
+          required: true
+        - label: 最新の版でも残ることを確かめました
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: 貢献
+      options:
+        - label: 自分で訳を出すつもりがあります

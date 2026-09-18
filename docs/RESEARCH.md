@@ -140,11 +140,16 @@ cooked済みの18,395アセットを走査し、原文を集めました。
 | 区分 | 件数 | 置き場所 |
 | ---- | ---- | ---- |
 | 本編の台詞（字幕） | 212 | `RambleyFiles/Voice/`の音声アセットの中のFText |
-| ゲーム固有のUI | 376 | ウィジェットやデータアセットの中のFText |
-| `ST_Menu`の文字列表 | 293 | `MenuSystemPro/ExampleContent/Text/Menu/ST_Menu` |
-| 合計（翻訳の対象） | 881 | |
+| `ST_Menu`の文字列表 | 291 | `MenuSystemPro/ExampleContent/Text/Menu/ST_Menu` |
+| そのほかのUI | 105 | ウィジェットやデータアセットの中のFText |
+| 合計（翻訳の対象） | 608 | |
 
-プラグインの見本に付いてきた文章が304件あり、これは対象から外しています。
+集めたFTextは全部で1,230件です。
+残る622件は、内部の列挙、コンソールコマンド、仮置きの文言、見本に付いてきた文章（153件）で、訳しません。
+件数は`python tools/check_translation.py`が出します。
+
+置き場所が見本でも、本編が使っている画面の文章は対象に入れます。
+設定画面の`Designs/Design_R/`がこれにあたります。
 
 字幕は`SoundWave`の中にFTextとして入っています。
 たとえば`RooftopRacesBeBroke`には`Ehhh, Looks like Mollie crashed into the Ride again!`が入っています。

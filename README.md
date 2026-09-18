@@ -131,6 +131,7 @@ Poeditなどの翻訳ツールでそのまま開けます。
 | マージの方法 | squashやrebaseだと、リリースノートにPull Requestが載らず、次の版で衝突します | マージコミット（Create a merge commit）でマージします |
 | セルフホストのランナー | `RUNS_ON`のラベルに一致するランナーがないと、失敗せずに待機のまま止まります | 設定したらCIを手で1回動かして確かめます |
 | 改行コード | `.gitattributes`が全ファイルをLFに固定します | CRLFのファイルを持ち込むと、最初のコミットで全行が差分になります |
+| `RELEASE_TOKEN`の期限 | 切れると、リリースのPull Requestが自動でマージされず、開いたところで止まります | 期限の前にPATを作り直し、`RELEASE_TOKEN`を上書きします |
 
 リリースやCIが途中で止まったときは、ワークフローのログに日本語で対処方法が出ます。
 
@@ -156,7 +157,7 @@ Node 22以上が要ります。
 CIではあわせて、原文の一覧と訳文の突き合わせを`tools/check_translation.py`で検査します。
 ワークフローの構文は`actionlint`で、安全性は`zizmor`で検査します。
 ワークフローの安全性は、`codeql.yml`もCodeQLの`actions`言語で走査します。
-ワークフローが開いたPull Request（リリースのPull Requestなど）では、CIは「承認待ち」で作られます。
+`GITHUB_TOKEN`で開いたPull Request（`RELEASE_TOKEN`が使えないときのリリースのPull Requestなど）では、CIは「承認待ち」で作られます。
 書き込み権限のある人が「Approve workflows to run」を押すか、Pull Requestを閉じて開き直すと動きます。
 承認せずに閉じたりマージしたりすると、承認待ちの実行は失敗として記録されますが、検査が落ちたわけではありません。
 
@@ -230,25 +231,57 @@ develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ �
 
 ### リリースする
 
-1. Actionsの「リリース」を開き、「Run workflow」を選びます
-1. `version`にリリースする版を入れます。`v`は付けません（例: `1.2.0`、`1.2.0-rc.1`）
-1. ワークフローが`develop`から`release/vX.Y.Z`ブランチを切り、`package.json`の版を上げ、`main`へのPull Requestを開きます
-1. そのPull Requestを一度閉じ、すぐ開き直します。CIを動かすために要ります（後述）
-1. Pull Requestの内容を確かめ、マージコミット（Create a merge commit）でマージします
-1. 「リリースを公開する」ワークフローが動きます。タグ`vX.Y.Z`を打ち、**ドラフトの**GitHub Releaseを作って配布物を添付します
-1. 同じワークフローが`main`を`develop`に戻し、リリースブランチを消します
-1. `auto_publish`が有効なら、配布物の中身を確かめてからReleaseを公開します。無効ならドラフトのまま残ります
-1. `develop`への戻しがPull Requestになったときは、それも閉じて開き直し、マージコミットでマージします（後述）
+先に「リリース用のトークン」の設定を済ませておきます。
 
-`auto_publish`は既定で有効です。
-無効にすると、いままでどおりドラフトで止まります。
+1. Actionsの「リリース」を開き、「Run workflow」を選びます。「Use workflow from」は`develop`にします
+1. `version`にリリースする版を入れます。`v`は付けません（例: `1.2.0`、`1.2.0-rc.1`）
+1. ワークフローが`develop`から`release/vX.Y.Z`ブランチを切り、`package.json`の版を上げ、`RELEASE_TOKEN`で`main`へのPull Requestを開きます
+1. `auto_merge`が有効なら、チェックが済んで通るのを待って、ワークフローがマージコミットでマージします
+1. 「リリースを公開する」ワークフローが動きます。タグ`vX.Y.Z`を打ち、**ドラフトの**GitHub Releaseを作って配布物を添付します
+1. 同じワークフローが`main`を`develop`に戻し、リリースブランチを消します。戻しがPull Requestになったときは、チェックが通るのを待ってマージします
+1. `auto_publish`が有効なら、配布物の中身を確かめてからReleaseを公開します。無効ならドラフトのまま残ります
+
+`auto_merge`と`auto_publish`は、どちらも既定で有効です。
+`auto_merge`を無効にすると、Pull Requestを開いたところで止まります。
+その場合は中身を確かめてから、マージコミット（Create a merge commit）でマージしてください。
+`auto_publish`を無効にすると、Releaseはドラフトで止まります。
 その場合は「Releases」でドラフトを開き、添付と本文を確かめてから「Publish release」を押してください。
+
+### リリース用のトークン
+
+リリースのPull Requestの作成とマージには、持ち主のfine-grained personal access token（PAT）を使います。
+`GITHUB_TOKEN`で開いたPull RequestはCIが承認待ちのまま動かず、`GITHUB_TOKEN`でマージしても「リリースを公開する」が動かないためです。
+
+右上のアイコンから「Settings」→「Developer settings」→「Personal access tokens」→「Fine-grained tokens」→「Generate new token」で作ります。
+
+| 項目 | 設定 |
+| ---- | ---- |
+| Repository access | 「Only select repositories」で、このリポジトリだけを選びます |
+| Contents | Read and write。Pull Requestのマージに要ります |
+| Pull requests | Read and write。Pull Requestの作成に要ります |
+| Workflows | Read and write。ワークフローのファイルを変えるPull Requestのマージに要ります |
+| Expiration | 任意です。期限の少し前に作り直します |
+
+作ったPATは、リポジトリの「Settings」→「Secrets and variables」→「Actions」→「Secrets」に、`RELEASE_TOKEN`という名前で登録します。
+
+`RELEASE_TOKEN`が無いときや、期限切れで使えないときは、警告を出して`GITHUB_TOKEN`でPull Requestを開くだけにします。
+その場合の進め方は「RELEASE_TOKENが使えないとき」にあります。
+期限を延ばすときは、Fine-grained tokensの画面でPATを作り直し、`RELEASE_TOKEN`を上書きします。
+
+このPATは、ワークフローのファイルを書き換えられる強い権限を持ちます。
+漏れると、保護していないブランチにワークフローを置いて、secretを読み出せます。
+値はどこにも貼らず、要らなくなったらFine-grained tokensの画面で消してください。
+
+ワークフローは、`RELEASE_TOKEN`をnpmの依存や外部の道具を動かすjobには渡しません。
+`npm ci`と`npm run lint`は、秘密情報を持たない読み取りだけのjobで動かします。
+依存のパッケージが乗っ取られても、PATを抜かれないようにするためです。
+ただし、セルフホストのランナーを使い回すと、jobを分けても分離にはなりません。
 
 ### 版
 
 版は`package.json`の`version`で管理します。
 `develop`と`main`の版、最新のタグのどれよりも大きい版だけを受け付けます。
-すでにあるタグや、開いたままの`release/*`ブランチがあると止まります。
+すでにあるタグや、残っている`release/*`ブランチ（Pull Requestを閉じただけのものも含む）があると止まります。
 `-rc.1`のようなプレリリースの版は、GitHub Releaseでもプレリリースになります。
 
 ### Releaseの本文
@@ -267,7 +300,7 @@ Releaseは**まずドラフトで作られます**。
 ### 自動で公開する
 
 `auto_publish`を有効にして実行すると、リリースのPull Requestに「自動公開」ラベルが付きます。
-人がそのPull Requestをマージすると、ラベルを見て公開まで進みます。
+そのPull Requestがマージされると、ラベルを見て公開まで進みます。
 公開を取りやめたくなったら、マージの前にラベルを外してください。
 
 人が目で確かめる代わりに、`tools/verify_release.py`が添付そのものを落として中身を確かめます。
@@ -285,8 +318,8 @@ Releaseは**まずドラフトで作られます**。
 この経路はラベルの同期が済んでいることが前提です。
 ラベルを付けられなかったときは警告が出て、Releaseはドラフトのまま残ります。
 
-`auto_merge`と併せたときは、ラベルでは止められません。
-止めたいときは`auto_publish`を無効にして実行してください。
+`auto_merge`と併せたときは、チェックが通ると数分でマージされます。
+公開を止めたいときは、`auto_publish`を無効にして実行してください。
 
 「自動公開」ラベルは、書き込みの権限がなくても、Triageの権限があれば付け外しできます。
 マージする前に、意図したとおりのラベルが付いているかを見てください。
@@ -309,33 +342,59 @@ Releaseはドラフトのまま残り、ワークフローが失敗します。
 
 ### Pull Requestのマージまで任せる
 
-`auto_merge`を有効にして実行すると、Pull Requestを人手で確かめずにマージし、タグとReleaseの作成まで進めます。
-`auto_publish`も有効なら、公開まで進みます。
-ただし`main`に必須のチェックや承認のルールがあると、マージで止まります。
-ワークフローが開いたPull RequestのCIは承認待ちのままで、ルールを満たせないためです。
-その場合は人がPull Requestをマージすれば、公開のワークフローが続きを行います。
+`auto_merge`を有効にし、`RELEASE_TOKEN`も使えるときは、ワークフローがPull Requestをマージします。
+マージの前に、次の条件がそろうのを待ちます。
 
-このリポジトリの`main`には「Code scanningの結果」を必須にする規則があるため、この経路はマージで止まります。
+- このリポジトリのブランチから出たPull Requestで、headはワークフローの押したコミットと一致する
+- Pull Requestのチェックがすべて済み、失敗が無い。Pull Requestのイベントで動いたチェックが1件以上ある
+- `RELEASE_TOKEN`から見て、マージできる状態（`CLEAN`）になっている。Code scanningの規則もここで満たされる
+- 待っているあいだに、Pull Requestのheadが変わっていない
+
+フォークから同じ名前のブランチで出したPull Requestは、対象から外します。
+
+待つ上限は30分です。
+チェックが落ちたときや上限を過ぎたときは、Pull Requestを開いたまま止まります。
+直してから人がマージすれば、「リリースを公開する」が続きを行います。
+
+マージさせたくないときは、マージされる前にPull Requestを閉じてください。
+閉じたあとは、`release/vX.Y.Z`ブランチも消します（Pull Requestの画面の「Delete branch」か、`git push origin --delete release/vX.Y.Z`）。
+残すと、次の「リリース」が止まります。
+
+待ち合わせとマージは`.github/scripts/merge-pr.sh`が行います。
+マージできるかどうかは`RELEASE_TOKEN`で読みます。
+ワークフローのファイルを変えるPull Requestは、`GITHUB_TOKEN`から見ると、規則を満たしていても`BLOCKED`と返ることがあるためです。
+
+チェックが通っているのに`BLOCKED`のまま待つときは、`RELEASE_TOKEN`のWorkflowsとContentsの権限を確かめてください。
+約5分続くと、ログに警告が出ます。
+人がマージすれば、続きは進みます。
 
 ### developへの戻し
 
-`develop`にPull Requestを必須にする規則がある場合、`main`から`develop`への戻しは毎回Pull Requestになります。
+`develop`にはPull Requestを必須にする規則があるため、`main`から`develop`への戻しは毎回Pull Requestになります。
 ブランチ名は`merge/vX.Y.Z-into-develop`です。
-このPull Requestもワークフローが開くため、リリースのPull Requestと同じく閉じて開き直してCIを動かします。
-リリースのあとに、このPull Requestもマージコミットでマージしてください。
+
+`RELEASE_TOKEN`が使えれば、「リリースを公開する」がこのPull Requestを`RELEASE_TOKEN`で開き、チェックが通るのを待ってマージします。
+配布物の確かめが落ちても、戻しは進めます。
+衝突したときは止まるので、Pull Requestの上で衝突を解いてから、マージコミットでマージしてください。
+
+`RELEASE_TOKEN`が無いか使えないときは、`GITHUB_TOKEN`でPull Requestを開き、人がマージコミットでマージします。
+閉じて開き直す必要はありません。
+headは`main`のコミットで、`main`へのpushで動いたCodeQLが解析済みのため、規則を満たせます。
+CodeQLが終わるまでの1〜2分は、マージの欄が待ちになることがあります。
 
 マージコミットでマージする理由は「使ううえでの注意」にあります。
 
-### リリースのPull RequestでCIが動かないとき
+### RELEASE_TOKENが使えないとき
 
-ワークフローが開いたPull Requestでは、CIの実行は作られますが、承認待ちのままジョブが1つも動きません。
+`RELEASE_TOKEN`が無いときや期限切れのときは、ワークフローが警告を出し、`GITHUB_TOKEN`でPull Requestを開くだけにします。
+`auto_merge`を有効にしていても、自動ではマージしません。
+
+`GITHUB_TOKEN`で開いたPull Requestでは、CIの実行は作られますが、承認待ちのままジョブが1つも動きません。
 `GITHUB_TOKEN`が起こしたイベントでは、GitHubがワークフローをそのまま動かさないためです。
 これは、ワークフローが自分自身を呼び続けるのを防ぐための仕様です。
+`main`には「Code scanningの結果」を必須にする規則があるため、このままではマージできません。
 
-このリポジトリの`main`と`develop`には、「Code scanningの結果」を必須にする規則があります。
-チェックが埋まらないため、リリースのPull Requestも`develop`への戻しのPull Requestも、そのままではマージできません。
-
-Pull Requestを一度閉じ、すぐ開き直すと動きます。
+Pull Requestの「Approve workflows to run」を押すか、一度閉じてすぐ開き直すと動きます。
 
 ```bash
 gh pr close <番号>
@@ -346,9 +405,7 @@ gh pr reopen <番号>
 ブランチとコミットは変わりません。
 リリースのPull Requestを閉じたときは「リリースを公開する」も起動しますが、マージされていないため何もせずに終わります。
 
-毎回の手間を無くしたい場合は、`release.yml`がPull Requestを開くときに`GITHUB_TOKEN`ではなく個人アクセストークン（PAT）を使う方法があります。
-その場合はPull Requestの作成者がそのトークンの持ち主になり、CIは普通に動きます。
-ただし秘密情報の管理が増えるため、いまは閉じて開き直す方法にしています。
+チェックが通ったら、マージコミット（Create a merge commit）でマージします。
 
 ### 履歴が繋がっていないとき
 
@@ -437,8 +494,8 @@ NodeとPythonはワークフローが用意します。
 | `labeler.yml` | このリポジトリの中から出したPull Requestを開いたとき、更新したとき、開き直したとき | 変えたファイルとブランチ名からラベルを付けます。規則はマージ先のブランチから読みます |
 | `labeler-fork.yml` | フォークから出したPull Requestを開いたとき、更新したとき、開き直したとき | `labeler.yml`と同じ規則でラベルを付けます。規則は既定ブランチ（`main`）から読みます |
 | `branch-guard.yml` | Pull Requestを開いたとき、更新したとき、開き直したとき | headブランチが`main`か`develop`なら失敗します。マージは止めません |
-| `release.yml` | 手動 | `develop`からリリースブランチを切り、版を上げ、`main`へのPull Requestを開きます。そのPull RequestのCIは承認待ちになるため、閉じて開き直します |
-| `release-publish.yml` | `release/*`か`hotfix/*`のPull Requestが`main`にマージされたとき、`release.yml`の`auto_merge`から呼ばれたとき | タグを打ち、ドラフトのGitHub Releaseを作って配布物を添付し、`main`を`develop`に戻します。「自動公開」が指示されていれば、そのあと中身を確かめて公開します |
+| `release.yml` | 手動 | `develop`からリリースブランチを切り、版を上げ、`RELEASE_TOKEN`で`main`へのPull Requestを開きます。`auto_merge`が有効なら、チェックが通るのを待ってマージします |
+| `release-publish.yml` | `release/*`か`hotfix/*`のPull Requestが`main`にマージされたとき | タグを打ち、ドラフトのGitHub Releaseを作って配布物を添付し、`main`を`develop`に戻します。戻しがPull Requestになったときは、チェックが通るのを待ってマージします。「自動公開」が指示されていれば、中身を確かめて公開します |
 
 ## 権利について
 

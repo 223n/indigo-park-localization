@@ -2,42 +2,30 @@ name: リリースを公開する
 
 # release/vX.Y.Z または hotfix/* の PR が main にマージされたら、タグを打ち、GitHub Release を作り、main を develop に戻す。
 #
-# 2つの経路から動く。
-#   pull_request(closed)  人が PR をマージしたとき
-#   workflow_call         release.yml が auto_merge で PR をマージしたとき
-#
-# GITHUB_TOKEN が行ったマージは pull_request(closed) のワークフローを起こさないため、後者は明示的に呼ぶ。
+# 人がマージしたときも、release.yml が RELEASE_TOKEN（PAT）でマージしたときも、pull_request(closed) で動く。
+# GITHUB_TOKEN が行ったマージではこのワークフローが動かないため、release.yml は GITHUB_TOKEN ではマージしない。
 #
 # hotfix/* は main から切り、その PR の中で package.json の版を上げておく（npm version patch --no-git-tag-version）。
 # 版を上げずにマージすると、同じ版のタグがすでに別のコミットにあるため、ここで止まる。
 #
 # Release は必ずドラフトで作り、配布物を添付してから公開する。
-# 公開まで進めるかは2つの経路で決まる。
-#   workflow_call の auto_publish   release.yml から呼ばれたとき
-#   PR のラベル「自動公開」          人が PR をマージしたとき
-# どちらも無ければドラフトのまま止め、人が Releases の画面で公開する。
+# 公開まで進めるかは、PR のラベル「自動公開」で決まる。無ければドラフトのまま止め、人が Releases の画面で公開する。
 #
 # 自動で公開するときは、人が添付を開いて確かめる機会が無くなる。
 # 代わりに tools/verify_release.py が、添付そのものを落として中身を確かめる。
 # 落ちたらドラフトのまま止まる。
+#
+# main を develop へ戻すときは、publish が merge/vX.Y.Z-into-develop ブランチを押し、
+# 別の job（merge-back）が PR を開く。RELEASE_TOKEN が使えればそれで開き、チェックが通るのを待ってマージする。
+# 使えなければ GITHUB_TOKEN で開いて、人がマージする。
+# publish は配布物の組み立てで外部の道具を動かすため、RELEASE_TOKEN を参照させない。
 on:
   pull_request:
     types: [closed]
     branches: [main]
-  workflow_call:
-    inputs:
-      version:
-        description: 'リリースする版。v は付けない'
-        required: true
-        type: string
-      auto_publish:
-        description: '配布物の確かめが通ったら、ドラフトのままにせず公開する'
-        required: false
-        default: false
-        type: boolean
 
-# release.yml から呼ばれるときは、呼び元が group: release を握っている。
-# 同じ名前にすると互いに待ち合って進まなくなるため、別の名前にする
+# リリースは同時に1つずつ進める。途中の実行を止めると半端な状態が残るため、待たせる。
+# release.yml の group: release とは別の名前にする。release.yml のマージを待つ job が握ったまま、ここを待たせないため
 concurrency:
   group: release-publish
   cancel-in-progress: false
@@ -48,17 +36,18 @@ permissions:
 env:
   DEVELOP_BRANCH: develop
   MAIN_BRANCH: main
+  # gh が対象のリポジトリを決めるのに使う。checkout していない job では、git remote から決められないため
+  GH_REPO: ${{ github.repository }}
 
 jobs:
   publish:
     name: タグとGitHub Releaseを作る
-    # 人が release/* か hotfix/* の PR をマージしたとき、または release.yml から呼ばれたときだけ動く。
-    # 呼ばれたときの github コンテキストは呼び元（workflow_dispatch）のものになる
+    # release/* か hotfix/* の PR がマージされたときだけ動く。
+    # マージせずに閉じたときも closed で起動するため、merged を必ず見る
     if: >-
-      github.event_name == 'workflow_dispatch' ||
-      (github.event.pull_request.merged == true &&
-       (startsWith(github.event.pull_request.head.ref, 'release/') ||
-        startsWith(github.event.pull_request.head.ref, 'hotfix/')))
+      github.event.pull_request.merged == true &&
+      (startsWith(github.event.pull_request.head.ref, 'release/') ||
+       startsWith(github.event.pull_request.head.ref, 'hotfix/'))
     # セルフホストのランナーがあれば、リポジトリの変数 RUNS_ON にそのラベル（例: self-hosted）を設定する。
     # 無ければ GitHub がホストする ubuntu-latest で動く
     runs-on: ${{ vars.RUNS_ON || 'ubuntu-latest' }}
@@ -66,6 +55,12 @@ jobs:
     permissions:
       contents: write        # タグを打ち、Release を作る
       pull-requests: write   # main を develop へ戻す PR を開く
+    outputs:
+      # develop へ戻すブランチとその先端。merge-back が PR を開いてマージする。
+      # 確かめが落ちても渡るよう、確かめより前の step で書く
+      merge_branch: ${{ steps.back.outputs.branch }}
+      merge_sha: ${{ steps.back.outputs.sha }}
+      tag: ${{ steps.version.outputs.tag }}
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
@@ -94,21 +89,17 @@ jobs:
       - name: 版を決める
         id: version
         env:
-          INPUT_VERSION: ${{ inputs.version }}
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
         run: |
           # 実際の版は main の package.json から取る
           actual="$(node -p "require('./package.json').version")"
 
-          # 期待する版は、呼び元の入力か、PR のブランチ名（release/vX.Y.Z）から取る。
+          # 期待する版は、PR のブランチ名（release/vX.Y.Z）から取る。
           # hotfix/* はブランチ名に版を持たないため、package.json の版をそのまま使う
           case "${HEAD_REF}" in
             release/*) expected="${HEAD_REF#release/}"; expected="${expected#v}" ;;
             *) expected="${actual}" ;;
           esac
-          if [ -n "${INPUT_VERSION}" ]; then
-            expected="${INPUT_VERSION#v}"
-          fi
           if [ "${actual}" != "${expected}" ]; then
             echo "::error::${MAIN_BRANCH} の package.json の版（${actual}）とリリースの版（${expected}）が食い違う"
             exit 1
@@ -118,8 +109,8 @@ jobs:
           case "${actual}" in
             *-*) prerelease=true ;;
           esac
-          # 消すブランチ。PR から動いたときはその head、呼ばれたときは release/vX.Y.Z
-          branch="${HEAD_REF:-release/v${actual}}"
+          # 消すブランチ。マージした PR の head
+          branch="${HEAD_REF}"
           {
             echo "version=${actual}"
             echo "tag=v${actual}"
@@ -130,19 +121,13 @@ jobs:
       - name: 公開するかを決める
         id: mode
         env:
-          INPUT_AUTO_PUBLISH: ${{ inputs.auto_publish }}
           LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
         run: |
           publish=false
-          reason='指定が無いため、ドラフトのままにする'
-          if [ "${INPUT_AUTO_PUBLISH}" = 'true' ]; then
-            publish=true
-            reason='呼び元が auto_publish を有効にした'
-          else
-            case ",${LABELS}," in
-              *,自動公開,*) publish=true; reason='PR にラベル「自動公開」が付いている' ;;
-            esac
-          fi
+          reason='ラベル「自動公開」が無いため、ドラフトのままにする'
+          case ",${LABELS}," in
+            *,自動公開,*) publish=true; reason='PR にラベル「自動公開」が付いている' ;;
+          esac
           echo "publish=${publish}" >> "$GITHUB_OUTPUT"
           echo "::notice::${reason}"
           echo "- 公開: ${publish}（${reason}）" >> "$GITHUB_STEP_SUMMARY"
@@ -232,8 +217,11 @@ jobs:
           echo "- 配布物: $(basename "${zip}")（SHA256: ${sum}）" >> "$GITHUB_STEP_SUMMARY"
 
       - name: mainをdevelopへ戻す
-        # 版の更新を develop にも届ける。まず直接押し、保護されていて押せなければ PR を開く。
-        # 再実行しても壊れないよう、同じ PR がすでにあればそれを使う
+        id: back
+        # 版の更新を develop にも届ける。まず直接押し、保護されていて押せなければ、
+        # main の内容をそのまま載せた merge/vX.Y.Z-into-develop ブランチを押す。
+        # PR を開いてマージするのは merge-back が行う。
+        # この job は配布物の組み立てで外部の道具を動かすため、RELEASE_TOKEN を参照させない
         env:
           TAG: ${{ steps.version.outputs.tag }}
         run: |
@@ -247,7 +235,7 @@ jobs:
             exit 0
           fi
 
-          # 共通の祖先がないと merge も PR も作れない。下の PR のフォールバックへ回しても、
+          # 共通の祖先がないと merge も PR も作れない。PR のフォールバックへ回しても、
           # head と base の履歴が繋がらないため gh pr create が拒まれる。ここで止める
           if ! git merge-base "origin/${MAIN_BRANCH}" HEAD >/dev/null 2>&1; then
             echo "::error::${MAIN_BRANCH} と ${DEVELOP_BRANCH} に共通の祖先がない。タグと Release は作れたが、${DEVELOP_BRANCH} への戻しはできない。README の「履歴が繋がっていないとき」を見て直す"
@@ -266,23 +254,22 @@ jobs:
             echo "::warning::${MAIN_BRANCH} と ${DEVELOP_BRANCH} が衝突する。PR で取り込む"
           fi
 
-          # 直接押せなかったときは、main の内容をそのまま載せたブランチから PR を開く
+          # 直接押せなかったときは、main の内容をそのまま載せたブランチを押す。
+          # 再実行でブランチがすでにあるときは押し直さず、今の先端を使う。PR の上で人が衝突を解いていても壊さないため
           branch="merge/${TAG}-into-${DEVELOP_BRANCH}"
-          url="$(gh pr list --base "${DEVELOP_BRANCH}" --head "${branch}" --state open --json url --jq '.[0].url // empty')"
-          if [ -n "${url}" ]; then
-            echo "::notice::取り込みの PR はすでにある: ${url}"
+          if remote="$(git ls-remote --exit-code --heads origin "refs/heads/${branch}")"; then
+            sha="${remote%%[[:space:]]*}"
+            echo "::notice::${branch} はすでにある。押し直さない"
           else
             git switch --create "${branch}" "origin/${MAIN_BRANCH}"
             git push --set-upstream origin "${branch}"
-            url="$(gh pr create \
-              --base "${DEVELOP_BRANCH}" \
-              --head "${branch}" \
-              --title "${MAIN_BRANCH} を ${DEVELOP_BRANCH} に取り込む（${TAG}）" \
-              --body "リリース ${TAG} で上げた版を \`${DEVELOP_BRANCH}\` にも反映します。衝突があれば、この PR の上で解消してください。マージコミット（Create a merge commit）でマージしてください。")"
-            gh pr edit "${url##*/}" --add-label 'リリース' \
-              || echo "::warning::ラベル「リリース」を付けられなかった"
+            sha="$(git rev-parse HEAD)"
           fi
-          echo "- ${DEVELOP_BRANCH}: PR で取り込む ${url}" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "branch=${branch}"
+            echo "sha=${sha}"
+          } >> "$GITHUB_OUTPUT"
+          echo "- ${DEVELOP_BRANCH}: ${branch} から PR で取り込む" >> "$GITHUB_STEP_SUMMARY"
 
       - name: リリースブランチを消す
         # マージ済みのブランチを残すと、次のリリースの「release/* が残っていないか」の確認に引っかかる
@@ -354,3 +341,150 @@ jobs:
             echo 'ドラフトのままではタグだけが公開され、Release は表に出ません。'
           } >> "$GITHUB_STEP_SUMMARY"
           echo "::notice::Release ${TAG} はドラフトです。確かめてから公開してください: ${url}"
+
+  merge-back:
+    name: developへ戻すPRを開いてマージする
+    needs: publish
+    # develop へ直接押せず、merge/vX.Y.Z-into-develop ブランチを押したときだけ動く。
+    # 配布物の確かめで publish が落ちても、戻しは進める。取り消されたときは動かさない
+    if: ${{ !cancelled() && needs.publish.outputs.merge_branch != '' }}
+    runs-on: ${{ vars.RUNS_ON || 'ubuntu-latest' }}
+    # チェックを待つ上限（30分）と、マージのやり直しの分を見込む
+    timeout-minutes: 40
+    permissions:
+      contents: read         # 待ち合わせのスクリプトを取り出す
+      pull-requests: write   # PR を開き、ラベルを付ける
+      checks: read           # チェックの結果を読む
+      statuses: read         # コミットのステータスを読む
+      actions: read          # gh pr checks がワークフローの実行を読む
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: GitHub CLIがあることを確かめる
+        # GitHub がホストするランナーには入っている。セルフホストのランナーでは自分で入れる
+        run: |
+          if ! command -v gh >/dev/null 2>&1; then
+            echo "::error::gh（GitHub CLI）がない。ランナーに入れてから実行する: https://cli.github.com/"
+            exit 1
+          fi
+
+      - name: リリース用のトークンを確かめる
+        id: token
+        # 期限切れや失効は、ここで見つける。使えないときは止めずに、GITHUB_TOKEN で PR を開き、人がマージする
+        env:
+          RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        run: |
+          usable=false
+          if [ -z "${RELEASE_TOKEN}" ]; then
+            echo "::notice::secret の RELEASE_TOKEN がない。develop へ戻す PR は人がマージする"
+          elif GH_TOKEN="${RELEASE_TOKEN}" gh api "repos/${GITHUB_REPOSITORY}" --silent 2>/dev/null; then
+            usable=true
+          else
+            echo "::warning::RELEASE_TOKEN でリポジトリを読めない。期限切れか失効の恐れがある。develop へ戻す PR は人がマージする"
+          fi
+          echo "usable=${usable}" >> "$GITHUB_OUTPUT"
+
+      - name: PRを開く
+        id: pr
+        # 再実行しても壊れないよう、同じリポジトリから出た PR がすでにあればそれを使う。
+        # gh pr list --head はフォークを見分けないため、同じ名前のブランチでフォークから出た PR も返る。
+        # それを取り違えないよう、isCrossRepository で絞る
+        env:
+          BRANCH: ${{ needs.publish.outputs.merge_branch }}
+          MERGE_SHA: ${{ needs.publish.outputs.merge_sha }}
+          TAG: ${{ needs.publish.outputs.tag }}
+          TOKEN_USABLE: ${{ steps.token.outputs.usable }}
+          RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        run: |
+          # 引数は --jq の式
+          list() {
+            gh pr list --base "${DEVELOP_BRANCH}" --head "${BRANCH}" --state open \
+              --json url,isCrossRepository,author --jq "$1"
+          }
+          forks="$(list '[.[] | select(.isCrossRepository)] | length')"
+          if [ "${forks}" -gt 0 ]; then
+            echo "::warning::フォークから同じ名前のブランチ（${BRANCH}）で出た PR が ${forks} 件ある。それは使わない"
+          fi
+
+          # 出力は「URL ボットが開いたか」をタブで区切ったもの
+          found="$(list '[.[] | select(.isCrossRepository | not)] | .[0] // empty | [.url, .author.is_bot] | @tsv')"
+          if [ -n "${found}" ]; then
+            IFS=$'\t' read -r url bot <<<"${found}"
+            # ワークフローが GITHUB_TOKEN で開いた PR は、CI が承認待ちでチェックが通らない
+            if [ "${bot}" = 'true' ]; then
+              by='github-token'
+            else
+              by='existing'
+            fi
+            echo "::notice::取り込みの PR はすでにある: ${url}"
+          else
+            # 引数はトークンと本文
+            create_pr() {
+              GH_TOKEN="$1" gh pr create \
+                --base "${DEVELOP_BRANCH}" \
+                --head "${BRANCH}" \
+                --title "${MAIN_BRANCH} を ${DEVELOP_BRANCH} に取り込む（${TAG}）" \
+                --body "$2"
+            }
+            body="リリース ${TAG} で上げた版を \`${DEVELOP_BRANCH}\` にも反映します。衝突があれば、この PR の上で解消してください。マージコミット（Create a merge commit）でマージしてください。"
+            url=''
+            by='github-token'
+            if [ "${TOKEN_USABLE}" = 'true' ]; then
+              if url="$(create_pr "${RELEASE_TOKEN}" "${body} チェックが通ったら、「リリースを公開する」ワークフローが自動でマージします。")"; then
+                by='pat'
+              else
+                echo "::warning::RELEASE_TOKEN で PR を開けなかった。PAT の「Pull requests」の権限を確かめる。GITHUB_TOKEN で開く"
+                url=''
+              fi
+            fi
+            if [ -z "${url}" ]; then
+              # GITHUB_TOKEN で開いた PR の CI は承認待ちになる。
+              # それでも head は main のコミットで、main への push で CodeQL が解析済みのため、承認せずにマージできる
+              url="$(create_pr "${GH_TOKEN}" "${body} ${MAIN_BRANCH} の CodeQL が終わっていれば、CI の承認をせずにマージできます。")"
+            fi
+            gh pr edit "${url##*/}" --add-label 'リリース' \
+              || echo "::warning::ラベル「リリース」を付けられなかった"
+          fi
+
+          # 自動でマージするのは、PAT が使え、GITHUB_TOKEN で開いた PR でなく、
+          # マージするコミットが main に含まれるときだけ。
+          # MERGE_SHA は publish の出力で、publish は外部の道具を動かすため、そのまま信じない。
+          # 人が PR の上で衝突を解いたあとも main に含まれなくなるので、人のマージに回る
+          auto=false
+          if [ "${TOKEN_USABLE}" = 'true' ] && [ "${by}" != 'github-token' ]; then
+            relation="$(gh api "repos/${GITHUB_REPOSITORY}/compare/${MERGE_SHA}...${MAIN_BRANCH}" --jq '.status' 2>/dev/null || true)"
+            case "${relation}" in
+              identical|ahead) auto=true ;;
+              *) echo "::warning::${BRANCH} の先端（${MERGE_SHA:0:7}）が ${MAIN_BRANCH} に含まれない（${relation:-比べられなかった}）。自動ではマージしない" ;;
+            esac
+          fi
+          {
+            echo "number=${url##*/}"
+            echo "auto=${auto}"
+          } >> "$GITHUB_OUTPUT"
+          echo "- ${DEVELOP_BRANCH}: PR ${url}（開いたトークン: ${by}、自動でマージする: ${auto}）" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${auto}" != 'true' ]; then
+            echo "::notice::develop へ戻す PR は人がマージする: ${url}"
+          fi
+
+      - name: 待ち合わせのスクリプトを取得
+        if: steps.pr.outputs.auto == 'true'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ env.MAIN_BRANCH }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts
+
+      - name: チェックが通るのを待ってマージする
+        if: steps.pr.outputs.auto == 'true'
+        # head は main のコミットなので、main への push で動いた CodeQL が終わるまで待つことがある。
+        # publish が押したコミットだけをマージする。衝突していたら止まる。その場合は PR の上で衝突を解いて、人がマージする
+        env:
+          MERGE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          EXPECT_BASE: ${{ env.DEVELOP_BRANCH }}
+          EXPECT_HEAD_PREFIX: merge/
+          EXPECT_SHA: ${{ needs.publish.outputs.merge_sha }}
+          WAIT_MINUTES: '30'
+          MERGE_BODY: '「リリースを公開する」ワークフローが、チェックの完了を待ってマージした。'
+        run: bash .github/scripts/merge-pr.sh

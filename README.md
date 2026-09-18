@@ -29,6 +29,10 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 [Releases](https://github.com/223n/indigo-park-localization/releases)からzipをダウンロードし、展開して`install.bat`を実行します。
 Steamからゲームの場所を自動で探します。
 
+言語の一覧に日本語を足すとき、同梱の`retoc`が、ゲームのデータを読むためのライブラリ（`oo2core_9_win64.dll`）を取得して`tools`フォルダに置きます。
+取得先はGitHubの`WorkingRobot/OodleUE`で、このファイルは配布物に含んでいません。
+取得にはネットワークへの接続が要ります。
+
 Windowsの表示言語が日本語なら、ゲームを起動するだけで日本語になります。
 英語のままのときは、ゲーム内で「OPTIONS」→「GAMEPLAY」→「LANGUAGE」から日本語を選びます。
 一覧に日本語が無いときは、Deutsch（ドイツ語）を選んでも日本語で表示されます。

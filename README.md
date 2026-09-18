@@ -1,10 +1,16 @@
 # Indigo Park 日本語化
 
+[![Apache-2.0](https://custom-icon-badges.herokuapp.com/badge/license-Apache%202.0-8BB80A.svg?logo=law&logoColor=white)](LICENSE)
+[![Windows](https://custom-icon-badges.herokuapp.com/badge/Windows-1BB2E4.svg?logo=Windows&logoColor=white)](./)
+
 Steam版のゲーム「Indigo Park」を日本語で遊ぶための、非公式の日本語化MODです。
 翻訳した文と、それをゲームへ適用する仕組みをこのリポジトリで管理します。
 
 開発元や販売元とは関わりがありません。
 ゲーム本体のファイルも含みません。
+
+- ゲームリンク: [Indigo Park(Steam)](https://store.steampowered.com/app/2504480/Indigo_Park_Chapter_1/)
+- ゲーム作者YouTubeチャンネル: [UniqueGeese](https://www.youtube.com/channel/UC9BkT4lu2bby5wdQe1brQHA)
 
 ## 対象
 
@@ -372,8 +378,8 @@ Nodeはワークフローが用意します。
 
 ## ライセンス
 
-Apache License 2.0です。
+**Apache License 2.0**です。
 [LICENSE](LICENSE)を見てください。
 
-このライセンスが対象とするのは、このリポジトリで作ったものだけです。
-ゲーム本体のファイルは含みません。
+このライセンスが対象とするのは、このリポジトリで作ったものだけです。  
+**ゲーム本体のファイルは含みません。**

@@ -59,7 +59,7 @@ body:
     attributes:
       label: いまの訳
       description: 画面に出ている日本語です。英語のまま残っているときは、その旨を書いてください。
-      placeholder: 例：そのような下賤な呼び名でワタクシを辱めるでないッ！
+      placeholder: 例：そのような下賤な呼び名でワガハイを辱めるでないッ！
 
   - type: textarea
     id: proposal
@@ -90,7 +90,7 @@ body:
     attributes:
       label: 版
       description: 入れているMODの版です。分からなければ「不明」と書いてください。
-      placeholder: 例：v0.5.0
+      placeholder: 例：v0.6.1
     validations:
       required: true
 

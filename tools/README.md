@@ -1,6 +1,6 @@
 # 道具
 
-`.locres`（Unreal Engineの翻訳ファイル）を作るための道具です。
+`.locres`（Unreal Engineの翻訳ファイル）、MOD、配布物を作る道具と、それらを検査する道具です。
 Python 3で動きます。外部のパッケージは要りません。
 
 | ファイル | 中身 |
@@ -11,6 +11,7 @@ Python 3で動きます。外部のパッケージは要りません。
 | `po.py` | PO（gettext）の読み書きです |
 | `harvest.py` | cooked済みのアセットから原文を集めます |
 | `build_mod.py` | 翻訳とフォントからMODの中身を組み立てます |
+| `make_release.py` | MODをpakにまとめ、導入の道具と合わせて配布物のzipを作ります |
 | `check_translation.py` | 原文の一覧と訳文の突き合わせを検査します |
 | `verify_release.py` | 配布物のzipの中身を検査します |
 | `fonts.json` | 使うフォントと、ゲームのどのフォントを置き換えるかの設定です |
@@ -24,8 +25,9 @@ repak pack build IndigoParkJP_P.pak --version V11 --mount-point ../../../
 
 でき上がった`.pak`を`RaccoonCh1/Content/Paks/~mods/`に置きます。
 
-言語の選択肢に日本語を足すMODは別に要ります。
-作り方は[docs/RESEARCH.md](../docs/RESEARCH.md)にあります。
+言語の選択肢に日本語を足すファイルは、このpakには入りません。
+導入のときに`installer/install.ps1`が、利用者のゲームのデータから作ります。
+仕組みは[docs/RESEARCH.md](../docs/RESEARCH.md)にあります。
 
 ## 翻訳する
 
@@ -47,7 +49,8 @@ python tools/export_translation.py --merge data/ja.po > data/ja.po.new
 python tools/check_translation.py
 ```
 
-翻訳対象なのに訳文が無い項目と、タグや改行の数が原文と違う項目を見つけます。
+翻訳対象なのに訳文が無い項目、POに混じった余計な項目、タグや改行の数が原文と違う項目を見つけます。
+`data/corpus.json`に書いた件数が、実際の件数と合っているかも見ます。
 見つかると終了コード1で終わります。
 CIの「翻訳データの検査」でも同じものを動かします。
 
@@ -71,13 +74,19 @@ FTextの置かれ方は2通りあり、`harvest.py`は両方を拾います。
 片方だけだと、目標の表示や操作の案内が抜けます。
 詳しくは[docs/TRANSLATION.md](../docs/TRANSLATION.md)にあります。
 
+集めた結果を`data/corpus.json`へ反映する道具は、まだありません。
+反映したら、上の「翻訳する」の手順でPOを作り直し、`check_translation.py`で確かめます。
+
 ## 配布物を確かめる
 
 でき上がったzipの中身は、道具で確かめられます。
 
 ```bash
-python tools/verify_release.py dist/IndigoParkJP_v0.6.0.zip
+python tools/verify_release.py dist/IndigoParkJP_vX.Y.Z.zip
 ```
+
+照合の基準は、手元のチェックアウトにある`package.json`と`data/ja.po`です。
+過去の版のzipを確かめるときは、その版のタグをチェックアウトしてから動かします。
 
 要るファイルが入っているか、版が合っているか、訳文が`data/ja.po`のとおりに入っているか、英語の原文のまま入っていないかを見ます。
 pakの中の`.locres`を項目ごとに読み解いて突き合わせます。

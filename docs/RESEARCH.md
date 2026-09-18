@@ -52,9 +52,8 @@ cooked済みのアセットはすべてIoStore側にあります。
 `.ufont`は生のTrueTypeです。
 日本語のフォントで上書きすれば差し替わります。
 
-エンジンの最終フォールバックである`Engine/Content/EngineFonts/Faces/DroidSansFallback.ufont`は3.94MBあり、「あ」「ア」「日」「」を収録しています。
-フォントを差し替えないままでも日本語を表示できる見込みがあります。
-ただし実際の表示は未確認です。
+エンジンの最終フォールバックである`Engine/Content/EngineFonts/Faces/DroidSansFallback.ufont`は3.94MBあり、「あ」「ア」「日」を収録しています。
+それでも、フォントを差し替えないと日本語は描画されませんでした（後述の「フォントは差し替えが要ります」）。
 
 ### 確認できたこと
 
@@ -149,7 +148,7 @@ cooked済みの18,395アセットを走査し、原文を集めました。
 件数は`python tools/check_translation.py`が出します。
 
 置き場所が見本でも、本編が使っている画面の文章は対象に入れます。
-設定画面の`Designs/Design_R/`がこれにあたります。
+設定画面の`Designs/Design_R/`と`Designs/Design_IndigoPark/`がこれにあたります。
 
 字幕は`SoundWave`の中にFTextとして入っています。
 たとえば`RooftopRacesBeBroke`には`Ehhh, Looks like Mollie crashed into the Ride again!`が入っています。
@@ -174,7 +173,6 @@ retoc to-zen --version UE5_2 <書き換えたアセットのディレクトリ> 
 
 ## 未解決
 
-- 翻訳したのは動作確認のための42件だけです。訳文はこれからです
 - 言語の選択画面に出る名前の対応づけは未調整です
 
 ## 解決した点
@@ -204,10 +202,5 @@ retoc to-zen --version UE5_2 <書き換えたアセットのディレクトリ> 
 - `MenuSystemPro/ExampleContent/Art/Fonts/`の`DCC_-_Ash`、`Kanit-Regular`、`Oswald-*`
 - `RefinedMainMenu/Menu/Fonts/`の`Font_Quicksand-*`
 
-配布するときは、再配布できるライセンスのフォント（Noto Sans JPなど）に差し替えます。
-
-## 次にやること
-
-1. 展開済みのアセットからFTextのキーと原文をすべて集めます
-1. `DA_GameLanguage`に`ja`を足すMODを作ります。まずは`de`の枠を流用して確かめます
-1. 本編の字幕の所在を特定します
+配布物では、再配布できるM PLUS 1p（SIL Open Font License 1.1）に差し替えています。
+置き換える対象は[tools/fonts.json](../tools/fonts.json)にあります。

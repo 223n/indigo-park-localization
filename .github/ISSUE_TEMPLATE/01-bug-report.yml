@@ -4,8 +4,15 @@
 # labels に書くラベルはリポジトリに無ければ付かない。.github/labels.yml で定義してある。
 # 各要素の id は ASCII で付ける。日本語の label だけだと参照名が同じになり、フォームが壊れることがある。
 # validations.required は公開リポジトリでだけ効く。
+#
+# 書く人はゲームの遊び手で、技術に詳しいとは限らない。必須は少なくし、選んで答えられるものは dropdown にする。
+# dropdown には「分からない」に当たる選択肢を置き、答えられずに止まらないようにする。
+# 入れ方の選択肢は install.ps1 の出力（「済みました」、! の警告、× の中止）に合わせてある。出力を変えたときはここも見直す。
+# 版は選択肢にせず入力にする。例に書いた版は古くなっても困らないので、リリースのたびに直さなくてよい。
+# render を付けた textarea には画像を添付できないため、写真の欄は分けてある。
+# README.txt へのリンクは、配布した zip に入っているものと同じ内容を見せるため main を指す。
 name: バグ報告
-description: 期待どおりに動かないことを報告します
+description: 導入できない、日本語にならない、文字が出ないなど、うまく動かないことを知らせます
 title: '[バグ] '
 labels:
   - バグ
@@ -14,68 +21,152 @@ body:
     attributes:
       value: |
         報告ありがとうございます。
-        同じ内容のIssueがないか、先に検索してください。
+        先に、zipに入っているREADME.txtの「うまくいかないとき」を確かめてください（[GitHubでも読めます](https://github.com/223n/indigo-park-localization/blob/main/installer/README.txt)）。
+        訳の誤りや、一部の文だけ英語のまま残っているときは、[翻訳の訂正と提案](https://github.com/223n/indigo-park-localization/issues/new?template=00-translation.yml)のフォームを使ってください。
+        必ず答える項目は「困っている場面」「起きたこと」「入れ方と黒い画面の様子」の3つです。
+        Issueは誰でも読めるため、名前など見られたくないものは消してから送ってください。
+
+  - type: dropdown
+    id: situation
+    attributes:
+      label: 困っている場面
+      description: いちばん近いものを選んでください。
+      options:
+        - install.batでエラーが出る、またはすぐ閉じる
+        - 言語の一覧に「日本語」がない、または選べない
+        - 文字が表示されない、または四角や記号になる
+        - 全体が英語のままで変わらない
+        - ゲームが起動しない、または途中で落ちる
+        - uninstall.batで取り外せない
+        - そのほか
+    validations:
+      required: true
 
   - type: textarea
     id: what-happened
     attributes:
       label: 起きたこと
-      description: 何が起きたかを具体的に書いてください。
-      placeholder: 例：保存すると内容が消える
+      description: 何をしたら、どうなったかを、した順に書いてください。
+      placeholder: |
+        例：
+        install.batをダブルクリックすると「済みました」と出た。
+        ゲームを起動してOPTIONSを開くと、文字が四角になっていた。
     validations:
       required: true
 
-  - type: textarea
-    id: expected
+  - type: dropdown
+    id: install
     attributes:
-      label: 期待したこと
-      description: 本来どう動くべきかを書いてください。
+      label: 入れ方と黒い画面の様子
+      description: |
+        install.batを使ったときは、黒い画面に出た様子にいちばん近いものを選んでください。
+        「!」は黄色、「×」は赤で出る行です。
+      options:
+        - install.batを使い、「済みました」まで出た（「!」や「×」の行は無かった）
+        - install.batを使い、「済みました」まで出たが、「!」の行があった
+        - install.batを使ったが、「×」の行が出て止まった
+        - install.batを使ったが、何も表示されずに閉じた
+        - install.batを使ったが、画面の様子は覚えていない
+        - README.txtの「手で入れる場合」のとおりにコピーした
+        - 覚えていない
     validations:
       required: true
-
-  - type: textarea
-    id: steps
-    attributes:
-      label: 再現の手順
-      description: 手順を順番に書いてください。
-      value: |
-        1.
-        1.
-        1.
-    validations:
-      required: true
-
-  - type: input
-    id: version
-    attributes:
-      label: 版
-      description: 問題が起きた版、タグ、またはコミットです。
-      placeholder: 例：v1.2.0
-    validations:
-      required: true
-
-  - type: textarea
-    id: environment
-    attributes:
-      label: 環境
-      description: OS、ブラウザ、実行環境の版などです。
-      value: |
-        - OS:
-        - ブラウザ:
-        - その他:
 
   - type: textarea
     id: logs
     attributes:
-      label: ログやエラーの出力
-      description: そのまま貼り付けてください。自動でコードブロックになります。
+      label: 黒い画面に出た文字
+      description: |
+        install.batやuninstall.batの画面に出た文字を、そのまま貼り付けてください。
+        文字をマウスでなぞって選び、Ctrl+Cでコピーできます。
+      placeholder: |
+        例：
+        ▶ ゲームの場所を調べる
+          ✓ C:\Program Files (x86)\Steam\steamapps\common\Indigo Park
+        ▶ 言語の一覧に「日本語」を足す
+          ! できませんでした: 書き換える場所が見つかりませんでした（ゲームの更新で変わった可能性があります）
       render: text
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 画面の写真
+      description: |
+        ゲームや黒い画面の写真があると助かります。
+        この枠に画像をそのまま落とせます。
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 分かれば答えてください
+        ここから下は、原因を絞り込むのに使います。
+        分からない項目は、空のままで構いません。
+
+  - type: dropdown
+    id: game-language
+    attributes:
+      label: ゲームで選んでいる言語
+      description: |
+        OPTIONS→GAMEPLAY→LANGUAGEで選んでいるものです。
+        日本語の画面では「オプション」→「ゲームプレイ」→「言語」です。
+      options:
+        - 日本語
+        - Deutsch（ドイツ語）
+        - English（英語）
+        - そのほかの表示
+        - 分からない、または確かめていない
+
+  - type: dropdown
+    id: game-update
+    attributes:
+      label: 入れたあとのゲームの更新
+      description: このMODを入れたあとに、Steamでゲームが更新されたかを選んでください。
+      options:
+        - 更新されたあと、入れ直していない
+        - 更新されたあと、install.batで入れ直した
+        - 更新されていない
+        - 分からない
+
+  - type: input
+    id: version
+    attributes:
+      label: MODの版
+      description: |
+        ダウンロードしたzipの名前か、README.txtの1行目にあります。
+        分からなければ空のままで構いません。
+      placeholder: 例：v0.6.1
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 遊んでいる環境
+      description: Windowsの表示言語が日本語なら、言語を選ばなくても日本語で出ます。
+      options:
+        - Windows（表示言語は日本語）
+        - Windows（表示言語は日本語以外）
+        - Windows（表示言語は分からない）
+        - Steam DeckやLinux
+        - そのほか
+
+  - type: dropdown
+    id: other-mods
+    attributes:
+      label: ほかのMOD
+      description: |
+        ゲームのフォルダの`RaccoonCh1\Content\Paks\~mods`に、名前に「IndigoParkJP」が入っていないファイルがあるかを選んでください。
+        ゲームのフォルダは、Steamでゲームを右クリックし、「管理」→「ローカルファイルを閲覧」で開けます。
+      options:
+        - このMODのファイルだけある
+        - ほかのMODのファイルもある
+        - '~modsフォルダが無い'
+        - 分からない
 
   - type: checkboxes
     id: precheck
     attributes:
       label: 確認したこと
       options:
-        - label: 同じ内容のIssueがないことを確かめました
+        - label: '[同じ内容のIssue](https://github.com/223n/indigo-park-localization/issues?q=is%3Aissue)がないことを確かめました'
           required: true
-        - label: 最新の版でも起きることを確かめました
+        - label: README.txtの「うまくいかないとき」を読みました
+        - label: '[最新の版](https://github.com/223n/indigo-park-localization/releases/latest)でも起きることを確かめました'

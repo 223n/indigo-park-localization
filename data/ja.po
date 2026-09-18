@@ -294,7 +294,7 @@ msgstr "画面のゆれ"
 #. property: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Settings/WBP_GameSettings_R
 msgctxt "/0CCA6220475A5C76A7F2F58DE7E98923"
 msgid "Creates subtle screenshake when idling, walking, and running. This can be disorienting for some players."
-msgstr "立ち止まったとき、歩くとき、走るときに画面をわずかに揺らします。没入感は増しますが、人によっては酔いやすくなります。"
+msgstr "立ち止まっているとき、歩くとき、走るときに画面をわずかに揺らします。人によっては酔いやすくなります。"
 
 #. bytecode: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Singleplayer/WBP_SingleplayerMenu_R
 msgctxt "/1C4C51F24BABF1FE42F9168F83C4F002"

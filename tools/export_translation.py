@@ -11,7 +11,7 @@ JSON LinesやTSVでも出せます。ほかの道具に渡すときに使いま�
     python tools/export_translation.py --format jsonl > ja.jsonl
     python tools/export_translation.py --format tsv   > ja.tsv
 
-scope が core の項目だけを出します。--all を付けると demo も含めます。
+translate が true の項目だけを出します。--all を付けると訳さない項目も含めます。
 """
 import argparse
 import io
@@ -88,12 +88,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--format", default="po", choices=sorted(WRITERS), help="出力の形式")
     ap.add_argument("--merge", help="引き継ぐ既存の訳（.po か .jsonl）")
-    ap.add_argument("--all", action="store_true", help="見本由来の項目も含める")
+    ap.add_argument("--all", action="store_true", help="訳さない項目も含める")
     a = ap.parse_args()
 
     rows = load_corpus()
     if not a.all:
-        rows = [e for e in rows if e["scope"] == "core"]
+        rows = [e for e in rows if e["translate"]]
     existing = load_existing(a.merge)
     for e in rows:
         e["target"] = existing.get(e["id"], "")

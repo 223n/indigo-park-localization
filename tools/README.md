@@ -11,6 +11,7 @@ Python 3で動きます。外部のパッケージは要りません。
 | `po.py` | PO（gettext）の読み書きです |
 | `harvest.py` | cooked済みのアセットから原文を集めます |
 | `build_mod.py` | 翻訳とフォントからMODの中身を組み立てます |
+| `check_translation.py` | 原文の一覧と訳文の突き合わせを検査します |
 | `fonts.json` | 使うフォントと、ゲームのどのフォントを置き換えるかの設定です |
 
 ## MODを作る
@@ -35,6 +36,19 @@ Poeditなどの翻訳ツールでそのまま開けます。
 ```bash
 python tools/export_translation.py --merge data/ja.po > data/ja.po.new
 ```
+
+出すのは`translate`が`true`の項目だけです。
+訳さない項目も見たいときは`--all`を付けます。
+
+訳し終えたら、突き合わせを検査します。
+
+```bash
+python tools/check_translation.py
+```
+
+翻訳対象なのに訳文が無い項目と、タグや改行の数が原文と違う項目を見つけます。
+見つかると終了コード1で終わります。
+CIの「翻訳データの検査」でも同じものを動かします。
 
 ほかの形式でも出せます。別の道具へ渡すときに使います。
 

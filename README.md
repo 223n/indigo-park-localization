@@ -272,11 +272,16 @@ develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ �
 漏れると、保護していないブランチにワークフローを置いて、secretを読み出せます。
 値はどこにも貼らず、要らなくなったらFine-grained tokensの画面で消してください。
 
+ワークフローは、`RELEASE_TOKEN`をnpmの依存や外部の道具を動かすjobには渡しません。
+`npm ci`と`npm run lint`は、秘密情報を持たない読み取りだけのjobで動かします。
+依存のパッケージが乗っ取られても、PATを抜かれないようにするためです。
+ただし、セルフホストのランナーを使い回すと、jobを分けても分離にはなりません。
+
 ### 版
 
 版は`package.json`の`version`で管理します。
 `develop`と`main`の版、最新のタグのどれよりも大きい版だけを受け付けます。
-すでにあるタグや、開いたままの`release/*`ブランチがあると止まります。
+すでにあるタグや、残っている`release/*`ブランチ（Pull Requestを閉じただけのものも含む）があると止まります。
 `-rc.1`のようなプレリリースの版は、GitHub Releaseでもプレリリースになります。
 
 ### Releaseの本文
@@ -337,32 +342,42 @@ Releaseはドラフトのまま残り、ワークフローが失敗します。
 
 ### Pull Requestのマージまで任せる
 
-`auto_merge`が有効で`RELEASE_TOKEN`が使えると、ワークフローがPull Requestをマージします。
+`auto_merge`を有効にし、`RELEASE_TOKEN`も使えるときは、ワークフローがPull Requestをマージします。
 マージの前に、次の条件がそろうのを待ちます。
 
-- Pull Requestのチェックがすべて済み、失敗が無い
+- このリポジトリのブランチから出たPull Requestで、headはワークフローの押したコミットと一致する
+- Pull Requestのチェックがすべて済み、失敗が無い。Pull Requestのイベントで動いたチェックが1件以上ある
 - `RELEASE_TOKEN`から見て、マージできる状態（`CLEAN`）になっている。Code scanningの規則もここで満たされる
 - 待っているあいだに、Pull Requestのheadが変わっていない
+
+フォークから同じ名前のブランチで出したPull Requestは、対象から外します。
 
 待つ上限は30分です。
 チェックが落ちたときや上限を過ぎたときは、Pull Requestを開いたまま止まります。
 直してから人がマージすれば、「リリースを公開する」が続きを行います。
+
 マージさせたくないときは、マージされる前にPull Requestを閉じてください。
+閉じたあとは、`release/vX.Y.Z`ブランチも消します（Pull Requestの画面の「Delete branch」か、`git push origin --delete release/vX.Y.Z`）。
+残すと、次の「リリース」が止まります。
 
 待ち合わせとマージは`.github/scripts/merge-pr.sh`が行います。
 マージできるかどうかは`RELEASE_TOKEN`で読みます。
 ワークフローのファイルを変えるPull Requestは、`GITHUB_TOKEN`から見ると、規則を満たしていても`BLOCKED`と返ることがあるためです。
+
+チェックが通っているのに`BLOCKED`のまま待つときは、`RELEASE_TOKEN`のWorkflowsとContentsの権限を確かめてください。
+約5分続くと、ログに警告が出ます。
+人がマージすれば、続きは進みます。
 
 ### developへの戻し
 
 `develop`にはPull Requestを必須にする規則があるため、`main`から`develop`への戻しは毎回Pull Requestになります。
 ブランチ名は`merge/vX.Y.Z-into-develop`です。
 
-`RELEASE_TOKEN`があれば、「リリースを公開する」がこのPull Requestを`RELEASE_TOKEN`で開き、チェックが通るのを待ってマージします。
+`RELEASE_TOKEN`が使えれば、「リリースを公開する」がこのPull Requestを`RELEASE_TOKEN`で開き、チェックが通るのを待ってマージします。
 配布物の確かめが落ちても、戻しは進めます。
 衝突したときは止まるので、Pull Requestの上で衝突を解いてから、マージコミットでマージしてください。
 
-`RELEASE_TOKEN`が無いときは、人がマージコミットでマージします。
+`RELEASE_TOKEN`が無いか使えないときは、`GITHUB_TOKEN`でPull Requestを開き、人がマージコミットでマージします。
 閉じて開き直す必要はありません。
 headは`main`のコミットで、`main`へのpushで動いたCodeQLが解析済みのため、規則を満たせます。
 CodeQLが終わるまでの1〜2分は、マージの欄が待ちになることがあります。

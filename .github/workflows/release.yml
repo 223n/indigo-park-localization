@@ -13,8 +13,13 @@ name: リリース
 # ワークフローのファイルを変える PR は workflows 権限が無いためマージもできない。
 # PAT には Contents、Pull requests、Workflows の書き込みを付ける。README の「リリース用のトークン」を見る。
 #
-# auto_merge が有効なら、チェックが済んで通るのを待ってから PAT でマージする（.github/scripts/merge-pr.sh）。
-# マージで release-publish.yml が pull_request(closed) で動き、公開まで進む。
+# job は3つに分ける。
+#   check    版と中身を確かめる。npm ci と npm run lint で依存のコードを動かすため、秘密情報を渡さず、読み取りだけにする
+#   prepare  release ブランチを切って版を上げ、PR を開く。依存のコードは動かさない。RELEASE_TOKEN を使う
+#   merge    チェックが通るのを待って、PR を RELEASE_TOKEN でマージする（.github/scripts/merge-pr.sh）
+# 依存が乗っ取られても、RELEASE_TOKEN を抜かれたり、release ブランチを書き換えられたりしないようにするためである。
+#
+# auto_merge が有効なら、merge がマージし、release-publish.yml が pull_request(closed) で動いて公開まで進む。
 # RELEASE_TOKEN が無いか使えないときは警告を出し、GITHUB_TOKEN で PR を開くだけにする。
 # その場合は人が PR の「Approve workflows to run」を押すか閉じて開き直し、チェックが通ったらマージする。
 #
@@ -61,22 +66,15 @@ env:
   MAIN_BRANCH: main
 
 jobs:
-  prepare:
-    name: リリースブランチとPRを作る
+  check:
+    name: 版と中身を確かめる
+    # npm ci と npm run lint で依存のコードを動かすため、秘密情報を参照せず、書き込みの権限も持たせない
     # セルフホストのランナーがあれば、リポジトリの変数 RUNS_ON にそのラベル（例: self-hosted）を設定する。
     # 無ければ GitHub がホストする ubuntu-latest で動く
     runs-on: ${{ vars.RUNS_ON || 'ubuntu-latest' }}
     timeout-minutes: 15
     permissions:
-      contents: write        # release ブランチを押す
-      pull-requests: write   # PR を開く
-    outputs:
-      version: ${{ steps.version.outputs.version }}
-      tag: ${{ steps.version.outputs.tag }}
-      branch: ${{ steps.version.outputs.branch }}
-      pr_number: ${{ steps.pr.outputs.number }}
-      pr_url: ${{ steps.pr.outputs.url }}
-      auto_merge: ${{ steps.pr.outputs.auto_merge }}
+      contents: read
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
@@ -87,23 +85,6 @@ jobs:
             echo "::error::gh（GitHub CLI）がない。ランナーに入れてから実行する: https://cli.github.com/"
             exit 1
           fi
-
-      - name: リリース用のトークンを確かめる
-        id: token
-        # 期限切れや失効は、ここで見つける。使えないときは止めずに、GITHUB_TOKEN で PR を開くだけにする。
-        # 読めるかどうかしか確かめられないので、権限の不足は PR の作成やマージのところで分かる
-        env:
-          RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-        run: |
-          usable=false
-          if [ -z "${RELEASE_TOKEN}" ]; then
-            echo "::warning::secret の RELEASE_TOKEN がない。PR は GITHUB_TOKEN で開くため、CI は承認待ちになり、自動ではマージしない"
-          elif GH_TOKEN="${RELEASE_TOKEN}" gh api "repos/${GITHUB_REPOSITORY}" --silent 2>/dev/null; then
-            usable=true
-          else
-            echo "::warning::RELEASE_TOKEN でリポジトリを読めない。期限切れか失効の恐れがある。PR は GITHUB_TOKEN で開き、自動ではマージしない"
-          fi
-          echo "usable=${usable}" >> "$GITHUB_OUTPUT"
 
       - name: 版の書式を確かめる
         id: version
@@ -134,12 +115,13 @@ jobs:
           fi
 
       - name: developを取得
-        # zizmor: ignore[artipacked] このジョブは release ブランチを push するため、認証情報を残す
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ env.DEVELOP_BRANCH }}
           # 最新のタグと main の版と比べるため、履歴とタグをすべて取る
           fetch-depth: 0
+          # この job は push しない。依存のコードに認証情報を触らせない
+          persist-credentials: false
 
       - name: Nodeを用意
         # 版の比較にも node を使うため、その前に用意する。セルフホストのランナーに Node が無くても動く
@@ -161,9 +143,9 @@ jobs:
             echo "::error::タグ ${TAG} はすでにある"
             exit 1
           fi
-          # release ブランチは同時に1つだけ。別の版が開いたままだと、後の PR が package.json で衝突する
+          # release ブランチは同時に1つだけ。別の版が残っていると、後の PR が package.json で衝突する
           if git ls-remote --exit-code --heads origin 'refs/heads/release/*' >/dev/null 2>&1; then
-            echo "::error::release/* ブランチが残っている。前のリリースの PR をマージするか閉じてから実行する"
+            echo "::error::release/* ブランチが残っている。前のリリースの PR をマージする。PR を閉じただけなら、そのブランチを消してから実行する"
             git ls-remote --heads origin 'refs/heads/release/*'
             exit 1
           fi
@@ -229,6 +211,83 @@ jobs:
             console.log("版: " + bases.filter(Boolean).join(", ") + " → " + next)
           ' "${VERSION}" "${current}" "${main_version}" "${latest_tag#v}"
 
+      - name: 検査を通す
+        # 壊れたものをリリースブランチに載せない。
+        # release ブランチは、この develop に main を取り込み、版を上げただけのものになる。
+        # RELEASE_TOKEN が使えずに GITHUB_TOKEN で PR を開くと、PR の CI は承認待ちで止まるため、ここでも検査しておく
+        run: npm run lint
+
+  prepare:
+    name: リリースブランチとPRを作る
+    needs: check
+    # 依存のコードは動かさない（npm ci も npm run lint もしない）。RELEASE_TOKEN を参照するため
+    runs-on: ${{ vars.RUNS_ON || 'ubuntu-latest' }}
+    timeout-minutes: 15
+    permissions:
+      contents: write        # release ブランチを押す
+      pull-requests: write   # PR を開き、ラベルを付ける
+    outputs:
+      pr_number: ${{ steps.pr.outputs.number }}
+      pr_url: ${{ steps.pr.outputs.url }}
+      auto_merge: ${{ steps.pr.outputs.auto_merge }}
+      head_sha: ${{ steps.push.outputs.sha }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: GitHub CLIがあることを確かめる
+        # GitHub がホストするランナーには入っている。セルフホストのランナーでは自分で入れる
+        run: |
+          if ! command -v gh >/dev/null 2>&1; then
+            echo "::error::gh（GitHub CLI）がない。ランナーに入れてから実行する: https://cli.github.com/"
+            exit 1
+          fi
+
+      - name: 版を決める
+        id: version
+        # check の outputs は使わず、入力から作り直す。check は依存のコードを動かすため、その出力を頼りにしない。
+        # 書式は check で確かめてある
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          version="${INPUT_VERSION#v}"
+          {
+            echo "version=${version}"
+            echo "tag=v${version}"
+            echo "branch=release/v${version}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: リリース用のトークンを確かめる
+        id: token
+        # 期限切れや失効は、ここで見つける。使えないときは止めずに、GITHUB_TOKEN で PR を開くだけにする。
+        # 読めるかどうかしか確かめられない。Pull requests の不足は PR の作成で、
+        # Workflows と Contents の不足はマージの待ちで BLOCKED が続くことで分かる
+        env:
+          RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        run: |
+          usable=false
+          if [ -z "${RELEASE_TOKEN}" ]; then
+            echo "::warning::secret の RELEASE_TOKEN がない。PR は GITHUB_TOKEN で開くため、CI は承認待ちになり、自動ではマージしない"
+          elif GH_TOKEN="${RELEASE_TOKEN}" gh api "repos/${GITHUB_REPOSITORY}" --silent 2>/dev/null; then
+            usable=true
+          else
+            echo "::warning::RELEASE_TOKEN でリポジトリを読めない。期限切れか失効の恐れがある。PR は GITHUB_TOKEN で開き、自動ではマージしない"
+          fi
+          echo "usable=${usable}" >> "$GITHUB_OUTPUT"
+
+      - name: developを取得
+        # zizmor: ignore[artipacked] このジョブは release ブランチを push するため、認証情報を残す
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ env.DEVELOP_BRANCH }}
+          # main を取り込むため、履歴をすべて取る
+          fetch-depth: 0
+
+      - name: Nodeを用意
+        # npm version と版の確かめに使う。依存は入れない
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+
       - name: リリースブランチを切って版を上げる
         env:
           VERSION: ${{ steps.version.outputs.version }}
@@ -256,20 +315,17 @@ jobs:
             exit 1
           fi
 
-          # package.json と package-lock.json の版を書き換える。タグはまだ打たない
-          npm version "${VERSION}" --no-git-tag-version
+          # package.json と package-lock.json の版を書き換える。タグはまだ打たない。
+          # --ignore-scripts で、package.json の version 系のスクリプトも動かさない
+          npm version "${VERSION}" --no-git-tag-version --ignore-scripts
           actual="$(node -p "require('./package.json').version")"
           if [ "${actual}" != "${VERSION}" ]; then
             echo "::error::package.json の版が ${VERSION} にならなかった（${actual}）"
             exit 1
           fi
 
-      - name: 検査を通す
-        # 壊れたものをリリースブランチに載せない。
-        # RELEASE_TOKEN が使えずに GITHUB_TOKEN で PR を開くと、PR の CI は承認待ちで止まるため、ここでも検査しておく
-        run: npm run lint
-
       - name: コミットして押す
+        id: push
         env:
           VERSION: ${{ steps.version.outputs.version }}
           BRANCH: ${{ steps.version.outputs.branch }}
@@ -277,6 +333,8 @@ jobs:
           git add package.json package-lock.json
           git commit -m "版を ${VERSION} に上げる"
           git push --set-upstream origin "${BRANCH}"
+          # merge がこのコミットだけをマージするよう、SHA を渡す
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: リリースノートの下書きを作る
         # タグはまだないが、generate-notes は新しいタグ名でも受け付ける
@@ -310,7 +368,7 @@ jobs:
               echo
               if [ "$1" = 'pat' ] && [ "${AUTO_MERGE}" = 'true' ]; then
                 echo "チェックが済んで通ったら、「リリース」ワークフローがこの PR をマージコミットでマージします。"
-                echo "止めたいときは、マージされる前にこの PR を閉じてください。"
+                echo "止めたいときは、マージされる前にこの PR を閉じ、ブランチ \`${BRANCH}\` も消してください。ブランチが残ると、次のリリースが止まります。"
               else
                 echo "**マージコミット（Create a merge commit）でマージしてください。** squash や rebase は使いません。"
               fi
@@ -429,7 +487,7 @@ jobs:
           sparse-checkout: .github/scripts
 
       - name: チェックが通るのを待ってマージする
-        # PR の状態は PAT で読み、マージも PAT で行う。
+        # PR の状態は PAT で読み、マージも PAT で行う。prepare が push したコミットだけをマージする。
         # PAT でマージすると pull_request(closed) で release-publish.yml が動き、タグと Release を作って公開まで進む。
         # 失敗したときは PR が開いたまま残る。人がマージすれば、同じく release-publish.yml が続きを行う
         env:
@@ -438,6 +496,7 @@ jobs:
           PR_NUMBER: ${{ needs.prepare.outputs.pr_number }}
           EXPECT_BASE: ${{ env.MAIN_BRANCH }}
           EXPECT_HEAD_PREFIX: release/
+          EXPECT_SHA: ${{ needs.prepare.outputs.head_sha }}
           WAIT_MINUTES: '30'
           MERGE_BODY: '「リリース」ワークフローが、チェックの完了を待ってマージした。'
         run: bash .github/scripts/merge-pr.sh

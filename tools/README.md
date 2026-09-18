@@ -5,7 +5,7 @@ Python 3で動きます。外部のパッケージは要りません。
 
 | ファイル | 中身 |
 | ---- | ---- |
-| `cityhash.py` | UEがキーのハッシュに使うCityHash64の実装です |
+| `cityhash.py` | UEがキーのハッシュに使うCityHash64の実装です。GoogleのCityHash v1.1をPythonに移したもので、MIT Licenseです |
 | `build_locres.py` | 名前空間とキーと訳文から`.locres`を書き出します |
 | `export_translation.py` | 原文の一覧から、翻訳作業用のファイルを書き出します |
 | `po.py` | PO（gettext）の読み書きです |

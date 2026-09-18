@@ -205,7 +205,7 @@ GitFlowに沿って運用します。
 ブランチの役割は[CONTRIBUTING.md](CONTRIBUTING.md)にあります。
 
 ```text
-develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ タグ vX.Y.Z とドラフトの Release ──▶ 人が公開 ──▶ develop へ戻す
+develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ タグ vX.Y.Z とドラフトの Release ──▶ 配布物を確かめて公開 ──▶ develop へ戻す
 ```
 
 ### リリースする
@@ -215,9 +215,31 @@ develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ �
 1. ワークフローが`develop`から`release/vX.Y.Z`ブランチを切り、`package.json`の版を上げ、`main`へのPull Requestを開きます
 1. そのPull Requestを一度閉じ、すぐ開き直します。CIを動かすために要ります（後述）
 1. Pull Requestの内容を確かめ、マージコミット（Create a merge commit）でマージします
-1. 「リリースを公開する」ワークフローが動きます。タグ`vX.Y.Z`を打ち、**ドラフトの**GitHub Releaseを作って配布物を添付し、`main`を`develop`に戻します
-1. 「Releases」でドラフトを開き、添付と本文を確かめます
-1. 問題なければ「Publish release」を押します
+1. 「リリースを公開する」ワークフローが動きます。タグ`vX.Y.Z`を打ち、**ドラフトの**GitHub Releaseを作って配布物を添付します
+1. `auto_publish`が有効なら、配布物の中身を確かめてからReleaseを公開します。無効ならドラフトのまま残ります
+1. `main`を`develop`に戻します
+
+`auto_publish`は既定で有効です。
+無効にすると、いままでどおりドラフトで止まります。
+その場合は「Releases」でドラフトを開き、添付と本文を確かめてから「Publish release」を押してください。
+
+### 自動で公開する
+
+`auto_publish`を有効にして実行すると、リリースのPull Requestに「自動公開」ラベルが付きます。
+人がそのPull Requestをマージすると、ラベルを見て公開まで進みます。
+公開を取りやめたくなったら、マージの前にラベルを外してください。
+
+人が目で確かめる代わりに、`tools/verify_release.py`が添付そのものを落として中身を確かめます。
+
+| 見るところ | 内容 |
+| ---- | ---- |
+| 中身 | 要るファイルがそろっているか |
+| 版 | `README.txt`の版が`package.json`と合っているか |
+| 訳文 | pakの中に訳文が入っているか |
+| 抜け | 訳文のはずの項目が、英語の原文のまま入っていないか |
+
+最後の1つは、設定の説明文が英語のまま出た件（[Issue #16](https://github.com/223n/indigo-park-localization/issues/16)）と同じ形の崩れを捕まえます。
+確かめが落ちるとReleaseはドラフトのまま残り、ワークフローが失敗します。
 
 ### リリースのPull RequestでCIが動かないとき
 
@@ -262,9 +284,10 @@ gh pr reopen <番号>
 GitHub Releaseの本文は、マージしたPull Requestのタイトルとラベルから自動で作られます。
 分類は`.github/release.yml`にあります。
 
-Releaseは**ドラフトで作られます**。
+Releaseは**まずドラフトで作られます**。
 ワークフローが配布物のzipを組み立てて添付し、本文の先頭にSHA256を書き足します。
-中身を確かめてから、「Releases」の画面で「Publish release」を押してください。
+`auto_publish`が有効なら、そのあと中身を確かめて公開します。
+無効なら、「Releases」の画面で「Publish release」を押してください。
 
 ドラフトのままでもタグは公開されます。
 公開を取りやめるときは、ドラフトとタグの両方を消してください。

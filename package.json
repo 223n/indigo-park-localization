@@ -1,6 +1,6 @@
 {
   "name": "indigo-park-localization",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "private": true,
   "description": "Steam 版のゲーム「Indigo Park」の非公式な日本語化 MOD。訳した文と、それをゲームへ適用する仕組みを管理する。",
   "license": "Apache-2.0",

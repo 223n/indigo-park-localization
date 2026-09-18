@@ -108,7 +108,7 @@ def build_text(corpus, translation, outdir):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--translation", help="JSON Lines の翻訳ファイル")
+    ap.add_argument("--translation", help="翻訳ファイル（PO か JSON Lines）")
     ap.add_argument("--out", default="build", help="出力先ディレクトリ")
     ap.add_argument("--no-fonts", action="store_true", help="フォントを入れない")
     a = ap.parse_args()

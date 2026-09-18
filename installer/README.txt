@@ -25,8 +25,13 @@ Steam からゲームの場所を自動で探します。
 ------------
 
 uninstall.bat をダブルクリックします。
-置いたファイルを消し、言語の設定を英語に戻します。
+置いたファイルを消します。言語の設定が日本語なら、英語に戻します。
 ゲーム本体のファイルは触りません。
+
+ゲームが見つからないときは、uninstall.bat のあるフォルダで、
+PowerShell から場所を指定して実行してください。
+
+  powershell -NoProfile -ExecutionPolicy Bypass -File tools\uninstall.ps1 -GamePath "<ゲームのフォルダ>"
 
 
 手で入れる場合
@@ -65,7 +70,7 @@ install.bat が、お使いのゲームからその場で作ります。
 
 ・install.bat が何も表示せずに閉じる
     PowerShell の実行が止められている可能性があります。
-    installer フォルダで、PowerShell から次を実行してください。
+    install.bat のあるフォルダで、PowerShell から次を実行してください。
 
       powershell -NoProfile -ExecutionPolicy Bypass -File tools\install.ps1
 

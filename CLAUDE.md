@@ -86,3 +86,4 @@ gh api --method POST "repos/OWNER/REPO/git/refs" -f "ref=refs/heads/develop" -f 
 - `scripts/setup.sh`と`scripts/setup.ps1`は同じことを行います。片方だけを変えないでください
 - Pull Requestはマージコミット（Create a merge commit）でマージします
 - 変更したら`npm run lint`を通します
+- 訳文や原文の一覧を変えたら、`python tools/check_translation.py`も通します

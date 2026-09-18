@@ -1,5 +1,5 @@
 {
-  "_comment": "日本語フォントの入手先と、ゲームのどのフォントを置き換えるか。フォントを足すときは fonts に項目を増やし、replace の font を変える",
+  "_comment": "日本語フォントの入手先と、ゲームのどのフォントを置き換えるか。フォントを足すときは fonts に項目を増やし、default_font を切り替える",
   "fonts": {
     "mplus1p": {
       "name": "M PLUS 1p",

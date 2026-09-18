@@ -7,11 +7,15 @@ name: PRにラベルを付ける
 # ただし PR のコードは絶対に checkout して実行してはならない。
 #
 # 設定（.github/labeler.yml）は base ブランチから取り出す。
-# checkout しないと actions/labeler は設定を API で取りに行き、そのとき読むのは既定ブランチ（main）である。
+# ローカルに設定が無いと actions/labeler は API で取りに行き、そのとき読むのは既定ブランチ（main）である。
 # PR #20 で確かめた。develop にしかない規則は効かず、main にある規則だけが効いた。
-# 規則を足してからリリースで main に届くまで効かない、という分かりにくい待ちが生まれるため、
-# base ブランチの設定ファイルだけを取り出してローカルに置く。
-# 取り出すのは .github/labeler.yml の1ファイルだけで、PR 側のコードには触れない。
+# 規則を足してからリリースで main に届くまで効かない、という分かりにくい待ちが生まれる。
+#
+# 取り出しに actions/checkout は使わない。
+# pull_request_target と checkout が揃うと zizmor の dangerous-triggers が出るためである。
+# ignore で黙らせると、あとで誰かが PR の head を checkout したときに気付けなくなる。
+# 代わりに gh api で base ブランチの設定ファイル1つだけを取り出す。
+# 取り出すのは .github/labeler.yml だけで、PR 側のコードには触れない。
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
@@ -32,15 +36,17 @@ jobs:
       issues: write          # ラベルの同期がまだのとき、ないラベルを作る。色と説明は次の同期で揃う
     steps:
       - name: baseブランチの設定を取り出す
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          # base ブランチ（develop や main）を指す。PR の head は指さない
-          ref: ${{ github.base_ref }}
-          # 設定ファイル1つだけを取り出す。cone モードを切ると、ファイル単位で指定できる
-          sparse-checkout: .github/labeler.yml
-          sparse-checkout-cone-mode: false
-          # ラベルを付けるのは labeler が持つ token で、この checkout の認証情報は要らない
-          persist-credentials: false
+        env:
+          GH_TOKEN: ${{ github.token }}
+          # base ブランチの名前。PR の head は指さない。
+          # run に直に展開するとコマンドを差し込めるため、env を通して渡す（zizmor の template-injection）
+          BASE_REF: ${{ github.base_ref }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          mkdir -p .github
+          gh api -H 'Accept: application/vnd.github.raw' "repos/${REPO}/contents/.github/labeler.yml?ref=${BASE_REF}" > .github/labeler.yml
+          echo "::notice::${BASE_REF} の設定で $(grep --count --extended-regexp '^[^[:space:]#]' .github/labeler.yml) 件の規則を読みました"
 
       - name: ラベルを付ける
         uses: actions/labeler@bf12e9b00b37c5c0ca2b87b79b2daf7891dbda13 # v7.0.0

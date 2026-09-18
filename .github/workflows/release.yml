@@ -139,14 +139,16 @@ jobs:
           TAG: ${{ steps.version.outputs.tag }}
           BRANCH: ${{ steps.version.outputs.branch }}
         run: |
-          if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null 2>&1; then
+          # checkout は認証情報を残さないため、リモートの状態は git ではなく gh api で見る
+          if gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${TAG}" --silent 2>/dev/null; then
             echo "::error::タグ ${TAG} はすでにある"
             exit 1
           fi
           # release ブランチは同時に1つだけ。別の版が残っていると、後の PR が package.json で衝突する
-          if git ls-remote --exit-code --heads origin 'refs/heads/release/*' >/dev/null 2>&1; then
+          left="$(gh api "repos/${GITHUB_REPOSITORY}/git/matching-refs/heads/release/" --jq '.[].ref')"
+          if [ -n "${left}" ]; then
             echo "::error::release/* ブランチが残っている。前のリリースの PR をマージする。PR を閉じただけなら、そのブランチを消してから実行する"
-            git ls-remote --heads origin 'refs/heads/release/*'
+            printf '%s\n' "${left}"
             exit 1
           fi
 

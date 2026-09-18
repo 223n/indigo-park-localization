@@ -9,6 +9,7 @@ Python 3で動きます。外部のパッケージは要りません。
 | `build_locres.py` | 名前空間とキーと訳文から`.locres`を書き出します |
 | `export_translation.py` | 原文の一覧から、翻訳作業用のファイルを書き出します |
 | `po.py` | PO（gettext）の読み書きです |
+| `harvest.py` | cooked済みのアセットから原文を集めます |
 | `build_mod.py` | 翻訳とフォントからMODの中身を組み立てます |
 | `fonts.json` | 使うフォントと、ゲームのどのフォントを置き換えるかの設定です |
 
@@ -41,6 +42,19 @@ python tools/export_translation.py --merge data/ja.po > data/ja.po.new
 python tools/export_translation.py --format jsonl > ja.jsonl
 python tools/export_translation.py --format tsv   > ja.tsv
 ```
+
+## 原文を集め直す
+
+ゲームが更新されたときは、集め直します。
+
+```bash
+retoc to-legacy --no-shaders --version UE5_2 "<ゲーム>/RaccoonCh1/Content/Paks" full
+python tools/harvest.py full/RaccoonCh1/Content > harvest.json
+```
+
+FTextの置かれ方は2通りあり、`harvest.py`は両方を拾います。
+片方だけだと、目標の表示や操作の案内が抜けます。
+詳しくは[docs/TRANSLATION.md](../docs/TRANSLATION.md)にあります。
 
 ## フォントを足す
 

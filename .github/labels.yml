@@ -70,6 +70,9 @@
 - name: リリース
   color: '#5a6e59'
   description: リリースの準備と公開
+- name: 自動公開
+  color: '#b5d5a7'
+  description: このPRをマージしたらReleaseを公開する。外すとドラフトで止まる
 - name: セキュリティ
   color: '#69020b'
   description: 脆弱性やセキュリティに関わる修正

@@ -10,6 +10,16 @@ name: リリースを公開する
 #
 # hotfix/* は main から切り、その PR の中で package.json の版を上げておく（npm version patch --no-git-tag-version）。
 # 版を上げずにマージすると、同じ版のタグがすでに別のコミットにあるため、ここで止まる。
+#
+# Release は必ずドラフトで作り、配布物を添付してから公開する。
+# 公開まで進めるかは2つの経路で決まる。
+#   workflow_call の auto_publish   release.yml から呼ばれたとき
+#   PR のラベル「自動公開」          人が PR をマージしたとき
+# どちらも無ければドラフトのまま止め、人が Releases の画面で公開する。
+#
+# 自動で公開するときは、人が添付を開いて確かめる機会が無くなる。
+# 代わりに tools/verify_release.py が、添付そのものを落として中身を確かめる。
+# 落ちたらドラフトのまま止まる。
 on:
   pull_request:
     types: [closed]
@@ -20,6 +30,11 @@ on:
         description: 'リリースする版。v は付けない'
         required: true
         type: string
+      auto_publish:
+        description: '配布物の確かめが通ったら、ドラフトのままにせず公開する'
+        required: false
+        default: false
+        type: boolean
 
 # release.yml から呼ばれるときは、呼び元が group: release を握っている。
 # 同じ名前にすると互いに待ち合って進まなくなるため、別の名前にする
@@ -112,6 +127,26 @@ jobs:
             echo "prerelease=${prerelease}"
           } >> "$GITHUB_OUTPUT"
 
+      - name: 公開するかを決める
+        id: mode
+        env:
+          INPUT_AUTO_PUBLISH: ${{ inputs.auto_publish }}
+          LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: |
+          publish=false
+          reason='指定が無いため、ドラフトのままにする'
+          if [ "${INPUT_AUTO_PUBLISH}" = 'true' ]; then
+            publish=true
+            reason='呼び元が auto_publish を有効にした'
+          else
+            case ",${LABELS}," in
+              *,自動公開,*) publish=true; reason='PR にラベル「自動公開」が付いている' ;;
+            esac
+          fi
+          echo "publish=${publish}" >> "$GITHUB_OUTPUT"
+          echo "::notice::${reason}"
+          echo "- 公開: ${publish}（${reason}）" >> "$GITHUB_STEP_SUMMARY"
+
       - name: マージの形を確かめる
         # マージコミット以外（squash、rebase）だと、develop で取り込んだ PR がリリースノートに載らない。
         # 止めはしないが、気付けるようにする
@@ -179,10 +214,14 @@ jobs:
             exit 1
           fi
           sum="$(sha256sum "${zip}" | cut -d' ' -f1)"
-          gh release upload "${TAG}" "${zip}"
+          gh release upload "${TAG}" "${zip}" --clobber
           # 本文の先頭に、確かめる手掛かりを足す。
           # 表にバッククォートは使わない。単一引用符の中だと検査が誤解するため
           body="$(gh release view "${TAG}" --json body --jq '.body')"
+          # 作り直したときに表が二重にならないよう、前に書いた節（6行）を落とす
+          if [ "$(printf '%s\n' "${body}" | head -n 1)" = '### 配布物' ]; then
+            body="$(printf '%s\n' "${body}" | tail -n +7)"
+          fi
           {
             printf '### 配布物\n\n'
             printf '| ファイル | SHA256 |\n| ---- | ---- |\n'
@@ -191,19 +230,6 @@ jobs:
           } > /tmp/body.md
           gh release edit "${TAG}" --notes-file /tmp/body.md
           echo "- 配布物: $(basename "${zip}")（SHA256: ${sum}）" >> "$GITHUB_STEP_SUMMARY"
-
-      - name: 公開はしないことを知らせる
-        env:
-          TAG: ${{ steps.version.outputs.tag }}
-        run: |
-          url="$(gh release view "${TAG}" --json url --jq '.url')"
-          echo "- Release（ドラフト）: ${url}" >> "$GITHUB_STEP_SUMMARY"
-          {
-            echo ''
-            echo '添付と本文を確かめてから、Releases の画面で「Publish release」を押してください。'
-            echo 'ドラフトのままではタグだけが公開され、Release は表に出ません。'
-          } >> "$GITHUB_STEP_SUMMARY"
-          echo "::notice::Release ${TAG} はドラフトです。確かめてから公開してください: ${url}"
 
       - name: mainをdevelopへ戻す
         # 版の更新を develop にも届ける。まず直接押し、保護されていて押せなければ PR を開く。
@@ -269,3 +295,62 @@ jobs:
           else
             echo "ブランチ ${BRANCH} はすでにない"
           fi
+
+      - name: 配布物を確かめる
+        # 自動で公開するときだけ動かす。
+        # 組み立てた物ではなく、添付そのものを落として確かめる。
+        # 添付がすでにあって組み立てを飛ばした場合も、実際に配る物を見られる。
+        #
+        # develop への戻しとブランチの削除より後に置いてある。
+        # ここで落ちても、後始末は済んでいる状態にするためである
+        if: steps.mode.outputs.publish == 'true'
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/verify
+          mkdir -p /tmp/verify
+          gh release download "${TAG}" --pattern '*.zip' --dir /tmp/verify
+          zip="$(find /tmp/verify -maxdepth 1 -name '*.zip' | head -n 1)"
+          if [ -z "${zip}" ]; then
+            echo '::error::添付を落とせなかった。ドラフトのまま残す'
+            exit 1
+          fi
+          if python tools/verify_release.py "${zip}"; then
+            exit 0
+          fi
+          # 落ちた添付を残すと、作り直す step が「添付はすでにある」で飛ばすため、
+          # 直して再実行しても同じ物を見続けることになる。ここで消しておく
+          echo '::error::配布物の確かめに落ちた。添付を消すので、直してから再実行する'
+          gh release delete-asset "${TAG}" "$(basename "${zip}")" --yes \
+            || echo '::warning::添付を消せなかった。再実行の前に手で消す'
+          exit 1
+
+      - name: Releaseを公開する
+        if: steps.mode.outputs.publish == 'true'
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          set -euo pipefail
+          if [ "$(gh release view "${TAG}" --json isDraft --jq '.isDraft')" = 'false' ]; then
+            echo "::notice::Release ${TAG} はすでに公開されている"
+          else
+            gh release edit "${TAG}" --draft=false
+          fi
+          url="$(gh release view "${TAG}" --json url --jq '.url')"
+          echo "- Release（公開済み）: ${url}" >> "$GITHUB_STEP_SUMMARY"
+          echo "::notice::Release ${TAG} を公開した: ${url}"
+
+      - name: 公開はしないことを知らせる
+        if: steps.mode.outputs.publish != 'true'
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          url="$(gh release view "${TAG}" --json url --jq '.url')"
+          echo "- Release（ドラフト）: ${url}" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo ''
+            echo '添付と本文を確かめてから、Releases の画面で「Publish release」を押してください。'
+            echo 'ドラフトのままではタグだけが公開され、Release は表に出ません。'
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "::notice::Release ${TAG} はドラフトです。確かめてから公開してください: ${url}"

@@ -11,6 +11,11 @@ name: リリース
 # GITHUB_TOKEN が開いた PR の CI は承認待ちのままで、ルールを満たせないためである。
 # その場合は人が PR をマージすれば、release-publish.yml が動いて公開まで進む。
 #
+# auto_publish を有効にすると、Release をドラフトで止めずに公開する。
+# 人が PR をマージする経路にも効かせるため、PR に「自動公開」ラベルを付けて伝える。
+# release-publish.yml はそのラベルを見て公開まで進む。
+# 公開の前に tools/verify_release.py が添付を落として中身を確かめ、落ちたらドラフトのまま止まる。
+#
 # PR は必ずマージコミット（Create a merge commit）でマージする。
 # squash や rebase にすると、リリースノートに develop で取り込んだ PR が載らず、次の版の PR が衝突する。
 #
@@ -30,6 +35,11 @@ on:
         required: false
         type: boolean
         default: false
+      auto_publish:
+        description: '配布物の確かめが通ったら、Release をドラフトで止めず公開する'
+        required: false
+        type: boolean
+        default: true
 
 # リリースは同時に1つだけ動かす。途中の実行を止めると半端な状態が残るため、待たせる
 concurrency:
@@ -262,6 +272,7 @@ jobs:
         env:
           TAG: ${{ steps.version.outputs.tag }}
           BRANCH: ${{ steps.version.outputs.branch }}
+          AUTO_PUBLISH: ${{ inputs.auto_publish }}
         run: |
           {
             echo "\`${DEVELOP_BRANCH}\` の内容を ${TAG} としてリリースします。"
@@ -271,7 +282,12 @@ jobs:
             echo "この PR をマージすると「リリースを公開する」ワークフローが動き、次を行います。"
             echo
             echo "1. タグ \`${TAG}\` を打ちます"
-            echo "1. GitHub Release を作ります"
+            echo "1. GitHub Release をドラフトで作り、配布物を添付します"
+            if [ "${AUTO_PUBLISH}" = 'true' ]; then
+              echo "1. 配布物の中身を確かめ、通れば Release を公開します"
+            else
+              echo "1. Release はドラフトのまま残します。Releases の画面で「Publish release」を押してください"
+            fi
             echo "1. \`${MAIN_BRANCH}\` を \`${DEVELOP_BRANCH}\` に戻します"
             echo
             echo "検査（\`npm run lint\`）はワークフローの中で済んでいます。"
@@ -295,6 +311,13 @@ jobs:
           # ラベルがないリポジトリでも PR は開けるようにする
           gh pr edit "${number}" --add-label 'リリース' \
             || echo "::warning::ラベル「リリース」を付けられなかった。.github/labels.yml の同期が済んでいるか確かめる"
+
+          # 人が PR をマージする経路では入力が届かないため、ラベルで伝える。
+          # 公開を取りやめたくなったら、マージの前にこのラベルを外す
+          if [ "${AUTO_PUBLISH}" = 'true' ]; then
+            gh pr edit "${number}" --add-label '自動公開' \
+              || echo "::warning::ラベル「自動公開」を付けられなかった。人が PR をマージするとドラフトのままになる"
+          fi
 
           {
             echo "## リリース ${TAG}"
@@ -347,3 +370,4 @@ jobs:
       pull-requests: write
     with:
       version: ${{ needs.prepare.outputs.version }}
+      auto_publish: ${{ inputs.auto_publish }}

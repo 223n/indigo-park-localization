@@ -205,7 +205,7 @@ GitFlowに沿って運用します。
 ブランチの役割は[CONTRIBUTING.md](CONTRIBUTING.md)にあります。
 
 ```text
-develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ タグ vX.Y.Z とドラフトの Release ──▶ 人が公開 ──▶ develop へ戻す
+develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ タグ vX.Y.Z とドラフトの Release ──▶ 配布物を確かめて公開 ──▶ develop へ戻す
 ```
 
 ### リリースする
@@ -215,9 +215,56 @@ develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ �
 1. ワークフローが`develop`から`release/vX.Y.Z`ブランチを切り、`package.json`の版を上げ、`main`へのPull Requestを開きます
 1. そのPull Requestを一度閉じ、すぐ開き直します。CIを動かすために要ります（後述）
 1. Pull Requestの内容を確かめ、マージコミット（Create a merge commit）でマージします
-1. 「リリースを公開する」ワークフローが動きます。タグ`vX.Y.Z`を打ち、**ドラフトの**GitHub Releaseを作って配布物を添付し、`main`を`develop`に戻します
-1. 「Releases」でドラフトを開き、添付と本文を確かめます
-1. 問題なければ「Publish release」を押します
+1. 「リリースを公開する」ワークフローが動きます。タグ`vX.Y.Z`を打ち、**ドラフトの**GitHub Releaseを作って配布物を添付します
+1. `auto_publish`が有効なら、配布物の中身を確かめてからReleaseを公開します。無効ならドラフトのまま残ります
+1. `main`を`develop`に戻します
+
+`auto_publish`は既定で有効です。
+無効にすると、いままでどおりドラフトで止まります。
+その場合は「Releases」でドラフトを開き、添付と本文を確かめてから「Publish release」を押してください。
+
+### 自動で公開する
+
+`auto_publish`を有効にして実行すると、リリースのPull Requestに「自動公開」ラベルが付きます。
+人がそのPull Requestをマージすると、ラベルを見て公開まで進みます。
+公開を取りやめたくなったら、マージの前にラベルを外してください。
+
+人が目で確かめる代わりに、`tools/verify_release.py`が添付そのものを落として中身を確かめます。
+
+| 見るところ | 内容 |
+| ---- | ---- |
+| 中身 | 要るファイルがそろっているか |
+| 版 | `README.txt`の版が`package.json`と合っているか |
+| 訳文 | pakの中に訳文が入っているか |
+| 抜け | 訳文のはずの項目が、英語の原文のまま入っていないか |
+
+最後の1つは、設定の説明文が英語のまま出た件（[Issue #16](https://github.com/223n/indigo-park-localization/issues/16)）と同じ形の崩れを捕まえます。
+`.locres`を項目ごとに読み解いて`data/ja.po`と突き合わせるため、訳が古いままのpakも見つかります。
+
+この経路はラベルの同期が済んでいることが前提です。
+ラベルを付けられなかったときは警告が出て、Releaseはドラフトのまま残ります。
+
+`auto_merge`と併せたときは、ラベルでは止められません。
+止めたいときは`auto_publish`を無効にして実行してください。
+
+「自動公開」ラベルは、書き込みの権限がなくても付け外しできます。
+マージする前に、意図したとおりのラベルが付いているかを見てください。
+
+### 確かめが落ちたとき
+
+Releaseはドラフトのまま残り、ワークフローが失敗します。
+タグ、配布物の添付、`develop`への戻し、リリースブランチの削除は済んでいます。
+確かめは後始末のあとに動かしているためです。
+
+落ちた添付は消します。
+残すと、作り直す段が「添付はすでにある」と見て飛ばし、直して再実行しても同じ物を見続けるためです。
+
+直したあとは、次のどちらかを行います。
+
+1. `main`を直さずに済むなら、失敗したワークフローを再実行します。配布物を組み立て直して確かめます
+1. `main`を直す必要があるなら、版を上げて出し直します。同じ版のタグは打ち直せません
+
+公開そのものを取りやめるときは、ドラフトとタグの両方を消してください。
 
 ### リリースのPull RequestでCIが動かないとき
 
@@ -262,9 +309,10 @@ gh pr reopen <番号>
 GitHub Releaseの本文は、マージしたPull Requestのタイトルとラベルから自動で作られます。
 分類は`.github/release.yml`にあります。
 
-Releaseは**ドラフトで作られます**。
+Releaseは**まずドラフトで作られます**。
 ワークフローが配布物のzipを組み立てて添付し、本文の先頭にSHA256を書き足します。
-中身を確かめてから、「Releases」の画面で「Publish release」を押してください。
+`auto_publish`が有効なら、そのあと中身を確かめて公開します。
+無効なら、「Releases」の画面で「Publish release」を押してください。
 
 ドラフトのままでもタグは公開されます。
 公開を取りやめるときは、ドラフトとタグの両方を消してください。
@@ -279,6 +327,10 @@ npm version patch --no-git-tag-version
 ```
 
 `main`へのPull Requestをマージコミットでマージすると、「リリースを公開する」ワークフローが`release/*`と同じように動きます。
+
+ただし公開は自動では行いません。
+「自動公開」ラベルを付けるのはリリースのワークフローだけで、hotfixのPull Requestには付かないためです。
+公開まで進めたいときは、マージの前にPull Requestへ「自動公開」ラベルを手で付けてください。
 版を上げ忘れると、同じ版のタグがすでにあるため止まります。
 
 ## GitHub Actionsのランナー
@@ -305,7 +357,7 @@ Nodeはワークフローが用意します。
 | `labeler.yml` | Pull Requestを開いたとき、更新したとき | 変えたファイルとブランチ名からラベルを付けます |
 | `branch-guard.yml` | Pull Requestを開いたとき、更新したとき | headブランチが`main`か`develop`なら失敗します。マージは止めません |
 | `release.yml` | 手動 | `develop`からリリースブランチを切り、版を上げ、`main`へのPull Requestを開きます。そのPull RequestではCIが動かないため、閉じて開き直します |
-| `release-publish.yml` | `release/*`か`hotfix/*`のPull Requestが`main`にマージされたとき | タグを打ち、ドラフトのGitHub Releaseを作り、配布物を添付し、`main`を`develop`に戻します。公開は人が行います |
+| `release-publish.yml` | `release/*`か`hotfix/*`のPull Requestが`main`にマージされたとき | タグを打ち、ドラフトのGitHub Releaseを作り、配布物を添付し、`main`を`develop`に戻します。「自動公開」が指示されていれば、中身を確かめてから公開します |
 
 ## 権利について
 

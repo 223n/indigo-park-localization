@@ -12,6 +12,7 @@ Python 3で動きます。外部のパッケージは要りません。
 | `harvest.py` | cooked済みのアセットから原文を集めます |
 | `build_mod.py` | 翻訳とフォントからMODの中身を組み立てます |
 | `check_translation.py` | 原文の一覧と訳文の突き合わせを検査します |
+| `verify_release.py` | 配布物のzipの中身を検査します |
 | `fonts.json` | 使うフォントと、ゲームのどのフォントを置き換えるかの設定です |
 
 ## MODを作る
@@ -69,6 +70,20 @@ python tools/harvest.py full/RaccoonCh1/Content > harvest.json
 FTextの置かれ方は2通りあり、`harvest.py`は両方を拾います。
 片方だけだと、目標の表示や操作の案内が抜けます。
 詳しくは[docs/TRANSLATION.md](../docs/TRANSLATION.md)にあります。
+
+## 配布物を確かめる
+
+でき上がったzipの中身は、道具で確かめられます。
+
+```bash
+python tools/verify_release.py dist/IndigoParkJP_v0.6.0.zip
+```
+
+要るファイルが入っているか、版が合っているか、訳文が`data/ja.po`のとおりに入っているか、英語の原文のまま入っていないかを見ます。
+pakの中の`.locres`を項目ごとに読み解いて突き合わせます。
+最後の1つは、設定の説明文が英語のまま出た件（Issue #16）と同じ形の崩れを捕まえます。
+リリースのワークフローは、Releaseを自動で公開する前にこれを動かします。
+落ちるとドラフトのまま止まります。
 
 ## フォントを足す
 

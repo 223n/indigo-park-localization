@@ -44,11 +44,16 @@ repo="${GITHUB_REPOSITORY}"
 err_file="$(mktemp)"
 trap 'rm -f "${err_file}"' EXIT
 
-# gh pr checks --json は gh 2.50.0 から。古い gh では毎回失敗して空待ちになるため、先に確かめる
-if ! gh pr checks --help 2>/dev/null | grep -q -- '--json'; then
-  echo "::error::gh pr checks が --json に対応していない。gh 2.50.0 以上を入れる"
-  exit 1
-fi
+# gh pr checks --json は gh 2.50.0 から。古い gh では毎回失敗して空待ちになるため、先に確かめる。
+# pipefail の下で grep -q に繋ぐと、grep が先に閉じたときに gh が SIGPIPE で落ち、誤って止まることがあるため、変数に受けて調べる
+checks_help="$(gh pr checks --help 2>/dev/null || true)"
+case "${checks_help}" in
+  *--json*) ;;
+  *)
+    echo "::error::gh pr checks が --json に対応していない。gh 2.50.0 以上を入れる"
+    exit 1
+    ;;
+esac
 
 # PAT で PR の状態を読む。
 # 出力は「state mergeStateStatus base head headRefOid isCrossRepository」をタブで区切ったもの

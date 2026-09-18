@@ -64,6 +64,8 @@ permissions:
 env:
   DEVELOP_BRANCH: develop
   MAIN_BRANCH: main
+  # gh が対象のリポジトリを決めるのに使う。checkout していない job では、git remote から決められないため
+  GH_REPO: ${{ github.repository }}
 
 jobs:
   check:

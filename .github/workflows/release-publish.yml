@@ -36,6 +36,8 @@ permissions:
 env:
   DEVELOP_BRANCH: develop
   MAIN_BRANCH: main
+  # gh が対象のリポジトリを決めるのに使う。checkout していない job では、git remote から決められないため
+  GH_REPO: ${{ github.repository }}
 
 jobs:
   publish:
@@ -389,6 +391,7 @@ jobs:
         # それを取り違えないよう、isCrossRepository で絞る
         env:
           BRANCH: ${{ needs.publish.outputs.merge_branch }}
+          MERGE_SHA: ${{ needs.publish.outputs.merge_sha }}
           TAG: ${{ needs.publish.outputs.tag }}
           TOKEN_USABLE: ${{ steps.token.outputs.usable }}
           RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
@@ -443,10 +446,17 @@ jobs:
               || echo "::warning::ラベル「リリース」を付けられなかった"
           fi
 
-          # 自動でマージするのは、PAT が使え、GITHUB_TOKEN で開いた PR でないときだけ
+          # 自動でマージするのは、PAT が使え、GITHUB_TOKEN で開いた PR でなく、
+          # マージするコミットが main に含まれるときだけ。
+          # MERGE_SHA は publish の出力で、publish は外部の道具を動かすため、そのまま信じない。
+          # 人が PR の上で衝突を解いたあとも main に含まれなくなるので、人のマージに回る
           auto=false
           if [ "${TOKEN_USABLE}" = 'true' ] && [ "${by}" != 'github-token' ]; then
-            auto=true
+            relation="$(gh api "repos/${GITHUB_REPOSITORY}/compare/${MERGE_SHA}...${MAIN_BRANCH}" --jq '.status' 2>/dev/null || true)"
+            case "${relation}" in
+              identical|ahead) auto=true ;;
+              *) echo "::warning::${BRANCH} の先端（${MERGE_SHA:0:7}）が ${MAIN_BRANCH} に含まれない（${relation:-比べられなかった}）。自動ではマージしない" ;;
+            esac
           fi
           {
             echo "number=${url##*/}"

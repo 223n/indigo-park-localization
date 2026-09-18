@@ -1,23 +1,20 @@
 name: PRにラベルを付ける
 
 # PR が変えたファイルとブランチ名から、.github/labeler.yml に従ってラベルを付ける。
+# ここが受け持つのは、このリポジトリの中から出した PR である。
+# フォークからの PR は labeler-fork.yml が受け持つ。
 #
-# pull_request_target を使うのは、フォークからの PR でもラベルを書ける権限を得るためである。
-# このイベントは base ブランチの内容で動くため、PR 側の設定変更は効かない。
-# ただし PR のコードは絶対に checkout して実行してはならない。
-#
-# 設定（.github/labeler.yml）は base ブランチから取り出す。
-# ローカルに設定が無いと actions/labeler は API で取りに行き、そのとき読むのは既定ブランチ（main）である。
+# トリガーを分けてあるのは、設定を base ブランチから読むためである。
+# ローカルに設定が無いと actions/labeler は API で取りに行き、そのとき読むのは既定ブランチ（main）になる。
 # PR #20 で確かめた。develop にしかない規則は効かず、main にある規則だけが効いた。
-# 規則を足してからリリースで main に届くまで効かない、という分かりにくい待ちが生まれる。
+# それでは規則を足してから、リリースで main に届くまで効かない。
 #
-# 取り出しに actions/checkout は使わない。
-# pull_request_target と checkout が揃うと zizmor の dangerous-triggers が出るためである。
-# ignore で黙らせると、あとで誰かが PR の head を checkout したときに気付けなくなる。
-# 代わりに gh api で base ブランチの設定ファイル1つだけを取り出す。
-# 取り出すのは .github/labeler.yml だけで、PR 側のコードには触れない。
+# 設定を取り出すには checkout が要る。
+# pull_request_target と checkout が揃うと zizmor の dangerous-triggers が出るため、
+# こちらは pull_request で動かす。このトリガーなら PR の内容を扱っても危険ではない。
+# フォークからの PR では GITHUB_TOKEN が読み取りだけになるので、そちらは labeler-fork.yml に任せる。
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, synchronize, reopened]
 
 permissions:
@@ -26,6 +23,8 @@ permissions:
 jobs:
   label:
     name: ラベルを付ける
+    # フォークからの PR では token に書き込みが無い。labeler-fork.yml が受け持つ
+    if: github.event.pull_request.head.repo.full_name == github.repository
     # セルフホストのランナーがあれば、リポジトリの変数 RUNS_ON にそのラベル（例: self-hosted）を設定する。
     # 無ければ GitHub がホストする ubuntu-latest で動く
     runs-on: ${{ vars.RUNS_ON || 'ubuntu-latest' }}
@@ -36,17 +35,16 @@ jobs:
       issues: write          # ラベルの同期がまだのとき、ないラベルを作る。色と説明は次の同期で揃う
     steps:
       - name: baseブランチの設定を取り出す
-        env:
-          GH_TOKEN: ${{ github.token }}
-          # base ブランチの名前。PR の head は指さない。
-          # run に直に展開するとコマンドを差し込めるため、env を通して渡す（zizmor の template-injection）
-          BASE_REF: ${{ github.base_ref }}
-          REPO: ${{ github.repository }}
-        run: |
-          set -euo pipefail
-          mkdir -p .github
-          gh api -H 'Accept: application/vnd.github.raw' "repos/${REPO}/contents/.github/labeler.yml?ref=${BASE_REF}" > .github/labeler.yml
-          echo "::notice::${BASE_REF} の設定で $(grep --count --extended-regexp '^[^[:space:]#]' .github/labeler.yml) 件の規則を読みました"
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # base ブランチ（develop や main）を指す。PR の head は指さない。
+          # PR 側で labeler.yml を変えても、その PR には効かせない
+          ref: ${{ github.base_ref }}
+          # 設定ファイル1つだけを取り出す。cone モードを切ると、ファイル単位で指定できる
+          sparse-checkout: .github/labeler.yml
+          sparse-checkout-cone-mode: false
+          # ラベルを付けるのは labeler が持つ token で、この checkout の認証情報は要らない
+          persist-credentials: false
 
       - name: ラベルを付ける
         uses: actions/labeler@bf12e9b00b37c5c0ca2b87b79b2daf7891dbda13 # v7.0.0

@@ -1,0 +1,42 @@
+name: フォークのPRにラベルを付ける
+
+# フォークから出た PR に、.github/labeler.yml に従ってラベルを付ける。
+# このリポジトリの中から出した PR は labeler.yml が受け持つ。
+#
+# pull_request_target を使うのは、フォークからの PR でもラベルを書ける権限を得るためである。
+# このイベントは base ブランチの内容で動くため、PR 側の設定変更は効かない。
+# ただし PR のコードは絶対に checkout して実行してはならない。
+# checkout も run も置かないこと。置くと zizmor の dangerous-triggers が出る。
+# あれが出るのは正しく、pull_request_target でコードを動かすのは避けるべきである。
+#
+# checkout しないため、actions/labeler は設定を API で取りに行く。
+# そのとき読むのは既定ブランチ（main）で、develop にしかない規則は効かない。
+# フォークからの PR に限っては、この遅れを受け入れる。
+# 規則を develop に入れた時点で効かせたい場合は labeler.yml のほうが受け持つ。
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  label:
+    name: ラベルを付ける（フォーク）
+    # このリポジトリの中から出た PR は labeler.yml が受け持つ。二重に付けない
+    if: github.event.pull_request.head.repo.full_name != github.repository
+    # セルフホストのランナーがあれば、リポジトリの変数 RUNS_ON にそのラベル（例: self-hosted）を設定する。
+    # 無ければ GitHub がホストする ubuntu-latest で動く
+    runs-on: ${{ vars.RUNS_ON || 'ubuntu-latest' }}
+    timeout-minutes: 5
+    permissions:
+      contents: read         # .github/labeler.yml を読む
+      pull-requests: write   # ラベルを付ける
+      issues: write          # ラベルの同期がまだのとき、ないラベルを作る。色と説明は次の同期で揃う
+    steps:
+      - name: ラベルを付ける
+        uses: actions/labeler@bf12e9b00b37c5c0ca2b87b79b2daf7891dbda13 # v7.0.0
+        with:
+          configuration-path: .github/labeler.yml
+          # 条件に合わなくなったラベルを外すか。人が付けたラベルまで外れることがあるため切ってある
+          sync-labels: false

@@ -18,7 +18,6 @@ param(
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 
-$AppId = '2504480'
 $ModPak = 'IndigoParkJP_P.pak'
 $LangName = 'zzz_IndigoParkJP_lang_P'
 $EngineVersion = 'UE5_2'

@@ -212,6 +212,11 @@ msgid "Welcome to Indigo Park. Try to find a way in. "
 msgstr "インディゴパークへようこそ。中に入る方法を探そう。"
 
 #. property: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Ingame/WBP_MessageFromtheDevs_R
+msgctxt "/5A506C50486F13D895438F87854B14EE"
+msgid "Indigo Park is a full-on passion project that we've been working on for a little \r\nover a year now. \r\n\r\nThe stories and world that we want to create with Rambley & his friends are very\r\nspecial to us. Thanks to your support, Chapter 2 is now in active development!\r\nKeep an eye on our socials for upcoming news!\r\n\r\nNo matter what happens, we hope you enjoyed your stay.\r\nThanks for visiting Indigo Park."
+msgstr "インディゴパークは、私たちがこの1年あまり、情熱のすべてを注いで\r\n作ってきた作品です。\r\n\r\nランブリーと仲間たちとともに描きたい物語と世界は、私たちにとって\r\nとても特別なものです。皆さんの応援のおかげで、第2章を鋭意制作中です！\r\n続報はSNSでお知らせします。お見逃しなく！\r\n\r\n何が起きようとも、ここでのひとときを楽しんでいただけたなら幸いです。\r\nインディゴパークへのご来園、ありがとうございました。"
+
+#. property: MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Ingame/WBP_MessageFromtheDevs_R
 msgctxt "/97928A73446DB01C63A12787DF7894F3"
 msgid "Thank You!"
 msgstr "ありがとう！"

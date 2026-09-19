@@ -15,6 +15,7 @@ MODの載せ方も実機で確かめてあります。
 | UIの文章の差し替え | **できます（実機で確認）** | `Content/Localization/Game/<文化>/Game.locres`を置きます |
 | 日本語を選択肢に出す | **できます（実機で確認）** | `DA_GameLanguage`を書き換えたIoStore形式のMODを足します |
 | 本編の字幕の差し替え | **できます** | 字幕は音声アセットの中のFTextです。`.locres`で差し替えます |
+| エンディングの歌詞の訳を出す | **できます（実機で確認）** | UE4SSのLua MODで、動画の上に字幕を重ねます |
 
 メニューと設定画面が日本語で表示されるところまで、実機で確認しました。
 「つづきから」「はじめから」「ゲームプレイ」「音声」「映像」「操作」「カメラの遅延効果」などが出ます。
@@ -171,9 +172,70 @@ retoc to-zen --version UE5_2 <書き換えたアセットのディレクトリ> 
 これで`MenuSystemConfig.json`の`"GameLanguage"`に`ja`を入れると通ります。
 `GameUserSettings.ini`の`Culture`が`ja`のまま保存されることで確かめました。
 
+## エンディングの歌詞
+
+2026年9月19日に、実際のゲームで確かめた内容です。
+
+### 曲は動画です
+
+エンディングの曲は`RaccoonCh1/Content/Movies/CreditsSong.mp4`です。
+`Manifest_NonUFSFiles_Win64.txt`に載る、pakの外に置かれたファイルです。
+
+| 項目 | 内容 |
+| ---- | ---- |
+| 映像 | H.264、1920x1080 |
+| 音声 | AAC |
+| 長さ | 191.6秒 |
+| 字幕のトラック | ありません |
+
+英語の歌詞は映像に描き込まれています。
+画面の中央にクレジットの窓が流れ、歌詞の窓は左下と右下を行き来します。
+ゲームの文章（FText）ではないため、`.locres`では訳を出せません。
+
+### 再生の流れ
+
+レベル`Levels/CreditsCutscene`のレベルブループリントが再生します。
+
+1. `Widgets/W_CreditsCutscene`を画面に足します。中の`Image`（`OpeningVideo`）が動画を映します
+1. `/Game/Movies/CreditsSongMediaPlayer`の`OpenSource`で`/Game/Movies/CreditsSong`（`FileMediaSource`）を開きます。音は`Movies/BP_MediaSoundCredits`の`MediaSoundComponent`が出します
+1. 再生が終わると（`OnEndReached`）、`W_CreditsCutscene`を外し、「開発者からのメッセージ」（`WBP_MessageFromtheDevs_R`）を出します
+
+`W_CreditsCutscene`だけが画面から外れ、動画の再生は続くことがあります。
+確認中に、何もしていないはずの場面で1度起きました。
+ゲームのウィンドウに入った操作で、エンディングが飛ばされたと見ています。
+
+ゲームの字幕は、エンジンの字幕の仕組みが描きます。
+`DefaultEngine.ini`の`SubtitleFontName`は`Subtitle_Font_Quicksand`で、`LegacyFontSize`は24です。
+
+### UE4SSで字幕を重ねる
+
+[UE4SS](https://github.com/UE4SS-RE/RE-UE4SS) v3.0.1は、このゲームで動きます。
+`dwmapi.dll`、`UE4SS.dll`、`UE4SS-settings.ini`と`Mods`フォルダを、`RaccoonCh1/Binaries/Win64`に置きます。
+MODのフォルダに`enabled.txt`があれば、`mods.txt`に書かなくても読み込まれます。
+UE4SSが自分で作るファイルは`UE4SS.log`だけでした。
+
+字幕のMOD（`ue4ss/IndigoParkJP_Lyrics/Scripts/main.lua`）は、100ミリ秒ごとに次を行います。
+
+1. `CreditsSongMediaPlayer`が再生中かを確かめます
+1. 再生中なら、UMGのウィジェット（`Overlay`、`Border`、`TextBlock`）を作って画面に足します
+1. 再生の時刻に合う字幕を出します。フォントは`Subtitle_Font_Quicksand`を使います。日本語化のMODが中身をM PLUS 1pに差し替えています
+
+UE4SS v3.0.1には、次の制約がありました。
+
+| 制約 | 対処 |
+| ---- | ---- |
+| 関数が返すFStringが壊れて届きます。`GetCurrentCulture`の値が読めませんでした | 言語は確かめず、MODがあれば字幕を出します |
+| `FTimespan`はリフレクションの項目を持たず、`GetTime()`は空の表で返ります | `GetTimeStamp()`が返す`MediaTimeStampInfo`の`Time`の位置を、`RegisterCustomProperty`で`int64`として読みます |
+| 再生の始まる前の一瞬は、時刻が`FTimespan`の最小値になります | 負の時刻では字幕を出しません |
+| MODのスクリプトの場所をANSIの文字列にして読みます | ゲームの場所に英数字以外の文字があると読み込めません。導入ツールはその場合UE4SSを置きません |
+
+エンディングが飛ばされたときは、動画の再生が続いていても、`W_CreditsCutscene`が画面から外れた時点で字幕を止めます。
+確認用のMODで`W_CreditsCutscene`を外し、字幕が消えることを確かめました。
+
 ## 未解決
 
 - 言語の選択画面に出る名前の対応づけは未調整です
+- エンディングの歌詞の訳（`data/lyrics.ja.srt`）はまだありません
 
 ## 解決した点
 

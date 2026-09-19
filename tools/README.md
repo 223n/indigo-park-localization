@@ -9,6 +9,7 @@ Python 3で動きます。外部のパッケージは要りません。
 | `build_locres.py` | 名前空間とキーと訳文から`.locres`を書き出します |
 | `export_translation.py` | 原文の一覧から、翻訳作業用のファイルを書き出します |
 | `po.py` | PO（gettext）の読み書きです |
+| `srt.py` | エンディングの歌詞の訳（SRT）の読み込みです |
 | `harvest.py` | cooked済みのアセットから原文を集めます |
 | `build_mod.py` | 翻訳とフォントからMODの中身を組み立てます |
 | `make_release.py` | MODをpakにまとめ、導入の道具と合わせて配布物のzipを作ります |
@@ -60,6 +61,33 @@ CIの「翻訳データの検査」でも同じものを動かします。
 python tools/export_translation.py --format jsonl > ja.jsonl
 python tools/export_translation.py --format tsv   > ja.tsv
 ```
+
+## エンディングの歌詞の字幕
+
+エンディングの曲は動画のため、訳は`.locres`ではなく、UE4SSのMODで字幕として重ねます。
+訳は`data/lyrics.ja.srt`に、MODは`ue4ss/IndigoParkJP_Lyrics/`にあります。
+書き方は[docs/TRANSLATION.md](../docs/TRANSLATION.md)の「エンディングの歌詞」にあります。
+
+`check_translation.py`は、このファイルも確かめます。
+時刻の行が読めない字幕、表示の時間が重なる字幕、動画が終わった後に始まる字幕、使えない位置の指定を見つけます。
+
+`make_release.py`は、配布物の`ue4ss/`に次のものを入れます。
+
+| ファイル | 中身 |
+| ---- | ---- |
+| `dwmapi.dll`、`UE4SS.dll` | UE4SS v3.0.1。取得してSHA256で照合します |
+| `UE4SS-settings.ini` | UE4SSの設定。GUIのコンソールだけを切ります |
+| `Mods/IndigoParkJP_Lyrics/Scripts/main.lua` | 字幕を出すスクリプト |
+| `Mods/IndigoParkJP_Lyrics/settings.ini` | 字幕の位置、大きさ、帯の濃さ |
+| `Mods/IndigoParkJP_Lyrics/lyrics.srt` | `data/lyrics.ja.srt`の写し |
+| `Mods/IndigoParkJP_Lyrics/enabled.txt` | これがあると、UE4SSがMODを読み込みます |
+
+`main.lua`と`srt.py`は、同じ読み方でSRTを読みます。
+片方を変えたときは、もう片方も合わせてください。
+
+UE4SSの版を上げるときは、`make_release.py`の`UE4SS`のURLとSHA256を書き換えます。
+ゲームで字幕が出ることも確かめてください。
+v3.0.1では、再生の時刻を読むのに回り道が要りました（[docs/RESEARCH.md](../docs/RESEARCH.md)の「エンディングの歌詞」）。
 
 ## 原文を集め直す
 

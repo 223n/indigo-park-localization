@@ -38,8 +38,15 @@ Windowsの表示言語が日本語なら、ゲームを起動するだけで日�
 一覧に日本語が無いときは、Deutsch（ドイツ語）を選んでも日本語で表示されます。
 ゲームにドイツ語の訳は入っていないため、その枠を使っています。
 
+エンディングの歌詞の訳を字幕で出すため、MOD用の道具[UE4SS](https://github.com/UE4SS-RE/RE-UE4SS)を、ゲームの実行ファイルのフォルダ（`RaccoonCh1\Binaries\Win64`）に置きます。
+歌詞の訳がまだ無い版では置きません。
+すでにUE4SSを入れている場合は、UE4SSには触らず、字幕のMODだけを足します。
+置きたくないときは`install.bat -NoLyrics`で実行します。
+
 取り外すときは`uninstall.bat`を実行します。
 ゲーム本体のファイルは触りません。
+導入ツールが置いたUE4SSも消します。
+ただし、ほかのUE4SSのMODがあるときは、UE4SSを残します。
 
 手で入れる場合は、`mod`フォルダの`IndigoParkJP_P.pak`を`RaccoonCh1\Content\Paks\~mods\`にコピーします。
 この方法では言語の一覧に日本語が出ないため、Deutschを選びます。
@@ -61,8 +68,10 @@ Windowsの表示言語が日本語なら、ゲームを起動するだけで日�
 | `docs/TRANSLATION.md` | 翻訳の指針です。キャラクターの口調と固有名詞の対訳があります |
 | `tools/` | 翻訳ファイル、MOD、配布物を作る道具と、それらを検査する道具です。Python 3で動きます |
 | `installer/` | 配布物に入れる導入と取り外しの道具です |
+| `ue4ss/` | エンディングの歌詞の訳を字幕で出す、UE4SSのMODです |
 | `data/corpus.json` | ゲームから集めた原文の一覧です |
 | `data/ja.po` | 日本語の訳です。PO形式で管理します |
+| `data/lyrics.ja.srt` | エンディングの歌詞の訳です。字幕のSRT形式で管理します |
 
 ## 分かっていること
 
@@ -78,6 +87,7 @@ Windowsの表示言語が日本語なら、ゲームを起動するだけで日�
 | 文章 | ウィジェット内のFTextです。`Content/Localization/Game/<文化>/Game.locres`で差し替えます |
 | 言語の選択肢 | `DA_GameLanguage`を書き換えたIoStore形式のMODで日本語を足せます |
 | 原文 | 1,230件を収集し、609件を翻訳の対象にしました。うち本編の台詞が212件です |
+| エンディングの歌詞 | 曲は動画（`Movies/CreditsSong.mp4`）で、字幕のデータを持ちません。UE4SSのMODで訳を重ねて出します。実機で確認しました |
 
 メニューと設定画面が日本語で表示されるところまで、実機で確認しました。
 日本語を出すにはフォントの差し替えも要ります。
@@ -99,11 +109,12 @@ zipの中身は次のとおりです。
 | `install.bat`、`uninstall.bat` | 導入と取り外し |
 | `README.txt` | 利用者向けの手順 |
 | `mod/IndigoParkJP_P.pak` | 翻訳とフォント |
+| `ue4ss/` | エンディングの歌詞の字幕。UE4SSと、その上で動くMOD |
 | `tools/` | 導入の中身と`retoc.exe` |
 | `licenses/` | このMODと同梱物のライセンス |
 
 Python 3が要ります。
-`repak`、`retoc`、フォントは、手元に無ければ取得してSHA256で照合します。
+`repak`、`retoc`、UE4SS、フォントは、手元に無ければ取得してSHA256で照合します。
 取得にはネットワークへの接続が要ります。
 組み立てに使う`repak`は、WindowsではWindows版を、ほかではx86_64のLinux版を取ります。
 そのため、macOSなどでは組み立てられません。
@@ -120,9 +131,13 @@ Python 3が要ります。
 Poeditなどの翻訳ツールでそのまま開けます。
 手順は[tools/README.md](tools/README.md)、訳し方は[docs/TRANSLATION.md](docs/TRANSLATION.md)にあります。
 
+エンディングの歌詞の訳は、字幕のSRT形式で`data/lyrics.ja.srt`に書きます。
+書き方は[docs/TRANSLATION.md](docs/TRANSLATION.md)の「エンディングの歌詞」にあります。
+
 ## これからやること
 
 - 本編を通しでプレイしての字幕の確認
+- エンディングの歌詞の訳（`data/lyrics.ja.srt`）
 
 ## 使ううえでの注意
 
@@ -514,6 +529,9 @@ NodeとPythonはワークフローが用意します。
 `data/corpus.json`の`source`と、`data/ja.po`の`msgid`です。
 配布物のpakに入れる`.locres`は、訳さない項目も書き出します。
 そのため、訳さない項目は英語の原文のまま入ります。
+
+`data/lyrics.ja.srt`には、エンディングの曲の歌詞の訳を書きます。
+曲と歌詞の権利も権利者にあります。
 
 権利者から求めがあった場合は、公開を取り下げます。
 

@@ -16,6 +16,10 @@ node_modules/
 !.env.example
 .npmrc
 
+# 歌詞の訳を書くときの作業用のファイル。
+# 訳した結果は data/lyrics.ja.srt に入れる
+data/lyrics.txt
+
 # MOD の組み立ての出力と、取得したフォントの控え
 build/
 dist/

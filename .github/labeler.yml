@@ -13,6 +13,7 @@
       - any-glob-to-any-file:
           - 'data/ja.po'
           - 'data/corpus.json'
+          - 'data/lyrics.ja.srt'
           - 'docs/TRANSLATION.md'
 
 依存関係:

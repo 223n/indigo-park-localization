@@ -14,12 +14,12 @@ Steam版のゲーム「Indigo Park」を日本語で遊ぶための、非公式�
 
 ## 対象
 
-| 項目 | 内容 |
-| ---- | ---- |
-| ゲーム | Indigo Park（Chapter 1） |
-| 入手先 | Steam |
-| 動く環境 | Windows |
-| 翻訳する向き | 英語から日本語へ |
+| 項目         | 内容                     |
+|--------------|--------------------------|
+| ゲーム       | Indigo Park（Chapter 1） |
+| 入手先       | Steam                    |
+| 動く環境     | Windows                  |
+| 翻訳する向き | 英語から日本語へ         |
 
 Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indigo Park`です。
 実行ファイルは`RaccoonCh1.exe`で、ゲームのデータは`RaccoonCh1\Content\Paks`にあります。
@@ -29,17 +29,17 @@ Steamの既定の導入先は`C:\Program Files (x86)\Steam\steamapps\common\Indi
 [Releases](https://github.com/223n/indigo-park-localization/releases)からzipをダウンロードし、展開して`install.bat`を実行します。
 Steamからゲームの場所を自動で探します。
 
-言語の一覧に日本語を足すとき、同梱の`retoc`が、ゲームのデータを読むためのライブラリ（`oo2core_9_win64.dll`）を取得して`tools`フォルダに置きます。
+言語の一覧に日本語を足すとき、同梱の`retoc`が、ゲームのデータを読むためのライブラリ（`oo2core_9_win64.dll`）を取得して`tools`フォルダーに置きます。
 取得先はGitHubの`WorkingRobot/OodleUE`で、このファイルは配布物に含んでいません。
 取得にはネットワークへの接続が要ります。
 
 Windowsの表示言語が日本語なら、ゲームを起動するだけで日本語になります。
 英語のままのときは、ゲーム内で「OPTIONS」→「GAMEPLAY」→「LANGUAGE」から日本語を選びます。
-一覧に日本語が無いときは、Deutsch（ドイツ語）を選んでも日本語で表示されます。
+一覧に日本語がないときは、Deutsch（ドイツ語）を選んでも日本語で表示されます。
 ゲームにドイツ語の訳は入っていないため、その枠を使っています。
 
-エンディングの歌詞の訳を字幕で出すため、MOD用の道具[UE4SS](https://github.com/UE4SS-RE/RE-UE4SS)を、ゲームの実行ファイルのフォルダ（`RaccoonCh1\Binaries\Win64`）に置きます。
-歌詞の訳がまだ無い版では置きません。
+エンディングの歌詞の訳を字幕で出すため、MOD用の道具[UE4SS](https://github.com/UE4SS-RE/RE-UE4SS)を、ゲームの実行ファイルのフォルダー（`RaccoonCh1\Binaries\Win64`）に置きます。
+歌詞の訳がまだない版では置きません。
 すでにUE4SSを入れている場合は、UE4SSには触らず、字幕のMODだけを足します。
 置きたくないときは`install.bat -NoLyrics`で実行します。
 
@@ -48,45 +48,45 @@ Windowsの表示言語が日本語なら、ゲームを起動するだけで日�
 導入ツールが置いたUE4SSも消します。
 ただし、ほかのUE4SSのMODがあるときは、UE4SSを残します。
 
-手で入れる場合は、`mod`フォルダの`IndigoParkJP_P.pak`を`RaccoonCh1\Content\Paks\~mods\`にコピーします。
+手で入れる場合は、`mod`フォルダーの`IndigoParkJP_P.pak`を`RaccoonCh1\Content\Paks\~mods\`にコピーします。
 この方法では言語の一覧に日本語が出ないため、Deutschを選びます。
 
 ## 何が入っているか
 
 翻訳のデータと、それをゲームへ適用する仕組みが入っています。
 
-| 位置 | 中身 |
-| ---- | ---- |
+| 位置                                                            | 中身                                                                                     |
+|-----------------------------------------------------------------|------------------------------------------------------------------------------------------|
 | `.textlintrc.js`、`.markdownlint-cli2.jsonc`、`.textlintignore` | 日本語の文書の検査設定です。規則は公開されている共有設定`@223n/lint-config-ja`にあります |
-| `package.json` | 検査に使う道具の依存です。版もここで管理します |
-| `.github/` | ラベル、Dependabot、Issueのフォーム、Pull Requestのテンプレート、ワークフローです |
-| `scripts/setup.sh`、`scripts/setup.ps1` | リポジトリを作った直後の設定をまとめて行うスクリプトです。実行は済んでいます |
-| `CONTRIBUTING.md` | 貢献の手引きです。ブランチの運用と文書の書き方があります |
-| `CLAUDE.md` | Claude Codeが読む決まりです。ブランチを消さないための注意があります |
-| `SECURITY.md` | 脆弱性の報告先です |
-| `docs/RESEARCH.md` | 日本語化の調べものの記録です。ゲームの構成と差し替えの経路があります |
-| `docs/TRANSLATION.md` | 翻訳の指針です。キャラクターの口調と固有名詞の対訳があります |
-| `tools/` | 翻訳ファイル、MOD、配布物を作る道具と、それらを検査する道具です。Python 3で動きます |
-| `installer/` | 配布物に入れる導入と取り外しの道具です |
-| `ue4ss/` | エンディングの歌詞の訳を字幕で出す、UE4SSのMODです |
-| `data/corpus.json` | ゲームから集めた原文の一覧です |
-| `data/ja.po` | 日本語の訳です。PO形式で管理します |
-| `data/lyrics.ja.srt` | エンディングの歌詞の訳です。字幕のSRT形式で管理します |
+| `package.json`                                                  | 検査に使う道具の依存です。版もここで管理します                                           |
+| `.github/`                                                      | ラベル、Dependabot、Issueのフォーム、Pull Requestのテンプレート、ワークフローです        |
+| `scripts/setup.sh`、`scripts/setup.ps1`                         | リポジトリを作った直後の設定をまとめて行うスクリプトです。実行は済んでいます             |
+| `CONTRIBUTING.md`                                               | 貢献の手引きです。ブランチの運用と文書の書き方があります                                 |
+| `CLAUDE.md`                                                     | Claude Codeが読む決まりです。ブランチを消さないための注意があります                      |
+| `SECURITY.md`                                                   | 脆弱性の報告先です                                                                       |
+| `docs/RESEARCH.md`                                              | 日本語化の調べものの記録です。ゲームの構成と差し替えの経路があります                     |
+| `docs/TRANSLATION.md`                                           | 翻訳の指針です。キャラクターの口調と固有名詞の対訳があります                             |
+| `tools/`                                                        | 翻訳ファイル、MOD、配布物を作る道具と、それらを検査する道具です。Python 3で動きます      |
+| `installer/`                                                    | 配布物に入れる導入と取り外しの道具です                                                   |
+| `ue4ss/`                                                        | エンディングの歌詞の訳を字幕で出す、UE4SSのMODです                                       |
+| `data/corpus.json`                                              | ゲームから集めた原文の一覧です                                                           |
+| `data/ja.po`                                                    | 日本語の訳です。PO形式で管理します                                                       |
+| `data/lyrics.ja.srt`                                            | エンディングの歌詞の訳です。字幕のSRT形式で管理します                                    |
 
 ## 分かっていること
 
 実際のゲームで調べた結果は[docs/RESEARCH.md](docs/RESEARCH.md)にあります。
 要点は次のとおりです。
 
-| 項目 | 状況 |
-| ---- | ---- |
-| エンジン | Unreal Engine 5.2。IoStore形式です |
-| 暗号化と署名 | どちらもありません |
-| MODの載せ方 | `Content/Paks/~mods/`に置いたpakが読み込まれます。実機で確認しました |
-| フォント | `.ufont`は生のTrueTypeです。pakの上書きで差し替えられます |
-| 文章 | ウィジェット内のFTextです。`Content/Localization/Game/<文化>/Game.locres`で差し替えます |
-| 言語の選択肢 | `DA_GameLanguage`を書き換えたIoStore形式のMODで日本語を足せます |
-| 原文 | 1,230件を収集し、609件を翻訳の対象にしました。うち本編の台詞が212件です |
+| 項目               | 状況                                                                                                                 |
+|--------------------|----------------------------------------------------------------------------------------------------------------------|
+| エンジン           | Unreal Engine 5.2。IoStore形式です                                                                                   |
+| 暗号化と署名       | どちらもありません                                                                                                   |
+| MODの載せ方        | `Content/Paks/~mods/`に置いたpakが読み込まれます。実機で確認しました                                                 |
+| フォント           | `.ufont`は生のTrueTypeです。pakの上書きで差し替えられます                                                            |
+| 文章               | ウィジェット内のFTextです。`Content/Localization/Game/<文化>/Game.locres`で差し替えます                              |
+| 言語の選択肢       | `DA_GameLanguage`を書き換えたIoStore形式のMODで日本語を足せます                                                      |
+| 原文               | 1,230件を収集し、609件を翻訳の対象にしました。うち本編の台詞が212件です                                              |
 | エンディングの歌詞 | 曲は動画（`Movies/CreditsSong.mp4`）で、字幕のデータを持ちません。UE4SSのMODで訳を重ねて出します。実機で確認しました |
 
 メニューと設定画面が日本語で表示されるところまで、実機で確認しました。
@@ -104,14 +104,14 @@ python tools/make_release.py
 
 zipの中身は次のとおりです。
 
-| 位置 | 中身 |
-| ---- | ---- |
-| `install.bat`、`uninstall.bat` | 導入と取り外し |
-| `README.txt` | 利用者向けの手順 |
-| `mod/IndigoParkJP_P.pak` | 翻訳とフォント |
-| `ue4ss/` | エンディングの歌詞の字幕。UE4SSと、その上で動くMOD |
-| `tools/` | 導入の中身と`retoc.exe` |
-| `licenses/` | このMODと同梱物のライセンス |
+| 位置                           | 中身                                               |
+|--------------------------------|----------------------------------------------------|
+| `install.bat`、`uninstall.bat` | 導入と取り外し                                     |
+| `README.txt`                   | 利用者向けの手順                                   |
+| `mod/IndigoParkJP_P.pak`       | 翻訳とフォント                                     |
+| `ue4ss/`                       | エンディングの歌詞の字幕。UE4SSと、その上で動くMOD |
+| `tools/`                       | 導入の中身と`retoc.exe`                            |
+| `licenses/`                    | このMODと同梱物のライセンス                        |
 
 Python 3が要ります。
 `repak`、`retoc`、UE4SS、フォントは、手元に無ければ取得してSHA256で照合します。
@@ -143,14 +143,14 @@ Poeditなどの翻訳ツールでそのまま開けます。
 
 作業を始める前に知っておくと、あとで困らないものです。
 
-| 場面 | 何が起きるか | どうするか |
-| ---- | ---- | ---- |
-| ブランチ名 | `release/`、`hotfix/`、`merge/`で始めると、リリースの仕組みが反応します | 作業ブランチには`feature/`を使います |
-| Pull Requestのhead | `main`や`develop`をheadにすると、「PRのheadブランチを確かめる」が失敗します | リリースはワークフローに任せます。詳しくは[CLAUDE.md](CLAUDE.md)にあります |
-| マージの方法 | squashやrebaseだと、リリースノートにPull Requestが載らず、次の版で衝突します | マージコミット（Create a merge commit）でマージします |
-| セルフホストのランナー | `RUNS_ON`のラベルに一致するランナーがないと、失敗せずに待機のまま止まります | 設定したらCIを手で1回動かして確かめます |
-| 改行コード | `.gitattributes`が全ファイルをLFに固定します | CRLFのファイルを持ち込むと、最初のコミットで全行が差分になります |
-| `RELEASE_TOKEN`の期限 | 切れると、リリースのPull Requestが自動でマージされず、開いたところで止まります | 期限の前にPATを作り直し、`RELEASE_TOKEN`を上書きします |
+| 場面                   | 何が起きるか                                                                   | どうするか                                                                 |
+|------------------------|--------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| ブランチ名             | `release/`、`hotfix/`、`merge/`で始めると、リリースの仕組みが反応します        | 作業ブランチには`feature/`を使います                                       |
+| Pull Requestのhead     | `main`や`develop`をheadにすると、「PRのheadブランチを確かめる」が失敗します    | リリースはワークフローに任せます。詳しくは[CLAUDE.md](CLAUDE.md)にあります |
+| マージの方法           | squashやrebaseだと、リリースノートにPull Requestが載らず、次の版で衝突します   | マージコミット（Create a merge commit）でマージします                      |
+| セルフホストのランナー | `RUNS_ON`のラベルに一致するランナーがないと、失敗せずに待機のまま止まります    | 設定したらCIを手で1回動かして確かめます                                    |
+| 改行コード             | `.gitattributes`が全ファイルをLFに固定します                                   | CRLFのファイルを持ち込むと、最初のコミットで全行が差分になります           |
+| `RELEASE_TOKEN`の期限  | 切れると、リリースのPull Requestが自動でマージされず、開いたところで止まります | 期限の前にPATを作り直し、`RELEASE_TOKEN`を上書きします                     |
 
 リリースやCIが途中で止まったときは、ワークフローのログに日本語で対処方法が出ます。
 
@@ -189,26 +189,26 @@ IssueとPull Requestのラベルはすべて日本語です。
 ただし`main`からの同期では消しません。
 `main`の`.github/labels.yml`が`develop`より古い期間に、`develop`で足したラベルを消さないためです。
 
-| ラベル | 用途 | 誰が付けるか |
-| ---- | ---- | ---- |
-| バグ | 期待どおりに動かない | Issueフォーム |
-| 機能追加 | 新しい機能や改善の要望 | Issueフォーム |
-| ドキュメント | 文書の追加や修正 | ラベラー、人 |
-| 翻訳 | 訳文の追加や修正 | Issueフォーム、ラベラー |
-| 質問 | 使い方や仕様についての質問 | Issueフォーム |
-| アクセシビリティ | 障害のある人の利用を妨げるもの | 人 |
-| 重複 | すでにあるIssueやPull Requestと同じ内容 | 人 |
-| 無効 | 内容が正しくない、または対象外 | 人 |
-| 対応しない | 対応しないと判断したもの | 人 |
-| 初心者向け | はじめて貢献する人に向く課題 | 人 |
-| 助けが必要 | 手を貸してほしい課題 | 人 |
-| 依存関係 | 依存パッケージやアクションの更新 | Dependabot、ラベラー |
-| npm | npmパッケージの更新 | Dependabot |
-| GitHub Actions | GitHub Actionsの更新 | Dependabot、ラベラー |
-| リリース | リリースの準備と公開 | リリースのワークフロー、ラベラー |
-| 自動公開 | このPull Requestをマージしたら、Releaseを公開する | リリースのワークフロー、人 |
-| セキュリティ | 脆弱性やセキュリティに関わる修正 | 人、ラベラー |
-| 破壊的変更 | 後方互換性を壊す変更 | 人 |
+| ラベル           | 用途                                              | 誰が付けるか                     |
+|------------------|---------------------------------------------------|----------------------------------|
+| バグ             | 期待どおりに動かない                              | Issueフォーム                    |
+| 機能追加         | 新しい機能や改善の要望                            | Issueフォーム                    |
+| ドキュメント     | 文書の追加や修正                                  | ラベラー、人                     |
+| 翻訳             | 訳文の追加や修正                                  | Issueフォーム、ラベラー          |
+| 質問             | 使い方や仕様についての質問                        | Issueフォーム                    |
+| アクセシビリティ | 障害のある人の利用を妨げるもの                    | 人                               |
+| 重複             | すでにあるIssueやPull Requestと同じ内容           | 人                               |
+| 無効             | 内容が正しくない、または対象外                    | 人                               |
+| 対応しない       | 対応しないと判断したもの                          | 人                               |
+| 初心者向け       | はじめて貢献する人に向く課題                      | 人                               |
+| 助けが必要       | 手を貸してほしい課題                              | 人                               |
+| 依存関係         | 依存パッケージやアクションの更新                  | Dependabot、ラベラー             |
+| npm              | npmパッケージの更新                               | Dependabot                       |
+| GitHub Actions   | GitHub Actionsの更新                              | Dependabot、ラベラー             |
+| リリース         | リリースの準備と公開                              | リリースのワークフロー、ラベラー |
+| 自動公開         | このPull Requestをマージしたら、Releaseを公開する | リリースのワークフロー、人       |
+| セキュリティ     | 脆弱性やセキュリティに関わる修正                  | 人、ラベラー                     |
+| 破壊的変更       | 後方互換性を壊す変更                              | 人                               |
 
 GitHubが最初から用意する英語のラベル（`bug`や`enhancement`など）は、付いているIssueを保ったまま日本語のラベルに改名されます。
 Dependabotが作る既定のラベル（`dependencies`、`javascript`、`github_actions`）も同じように改名されます。
@@ -273,17 +273,17 @@ develop ──▶ release/vX.Y.Z ──(Pull Request)──▶ main ──▶ �
 
 右上のアイコンから「Settings」→「Developer settings」→「Personal access tokens」→「Fine-grained tokens」→「Generate new token」で作ります。
 
-| 項目 | 設定 |
-| ---- | ---- |
-| Repository access | 「Only select repositories」で、このリポジトリだけを選びます |
-| Contents | Read and write。Pull Requestのマージに要ります |
-| Pull requests | Read and write。Pull Requestの作成に要ります |
-| Workflows | Read and write。ワークフローのファイルを変えるPull Requestのマージに要ります |
-| Expiration | 任意です。期限の少し前に作り直します |
+| 項目              | 設定                                                                         |
+|-------------------|------------------------------------------------------------------------------|
+| Repository access | 「Only select repositories」で、このリポジトリだけを選びます                 |
+| Contents          | Read and write。Pull Requestのマージに要ります                               |
+| Pull requests     | Read and write。Pull Requestの作成に要ります                                 |
+| Workflows         | Read and write。ワークフローのファイルを変えるPull Requestのマージに要ります |
+| Expiration        | 任意です。期限の少し前に作り直します                                         |
 
 作ったPATは、リポジトリの「Settings」→「Secrets and variables」→「Actions」→「Secrets」に、`RELEASE_TOKEN`という名前で登録します。
 
-`RELEASE_TOKEN`が無いときや、期限切れで使えないときは、警告を出して`GITHUB_TOKEN`でPull Requestを開くだけにします。
+`RELEASE_TOKEN`がないときや、期限切れで使えないときは、警告を出して`GITHUB_TOKEN`でPull Requestを開くだけにします。
 その場合の進め方は「RELEASE_TOKENが使えないとき」にあります。
 期限を延ばすときは、Fine-grained tokensの画面でPATを作り直し、`RELEASE_TOKEN`を上書きします。
 
@@ -324,12 +324,12 @@ Releaseは**まずドラフトで作られます**。
 
 人が目で確かめる代わりに、`tools/verify_release.py`が添付そのものを落として中身を確かめます。
 
-| 見るところ | 内容 |
-| ---- | ---- |
-| 中身 | 要るファイルがそろっているか |
-| 版 | zipの中のフォルダ名と`README.txt`の版が、`package.json`と合っているか |
-| 訳文 | pakの中に訳文が入っているか |
-| 抜け | 訳文のはずの項目が、英語の原文のまま入っていないか |
+| 見るところ | 内容                                                                    |
+|------------|-------------------------------------------------------------------------|
+| 中身       | 要るファイルがそろっているか                                            |
+| 版         | zipの中のフォルダー名と`README.txt`の版が、`package.json`と合っているか |
+| 訳文       | pakの中に訳文が入っているか                                             |
+| 抜け       | 訳文のはずの項目が、英語の原文のまま入っていないか                      |
 
 最後の1つは、設定の説明文が英語のまま出た件（[Issue #16](https://github.com/223n/indigo-park-localization/issues/16)）と同じ形の崩れを捕まえます。
 `.locres`を項目ごとに読み解いて`data/ja.po`と突き合わせるため、訳が古いままのpakも見つかります。
@@ -365,7 +365,7 @@ Releaseはドラフトのまま残り、ワークフローが失敗します。
 マージの前に、次の条件がそろうのを待ちます。
 
 - このリポジトリのブランチから出たPull Requestで、headはワークフローの押したコミットと一致する
-- Pull Requestのチェックがすべて済み、失敗が無い。Pull Requestのイベントで動いたチェックが1件以上ある
+- Pull Requestのチェックがすべて済み、失敗がない。Pull Requestのイベントで動いたチェックが1件以上ある
 - `RELEASE_TOKEN`から見て、マージできる状態（`CLEAN`）になっている。Code scanningの規則もここで満たされる
 - 待っているあいだに、Pull Requestのheadが変わっていない
 
@@ -396,7 +396,7 @@ Releaseはドラフトのまま残り、ワークフローが失敗します。
 配布物の確かめが落ちても、戻しは進めます。
 衝突したときは止まるので、Pull Requestの上で衝突を解いてから、マージコミットでマージしてください。
 
-`RELEASE_TOKEN`が無いか使えないときは、`GITHUB_TOKEN`でPull Requestを開き、人がマージコミットでマージします。
+`RELEASE_TOKEN`がないか使えないときは、`GITHUB_TOKEN`でPull Requestを開き、人がマージコミットでマージします。
 閉じて開き直す必要はありません。
 headは`main`のコミットで、`main`へのpushで動いたCodeQLが解析済みのため、規則を満たせます。
 CodeQLが終わるまでの1〜2分は、マージの欄が待ちになることがあります。
@@ -405,7 +405,7 @@ CodeQLが終わるまでの1〜2分は、マージの欄が待ちになること
 
 ### RELEASE_TOKENが使えないとき
 
-`RELEASE_TOKEN`が無いときや期限切れのときは、ワークフローが警告を出し、`GITHUB_TOKEN`でPull Requestを開くだけにします。
+`RELEASE_TOKEN`がないときや期限切れのときは、ワークフローが警告を出し、`GITHUB_TOKEN`でPull Requestを開くだけにします。
 `auto_merge`を有効にしていても、自動ではマージしません。
 
 `GITHUB_TOKEN`で開いたPull Requestでは、CIの実行は作られますが、承認待ちのままジョブが1つも動きません。
@@ -442,7 +442,7 @@ gh pr reopen <番号>
 直し方は2つあります。
 どちらを選ぶかは、`develop`に残したい変更があるかどうかで決まります。
 
-`develop`に残したい変更が無い場合は、`develop`を消してからセットアップのスクリプトを実行し直します。
+`develop`に残したい変更がない場合は、`develop`を消してからセットアップのスクリプトを実行し直します。
 スクリプトが`main`から`develop`を作り直すため、履歴が繋がります。
 Windowsでは`scripts/setup.sh`のところを`.\scripts\setup.ps1`に読み替えてください。
 
@@ -466,7 +466,7 @@ gh pr create --base develop --head merge/unrelated-histories --title "main を d
 ```
 
 こちらには副作用が2つあります。
-共通の祖先が無いため、`main`にしかないファイルは削除ではなく追加として扱われ、`develop`に現れます。
+共通の祖先がないため、`main`にしかないファイルは削除ではなく追加として扱われ、`develop`に現れます。
 履歴にも、2つの根を繋ぐマージコミットが残ります。
 
 どちらの方法でも、`develop`から切った作業ブランチと、`develop`に向けて開いているPull Requestの扱いは確かめてください。
@@ -505,16 +505,16 @@ NodeとPythonはワークフローが用意します。
 
 ## ワークフローの一覧
 
-| ファイル | いつ動くか | 何をするか |
-| ---- | ---- | ---- |
-| `ci.yml` | `main`と`develop`への`push`、Pull Request、手動 | 日本語の文書、原文と訳文の突き合わせ（`check_translation.py`）、ワークフローの構文（actionlint）、ワークフローの安全性（zizmor）を検査します |
-| `codeql.yml` | `main`と`develop`への`push`、Pull Request、毎週月曜、手動 | ワークフローの安全性をCodeQLで走査します。結果は「Security」→「Code scanning」に出ます |
-| `labels.yml` | `.github/labels.yml`か`.github/workflows/labels.yml`の変更、手動 | リポジトリのラベルを定義に揃えます。Pull Requestでは差分の表示だけです |
-| `labeler.yml` | このリポジトリの中から出したPull Requestを開いたとき、更新したとき、開き直したとき | 変えたファイルとブランチ名からラベルを付けます。規則はマージ先のブランチから読みます |
-| `labeler-fork.yml` | フォークから出したPull Requestを開いたとき、更新したとき、開き直したとき | `labeler.yml`と同じ規則でラベルを付けます。規則は既定ブランチ（`main`）から読みます |
-| `branch-guard.yml` | Pull Requestを開いたとき、更新したとき、開き直したとき | headブランチが`main`か`develop`なら失敗します。マージは止めません |
-| `release.yml` | 手動 | `develop`からリリースブランチを切り、版を上げ、`RELEASE_TOKEN`で`main`へのPull Requestを開きます。`auto_merge`が有効なら、チェックが通るのを待ってマージします |
-| `release-publish.yml` | `release/*`か`hotfix/*`のPull Requestが`main`にマージされたとき | タグを打ち、ドラフトのGitHub Releaseを作って配布物を添付し、`main`を`develop`に戻します。戻しがPull Requestになったときは、チェックが通るのを待ってマージします。「自動公開」が指示されていれば、中身を確かめて公開します |
+| ファイル              | いつ動くか                                                                         | 何をするか                                                                                                                                                                                                                |
+|-----------------------|------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ci.yml`              | `main`と`develop`への`push`、Pull Request、手動                                    | 日本語の文書、原文と訳文の突き合わせ（`check_translation.py`）、ワークフローの構文（actionlint）、ワークフローの安全性（zizmor）を検査します                                                                              |
+| `codeql.yml`          | `main`と`develop`への`push`、Pull Request、毎週月曜、手動                          | ワークフローの安全性をCodeQLで走査します。結果は「Security」→「Code scanning」に出ます                                                                                                                                    |
+| `labels.yml`          | `.github/labels.yml`か`.github/workflows/labels.yml`の変更、手動                   | リポジトリのラベルを定義に揃えます。Pull Requestでは差分の表示だけです                                                                                                                                                    |
+| `labeler.yml`         | このリポジトリの中から出したPull Requestを開いたとき、更新したとき、開き直したとき | 変えたファイルとブランチ名からラベルを付けます。規則はマージ先のブランチから読みます                                                                                                                                      |
+| `labeler-fork.yml`    | フォークから出したPull Requestを開いたとき、更新したとき、開き直したとき           | `labeler.yml`と同じ規則でラベルを付けます。規則は既定ブランチ（`main`）から読みます                                                                                                                                       |
+| `branch-guard.yml`    | Pull Requestを開いたとき、更新したとき、開き直したとき                             | headブランチが`main`か`develop`なら失敗します。マージは止めません                                                                                                                                                         |
+| `release.yml`         | 手動                                                                               | `develop`からリリースブランチを切り、版を上げ、`RELEASE_TOKEN`で`main`へのPull Requestを開きます。`auto_merge`が有効なら、チェックが通るのを待ってマージします                                                            |
+| `release-publish.yml` | `release/*`か`hotfix/*`のPull Requestが`main`にマージされたとき                    | タグを打ち、ドラフトのGitHub Releaseを作って配布物を添付し、`main`を`develop`に戻します。戻しがPull Requestになったときは、チェックが通るのを待ってマージします。「自動公開」が指示されていれば、中身を確かめて公開します |
 
 ## 権利について
 

@@ -3,19 +3,19 @@
 `.locres`（Unreal Engineの翻訳ファイル）、MOD、配布物を作る道具と、それらを検査する道具です。
 Python 3で動きます。外部のパッケージは要りません。
 
-| ファイル | 中身 |
-| ---- | ---- |
-| `cityhash.py` | UEがキーのハッシュに使うCityHash64の実装です。GoogleのCityHash v1.1をPythonに移したもので、MIT Licenseです |
-| `build_locres.py` | 名前空間とキーと訳文から`.locres`を書き出します |
-| `export_translation.py` | 原文の一覧から、翻訳作業用のファイルを書き出します |
-| `po.py` | PO（gettext）の読み書きです |
-| `srt.py` | エンディングの歌詞の訳（SRT）の読み込みです |
-| `harvest.py` | cooked済みのアセットから原文を集めます |
-| `build_mod.py` | 翻訳とフォントからMODの中身を組み立てます |
-| `make_release.py` | MODをpakにまとめ、導入の道具と合わせて配布物のzipを作ります |
-| `check_translation.py` | 原文の一覧と訳文の突き合わせを検査します |
-| `verify_release.py` | 配布物のzipの中身を検査します |
-| `fonts.json` | 使うフォントと、ゲームのどのフォントを置き換えるかの設定です |
+| ファイル                | 中身                                                                                                       |
+|-------------------------|------------------------------------------------------------------------------------------------------------|
+| `cityhash.py`           | UEがキーのハッシュに使うCityHash64の実装です。GoogleのCityHash v1.1をPythonに移したもので、MIT Licenseです |
+| `build_locres.py`       | 名前空間とキーと訳文から`.locres`を書き出します                                                            |
+| `export_translation.py` | 原文の一覧から、翻訳作業用のファイルを書き出します                                                         |
+| `po.py`                 | PO（gettext）の読み書きです                                                                                |
+| `srt.py`                | エンディングの歌詞の訳（SRT）の読み込みです                                                                |
+| `harvest.py`            | cooked済みのアセットから原文を集めます                                                                     |
+| `build_mod.py`          | 翻訳とフォントからMODの中身を組み立てます                                                                  |
+| `make_release.py`       | MODをpakにまとめ、導入の道具と合わせて配布物のzipを作ります                                                |
+| `check_translation.py`  | 原文の一覧と訳文の突き合わせを検査します                                                                   |
+| `verify_release.py`     | 配布物のzipの中身を検査します                                                                              |
+| `fonts.json`            | 使うフォントと、ゲームのどのフォントを置き換えるかの設定です                                               |
 
 ## MODを作る
 
@@ -50,7 +50,7 @@ python tools/export_translation.py --merge data/ja.po > data/ja.po.new
 python tools/check_translation.py
 ```
 
-翻訳対象なのに訳文が無い項目、POに混じった余計な項目、タグや改行の数が原文と違う項目を見つけます。
+翻訳対象なのに訳文がない項目、POに混じった余計な項目、タグや改行の数が原文と違う項目を見つけます。
 `data/corpus.json`に書いた件数が、実際の件数と合っているかも見ます。
 見つかると終了コード1で終わります。
 CIの「翻訳データの検査」でも同じものを動かします。
@@ -73,14 +73,14 @@ python tools/export_translation.py --format tsv   > ja.tsv
 
 `make_release.py`は、配布物の`ue4ss/`に次のものを入れます。
 
-| ファイル | 中身 |
-| ---- | ---- |
-| `dwmapi.dll`、`UE4SS.dll` | UE4SS v3.0.1。取得してSHA256で照合します |
-| `UE4SS-settings.ini` | UE4SSの設定。GUIのコンソールだけを切ります |
-| `Mods/IndigoParkJP_Lyrics/Scripts/main.lua` | 字幕を出すスクリプト |
-| `Mods/IndigoParkJP_Lyrics/settings.ini` | 字幕の位置、大きさ、帯の濃さ |
-| `Mods/IndigoParkJP_Lyrics/lyrics.srt` | `data/lyrics.ja.srt`の写し |
-| `Mods/IndigoParkJP_Lyrics/enabled.txt` | これがあると、UE4SSがMODを読み込みます |
+| ファイル                                    | 中身                                       |
+|---------------------------------------------|--------------------------------------------|
+| `dwmapi.dll`、`UE4SS.dll`                   | UE4SS v3.0.1。取得してSHA256で照合します   |
+| `UE4SS-settings.ini`                        | UE4SSの設定。GUIのコンソールだけを切ります |
+| `Mods/IndigoParkJP_Lyrics/Scripts/main.lua` | 字幕を出すスクリプト                       |
+| `Mods/IndigoParkJP_Lyrics/settings.ini`     | 字幕の位置、大きさ、帯の濃さ               |
+| `Mods/IndigoParkJP_Lyrics/lyrics.srt`       | `data/lyrics.ja.srt`の写し                 |
+| `Mods/IndigoParkJP_Lyrics/enabled.txt`      | これがあると、UE4SSがMODを読み込みます     |
 
 `main.lua`と`srt.py`は、同じ読み方でSRTを読みます。
 片方を変えたときは、もう片方も合わせてください。
@@ -159,15 +159,15 @@ build(nsmap, 'Game.locres')
 `.locres`の版3の並びです。
 つまずきやすい点を書き残します。
 
-| 位置 | 内容 |
-| ---- | ---- |
-| 0-15 | マジック。`0e147475 674a03fc 4a15909d c3377f1b`です。バイト順を間違えるとUEがLegacy形式と誤認します |
-| 16 | 版。3を書きます |
-| 17-24 | 文字列表の位置（int64） |
-| 25-28 | エントリ数（uint32） |
-| 29-32 | 名前空間の数（uint32） |
-| 以降 | 名前空間ごとに、キーのハッシュ、名前、キー数、各キー |
-| 文字列表 | 個数（int32）のあと、文字列と参照数（int32）の繰り返し |
+| 位置     | 内容                                                                                                |
+|----------|-----------------------------------------------------------------------------------------------------|
+| 0-15     | マジック。`0e147475 674a03fc 4a15909d c3377f1b`です。バイト順を間違えるとUEがLegacy形式と誤認します |
+| 16       | 版。3を書きます                                                                                     |
+| 17-24    | 文字列表の位置（int64）                                                                             |
+| 25-28    | エントリ数（uint32）                                                                                |
+| 29-32    | 名前空間の数（uint32）                                                                              |
+| 以降     | 名前空間ごとに、キーのハッシュ、名前、キー数、各キー                                                |
+| 文字列表 | 個数（int32）のあと、文字列と参照数（int32）の繰り返し                                              |
 
 キーと名前空間のハッシュは`CityHash64`をUTF-16LEに掛けたうえで、`下位32ビット + 上位32ビット * 23`にします。
 空文字列のハッシュは0です。

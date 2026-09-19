@@ -8,7 +8,7 @@
 この決まりが崩れると、ゲームの画面に英語のまま残ります。
 実際に、設定画面の説明文2件が原文の分類の誤りで抜けたことがあります。
 
-見るのは次の6点です。
+見るのは次の7点です。
 
 1. `count`と`translate_count`の記載が、実際の件数と合っているか
 2. 翻訳対象の項目が、すべてPOにあり訳文が空でないか
@@ -16,6 +16,7 @@
 4. POに、翻訳しない項目が混じっていないか
 5. リッチテキストのタグが、原文と訳文で同じか
 6. 改行の数が、原文と訳文で同じか
+7. エンディングの歌詞の字幕（`data/lyrics.ja.srt`）が読めて、時刻が正しく並んでいるか
 
 どれかに引っかかると、終了コード1で終わります。
 訳文が原文のままの項目は、規格名や製品名のことがあるため注意として出すだけです。
@@ -30,6 +31,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
 import po  # noqa: E402
+import srt  # noqa: E402
 
 for _s in (sys.stdout, sys.stderr):
     try:
@@ -38,6 +40,10 @@ for _s in (sys.stdout, sys.stderr):
         pass
 
 TAG = re.compile(r"</?[A-Za-z][^<>]{0,30}>")
+
+LYRICS = os.path.join(ROOT, "data", "lyrics.ja.srt")
+# エンディングの動画（Content/Movies/CreditsSong.mp4）の長さ。これより後に始まる字幕は出ない
+VIDEO_SECONDS = 191.6
 
 
 def load_corpus():
@@ -108,6 +114,47 @@ def check(corpus, translation):
     return problems
 
 
+def check_lyrics(path):
+    """エンディングの歌詞の字幕を読み、(字幕の一覧, 見つけた問題) を返す。
+
+    問題は check と同じく (見出し, [詳しい行]) の一覧です。
+    """
+    if not os.path.exists(path):
+        return [], [("エンディングの歌詞の字幕ファイルがありません", [os.path.relpath(path, ROOT)])]
+    try:
+        cues, bad = srt.read(path)
+    except UnicodeDecodeError as ex:
+        return [], [("エンディングの歌詞の字幕ファイルがUTF-8ではありません", [str(ex)])]
+
+    problems = []
+    if bad:
+        problems.append((
+            "エンディングの歌詞の字幕に、時刻の行が読めない塊があります",
+            ["%d行目  %s" % (n, head[:40]) for n, head in bad],
+        ))
+    order = []
+    for prev, cur in zip(cues, cues[1:]):
+        if prev["to"] > cur["from"]:
+            order.append("%d行目と%d行目" % (prev["line"], cur["line"]))
+    if order:
+        problems.append(("エンディングの歌詞の字幕の表示時間が重なっています", order))
+    times = []
+    for c in cues:
+        if c["to"] <= c["from"]:
+            times.append("%d行目  終わりが始まりより前です" % c["line"])
+        elif c["from"] >= VIDEO_SECONDS:
+            times.append("%d行目  動画（%.1f秒）が終わった後に始まります" % (c["line"], VIDEO_SECONDS))
+    if times:
+        problems.append(("エンディングの歌詞の字幕の時刻が正しくありません", times))
+    middle = ["%d行目" % c["line"] for c in cues if c["position"] == "middle"]
+    if middle:
+        problems.append((
+            "エンディングの歌詞の字幕の位置は、中央上（{\\an8}）か中央下（{\\an2}）にしてください",
+            middle,
+        ))
+    return cues, problems
+
+
 def report(corpus, translation):
     entries = corpus["entries"]
     targets = [e for e in entries if e["translate"]]
@@ -136,6 +183,12 @@ def main():
     translation = po.read(os.path.join(ROOT, "data", "ja.po"))
     problems = check(corpus, translation)
     report(corpus, translation)
+    cues, lyric_problems = check_lyrics(LYRICS)
+    problems += lyric_problems
+    if cues:
+        print("エンディングの歌詞の字幕: %d行" % len(cues))
+    elif not lyric_problems:
+        print("エンディングの歌詞の字幕: まだありません")
     if not problems:
         print("問題はありません")
         return 0

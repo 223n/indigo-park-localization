@@ -6,12 +6,13 @@
 リリースを自動で公開すると、人が添付を開いて確かめる機会がなくなります。
 その代わりに、ここで機械が確かめます。
 
-見るのは次の4点です。
+見るのは次の5点です。
 
 1. 要るファイルが入っているか
 2. zipの中のフォルダ名と`README.txt`の版が、`package.json`の版と合っているか
 3. 訳文がpakの中に入っているか
 4. 訳文のはずの項目が、英語の原文のまま入っていないか
+5. エンディングの歌詞の字幕（UE4SSのMOD）が、リポジトリのとおりに入っているか
 
 4は、設定の説明文が英語のまま出た件（Issue #16）と同じ形の崩れを捕まえます。
 
@@ -26,6 +27,7 @@ pakを圧縮して作るようにした場合、`.locres`を見つけられな�
 import io
 import json
 import os
+import re
 import struct
 import sys
 import zipfile
@@ -51,7 +53,19 @@ REQUIRED = (
     "README.txt",
     "licenses/LICENSE",
     "licenses/OFL.txt",
+    "licenses/UE4SS-LICENSE",
+    "ue4ss/dwmapi.dll",
+    "ue4ss/UE4SS.dll",
+    "ue4ss/UE4SS-settings.ini",
+    "ue4ss/Mods/IndigoParkJP_Lyrics/enabled.txt",
 )
+
+# 配布物の中身が、リポジトリのファイルと同じであるべきもの
+SAME_AS_REPO = {
+    "ue4ss/Mods/IndigoParkJP_Lyrics/Scripts/main.lua": "ue4ss/IndigoParkJP_Lyrics/Scripts/main.lua",
+    "ue4ss/Mods/IndigoParkJP_Lyrics/settings.ini": "ue4ss/IndigoParkJP_Lyrics/settings.ini",
+    "ue4ss/Mods/IndigoParkJP_Lyrics/lyrics.srt": "data/lyrics.ja.srt",
+}
 
 # 照合できた件数がこれを下回ったら、読み込みそのものが壊れていると見ます。
 # 訳文が1件も読めていないのに「問題なし」で通ると、検査の意味がなくなります
@@ -133,6 +147,21 @@ def check(zip_path):
         missing = [f for f in REQUIRED if "%s/%s" % (root, f) not in names]
         if missing:
             problems.append("要るファイルがありません: %s" % ", ".join(missing))
+
+        for inner, repo in sorted(SAME_AS_REPO.items()):
+            name = "%s/%s" % (root, inner)
+            if name not in names:
+                problems.append("要るファイルがありません: %s" % inner)
+                continue
+            with open(os.path.join(ROOT, repo), "rb") as f:
+                if z.read(name) != f.read():
+                    problems.append("%s が %s と違います" % (inner, repo))
+
+        settings = "%s/ue4ss/UE4SS-settings.ini" % root
+        if settings in names:
+            text = z.read(settings).decode("utf-8", "replace")
+            if not re.search(r"(?m)^GuiConsoleEnabled\s*=\s*0\s*$", text):
+                problems.append("UE4SS の設定で、GUIのコンソールが切られていません")
 
         version = load(os.path.join(ROOT, "package.json"))["version"]
         if root != "IndigoParkJP_v%s" % version:

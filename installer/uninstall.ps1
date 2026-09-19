@@ -2,6 +2,7 @@
 #
 # 置いたファイルを消し、言語の設定を英語に戻します。
 # ゲーム本体のファイルは触りません。
+# UE4SS は、導入ツールが置いたもので、ほかの UE4SS の MOD が無いときだけ消します。
 #
 #   .\uninstall.ps1                  自動でゲームを探す
 #   .\uninstall.ps1 -GamePath "..."  場所を指定する
@@ -21,6 +22,12 @@ $Targets = @(
     'zzz_IndigoParkJP_lang_P.ucas',
     'zzz_IndigoParkJP_lang_P.utoc'
 )
+
+# エンディングの歌詞の字幕。install.ps1 と揃える
+$LyricsMod = 'IndigoParkJP_Lyrics'
+# UE4SS.log は UE4SS が動いたときに作る
+$Ue4ssFiles = @('dwmapi.dll', 'UE4SS.dll', 'UE4SS-settings.ini', 'UE4SS.log')
+$Ue4ssMarker = 'IndigoParkJP_UE4SS.txt'
 
 function Step($text) { Write-Host "▶ $text" -ForegroundColor Cyan }
 function Ok($text)   { Write-Host "  ✓ $text" -ForegroundColor Green }
@@ -84,6 +91,31 @@ if ((Test-Path $mods) -and -not (Get-ChildItem $mods -Force)) {
     Remove-Item $mods -Force
     Ok '空になった ~mods を消した'
 }
+
+Step 'エンディングの歌詞の字幕を消す'
+$win64 = Join-Path $game 'RaccoonCh1\Binaries\Win64'
+$found = $false
+foreach ($dir in @((Join-Path $win64 'Mods'), (Join-Path $win64 'ue4ss\Mods'))) {
+    $p = Join-Path $dir $LyricsMod
+    if (Test-Path $p) { Remove-Item $p -Recurse -Force; Ok $LyricsMod; $found = $true }
+}
+$marker = Join-Path $win64 $Ue4ssMarker
+if (Test-Path $marker) {
+    $found = $true
+    $modsDir = Join-Path $win64 'Mods'
+    if (@(Get-ChildItem $modsDir -Force -ErrorAction SilentlyContinue).Count -gt 0) {
+        Warn 'ほかの UE4SS の MOD があるため、UE4SS は残します'
+    } else {
+        foreach ($f in $Ue4ssFiles) {
+            $p = Join-Path $win64 $f
+            if (Test-Path $p) { Remove-Item $p -Force }
+        }
+        if (Test-Path $modsDir) { Remove-Item $modsDir -Force }
+        Remove-Item $marker -Force
+        Ok 'UE4SS を消した'
+    }
+}
+if (-not $found) { Warn '消すものがありませんでした' }
 
 if (-not $KeepLanguage) {
     Step '言語の設定を英語に戻す'

@@ -13,10 +13,10 @@ GitHubの文書は、この設定を「head branches automatically deleted after
 消えるのはheadブランチだけで、baseブランチは消えません。
 そのため、`main`や`develop`をheadにしたPull Requestを作ると、マージでそのブランチごと失う恐れがあります。
 
-| Pull Request | headブランチ | マージすると |
-| ---- | ---- | ---- |
-| `develop`→`main` | `develop` | `develop`が消える恐れがあります |
-| `main`→`develop` | `main` | `main`が消える恐れがあります |
+| Pull Request     | headブランチ | マージすると                    |
+|------------------|--------------|---------------------------------|
+| `develop`→`main` | `develop`    | `develop`が消える恐れがあります |
+| `main`→`develop` | `main`       | `main`が消える恐れがあります    |
 
 `develop`が消えると、リリースのワークフローが最初の確認で止まります。
 `release.yml`が`develop`の存在をAPIで確かめ、無ければ`develop ブランチがない`と出して終わるためです。

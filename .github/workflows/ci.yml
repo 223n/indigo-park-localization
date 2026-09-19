@@ -3,7 +3,8 @@ name: CI
 # 4つの検査をする。
 #   lint-ja            文書の書式（markdownlint）と日本語の書き方（textlint）。
 #                      規則は公開されている共有設定 @223n/lint-config-ja にあり、ここには「何を検査するか」だけを書く
-#   check-translation  原文の一覧（data/corpus.json）と訳文（data/ja.po）の突き合わせ。
+#   check-translation  原文の一覧（data/corpus.json）と訳文（data/ja.po）の突き合わせと、
+#                      エンディングの歌詞の字幕（data/lyrics.ja.srt）の形式。
 #                      ずれると、ゲームの画面に英語のまま残る
 #   lint-workflows     ワークフローの構文と型（actionlint）
 #   zizmor             ワークフローの安全性（zizmor）。アクションの SHA 固定、権限、危険な書き方を見る

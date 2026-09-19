@@ -4,7 +4,7 @@
  "engine": "UE 5.2",
  "generated": "2026-09-18",
  "count": 1230,
- "translate_count": 608,
+ "translate_count": 609,
  "entries": [
   {
    "id": "/8277D7D247727A4F8626ECA212E68994",
@@ -4459,7 +4459,7 @@
    "scope": "core",
    "asset": "MenuSystemPro/ExampleContent/Designs/Design_R/Menus/Ingame/WBP_MessageFromtheDevs_R",
    "order": 0,
-   "translate": false
+   "translate": true
   },
   {
    "id": "/97928A73446DB01C63A12787DF7894F3",

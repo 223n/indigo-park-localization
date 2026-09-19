@@ -4,13 +4,14 @@
     python tools/make_release.py
 
 package.json の version を使って dist/IndigoParkJP_vX.Y.Z.zip を作ります。
-repak と retoc は取得してSHA256で照合します。
+repak、retoc、UE4SS は取得してSHA256で照合します。
 
 でき上がるzipの中身は次のとおりです。
 
     install.bat / uninstall.bat   導入と取り外し
     README.txt                    手順
     mod/IndigoParkJP_P.pak        翻訳とフォント
+    ue4ss/                        エンディングの歌詞の字幕（UE4SS と、その MOD）
     tools/install.ps1 など        中身
     licenses/                     このMODと同梱物のライセンス
 """
@@ -18,6 +19,7 @@ import hashlib
 import io
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -64,6 +66,24 @@ LICENSES = {
     "LICENSE": os.path.join(ROOT, "LICENSE"),
 }
 
+# エンディングの歌詞の字幕を出すのに使う UE4SS。
+# 配布物に入れ、導入ツールがゲームの実行ファイルのフォルダに置く。
+# 版を上げるときは SHA256 を更新し、UE4SS_SETTINGS の書き換えが効くかも確かめる。
+UE4SS = {
+    "url": "https://github.com/UE4SS-RE/RE-UE4SS/releases/download/v3.0.1/UE4SS_v3.0.1.zip",
+    "sha256": "4b47d4bceddd2f561a4e395bfa00924ccfc945af576a2d0c613e6537846c57ec",
+    "members": ("dwmapi.dll", "UE4SS.dll"),
+    "settings": "UE4SS-settings.ini",
+    "license_url": "https://raw.githubusercontent.com/UE4SS-RE/RE-UE4SS/v3.0.1/LICENSE",
+    "license_sha256": "ddc030e25d0ea87aca4ae84c0ed3f868d69273c00c0c12ea1e26f1c6130f5d2e",
+}
+# UE4SS の設定のうち、既定から変えるもの。
+# 調べもの用の画面（GUIのコンソール）は、遊ぶ人には要らないため作らない
+UE4SS_SETTINGS = {
+    "GuiConsoleEnabled": "0",
+}
+LYRICS_MOD = "IndigoParkJP_Lyrics"
+
 
 def sha256(path):
     h = hashlib.sha256()
@@ -73,23 +93,28 @@ def sha256(path):
     return h.hexdigest()
 
 
-def fetch_tool(name, meta):
-    """道具を取得して展開する。すでにあれば使い回す"""
+def download(url, want, name=None):
+    """取得してSHA256で照合し、控えの場所を返す。すでに控えがあれば使い回す"""
     os.makedirs(CACHE, exist_ok=True)
-    out = os.path.join(CACHE, name)
-    if os.path.exists(out):
-        return out
-    url = meta["url"]
-    archive = os.path.join(CACHE, url.rsplit("/", 1)[-1])
-    if not os.path.exists(archive):
-        sys.stderr.write("取得: %s\n" % os.path.basename(archive))
-        urllib.request.urlretrieve(url, archive)
-    got = sha256(archive)
-    want = meta["sha256"]
+    path = os.path.join(CACHE, name or url.rsplit("/", 1)[-1])
+    if not os.path.exists(path):
+        sys.stderr.write("取得: %s\n" % os.path.basename(path))
+        urllib.request.urlretrieve(url, path)
+    got = sha256(path)
     if not want:
         sys.stderr.write("  SHA256（sha256 に書いてください）: %s\n" % got)
     elif got != want:
-        raise SystemExit("SHA256が一致しません: %s\n  期待 %s\n  実際 %s" % (name, want, got))
+        raise SystemExit("SHA256が一致しません: %s\n  期待 %s\n  実際 %s" % (
+            os.path.basename(path), want, got))
+    return path
+
+
+def fetch_tool(name, meta):
+    """道具を取得して展開する。すでにあれば使い回す"""
+    out = os.path.join(CACHE, name)
+    if os.path.exists(out):
+        return out
+    archive = download(meta["url"], meta["sha256"])
     if archive.endswith(".zip"):
         with zipfile.ZipFile(archive) as z:
             with z.open(meta["member"]) as src, open(out, "wb") as dst:
@@ -115,6 +140,46 @@ def run(cmd):
     if r.returncode != 0:
         raise SystemExit("失敗: %s\n%s" % (" ".join(cmd), r.stderr[-2000:]))
     return r.stdout
+
+
+def stage_ue4ss(stage):
+    """UE4SS と、エンディングの歌詞の字幕を出す MOD を stage/ue4ss に置き、字幕の行数を返す"""
+    import check_translation
+
+    cues, problems = check_translation.check_lyrics(check_translation.LYRICS)
+    if problems:
+        raise SystemExit("エンディングの歌詞の字幕に問題があります。"
+                         "python tools/check_translation.py で確かめてください")
+
+    out = os.path.join(stage, "ue4ss")
+    mod = os.path.join(out, "Mods", LYRICS_MOD)
+    os.makedirs(os.path.join(mod, "Scripts"))
+
+    archive = download(UE4SS["url"], UE4SS["sha256"])
+    with zipfile.ZipFile(archive) as z:
+        for member in UE4SS["members"]:
+            with z.open(member) as src, open(os.path.join(out, member), "wb") as dst:
+                shutil.copyfileobj(src, dst)
+        # BOM と CRLF を保つため、読んだ文字列をそのまま書き戻す
+        settings = z.read(UE4SS["settings"]).decode("utf-8")
+    for key, value in UE4SS_SETTINGS.items():
+        settings, n = re.subn(r"(?m)^(%s\s*=\s*)\S*" % re.escape(key), r"\g<1>" + value, settings)
+        if n != 1:
+            raise SystemExit("UE4SS の設定に %s が見つかりません。UE4SS_SETTINGS を見直してください" % key)
+    with io.open(os.path.join(out, UE4SS["settings"]), "w", encoding="utf-8", newline="") as f:
+        f.write(settings)
+
+    src = os.path.join(ROOT, "ue4ss", LYRICS_MOD)
+    shutil.copy(os.path.join(src, "Scripts", "main.lua"), os.path.join(mod, "Scripts", "main.lua"))
+    shutil.copy(os.path.join(src, "settings.ini"), os.path.join(mod, "settings.ini"))
+    shutil.copy(check_translation.LYRICS, os.path.join(mod, "lyrics.srt"))
+    # UE4SS は、このファイルがある MOD を mods.txt に書かれていなくても読み込む
+    with io.open(os.path.join(mod, "enabled.txt"), "w", encoding="utf-8", newline="\r\n") as f:
+        f.write("このファイルがあると、UE4SS がこの MOD を読み込みます。\n")
+
+    lic = download(UE4SS["license_url"], UE4SS["license_sha256"], "UE4SS-LICENSE")
+    shutil.copy(lic, os.path.join(stage, "licenses", "UE4SS-LICENSE"))
+    return len(cues)
 
 
 def main():
@@ -151,6 +216,13 @@ def main():
             dst.write(text)
     retoc = fetch_tool("retoc.exe", TOOLS["retoc.exe"])
     shutil.copy(retoc, os.path.join(stage, "tools", "retoc.exe"))
+
+    print("▶ エンディングの歌詞の字幕（UE4SS）を入れる")
+    lines = stage_ue4ss(stage)
+    if lines:
+        print("  字幕 %d行" % lines)
+    else:
+        print("  ! 歌詞の訳がまだありません。導入ツールは UE4SS を入れません")
 
     print("▶ 説明とライセンスを入れる")
     with io.open(os.path.join(inst, "README.txt"), encoding="utf-8") as f:

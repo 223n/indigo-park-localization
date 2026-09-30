@@ -247,7 +247,7 @@ fi
 info "テンプレート由来の名前を、このリポジトリのものに書き換える"
 changed=()
 if ! command -v node >/dev/null 2>&1; then
-  warn "node が見つからないため、名前の書き換えは飛ばした。Node 22 以上を入れて再実行する"
+  warn "node が見つからないため、名前の書き換えは飛ばした。Node 24 以上を入れて再実行する"
 elif [ -d .git ] && [ -f package.json ]; then
   # 作業木がきれいなことを確かめる。書き換えを他の変更と混ぜない
   if [ -n "$(git status --porcelain)" ]; then

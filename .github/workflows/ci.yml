@@ -45,8 +45,9 @@ jobs:
       - name: Nodeを用意
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          # markdownlint-cli2 0.23 が Node 22 以上を求める
-          node-version: '22'
+          # package.json の engines の下限に合わせる。
+          # 依存（markdownlint-cli2 0.23）は 22 以上で動くが、22 は 2027 年 4 月で保守が終わるため 24 にしている
+          node-version: '24'
           cache: npm
 
       - name: 依存を入れる
@@ -119,5 +120,5 @@ jobs:
         # zizmor の版は固定する。版が上がると監査が増えて、変更していないのに落ちることがあるため
         uses: zizmorcore/zizmor-action@cc914d7f3750a2d13d75c7f184a1060aa0e9d482 # v0.6.4
         with:
-          version: v1.30.0
+          version: v1.30.1
           advanced-security: false

@@ -5,7 +5,7 @@
   "description": "Steam 版のゲーム「Indigo Park」の非公式な日本語化 MOD。訳した文と、それをゲームへ適用する仕組みを管理する。",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "scripts": {
     "lint": "npm run lint:md && npm run lint:ja",
@@ -15,11 +15,8 @@
     "lint:ja:fix": "textlint --fix ."
   },
   "devDependencies": {
-    "@223n/lint-config-ja": "^2.0.0",
+    "@223n/lint-config-ja": "^2.1.1",
     "markdownlint-cli2": "^0.23.3",
     "textlint": "^15.8.0"
-  },
-  "overrides": {
-    "smol-toml": "^1.7.1"
   }
 }

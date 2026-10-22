@@ -43,7 +43,7 @@ jobs:
           persist-credentials: false
 
       - name: Nodeを用意
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           # package.json の engines の下限に合わせる。
           # 依存（markdownlint-cli2 0.23）は 22 以上で動くが、22 は 2027 年 4 月で保守が終わるため 24 にしている

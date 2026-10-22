@@ -15,7 +15,7 @@
     "lint:ja:fix": "textlint --fix ."
   },
   "devDependencies": {
-    "@223n/lint-config-ja": "^2.1.1",
+    "@223n/lint-config-ja": "^3.0.0",
     "markdownlint-cli2": "^0.23.3",
     "textlint": "^15.8.0"
   }
